@@ -4,6 +4,7 @@
     import { user } from '$stores';
     import { goto } from '$app/navigation';
     import { page } from '$app/stores';
+	import { browser } from '$app/environment';
     import { onMount } from 'svelte';
 	import Nav from './nav.svelte';
 
@@ -22,27 +23,35 @@
 	})();
 
 	const redirects = async () => {
+		if (!browser) return;
 		if (
 			!$user &&
 			(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
 		) {
 			loading = false;
 			await goto('/login');
+			return;
 		}
 		if (!$user && !!$page.url.pathname.match(pages.public)) {
 			loading = false;
 			await goto($page.url);
+			return;
 		}
 		if ($user && !!$page.url.pathname.match(pages.public)) {
 			loading = false;
 			await goto('/');
+			return;
+		}
+		if ($user && $page.url.pathname === '/') {
+			loading = false;
+			await goto('/dashboard');
+			return;
 		}
 		loading = false;
 		await goto($page.url);
 	};
 
 	user.subscribe(async (v) => {
-		if (!v) return;
 		await redirects();
 	});
 

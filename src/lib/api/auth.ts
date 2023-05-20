@@ -13,6 +13,15 @@ export const login = async (payload: Login) => {
 	return !!r?.ok;
 };
 
+export const signup = async (payload: Login) => {
+	const r = await fetch(`${API_BASE_URL}/auth/signup`, {
+		...REQ_OPTIONS,
+		method: 'POST',
+		body: JSON.stringify(payload)
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
 export const logout = async () => {
 	const r = await fetch(`${API_BASE_URL}/auth/logout`, {
 		...REQ_OPTIONS,
@@ -32,6 +41,7 @@ export const user = async () => {
 
 export default {
 	login,
+	signup,
 	logout,
     user,
 };
