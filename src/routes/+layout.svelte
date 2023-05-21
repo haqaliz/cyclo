@@ -25,6 +25,13 @@
 	const redirects = async () => {
 		if (!browser) return;
 		if (
+			!$page.url.pathname.match(pages.private)
+			&& !$page.url.pathname.match(pages.public)
+		) {
+			loading = false;
+			return;
+		}
+		if (
 			!$user &&
 			(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
 		) {
@@ -44,7 +51,7 @@
 		}
 		if ($user && $page.url.pathname === '/') {
 			loading = false;
-			await goto('/dashboard');
+			await goto('/calendar');
 			return;
 		}
 		loading = false;
