@@ -32,17 +32,15 @@
     {#each menu as item}
     <a
         href={item.path}
-        class=" p-2 rounded font-sans font-medium text-lg flex items-center justify-center mr-3"
-        class:bg-zinc-900={$page.url.pathname !== item.path}
-        class:text-white={$page.url.pathname !== item.path}
-        class:bg-purple-400={$page.url.pathname === item.path}
-        class:text-black={$page.url.pathname === item.path}
+        class="btn flex items-center justify-center mr-3"
+        class:black={$page.url.pathname !== item.path}
+        class:primary={$page.url.pathname === item.path}
     >
         {item.name}
     </a>
     {/each}
     <button
-        class="bg-zinc-900 text-white p-2 rounded font-sans font-medium text-lg flex items-center justify-center"
+        class="btn black flex items-center justify-center"
         style:height="44px"
         title="Logout"
         on:click={logout}

@@ -35,26 +35,26 @@
             bind:value={form.email}
             type="email"
             placeholder="Email"
-            class="p-2 rounded font-sans font-medium text-lg border-2"
+            class="input"
         />
         <input
             bind:value={form.password}
             type="password"
             placeholder="Password"
-            class="p-2 rounded font-sans font-medium text-lg border-2"
+            class="input"
         />
         <button
             on:click={login}
-            class="bg-zinc-900 text-white p-2 rounded font-sans font-medium text-lg"
+            class="btn black"
         >
             Login
         </button>
         {#if showError}
-            <div class="bg-red-600 p-2 rounded font-sans font-medium text-lg flex items-center">
+            <div class="alert error">
                 <i class="material-icons mr-2">warning</i>
                 Wrong email or password
             </div>
         {/if}
-        <a href="/signup" class="font-sans font-medium text-blue-500 text-lg">Create new account</a>
+        <a href="/signup" class="btn link blue">Create new account</a>
     </div>
 </div>
