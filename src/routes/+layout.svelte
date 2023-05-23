@@ -11,22 +11,18 @@
     let loading = false;
 
     const publicPages = ['login', 'signup'];
-	const privatePages = [];
+	const privatePages = ['calendar', 'analytics', 'insight'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
 		private: new RegExp(`^/(${privatePages.join('|')})$`, 'i')
 	};
-
-	$: allowed = (() => {
-		if (!$user) return false;
-		return !!$page.url.pathname.match(pages.private) || $page.url.pathname === '/';
-	})();
 
 	const redirects = async () => {
 		if (!browser) return;
 		if (
 			!$page.url.pathname.match(pages.private)
 			&& !$page.url.pathname.match(pages.public)
+			&& $page.url.pathname !== '/'
 		) {
 			loading = false;
 			return;

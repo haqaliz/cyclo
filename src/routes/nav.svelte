@@ -30,14 +30,14 @@
     <h3 class="font-sans font-semibold text-2xl">Cyclo</h3>
     <div class="flex-1" />
     {#each menu as item}
-    <a
-        href={item.path}
-        class="btn flex items-center justify-center mr-3"
-        class:black={$page.url.pathname !== item.path}
-        class:primary={$page.url.pathname === item.path}
-    >
-        {item.name}
-    </a>
+        <a
+            href={item.path}
+            class="btn flex items-center justify-center mr-3"
+            class:black={$page.url.pathname !== item.path}
+            class:primary={$page.url.pathname === item.path}
+        >
+            {item.name}
+        </a>
     {/each}
     <button
         class="btn black flex items-center justify-center"
