@@ -26,13 +26,13 @@
     };
 </script>
 
-<div class="bg-purple-200 flex flex-row items-center p-3">
+<div class="bg-purple-200 flex flex-row items-center p-2 sm:p-4">
     <h3 class="font-sans font-semibold text-2xl">Cyclo</h3>
     <div class="flex-1" />
     {#each menu as item}
         <a
             href={item.path}
-            class="btn flex items-center justify-center mr-3"
+            class="btn justify-center mr-2 sm:mr-4"
             class:black={$page.url.pathname !== item.path}
             class:primary={$page.url.pathname === item.path}
         >
@@ -40,7 +40,7 @@
         </a>
     {/each}
     <button
-        class="btn black flex items-center justify-center"
+        class="btn black justify-center"
         style:height="44px"
         title="Logout"
         on:click={logout}

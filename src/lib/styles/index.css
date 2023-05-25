@@ -5,10 +5,14 @@
 @layer components {
     /* Buttons */
 	.btn {
-		@apply p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2 focus:ring-opacity-75 ease-in-out duration-300;
+		@apply p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+            focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center;
 	}
 	.btn.black {
-		@apply bg-zinc-900 text-white hover:bg-gray-800 focus:ring-gray-400;
+		@apply bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400;
+	}
+    .btn.gray {
+		@apply bg-gray-200 text-black hover:bg-gray-400 focus:ring-gray-300;
 	}
     .btn.primary {
         @apply bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400;
