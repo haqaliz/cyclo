@@ -62,7 +62,7 @@
         />
         <button
             on:click={signup}
-            class="btn black"
+            class="btn black justify-center"
         >
             Signup
         </button>

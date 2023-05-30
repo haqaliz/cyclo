@@ -45,7 +45,7 @@
         />
         <button
             on:click={login}
-            class="btn black"
+            class="btn black justify-center"
         >
             Login
         </button>

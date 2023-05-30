@@ -1,10 +1,11 @@
 <script lang="ts">
-    import { startOfToday, getDay, subDays, addDays, getDate, format } from 'date-fns';
-    const today = getDay(startOfToday());
-    const items = Object.fromEntries(
-        ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'].map(
+    import { getDay, subDays, addDays, getDate, format } from 'date-fns';
+    const today = new Date();
+    const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    $: days = Object.fromEntries(
+        week.map(
             (i, k) => {
-                let date = startOfToday();
+                let date = today;
                 if (getDay(date) !== k) {
                     const diff = getDay(date) - k;
                     date = diff < 0
@@ -19,20 +20,21 @@
                 ];
             },
     ));
-    let selectedDayIndex = getDay(startOfToday());
-    $: todayIndex = getDay(startOfToday());
+    let selectedDayIndex = getDay(today);
+    $: todayIndex = getDay(today);
     type DayIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6;
     const select = (index: DayIndex) => {
         selectedDayIndex = index;
     };
 </script>
-<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col overflow-x-scroll sm:overflow-auto">
+
+<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col">
     <div class="flex flex-1 flex-row">
         <h3 class="font-sans font-semibold text-3xl">
             {#if selectedDayIndex === todayIndex}
                 Today
             {:else}
-                {@const selectedDay = items[Object.keys(items)[selectedDayIndex]].date}
+                {@const selectedDay = days[Object.keys(days)[selectedDayIndex]].date}
                 {format(selectedDay, 'yyyy, dd LLL')}
             {/if}
         </h3>
@@ -41,23 +43,31 @@
             <i class="material-icons">today</i>
         </a>
     </div>
-    <div class="flex flex-1 flex-row mt-2 sm:mt-4">
-        {#each Object.keys(items) as key, index}
-            {@const item = items[key]}
-            {@const generalClasses = index === Object.keys(items).length - 1 ? '' : 'mr-2 sm:mr-4'}
+    <div class="grid grid-cols-7 gap-4 mt-2 sm:mt-4">
+        {#each Object.keys(days) as key, index}
+            {@const item = days[key]}
             {@const colorClasses = selectedDayIndex === index ? 'primary' : 'gray'}
             <button
-                class={`btn flex flex-col flex-1 items-center ${generalClasses} ${colorClasses}`}
+                class={`btn flex flex-col flex-1 items-center ${colorClasses}`}
                 title={todayIndex === index ? 'Today' : ''}
                 on:click={() => select(index)}
             >
                 <div class="flex flex-row">
-                    <span class="font-sans font-semibold sm:text-2xl capitalize">{key}</span>
+                    <!-- Desktop -->
+                    <span class="hidden sm:inline font-sans font-semibold text-2xl capitalize">{key}</span>
+                    <!-- Mobile -->
+                    <span class="inline sm:hidden font-sans font-semibold text-l capitalize">{key.substr(0, 1)}</span>
                     {#if todayIndex === index}
                         <div class="bg-red-600 rounded-full w-1.5 h-1.5" />
                     {/if}
                 </div>
-                <span>{getDate(item.date)}</span>
+                <span>
+                    {#if getDate(item.date) < 10}
+                        0{getDate(item.date)}
+                    {:else}
+                        {getDate(item.date)}
+                    {/if}
+                </span>
             </button>
         {/each}
     </div>
