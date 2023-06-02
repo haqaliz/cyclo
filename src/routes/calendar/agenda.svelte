@@ -1,5 +1,7 @@
 <script lang="ts">
-    import { getDay, subDays, addDays, getDate, format } from 'date-fns';
+    import { createEventDispatcher } from 'svelte';
+    import { getDay, subDays, addDays, getDate, differenceInDays, format } from 'date-fns';
+    const dispatch = createEventDispatcher();
     const today = new Date();
     const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     $: days = Object.fromEntries(
@@ -20,21 +22,22 @@
                 ];
             },
     ));
-    let selectedDayIndex = getDay(today);
-    $: todayIndex = getDay(today);
-    type DayIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    const select = (index: DayIndex) => {
-        selectedDayIndex = index;
+    export let selectedDay = today;
+    const select = (date: Date) => {
+        selectedDay = date;
+        dispatch('change', selectedDay);
     };
 </script>
 
 <div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col">
     <div class="flex flex-1 flex-row">
         <h3 class="font-sans font-semibold text-3xl">
-            {#if selectedDayIndex === todayIndex}
+            {#if (
+                differenceInDays(selectedDay, today) === 0
+                && getDate(selectedDay) === getDate(today)
+            )}
                 Today
             {:else}
-                {@const selectedDay = days[Object.keys(days)[selectedDayIndex]].date}
                 {format(selectedDay, 'yyyy, dd LLL')}
             {/if}
         </h3>
@@ -46,18 +49,25 @@
     <div class="grid grid-cols-7 gap-4 mt-2 sm:mt-4">
         {#each Object.keys(days) as key, index}
             {@const item = days[key]}
-            {@const colorClasses = selectedDayIndex === index ? 'primary' : 'gray'}
             <button
-                class={`btn flex flex-col flex-1 items-center ${colorClasses}`}
-                title={todayIndex === index ? 'Today' : ''}
-                on:click={() => select(index)}
+                class="btn flex flex-col flex-1 items-center"
+                class:primary={differenceInDays(item.date, selectedDay) === 0
+                    && getDate(item.date) === getDate(selectedDay)}
+                class:gray={!(differenceInDays(item.date, selectedDay) === 0
+                    && getDate(item.date) === getDate(selectedDay))}
+                title={(differenceInDays(item.date, today) === 0
+                    && getDate(item.date) === getDate(today)) ? 'Today' : ''}
+                on:click={() => select(item.date)}
             >
                 <div class="flex flex-row">
                     <!-- Desktop -->
                     <span class="hidden sm:inline font-sans font-semibold text-2xl capitalize">{key}</span>
                     <!-- Mobile -->
-                    <span class="inline sm:hidden font-sans font-semibold text-l capitalize">{key.substr(0, 1)}</span>
-                    {#if todayIndex === index}
+                    <span class="inline sm:hidden font-sans font-semibold text-l capitalize">{key[0]}</span>
+                    {#if (
+                        differenceInDays(item.date, today) === 0
+                        && getDate(item.date) === getDate(today)
+                    )}
                         <div class="bg-red-600 rounded-full w-1.5 h-1.5" />
                     {/if}
                 </div>
