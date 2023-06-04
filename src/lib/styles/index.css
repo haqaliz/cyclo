@@ -17,13 +17,37 @@
     .btn.primary {
         @apply bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400;
     }
+    .btn.link {
+        @apply bg-transparent;
+    }
+    .btn.link.black {
+        @apply text-black hover:bg-gray-50;
+    }
     .btn.link.blue {
         @apply text-blue-500 hover:bg-gray-50;
     }
 
-    /* Inputs */
-    .input {
-        @apply p-2 rounded font-sans font-medium text-lg border-2;
+    /* Input Group */
+    .input-group {
+        @apply flex flex-col;
+    }
+    .input-group > label {
+        @apply font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize;
+    }
+
+    /* Text Inputs */
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        @apply p-2 rounded font-sans font-medium text-lg border-2 resize-none;
+    }
+
+    /* Selects */
+    select {
+        @apply p-2 rounded font-sans font-medium text-lg border-2 capitalize;
+    }
+    select > option {
+        @apply font-sans font-medium text-lg capitalize;
     }
 
     /* Alerts */
@@ -32,5 +56,27 @@
     }
     .alert.error {
         @apply bg-red-600 text-black;
+    }
+
+    /* Modals */
+    .modal {
+        @apply bg-black/75 p-2 sm:p-4 fixed inset-0 z-[1] flex flex-row items-center justify-center
+            before:fixed before:inset-0 before:content-[''] before:cursor-pointer;
+    }
+    .modal > .modal-container {
+        @apply bg-white rounded flex flex-col p-2 sm:p-4 z-[2]
+            w-full h-full sm:w-auto sm:h-auto sm:min-w-[30%] sm:min-h-[320px];
+    }
+    .modal > .modal-container > .header {
+        @apply flex flex-row items-center;
+    }
+    .modal > .modal-container > .header > h1 {
+        @apply font-sans font-semibold text-3xl;
+    }
+    .modal > .modal-container > .content {
+        @apply flex flex-col mt-2 sm:mt-4 flex-1;
+    }
+    .modal > .modal-container > .footer {
+        @apply flex flex-row mt-2 sm:mt-4;
     }
 }

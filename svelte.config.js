@@ -19,7 +19,7 @@ const config = {
 			$stores: 'src/stores',
 			$styles: 'src/lib/styles/index.css',
 			$components: 'src/lib/components',
-			$directives: 'src/directives',
+			$directives: 'src/lib/directives',
 			$api: 'src/lib/api',
 		},
 	},

@@ -35,13 +35,11 @@
             bind:value={form.email}
             type="email"
             placeholder="Email"
-            class="input"
         />
         <input
             bind:value={form.password}
             type="password"
             placeholder="Password"
-            class="input"
         />
         <button
             on:click={login}
