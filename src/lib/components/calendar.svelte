@@ -1,5 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
+    import { user } from '$stores';
+    import { users } from '$api';
     import {
         subDays,
         addDays,
@@ -58,6 +60,13 @@
         selectedDay = e.date;
         dispatch('change', selectedDay);
     };
+    let latestMCStart: any;
+    user.subscribe(async (v) => {
+        if (!v) return;
+        latestMCStart = await users.getLatestMenstrualCycleStart({
+            user_id: v.id,
+        });
+    });
 </script>
 
 <div class="p-2 sm:p-4">
@@ -101,13 +110,20 @@
 
             <!-- Days -->
             {#each days as item}
+                {@const isSelected = differenceInDays(item.date, selectedDay) === 0
+                    && getDate(item.date) === getDate(selectedDay)}
+                {@const isToday = differenceInDays(item.date, today) === 0
+                    && getDate(item.date) === getDate(today)}
+                {@const MCStartDate = new Date(latestMCStart?.created_at.seconds * 1000)}
+                {@const isMCStart = differenceInDays(item.date, MCStartDate) === 0
+                    && getDate(item.date) === getDate(MCStartDate)}
                 <button
                     class="btn flex flex-col flex-1 items-center"
-                    class:primary={differenceInDays(item.date, selectedDay) === 0
-                        && getDate(item.date) === getDate(selectedDay)}
-                    class:gray={!(differenceInDays(item.date, selectedDay) === 0
-                        && getDate(item.date) === getDate(selectedDay))}
+                    class:primary={isSelected}
+                    class:gray={!isSelected}
                     class:opacity-25={!item.fit}
+                    class:border-l-4={isMCStart}
+                    class:border-red-600={isMCStart}
                     title={format(item.date, 'yyyy, dd LLL')}
                     on:click={() => select(item)}
                 >
@@ -119,10 +135,7 @@
                                 {getDate(item.date)}
                             {/if}
                         </span>
-                        {#if (
-                            differenceInDays(item.date, today) === 0
-                            && getDate(item.date) === getDate(today)
-                        )}
+                        {#if isToday}
                             <div class="bg-red-600 rounded-full w-1 sm:w-1.5 h-1 sm:h-1.5" />
                         {/if}
                     </div>

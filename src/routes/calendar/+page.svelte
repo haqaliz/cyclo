@@ -17,15 +17,15 @@
             from: startOfDay(d).getTime() / 1000,
             to: endOfDay(d).getTime() / 1000,
         });
-        return r;
+        recordedDays = r;
     };
     const dateChanged = async (e: any) => {
         selectedDay = e.detail;
-        recordedDays = await getRecordedDays($user, selectedDay);
+        await getRecordedDays($user, selectedDay);
     };
     user.subscribe(async (v) => {
         if (!v) return;
-        recordedDays = await getRecordedDays(v, selectedDay);
+        await getRecordedDays(v, selectedDay);
     });
 </script>
 
@@ -35,6 +35,10 @@
     />
 
     <div class="mt-2 sm:mt-4">
-        <RecordedDays {recordedDays} />
+        <RecordedDays
+            {recordedDays}
+            {selectedDay}
+            on:update={() => getRecordedDays($user, selectedDay)}
+        />
     </div>
 </div>

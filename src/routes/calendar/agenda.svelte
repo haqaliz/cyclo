@@ -1,6 +1,8 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
     import { getDay, subDays, addDays, getDate, differenceInDays, format } from 'date-fns';
+    import { user } from '$stores';
+    import { users } from '$api';
     const dispatch = createEventDispatcher();
     const today = new Date();
     const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
@@ -27,6 +29,13 @@
         selectedDay = date;
         dispatch('change', selectedDay);
     };
+    let latestMCStart: any;
+    user.subscribe(async (v) => {
+        if (!v) return;
+        latestMCStart = await users.getLatestMenstrualCycleStart({
+            user_id: v.id,
+        });
+    });
 </script>
 
 <div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col">
@@ -49,14 +58,20 @@
     <div class="grid grid-cols-7 gap-4 mt-2 sm:mt-4">
         {#each Object.keys(days) as key, index}
             {@const item = days[key]}
+            {@const isSelected = differenceInDays(item.date, selectedDay) === 0
+                && getDate(item.date) === getDate(selectedDay)}
+            {@const isToday = differenceInDays(item.date, today) === 0
+                && getDate(item.date) === getDate(today)}
+            {@const MCStartDate = new Date(latestMCStart?.created_at.seconds * 1000)}
+            {@const isMCStart = differenceInDays(item.date, MCStartDate) === 0
+                && getDate(item.date) === getDate(MCStartDate)}
             <button
                 class="btn flex flex-col flex-1 items-center"
-                class:primary={differenceInDays(item.date, selectedDay) === 0
-                    && getDate(item.date) === getDate(selectedDay)}
-                class:gray={!(differenceInDays(item.date, selectedDay) === 0
-                    && getDate(item.date) === getDate(selectedDay))}
-                title={(differenceInDays(item.date, today) === 0
-                    && getDate(item.date) === getDate(today)) ? 'Today' : ''}
+                class:primary={isSelected}
+                class:gray={!isSelected}
+                class:border-l-4={isMCStart}
+                class:border-red-600={isMCStart}
+                title={isToday ? 'Today' : ''}
                 on:click={() => select(item.date)}
             >
                 <div class="flex flex-row">
@@ -64,10 +79,7 @@
                     <span class="hidden sm:inline font-sans font-semibold text-2xl capitalize">{key}</span>
                     <!-- Mobile -->
                     <span class="inline sm:hidden font-sans font-semibold text-l capitalize">{key[0]}</span>
-                    {#if (
-                        differenceInDays(item.date, today) === 0
-                        && getDate(item.date) === getDate(today)
-                    )}
+                    {#if isToday}
                         <div class="bg-red-600 rounded-full w-1.5 h-1.5" />
                     {/if}
                 </div>

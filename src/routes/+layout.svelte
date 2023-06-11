@@ -14,7 +14,7 @@
 	const privatePages = ['calendar', 'analytics', 'insight'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
-		private: new RegExp(`^/(${privatePages.join('|')})$`, 'i')
+		private: new RegExp(`^/(${privatePages.join('|')})`, 'i')
 	};
 
 	const redirects = async () => {
