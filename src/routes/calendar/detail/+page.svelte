@@ -1,6 +1,6 @@
 <script lang="ts">
     import { user } from '$stores';
-    import { users } from '$api';
+    import { user as usr } from '$api';
     import { Calendar } from '$components';
     import RecordedDays from '../recorded-days/index.svelte';
     import { startOfDay, endOfDay } from 'date-fns';
@@ -12,7 +12,7 @@
     };
     const getRecordedDays = async (user: User, d: Date) => {
         if (!$user) return;
-        const r = await users.getRecordedDays({
+        const r = await usr.getRecordedDays({
             user_id: user.id,
             from: startOfDay(d).getTime() / 1000,
             to: endOfDay(d).getTime() / 1000,

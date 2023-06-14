@@ -30,18 +30,8 @@ export const logout = async () => {
 	return !!r?.ok;
 };
 
-export const user = async () => {
-	const r = await fetch(`${API_BASE_URL}/auth/user`, {
-		...REQ_OPTIONS,
-		method: 'GET'
-	}).catch((e) => e.response);
-	if (!r?.ok) return;
-    return r.json();
-};
-
 export default {
 	login,
 	signup,
 	logout,
-    user,
 };

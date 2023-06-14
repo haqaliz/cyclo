@@ -1,5 +1,14 @@
 import { API_BASE_URL, REQ_OPTIONS } from '$config';
 
+export const info = async () => {
+	const r = await fetch(`${API_BASE_URL}/user/info`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+    return r.json();
+};
+
 interface GetRecordedDayPayload {
 	user_id: string;
 	from: number;
@@ -11,7 +20,7 @@ export const getRecordedDays = async (payload: GetRecordedDayPayload) => {
 		to: payload.to.toString(),
 	});
 	const r = await fetch(
-		`${API_BASE_URL}/users/${payload.user_id}/recorded-days?${params}`,
+		`${API_BASE_URL}/user/recorded-days?${params}`,
 		{
 			...REQ_OPTIONS,
 			method: 'GET'
@@ -26,7 +35,7 @@ interface GetLatestMenstrualCycleStartPayload {
 }
 export const getLatestMenstrualCycleStart = async (payload: GetLatestMenstrualCycleStartPayload) => {
 	const r = await fetch(
-		`${API_BASE_URL}/users/${payload.user_id}/recorded-days/latest/start`,
+		`${API_BASE_URL}/user/recorded-days/latest/start`,
 		{
 			...REQ_OPTIONS,
 			method: 'GET'
@@ -37,7 +46,7 @@ export const getLatestMenstrualCycleStart = async (payload: GetLatestMenstrualCy
 };
 
 export const addRecordedDay = async (payload: any) => {
-	const r = await fetch(`${API_BASE_URL}/users/${payload.user_id}/recorded-day`, {
+	const r = await fetch(`${API_BASE_URL}/user/recorded-day`, {
 		...REQ_OPTIONS,
 		method: 'POST',
 		body: JSON.stringify(payload)
@@ -46,7 +55,7 @@ export const addRecordedDay = async (payload: any) => {
 };
 
 export const updateRecordedDay = async (payload: any) => {
-	const r = await fetch(`${API_BASE_URL}/users/${payload.user_id}/recorded-day/${payload.recorded_day_id}`, {
+	const r = await fetch(`${API_BASE_URL}/user/recorded-day/${payload.recorded_day_id}`, {
 		...REQ_OPTIONS,
 		method: 'PUT',
 		body: JSON.stringify(payload)
@@ -55,6 +64,7 @@ export const updateRecordedDay = async (payload: any) => {
 };
 
 export default {
+	info,
     getRecordedDays,
 	getLatestMenstrualCycleStart,
 	addRecordedDay,

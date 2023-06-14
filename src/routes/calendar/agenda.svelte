@@ -2,7 +2,7 @@
     import { createEventDispatcher } from 'svelte';
     import { getDay, subDays, addDays, getDate, differenceInDays, format } from 'date-fns';
     import { user } from '$stores';
-    import { users } from '$api';
+    import { user as usr } from '$api';
     const dispatch = createEventDispatcher();
     const today = new Date();
     const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
@@ -32,7 +32,7 @@
     let latestMCStart: any;
     user.subscribe(async (v) => {
         if (!v) return;
-        latestMCStart = await users.getLatestMenstrualCycleStart({
+        latestMCStart = await usr.getLatestMenstrualCycleStart({
             user_id: v.id,
         });
     });

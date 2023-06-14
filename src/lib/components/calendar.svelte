@@ -1,7 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
     import { user } from '$stores';
-    import { users } from '$api';
+    import { user as usr } from '$api';
     import {
         subDays,
         addDays,
@@ -63,7 +63,7 @@
     let latestMCStart: any;
     user.subscribe(async (v) => {
         if (!v) return;
-        latestMCStart = await users.getLatestMenstrualCycleStart({
+        latestMCStart = await usr.getLatestMenstrualCycleStart({
             user_id: v.id,
         });
     });

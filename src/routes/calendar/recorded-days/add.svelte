@@ -2,7 +2,7 @@
     import { createEventDispatcher } from 'svelte';
 	import { Modal } from '$components';
     import { user } from '$stores';
-    import { users } from '$api';
+    import { user as usr } from '$api';
     const dispatch = createEventDispatcher();
 	const feelings = [
 		'calm',
@@ -116,7 +116,7 @@
             ].includes(logType)) {
                 payload[logType] = logTypeIntensity;
             }
-            await users.addRecordedDay(payload);
+            await usr.addRecordedDay(payload);
         } else {
             for (const key of Object.keys(recordedDay)) {
                 if (
@@ -157,7 +157,7 @@
             ].includes(logType)) {
                 payload[logType] = logTypeIntensity;
             }
-            await users.updateRecordedDay(payload);
+            await usr.updateRecordedDay(payload);
         }
         show = false;
         logType = null;
