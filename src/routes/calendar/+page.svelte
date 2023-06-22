@@ -10,10 +10,9 @@
         id: string;
         email: string;
     };
-    const getRecordedDays = async (user: User, d: Date) => {
+    const getRecordedDays = async (d: Date) => {
         if (!$user) return;
         const r = await usr.getRecordedDays({
-            user_id: user.id,
             from: startOfDay(d).getTime() / 1000,
             to: endOfDay(d).getTime() / 1000,
         });
@@ -21,11 +20,11 @@
     };
     const dateChanged = async (e: any) => {
         selectedDay = e.detail;
-        await getRecordedDays($user, selectedDay);
+        await getRecordedDays(selectedDay);
     };
     user.subscribe(async (v) => {
         if (!v) return;
-        await getRecordedDays(v, selectedDay);
+        await getRecordedDays(selectedDay);
     });
 </script>
 

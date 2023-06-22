@@ -6,9 +6,7 @@
     let latestMenstrualCycleStart: any;
     user.subscribe(async (v) => {
         if (!v) return;
-        latestMenstrualCycleStart = await usr.getLatestMenstrualCycleStart({
-            user_id: v.id,
-        });
+        latestMenstrualCycleStart = await usr.getLatestMenstrualCycleStart();
     });
 </script>
 

@@ -39,13 +39,35 @@
             {/each}
         </div>
 
-        <div class="bg-purple-200 rounded p-2 sm:p-4 flex flex-row mt-2 sm:mt-4 items-center">
-            <h5 class="font-sans font-semibold text-xs sm:text-lg">Period in.</h5>
-            <h3 class="font-sans font-semibold text-lg sm:text-4xl ml-2 sm:ml-4">
-                {differenceInDays(new Date(), startRangeOfMC) + 1}
-                {differenceInDays(new Date(), startRangeOfMC) + 1 > 1 ? 'Days' : 'Day'}
-            </h3>
-            <h5 class="bg-purple-400 rounded font-sans font-semibold text-xs sm:text-lg p-2 sm:p-2 ml-2 sm:ml-4">Lower chance to get pregnant</h5>
-        </div>
+        {#if startRangeOfMC}
+            {@const diff = differenceInDays(new Date(), startRangeOfMC) + 1}
+            <div class="bg-purple-200 rounded p-2 sm:p-4 flex flex-row mt-2 sm:mt-4 items-center">
+                {#if diff <= 7}
+                    <h5 class="font-sans font-semibold text-xs sm:text-lg">
+                        Period in.
+                    </h5>
+                {/if}
+                <h3 class="font-sans font-semibold text-lg sm:text-4xl ml-2 sm:ml-4">
+                    {diff}
+                    {diff > 1 ? 'Days' : 'Day'}
+                </h3>
+                {#if diff > 7}
+                    <h5 class="font-sans font-semibold text-xs sm:text-lg ml-2 sm:ml-4">
+                        Past from Period.
+                    </h5>
+                {/if}
+                <h5
+                    class="rounded font-sans font-semibold text-xs sm:text-lg p-2 sm:p-2 ml-2 sm:ml-4"
+                    class:bg-red-500={diff <= 7}
+                    class:bg-green-400={diff > 7}
+                >
+                    {#if diff <= 7}
+                        Lower chance to get pregnant
+                    {:else}
+                        More chance to get pregnant
+                    {/if}
+                </h5>
+            </div>
+        {/if}
     </div>
 {/if}

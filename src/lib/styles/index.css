@@ -60,6 +60,9 @@
     .alert.error {
         @apply bg-red-600 text-black;
     }
+    .alert.warning {
+        @apply bg-yellow-400 text-black;
+    }
 
     /* Modals */
     .modal {

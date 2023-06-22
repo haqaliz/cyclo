@@ -32,9 +32,7 @@
     let latestMCStart: any;
     user.subscribe(async (v) => {
         if (!v) return;
-        latestMCStart = await usr.getLatestMenstrualCycleStart({
-            user_id: v.id,
-        });
+        latestMCStart = await usr.getLatestMenstrualCycleStart();
     });
 </script>
 
