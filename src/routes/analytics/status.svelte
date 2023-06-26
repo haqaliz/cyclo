@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { addDays, startOfDay, differenceInMonths, differenceInDays, getDate } from 'date-fns';
+    import { addDays, startOfDay, differenceInMonths, differenceInDays, getDate, format } from 'date-fns';
     export let latestMenstrualCycleStart: any;
     $: startRangeOfMC = latestMenstrualCycleStart && startOfDay(new Date(latestMenstrualCycleStart?.created_at?.seconds * 1000));
     $: days = startRangeOfMC && Array(7)
@@ -29,7 +29,12 @@
                     >
                         <span class="font-sans font-semibold text-2xl">{k + 1}</span>
                         {#if isToday}
-                            <div class="bg-red-600 rounded-full w-1.5 h-1.5" />
+                            <!-- Desktop -->
+                            <div class="hidden sm:flex bg-red-600 p-1 text-xs font-medium h-6 box-border rounded ml-2">
+                                {format(day, 'dd LLL')}
+                            </div>
+                            <!-- Mobile -->
+                            <div class="flex sm:hidden bg-red-600 rounded-full w-1.5 h-1.5" />
                         {/if}
                     </div>
                     {#if day.getTime() <= Date.now()}

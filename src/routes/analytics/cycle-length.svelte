@@ -2,10 +2,14 @@
     import { GChart } from '$components';
     import { user } from '$stores';
     import { user as usr } from '$api';
-    import { startOfMonth, endOfMonth, subMonths, format } from 'date-fns';
+    import { startOfMonth, endOfMonth, subMonths, format, addDays } from 'date-fns';
     const columnMaxValue = 35;
     const colors = {
-        column: '#e9d5ff',
+        column: {
+            short: '#e9d5ff',
+            normal: '#c084fc',
+            long: '#9233ea',
+        },
     };
     let data: any = null;
     let options: any = {
@@ -41,13 +45,17 @@
         diff: number;
     }
     const tooltipContent = (v: Cycle) => {
+        const from = new Date(v.from * 1000);
+        const to = v.diff > 35
+            ? addDays(from, 35)
+            : new Date(v.to * 1000);
         return `<div class="flex flex-col p-2 sm:p-4 min-w-[200px] sm:min-w-[250px]">
             <div class="flex flex-row items-center">
                 <span class="text-gray-500 font-sans font-semibold text-base">
                     From:
                 </span>
                 <span class="font-sans font-semibold text-lg sm:text-xl ml-2">
-                    ${format(new Date(v.from * 1000), 'yyyy, dd LLL')}
+                    ${format(from, 'yyyy, dd LLL')}
                 </span>
             </div>
             <div class="flex flex-row items-center">
@@ -55,7 +63,7 @@
                     To:
                 </span>
                 <span class="font-sans font-semibold text-lg sm:text-xl ml-2">
-                    ${format(new Date(v.to * 1000), 'yyyy, dd LLL')}
+                    ${format(to, 'yyyy, dd LLL')}
                 </span>
             </div>
             <div class="flex flex-row items-center">
@@ -63,7 +71,7 @@
                     Cycle Length:
                 </span>
                 <span class="font-sans font-semibold text-lg sm:text-xl ml-2">
-                    ${v.diff} days
+                    ${v.diff > 35 ? 35 : v.diff} days
                 </span>
             </div>
         </div>`;
@@ -76,12 +84,21 @@
         });
         if (!r?.length) return;
         let dataRows = [['Cycle', 'Cycle Length', { role: 'style' }, { 'role': 'tooltip', 'p': {'html': true} }]];
-        r.forEach((i: Cycle) => dataRows.push([
-            i.diff.toString(),
-            i.diff,
-            `color: ${colors.column}`,
-            tooltipContent(i),
-        ]));
+        r.forEach((i: Cycle) => {
+            const v = i.diff > 35 ? 35 : i.diff;
+            let c = colors.column.short;
+            if (v > 30) {
+                c = colors.column.long;
+            } else if (v <= 30 && v > 25) {
+                c = colors.column.normal;
+            }
+            dataRows.push([
+                v.toString(),
+                v,
+                `color: ${c}`,
+                tooltipContent(i),
+            ]);
+        });
         data = dataRows;
     });
 </script>
