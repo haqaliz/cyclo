@@ -24,21 +24,22 @@
 		</p>
 		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
 			<li>
-				<strong>Use Warm Water:</strong> Opt for warm water rather than harsh soaps or fragrant products. Plain water
-				is usually sufficient to cleanse the vulva and remove any sweat, debris, or menstrual blood.
+				<strong>Use Warm Water:</strong> Opt for warm water rather than harsh soaps or fragrant products.
+				Plain water is usually sufficient to cleanse the vulva and remove any sweat, debris, or menstrual
+				blood.
 			</li>
 			<li>
-				<strong>Mild, pH-Balanced Cleansers:</strong> If desired, choose a mild, pH-balanced cleanser specifically
-				formulated for intimate use. Avoid harsh soaps, scented products, douches, or antiseptics,
+				<strong>Mild, pH-Balanced Cleansers:</strong> If desired, choose a mild, pH-balanced cleanser
+				specifically formulated for intimate use. Avoid harsh soaps, scented products, douches, or antiseptics,
 				as these can disrupt the natural balance of the vagina and lead to irritation or infections.
 			</li>
 			<li>
-				<strong>Front to Back:</strong> Always wipe from the front to the back after using the toilet to prevent
-				bacteria from the rectal area from reaching the vagina, which can cause infections.
+				<strong>Front to Back:</strong> Always wipe from the front to the back after using the toilet
+				to prevent bacteria from the rectal area from reaching the vagina, which can cause infections.
 			</li>
 			<li>
-				<strong>Pat Dry:</strong> Gently pat the vulva dry with a clean, soft towel. Avoid vigorous rubbing, as it
-				can lead to irritation.
+				<strong>Pat Dry:</strong> Gently pat the vulva dry with a clean, soft towel. Avoid vigorous rubbing,
+				as it can lead to irritation.
 			</li>
 		</ol>
 	</div>

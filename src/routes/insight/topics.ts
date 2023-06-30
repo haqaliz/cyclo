@@ -24,58 +24,60 @@ export default [
         "classes": "bg-green-200 hover:bg-green-300",
         "link": guidances('birth-control'),
       },
+      {
+        "name": "Spotting vs. period vs. bleeding",
+        "classes": "bg-violet-200 hover:bg-violet-300",
+        "link": guidances('spotting-vs-period-vs-bleeding'),
+      },
+      {
+        "name": "What to do after unprotected sex",
+        "classes": "bg-rose-200 hover:bg-rose-300",
+        "link": guidances('what-to-do-after-unprotected-sex'),
+      },
+      {
+        "name": "How to delay or stop a period",
+        "classes": "bg-yellow-100 hover:bg-yellow-200",
+        "link": guidances('how-to-delay-or-stop-a-period'),
+      }
+    ]
+  },
+  {
+    "name": "sex",
+    "items": [
+      {
+        "name": "9 life-changing masturbation tips",
+        "classes": "bg-fuchsia-300 hover:bg-fuchsia-400",
+        "link": guidances('9-life-changing-masturbation-tips'),
+      },
       // {
-      //   "name": "Spotting vs. period vs. bleeding",
-      //   "classes": "bg-violet-200 hover:bg-violet-300",
-      //   "link": guidances('spotting-vs-period-vs-bleeding'),
+      //   "name": "Mastering your orgasm"
       // },
       // {
-      //   "name": "What to do after unprotected sex",
-      //   "classes": "bg-rose-200 hover:bg-rose-300",
-      //   "link": guidances('what-to-do-after-unprotected-sex'),
+      //   "name": "6 reasons for genital pimples"
       // },
       // {
-      //   "name": "How to delay or stop a period",
-      //   "classes": "bg-yellow-100 hover:bg-yellow-200",
-      //   "link": guidances('how-to-delay-or-stop-a-period'),
+      //   "name": "Anal sex"
+      // },
+      // {
+      //   "name": "Sex and your cycle"
+      // },
+      // {
+      //   "name": "A sexpert's guide to great sex"
+      // },
+      // {
+      //   "name": "How to choose your first sex toy"
+      // },
+      // {
+      //   "name": "7 period sex FAQs"
+      // },
+      // {
+      //   "name": "Does the pull-out method work?"
+      // },
+      // {
+      //   "name": "Can't orgasm? This could be why"
       // }
     ]
   },
-  // {
-  //   "name": "sex",
-  //   "items": [
-  //     {
-  //       "name": "9 life-changing masturbation tips"
-  //     },
-  //     {
-  //       "name": "Mastering your orgasm"
-  //     },
-  //     {
-  //       "name": "6 reasons for genital pimples"
-  //     },
-  //     {
-  //       "name": "Anal sex"
-  //     },
-  //     {
-  //       "name": "Sex and your cycle"
-  //     },
-  //     {
-  //       "name": "A sexpert's guide to great sex"
-  //     },
-  //     {
-  //       "name": "How to choose your first sex toy"
-  //     },
-  //     {
-  //       "name": "7 period sex FAQs"
-  //     },
-  //     {
-  //       "name": "Does the pull-out method work?"
-  //     },
-  //     {
-  //       "name": "Can't orgasm? This could be why"
-  //     }
-  //   ]
-  // },
   // {
   //   "name": "Your late period",
   //   "items": [
