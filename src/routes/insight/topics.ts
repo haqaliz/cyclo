@@ -49,12 +49,16 @@ export default [
         "classes": "bg-fuchsia-300 hover:bg-fuchsia-400",
         "link": guidances('9-life-changing-masturbation-tips'),
       },
-      // {
-      //   "name": "Mastering your orgasm"
-      // },
-      // {
-      //   "name": "6 reasons for genital pimples"
-      // },
+      {
+        "name": "Mastering your orgasm",
+        "classes": "bg-blue-500 hover:bg-blue-600",
+        "link": guidances('mastering-your-orgasm'),
+      },
+      {
+        "name": "6 reasons for genital pimples",
+        "classes": "bg-emerald-500 hover:bg-emerald-600",
+        "link": guidances('6-reasons-for-genital-pimples'),
+      },
       // {
       //   "name": "Anal sex"
       // },
