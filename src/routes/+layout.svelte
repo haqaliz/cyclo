@@ -11,7 +11,7 @@
     let loading = false;
 
     const publicPages = ['login', 'signup'];
-	const privatePages = ['calendar', 'analytics', 'insight'];
+	const privatePages = ['calendar', 'analytics', 'insight', 'subscribe'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
 		private: new RegExp(`^/(${privatePages.join('|')})`, 'i')
@@ -27,29 +27,29 @@
 			loading = false;
 			return;
 		}
-		if (
-			!$user &&
-			(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
-		) {
-			loading = false;
-			await goto('/login');
-			return;
-		}
-		if (!$user && !!$page.url.pathname.match(pages.public)) {
-			loading = false;
-			await goto($page.url);
-			return;
-		}
-		if ($user && !!$page.url.pathname.match(pages.public)) {
-			loading = false;
-			await goto('/');
-			return;
-		}
-		if ($user && $page.url.pathname === '/') {
-			loading = false;
-			await goto('/calendar');
-			return;
-		}
+		// if (
+		// 	!$user &&
+		// 	(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
+		// ) {
+		// 	loading = false;
+		// 	await goto('/login');
+		// 	return;
+		// }
+		// if (!$user && !!$page.url.pathname.match(pages.public)) {
+		// 	loading = false;
+		// 	await goto($page.url);
+		// 	return;
+		// }
+		// if ($user && !!$page.url.pathname.match(pages.public)) {
+		// 	loading = false;
+		// 	await goto('/');
+		// 	return;
+		// }
+		// if ($user && $page.url.pathname === '/') {
+		// 	loading = false;
+		// 	await goto('/calendar');
+		// 	return;
+		// }
 		loading = false;
 		await goto($page.url);
 	};
