@@ -30,7 +30,7 @@
                     bg-cover bg-no-repeat bg-center w-[256px] h-[264px] rounded relative
                     flex flex-row items-center justify-center overflow-hidden
                 `}
-                style:background-image="url(/img/misc/subscribe.png)"
+                style:background-image="url(/img/misc/payment.webp)"
             />
             <a
                 href="/subscribe"

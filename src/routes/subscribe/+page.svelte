@@ -26,7 +26,7 @@
                             bg-contain bg-no-repeat bg-center w-[256px] h-[239px] rounded relative
                             flex flex-row items-center justify-center overflow-hidden mb-2 sm:mb-4
                         `}
-                        style:background-image="url(/img/misc/support.png)"
+                        style:background-image="url(/img/misc/support.webp)"
                     />
                     <div class="flex flex-col w-full sm:w-auto mb-2 sm:mb-4">
                         <div class="alert success">

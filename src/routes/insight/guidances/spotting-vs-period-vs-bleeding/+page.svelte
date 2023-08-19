@@ -79,17 +79,27 @@
 	</div>
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mt-2 sm:mt-4">
 		<h3 class="font-sans font-semibold text-3xl">When to Seek Medical Advice</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-			While spotting and regular periods are often normal, it's important to consult a healthcare
-			professional if you experience any of the following:
-		</p>
-		<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
-			<li>Abnormal bleeding that persists or worsens over time.</li>
-			<li>Unusually heavy bleeding that interferes with daily activities.</li>
-			<li>Irregular bleeding after menopause.</li>
-			<li>Severe pain or discomfort accompanying the bleeding.</li>
-			<li>Bleeding between periods that is not related to ovulation or contraceptive use.</li>
-		</ul>
+		<div class="flex flex-col sm:flex-row items-center mt-2 sm:mt-4">
+			<div class="flex flex-col justify-center mb-2 sm:mb-0">
+				<div
+					class="bg-cover bg-no-repeat bg-center w-[111px] h-[256px]"
+					style:background-image="url(/img/insight/doctor.webp)"
+				/>
+			</div>
+			<div class="flex flex-col">
+				<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+					While spotting and regular periods are often normal, it's important to consult a healthcare
+					professional if you experience any of the following:
+				</p>
+				<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
+					<li>Abnormal bleeding that persists or worsens over time.</li>
+					<li>Unusually heavy bleeding that interferes with daily activities.</li>
+					<li>Irregular bleeding after menopause.</li>
+					<li>Severe pain or discomfort accompanying the bleeding.</li>
+					<li>Bleeding between periods that is not related to ovulation or contraceptive use.</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mt-2 sm:mt-4">
 		<h3 class="font-sans font-semibold text-3xl">Conclusion</h3>

@@ -70,23 +70,33 @@
 	</div>
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mt-2 sm:mt-4">
 		<h3 class="font-sans font-semibold text-3xl">When to Seek Medical Help</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-			While some variations in vaginal discharge are normal, certain changes may indicate an
-			underlying issue that requires medical attention. It is advisable to consult a healthcare
-			professional if you experience:
-		</p>
-		<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
-			<li>Unusual or foul odor accompanying the discharge</li>
-			<li>Excessive or sudden increase in discharge volume</li>
-			<li>Itching, redness, or irritation in the vaginal area</li>
-			<li>Discharge accompanied by pain or discomfort</li>
-			<li>Discharge that persists for an extended period or worsens over time</li>
-		</ul>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-			Remember, every woman's body is unique, and what may be normal for one person may not be for
-			another. Trust your instincts and reach out to a healthcare provider if you have concerns
-			about your vaginal health.
-		</p>
+		<div class="flex flex-col sm:flex-row items-center mt-2 sm:mt-4">
+			<div class="flex flex-col justify-center mb-2 sm:mb-0">
+				<div
+					class="bg-cover bg-no-repeat bg-center w-[111px] h-[256px]"
+					style:background-image="url(/img/insight/doctor.webp)"
+				/>
+			</div>
+			<div class="flex flex-col">
+				<p class="font-sans text-lg text-justify">
+					While some variations in vaginal discharge are normal, certain changes may indicate an
+					underlying issue that requires medical attention. It is advisable to consult a healthcare
+					professional if you experience:
+				</p>
+				<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
+					<li>Unusual or foul odor accompanying the discharge</li>
+					<li>Excessive or sudden increase in discharge volume</li>
+					<li>Itching, redness, or irritation in the vaginal area</li>
+					<li>Discharge accompanied by pain or discomfort</li>
+					<li>Discharge that persists for an extended period or worsens over time</li>
+				</ul>
+				<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+					Remember, every woman's body is unique, and what may be normal for one person may not be for
+					another. Trust your instincts and reach out to a healthcare provider if you have concerns
+					about your vaginal health.
+				</p>
+			</div>
+		</div>
 	</div>
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mt-2 sm:mt-4">
 		<h3 class="font-sans font-semibold text-3xl">Conclusion</h3>

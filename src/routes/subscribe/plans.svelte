@@ -7,6 +7,14 @@
     const proceedToPayment = () => {
         selectedProduct.set(selectedPlan);
     };
+    const colors = {
+        monthly_beginner: 'bg-amber-200',
+        monthly_professional: 'bg-emerald-200',
+        monthly_enterprise: 'bg-blue-200',
+        annually_beginner: 'bg-amber-300',
+        annually_professional: 'bg-emerald-300',
+        annually_enterprise: 'bg-blue-300',
+    };
 </script>
 
 {#if $plans}
@@ -20,9 +28,10 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
                 {#each $plans[selectTabItem] as plan}
                     {@const planKey = `${selectTabItem}_${plan?.name}`}
+                    {@const planColor = colors[planKey]}
                     <div
                         class={`
-                            rounded p-2 sm:p-4 flex flex-col flex-1 ${plan?.color} transition-colors
+                            rounded p-2 sm:p-4 flex flex-col flex-1 ${planColor} transition-colors
                             border-4 relative cursor-pointer hover:border-purple-200
                             ${planKey === selectedPlan
                                 ? ' !border-purple-400 after:content-[""] after:absolute after:inset-0 after:bg-purple-300 after:bg-opacity-50'
@@ -37,14 +46,14 @@
                                 flex flex-row items-center justify-center overflow-hidden
                                 ${planKey === selectedPlan ? ' animate-pulse' : ''}
                             `}
-                            style:background-image={`url(/img/plans/${plan?.name}.png)`}
+                            style:background-image={`url(/img/plans/${plan?.name}.webp)`}
                         >
-                            <div class={`absolute inset-0 ${plan?.color} bg-opacity-30`} />
+                            <div class={`absolute inset-0 ${planColor} bg-opacity-30`} />
                             <div class="flex flex-col items-center z-10">
                                 <h3 class="text-3xl lg:text-5xl font-semibold capitalize text-white bg-gray-600 bg-opacity-40 p-2 rounded mb-2 sm:mb-4">
                                     {plan?.name}
                                 </h3>
-                                <h4 class={`text-2xl lg:text-3xl font-semibold capitalize rounded p-1 sm:p-2 ${plan?.color} bg-opacity-90 text-black`}>
+                                <h4 class={`text-2xl lg:text-3xl font-semibold capitalize rounded p-1 sm:p-2 ${planColor} bg-opacity-90 text-black`}>
                                     ${plan?.price}
                                 </h4>
                             </div>

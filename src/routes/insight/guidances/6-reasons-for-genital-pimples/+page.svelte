@@ -68,17 +68,27 @@
 	</div>
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mt-2 sm:mt-4">
 		<h3 class="font-sans font-semibold text-3xl">When to Seek Medical Advice</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-			While some genital pimples may resolve on their own, it is important to consult a healthcare
-			professional if you experience any of the following:
-		</p>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
-			<li>Pimples that persist, worsen, or are accompanied by severe pain</li>
-			<li>Development of multiple or clustered lesions</li>
-			<li>Blisters, ulcers, or sores in the genital area</li>
-			<li>Pimples accompanied by flu-like symptoms or swollen lymph nodes</li>
-			<li>Concerns or uncertainty regarding a potential STI or infection</li>
-		</ol>
+		<div class="flex flex-col sm:flex-row items-center mt-2 sm:mt-4">
+			<div class="flex flex-col justify-center mb-2 sm:mb-0">
+				<div
+					class="bg-cover bg-no-repeat bg-center w-[111px] h-[256px]"
+					style:background-image="url(/img/insight/doctor.webp)"
+				/>
+			</div>
+			<div class="flex flex-col">
+				<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+					While some genital pimples may resolve on their own, it is important to consult a healthcare
+					professional if you experience any of the following:
+				</p>
+				<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+					<li>Pimples that persist, worsen, or are accompanied by severe pain</li>
+					<li>Development of multiple or clustered lesions</li>
+					<li>Blisters, ulcers, or sores in the genital area</li>
+					<li>Pimples accompanied by flu-like symptoms or swollen lymph nodes</li>
+					<li>Concerns or uncertainty regarding a potential STI or infection</li>
+				</ol>
+			</div>
+		</div>
 	</div>
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mt-2 sm:mt-4">
 		<h3 class="font-sans font-semibold text-3xl">Conclusion</h3>

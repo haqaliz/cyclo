@@ -87,6 +87,19 @@
 
 <div class="flex flex-col items-center">
     <div class="flex flex-col w-full max-w-[750px]">
+        <div class="flex flex-col sm:flex-row items-center justify-center mb-2 sm:mb-4">
+            <div
+                class="bg-cover bg-no-repeat bg-center w-[256px] h-[203px]"
+                style:background-image="url(/img/misc/card.webp)"
+            />
+            <div class="flex flex-row bg-gray-200 p-2 rounded select-none mt-2 sm:-mt-0 sm:ml-4">
+                <span>Powered by</span>
+                <div
+                    class="bg-cover bg-no-repeat bg-center w-[60px] h-[25px] ml-2"
+                    style:background-image="url(/img/misc/stripe-logo.svg)"
+                />
+            </div>
+        </div>
         <!-- Card Detail -->
         <div class="flex flex-col mb-2 sm:mb-4">
             <input

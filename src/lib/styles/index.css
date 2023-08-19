@@ -79,6 +79,9 @@
     .alert {
         @apply p-2 rounded font-sans font-medium text-lg flex items-center;
     }
+    .alert.primary {
+        @apply bg-purple-400 text-black;
+    }
     .alert.error {
         @apply bg-red-600 text-black;
     }
