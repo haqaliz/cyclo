@@ -79,6 +79,15 @@ export const updateRecordedDay = async (payload: any) => {
 	return !!r?.ok;
 };
 
+export const subscribeForPlan = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/subscribe`, {
+		...REQ_OPTIONS,
+		method: 'POST',
+		body: JSON.stringify(payload)
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
 export default {
 	info,
     getRecordedDays,
@@ -86,4 +95,5 @@ export default {
 	getMenstrualCycles,
 	addRecordedDay,
 	updateRecordedDay,
+	subscribeForPlan,
 };

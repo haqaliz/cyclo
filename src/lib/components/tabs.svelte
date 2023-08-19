@@ -1,8 +1,4 @@
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte';
-
-    const dispatch = createEventDispatcher();
-
     export let items:Array<String>;
     export let selected: String;
 </script>

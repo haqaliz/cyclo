@@ -62,6 +62,7 @@
     /* Text Inputs */
     input[type="email"],
     input[type="password"],
+    input[type="text"],
     textarea {
         @apply p-2 rounded font-sans font-medium text-lg border-2 resize-none;
     }
@@ -83,6 +84,9 @@
     }
     .alert.warning {
         @apply bg-yellow-400 text-black;
+    }
+    .alert.success {
+        @apply bg-green-400 text-black;
     }
 
     /* Modals */

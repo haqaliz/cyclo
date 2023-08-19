@@ -9,6 +9,7 @@
 	import Nav from './nav.svelte';
 
     let loading = false;
+	let requestedForUser = false;
 
     const publicPages = ['login', 'signup'];
 	const privatePages = ['calendar', 'analytics', 'insight', 'subscribe'];
@@ -19,6 +20,7 @@
 
 	const redirects = async () => {
 		if (!browser) return;
+		if (!requestedForUser && !$user) await user.get();
 		if (
 			!$page.url.pathname.match(pages.private)
 			&& !$page.url.pathname.match(pages.public)
@@ -27,29 +29,29 @@
 			loading = false;
 			return;
 		}
-		// if (
-		// 	!$user &&
-		// 	(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
-		// ) {
-		// 	loading = false;
-		// 	await goto('/login');
-		// 	return;
-		// }
-		// if (!$user && !!$page.url.pathname.match(pages.public)) {
-		// 	loading = false;
-		// 	await goto($page.url);
-		// 	return;
-		// }
-		// if ($user && !!$page.url.pathname.match(pages.public)) {
-		// 	loading = false;
-		// 	await goto('/');
-		// 	return;
-		// }
-		// if ($user && $page.url.pathname === '/') {
-		// 	loading = false;
-		// 	await goto('/calendar');
-		// 	return;
-		// }
+		if (
+			!$user &&
+			(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
+		) {
+			loading = false;
+			await goto('/login');
+			return;
+		}
+		if (!$user && !!$page.url.pathname.match(pages.public)) {
+			loading = false;
+			await goto($page.url);
+			return;
+		}
+		if ($user && !!$page.url.pathname.match(pages.public)) {
+			loading = false;
+			await goto('/');
+			return;
+		}
+		if ($user && $page.url.pathname === '/') {
+			loading = false;
+			await goto('/calendar');
+			return;
+		}
 		loading = false;
 		await goto($page.url);
 	};
