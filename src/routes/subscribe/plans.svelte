@@ -8,12 +8,12 @@
         selectedProduct.set(selectedPlan);
     };
     const colors = {
-        monthly_beginner: 'bg-amber-200',
-        monthly_professional: 'bg-emerald-200',
-        monthly_enterprise: 'bg-blue-200',
-        annually_beginner: 'bg-amber-300',
-        annually_professional: 'bg-emerald-300',
-        annually_enterprise: 'bg-blue-300',
+        beginner_monthly: 'bg-amber-200',
+        professional_monthly: 'bg-emerald-200',
+        enterprise_monthly: 'bg-blue-200',
+        beginner_annually: 'bg-amber-300',
+        professional_annually: 'bg-emerald-300',
+        enterprise_annually: 'bg-blue-300',
     };
 </script>
 
@@ -27,7 +27,7 @@
         <svelte:fragment slot="content" let:selected={selectTabItem}>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
                 {#each $plans[selectTabItem] as plan}
-                    {@const planKey = `${selectTabItem}_${plan?.name}`}
+                    {@const planKey = `${plan?.name}_${selectTabItem}`}
                     {@const planColor = colors[planKey]}
                     <div
                         class={`

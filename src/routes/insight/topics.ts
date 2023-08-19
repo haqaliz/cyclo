@@ -1,5 +1,17 @@
 const guidances = (v: string) => `/insight/guidances/${v}`;
 
+const permission = {
+  beginner: [
+    'beginner_monthly','professional_monthly','enterprise_monthly','beginner_annually','professional_annually','enterprise_annually',
+  ],
+  professional: [
+    'professional_monthly','enterprise_monthly','professional_annually','enterprise_annually',
+  ],
+  enterprise: [
+    'enterprise_monthly','enterprise_annually',
+  ],
+}
+
 export default [
   {
     "name": "Reproductive health",
@@ -8,36 +20,43 @@ export default [
         "name": "Vaginal discharge color guide",
         "classes": "bg-violet-300 hover:bg-violet-400",
         "link": guidances('vaginal-discharge-color-guide'),
+        "permission": permission.beginner,
       },
       {
         "name": "How to clean your vagina",
         "classes": "bg-sky-200 hover:bg-sky-300",
         "link": guidances('how-to-clean-your-vagina'),
+        "permission": permission.beginner,
       },
       {
         "name": "Early signs of pregnancy",
         "classes": "bg-orange-100 hover:bg-orange-200",
         "link": guidances('early-signs-of-pregnancy'),
+        "permission": permission.beginner,
       },
       {
         "name": "Birth control",
         "classes": "bg-green-200 hover:bg-green-300",
         "link": guidances('birth-control'),
+        "permission": permission.beginner,
       },
       {
         "name": "Spotting vs. period vs. bleeding",
         "classes": "bg-violet-200 hover:bg-violet-300",
         "link": guidances('spotting-vs-period-vs-bleeding'),
+        "permission": permission.beginner,
       },
       {
         "name": "What to do after unprotected sex",
         "classes": "bg-rose-200 hover:bg-rose-300",
         "link": guidances('what-to-do-after-unprotected-sex'),
+        "permission": permission.beginner,
       },
       {
         "name": "How to delay or stop a period",
         "classes": "bg-yellow-100 hover:bg-yellow-200",
         "link": guidances('how-to-delay-or-stop-a-period'),
+        "permission": permission.beginner,
       }
     ]
   },
@@ -48,16 +67,19 @@ export default [
         "name": "9 life-changing masturbation tips",
         "classes": "bg-fuchsia-300 hover:bg-fuchsia-400",
         "link": guidances('9-life-changing-masturbation-tips'),
+        "permission": permission.beginner,
       },
       {
         "name": "Mastering your orgasm",
         "classes": "bg-blue-500 hover:bg-blue-600",
         "link": guidances('mastering-your-orgasm'),
+        "permission": permission.beginner,
       },
       {
         "name": "6 reasons for genital pimples",
         "classes": "bg-emerald-500 hover:bg-emerald-600",
         "link": guidances('6-reasons-for-genital-pimples'),
+        "permission": permission.beginner,
       },
       // {
       //   "name": "Anal sex"

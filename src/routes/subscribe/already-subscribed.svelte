@@ -2,7 +2,7 @@
 
 </script>
 
-<div class="flex flex-col items-center justify-center mt-2 sm:mt-4">
+<div class="flex flex-col items-center justify-center p-2 mt-2 sm:mt-4">
     <div
         class={`
             bg-cover bg-no-repeat bg-center w-[256px] h-[355px] rounded relative

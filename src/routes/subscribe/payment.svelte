@@ -22,7 +22,7 @@
     selectedProduct.subscribe((v) => {
         if (!v) return;
         const [plan, type] = v.split('_');
-        selectedProductObj = $plans[plan]?.find((i) => i.name === type);
+        selectedProductObj = $plans[type]?.find((i) => i.name === plan);
         price = parseFloat(selectedProductObj?.price, 10);
     });
     let cardNumberError = '';
