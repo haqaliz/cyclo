@@ -81,24 +81,42 @@ export default [
         "link": guidances('6-reasons-for-genital-pimples'),
         "permission": permission.beginner,
       },
-      // {
-      //   "name": "Anal sex"
-      // },
-      // {
-      //   "name": "Sex and your cycle"
-      // },
-      // {
-      //   "name": "A sexpert's guide to great sex"
-      // },
-      // {
-      //   "name": "How to choose your first sex toy"
-      // },
-      // {
-      //   "name": "7 period sex FAQs"
-      // },
-      // {
-      //   "name": "Does the pull-out method work?"
-      // },
+      {
+        "name": "Anal sex",
+        "classes": "bg-orange-400 hover:bg-orange-500",
+        "link": guidances('anal-sex'),
+        "permission": permission.beginner,
+      },
+      {
+        "name": "Sex and your cycle",
+        "classes": "bg-teal-400 hover:bg-teal-500",
+        "link": guidances('sex-and-your-cycle'),
+        "permission": permission.beginner,
+      },
+      {
+        "name": "A sexpert's guide to great sex",
+        "classes": "bg-red-400 hover:bg-red-500",
+        "link": guidances('a-sexperts-guide-to-great-sex'),
+        "permission": permission.beginner,
+      },
+      {
+        "name": "How to choose your first sex toy",
+        "classes": "bg-pink-200 hover:bg-pink-300",
+        "link": guidances('how-to-choose-your-first-sex-toy'),
+        "permission": permission.beginner,
+      },
+      {
+        "name": "7 period sex FAQs",
+        "classes": "bg-indigo-200 hover:bg-indigo-300",
+        "link": guidances('7-period-sex-faqs'),
+        "permission": permission.beginner,
+      },
+      {
+        "name": "Does the pull-out method work?",
+        "classes": "bg-violet-400 hover:bg-violet-500",
+        "link": guidances('does-the-pull-out-method-work'),
+        "permission": permission.beginner,
+      },
       // {
       //   "name": "Can't orgasm? This could be why"
       // }
@@ -126,9 +144,9 @@ export default [
   //     }
   //   ]
   // },
-  // {
-  //   "name": "Orgasms and pleasure",
-  //   "items": [
+  {
+    "name": "Orgasms and pleasure",
+    "items": [
   //     {
   //       "name": "Mastering your orgasm"
   //     },
@@ -141,9 +159,12 @@ export default [
   //     {
   //       "name": "How to have multiple orgasms"
   //     },
-  //     {
-  //       "name": "A sexpert's guide to great sex"
-  //     },
+        {
+          "name": "A sexpert's guide to great sex",
+          "classes": "bg-red-400 hover:bg-red-500",
+          "link": guidances('a-sexperts-guide-to-great-sex'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "Is your sex drive normal?"
   //     },
@@ -153,20 +174,26 @@ export default [
   //     {
   //       "name": "How does squirting happen?"
   //     },
-  //     {
-  //       "name": "Sex and your Cycle"
-  //     },
+        {
+          "name": "Sex and your cycle",
+          "classes": "bg-teal-400 hover:bg-teal-500",
+          "link": guidances('sex-and-your-cycle'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "Your sex toy starter kit"
   //     },
-  //     {
-  //       "name": "Anal sex"
-  //     },
+        {
+          "name": "Anal sex",
+          "classes": "bg-orange-400 hover:bg-orange-500",
+          "link": guidances('anal-sex'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "Masturbation myths to unlearn"
   //     }
-  //   ]
-  // },
+    ]
+  },
   // {
   //   "name": "The latest",
   //   "items": [
@@ -254,12 +281,15 @@ export default [
   //     }
   //   ]
   // },
-  // {
-  //   "name": "Safer sex",
-  //   "items": [
-  //     {
-  //       "name": "Does the pull-out method work?"
-  //     },
+  {
+    "name": "Safer sex",
+    "items": [
+          {
+            "name": "Does the pull-out method work?",
+            "classes": "bg-violet-400 hover:bg-violet-500",
+            "link": guidances('does-the-pull-out-method-work'),
+            "permission": permission.beginner,
+          },
   //     {
   //       "name": "How herpes helped my sex life"
   //     },
@@ -283,8 +313,8 @@ export default [
   //     {
   //       "name": "STIs you should know"
   //     }
-  //   ]
-  // },
+    ]
+  },
   // {
   //   "name": "Your sensual sex playlist",
   //   "items": [
@@ -373,15 +403,18 @@ export default [
   //     }
   //   ]
   // },
-  // {
-  //   "name": "Boost intimacy",
-  //   "items": [
+  {
+    "name": "Boost intimacy",
+    "items": [
   //     {
   //       "name": "5 sex therapy secrets"
   //     },
-  //     {
-  //       "name": "Sex and your cycle"
-  //     },
+        {
+          "name": "Sex and your cycle",
+          "classes": "bg-teal-400 hover:bg-teal-500",
+          "link": guidances('sex-and-your-cycle'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "How to overcome sex anxiety"
   //     },
@@ -391,40 +424,49 @@ export default [
   //     {
   //       "name": "How to enjoy sex after trauma"
   //     },
-  //     {
-  //       "name": "A sexpert's guide to great sex"
-  //     },
+        {
+          "name": "A sexpert's guide to great sex",
+          "classes": "bg-red-400 hover:bg-red-500",
+          "link": guidances('a-sexperts-guide-to-great-sex'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "Is your sex drive normal?"
   //     },
   //     {
   //       "name": "How I learned that fat is hot"
   //     }
-  //   ]
-  // },
-  // {
-  //   "name": "let's talk about masturbation",
-  //   "items": [
+    ]
+  },
+  {
+    "name": "let's talk about masturbation",
+    "items": [
   //     {
   //       "name": "9 life-changing masturbation tips"
   //     },
   //     {
   //       "name": "Mastering your orgasm"
   //     },
-  //     {
-  //       "name": "How to choose your first sex toy"
-  //     },
+        {
+          "name": "How to choose your first sex toy",
+          "classes": "bg-pink-200 hover:bg-pink-300",
+          "link": guidances('how-to-choose-your-first-sex-toy'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "Masturbation myths to unlearn"
   //     }
-  //   ]
-  // },
-  // {
-  //   "name": "Live in sync with your cycle",
-  //   "items": [
-  //     {
-  //       "name": "Sex and your cycle"
-  //     },
+    ]
+  },
+  {
+    "name": "Live in sync with your cycle",
+    "items": [
+        {
+          "name": "Sex and your cycle",
+          "classes": "bg-teal-400 hover:bg-teal-500",
+          "link": guidances('sex-and-your-cycle'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "Female health and nutrition"
   //     },
@@ -440,8 +482,8 @@ export default [
   //     {
   //       "name": "Workouts and your cycle"
   //     }
-  //   ]
-  // },
+    ]
+  },
   // {
   //   "name": "Pregnancy explained",
   //   "items": [
@@ -544,15 +586,18 @@ export default [
   //     }
   //   ]
   // },
-  // {
-  //   "name": "Ideas to try",
-  //   "items": [
+  {
+    "name": "Ideas to try",
+    "items": [
   //     {
   //       "name": "Your sex toy starter kit"
   //     },
-  //     {
-  //       "name": "How to choose your first sex toy"
-  //     },
+        {
+          "name": "How to choose your first sex toy",
+          "classes": "bg-pink-200 hover:bg-pink-300",
+          "link": guidances('how-to-choose-your-first-sex-toy'),
+          "permission": permission.beginner,
+        },
   //     {
   //       "name": "How to have multiple orgasms"
   //     },
@@ -565,11 +610,14 @@ export default [
   //     {
   //       "name": "Learn to choose and use lube"
   //     },
-  //     {
-  //       "name": "Anal sex"
-  //     }
-  //   ]
-  // },
+        {
+          "name": "Anal sex",
+          "classes": "bg-orange-400 hover:bg-orange-500",
+          "link": guidances('anal-sex'),
+          "permission": permission.beginner,
+        },
+    ]
+  },
   // {
   //   "name": "Spot the signs of",
   //   "items": [
