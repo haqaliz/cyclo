@@ -11,6 +11,7 @@ export default defineConfig({
 				rewrite: (path) => path.replace(/^\/local/, '')
 			}
 		},
+		cors: true,
 		port: 1880
 	},
 	preview: {

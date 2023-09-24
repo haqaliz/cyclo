@@ -41,7 +41,7 @@
 
 <div class="flex flex-col items-center mt-10">
     <div
-        class="bg-cover bg-no-repeat bg-center w-[256px] h-[668px]"
+        class="bg-contain bg-no-repeat bg-center w-[256px] h-[368px]"
         style:background-image="url(/img/misc/signup.webp)"
     />
     <h3 class="font-sans font-semibold text-2xl mb-4">Create a new account</h3>
