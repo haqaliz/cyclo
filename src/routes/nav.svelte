@@ -29,6 +29,10 @@
 </script>
 
 <div class="bg-purple-200 flex flex-row items-center p-2 sm:p-4">
+    <div
+        class="bg-cover bg-no-repeat bg-center w-[39px] h-[27px] mr-2"
+        style:background-image="url(/img/misc/cyclo-logo.svg)"
+    />
     <h3 class="font-sans font-semibold text-2xl">Cyclo</h3>
     <div class="flex-1" />
     <button
