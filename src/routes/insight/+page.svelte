@@ -14,9 +14,13 @@
                         {#if (item.permission ?? []).includes($user.subscription?.key)}
                             <a
                                 href={item?.link}
-                                class={`${extraClasses} transition-colors rounded p-2 sm:p-4 min-w-[280px] sm:min-w-[250px] mr-2 sm:mr-4 cursor-pointer`}
+                                class={`
+                                    ${extraClasses} transition-colors rounded p-2 sm:p-4
+                                    min-w-[280px] sm:min-w-[250px] mr-2 sm:mr-4 cursor-pointer
+                                    min-h-[180px] sm:min-h-[120px]
+                                `}
                             >
-                                <span class="font-sans font-semibold text-base sm:text-lg">
+                                <span class="font-sans font-semibold text-xl sm:text-lg">
                                     {item?.name}
                                 </span>
                             </a>
