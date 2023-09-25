@@ -37,6 +37,6 @@
     <RecordedDays
         {recordedDays}
         {selectedDay}
-        on:update={() => getRecordedDays($user, selectedDay)}
+        on:update={() => getRecordedDays(selectedDay)}
     />
 </div>
