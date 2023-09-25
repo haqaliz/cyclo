@@ -63,7 +63,7 @@
     </div>
 </div>
 {#if show}
-    <div in:slide out:slide class="bg-purple-200 flex flex-row items-center p-2">
+    <div in:slide out:slide class="md:hidden bg-purple-200 flex flex-row items-center p-2">
         {#each menu as item}
             <a
                 href={item.path}
