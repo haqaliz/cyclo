@@ -5,26 +5,43 @@
     import { user } from '$stores';
     import { slide } from 'svelte/transition';
 
-    const menu = [
-        {
-            name: 'Calendar',
-            path: '/calendar',
-        },
-        {
-            name: 'Analytics',
-            path: '/analytics',
-        },
-        {
-            name: 'Insight',
-            path: '/insight',
-        },
-    ];
+    interface MenuItem {
+        name: string;
+        path: string;
+    };
+    let menu: Array<MenuItem> = [];
     let show = false;
+
+    user.subscribe((v) => {
+        if (!v) {
+            menu = [
+                {
+                    name: 'Join Us',
+                    path: '/signup',
+                },
+            ];
+            return;
+        }
+        menu = [
+            {
+                name: 'Calendar',
+                path: '/calendar',
+            },
+            {
+                name: 'Analytics',
+                path: '/analytics',
+            },
+            {
+                name: 'Insight',
+                path: '/insight',
+            },
+        ];
+    });
 
     const logout = async () => {
         await auth.logout();
         user.set(null);
-        await goto('/login');
+        await goto('/');
     };
 </script>
 
@@ -43,18 +60,20 @@
     >
         <i class="material-icons">menu</i>
     </button>
-    {#if $user}
-        <div in:slide out:slide class="hidden flex-row md:flex">
-            {#each menu as item}
-                <a
-                    href={item.path}
-                    class="btn justify-center mr-4"
-                    class:black={$page.url.pathname !== item.path}
-                    class:primary={$page.url.pathname === item.path}
-                >
-                    {item.name}
-                </a>
-            {/each}
+
+    <div in:slide out:slide class="hidden flex-row md:flex">
+        {#each menu as item}
+            <a
+                href={item.path}
+                class="btn justify-center mr-4 last:mr-0"
+                class:black={$page.url.pathname !== item.path}
+                class:primary={$page.url.pathname === item.path}
+            >
+                {item.name}
+            </a>
+        {/each}
+
+        {#if $user}
             <button
                 class="btn black justify-center"
                 style:height="44px"
@@ -63,28 +82,32 @@
             >
                 <i class="material-icons">logout</i>
             </button>
-        </div>
-    {/if}
+        {/if}
+    </div>
 </div>
+
 {#if show}
     <div in:slide out:slide class="md:hidden bg-purple-200 flex flex-row items-center p-2">
         {#each menu as item}
             <a
                 href={item.path}
-                class="btn justify-center mr-4"
+                class="btn justify-center mr-4 last:mr-0"
                 class:black={$page.url.pathname !== item.path}
                 class:primary={$page.url.pathname === item.path}
             >
                 {item.name}
             </a>
         {/each}
-        <button
-            class="btn black justify-center"
-            style:height="44px"
-            title="Logout"
-            on:click={logout}
-        >
-            <i class="material-icons">logout</i>
-        </button>
+        
+        {#if $user}
+            <button
+                class="btn black justify-center"
+                style:height="44px"
+                title="Logout"
+                on:click={logout}
+            >
+                <i class="material-icons">logout</i>
+            </button>
+        {/if}
     </div>
 {/if}
