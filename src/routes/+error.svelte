@@ -1,3 +1,11 @@
+<svelte:head>
+    <title>404 | Not Found</title>
+    <meta
+        name="description"
+        content="Oops! Lost in cyberspace? Our 404 page guides you back to your menstrual health journey with ease."
+    >
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center p-2 mt-2 sm:mt-4">
     <div
         class={`

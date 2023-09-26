@@ -3,7 +3,8 @@
     import { user } from '$stores';
     import topics from '../topics';
 
-    let isValid = null;
+    let isValid: Boolean|null = null;
+    let targetTopic: any = null;
     user.subscribe((v) => {
         if (!v) return;
         topics.forEach((topic) => {
@@ -16,8 +17,8 @@
             // Second level check is inside the topic items
             topic.items.forEach((i) => {
                 if ($page.url.pathname !== i?.link) return;
+                targetTopic = i;
                 if ((i.permission ?? []).includes(v?.subscription?.key)) {
-                    console.log(i.permission)
                     isValid = true;
                     return;
                 }
@@ -26,6 +27,14 @@
         if (isValid === null) isValid = false;
     })
 </script>
+
+<svelte:head>
+    <title>{targetTopic?.name ?? 'Insight'}</title>
+    <meta
+        name="description"
+        content={targetTopic?.name ?? ''}
+    >
+</svelte:head>
 
 {#if isValid === true}
     <slot />

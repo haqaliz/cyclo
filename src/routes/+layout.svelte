@@ -6,6 +6,7 @@
     import { page } from '$app/stores';
 	import { browser } from '$app/environment';
     import { onMount } from 'svelte';
+	import { slide, fade } from 'svelte/transition';
 	import Nav from './nav.svelte';
 
     let loading = false;
@@ -31,7 +32,7 @@
 		}
 		if (
 			!$user &&
-			(!!$page.url.pathname.match(pages.private) || $page.url.pathname === '/')
+			(!!$page.url.pathname.match(pages.private))
 		) {
 			loading = false;
 			await goto('/login');
@@ -45,11 +46,6 @@
 		if ($user && !!$page.url.pathname.match(pages.public)) {
 			loading = false;
 			await goto('/');
-			return;
-		}
-		if ($user && $page.url.pathname === '/') {
-			loading = false;
-			await goto('/calendar');
 			return;
 		}
 		loading = false;
@@ -68,7 +64,19 @@
 </script>
 
 <!-- Layout -->
-{#if $user}
-	<Nav />
+{#if $page.url.pathname.match(pages.private)
+	|| $page.url.pathname === '/'
+}
+	<div in:slide out:slide class="flex flex-col">
+		<Nav />
+	</div>
 {/if}
-<slot />
+{#if !loading}
+	<div in:fade out:fade class="flex flex-col">
+		<slot />
+	</div>
+{:else}
+	<div in:fade out:fade class="flex flex-col items-center justify-center absolute inset-0">
+		<span class="animate-ping w-8 h-8 rounded-full bg-purple-200 opacity-75"></span>
+	</div>
+{/if}

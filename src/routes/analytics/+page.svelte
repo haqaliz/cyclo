@@ -10,6 +10,14 @@
     });
 </script>
 
+<svelte:head>
+    <title>Analytics</title>
+    <meta
+        name="description"
+        content="Uncover patterns and insights into your menstrual health with our advanced analytics tools."
+    >
+</svelte:head>
+
 <div class="p-2 sm:p-4">
     <Status {latestMenstrualCycleStart} />
     <CycleLength />

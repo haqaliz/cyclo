@@ -3,6 +3,14 @@
     import topics from './topics';
 </script>
 
+<svelte:head>
+    <title>Insight</title>
+    <meta
+        name="description"
+        content="Explore valuable insights into menstrual health on our dedicated page. Your guide to well-being."
+    >
+</svelte:head>
+
 <div class="flex flex-col mb-2 sm:mb-4">
     {#if $user?.subscription}
         {#each topics as topic}

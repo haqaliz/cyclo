@@ -28,6 +28,14 @@
     });
 </script>
 
+<svelte:head>
+    <title>Calendar</title>
+    <meta
+        name="description"
+        content="Stay organized and in tune with your cycle on our intuitive calendar page."
+    >
+</svelte:head>
+
 <div class="p-2 sm:p-4">
     <Agenda
         on:change={dateChanged}

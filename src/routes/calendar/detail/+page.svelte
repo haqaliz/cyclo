@@ -28,6 +28,14 @@
     });
 </script>
 
+<svelte:head>
+    <title>Calendar Detail</title>
+    <meta
+        name="description"
+        content="Detailed insights for every cycle day. Maximize your menstrual health knowledge."
+    >
+</svelte:head>
+
 <Calendar
     {selectedDay}
     on:change={dateChanged}

@@ -39,6 +39,14 @@
     };
 </script>
 
+<svelte:head>
+    <title>Signup</title>
+    <meta
+        name="description"
+        content="Embark on your menstrual health journey with us. Sign up today for a healthier tomorrow."
+    >
+</svelte:head>
+
 <div class="flex flex-col items-center mt-10">
     <div
         class="bg-contain bg-no-repeat bg-center w-[256px] h-[368px]"

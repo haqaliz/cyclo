@@ -12,6 +12,14 @@
     }
 </script>
 
+<svelte:head>
+    <title>Subscribe</title>
+    <meta
+        name="description"
+        content="Stay updated with the latest in menstrual health. Subscribe to our newsletter for informative content."
+    >
+</svelte:head>
+
 <div class="p-2 sm:p-4">
     {#if !$user?.subscription}
         {#if !$selectedProduct}

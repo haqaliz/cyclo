@@ -28,6 +28,14 @@
     };
 </script>
 
+<svelte:head>
+    <title>Login</title>
+    <meta
+        name="description"
+        content="Securely access your menstrual health data. Log in for a personalized experience."
+    >
+</svelte:head>
+
 <div class="flex flex-col items-center mt-10">
     <div
         class="bg-cover bg-no-repeat bg-center w-[256px] h-[324px]"
