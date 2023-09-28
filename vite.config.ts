@@ -8,11 +8,17 @@ export default defineConfig({
 			'/local': {
 				target: 'http://localhost:8081',
 				changeOrigin: true,
-				rewrite: (path) => path.replace(/^\/local/, '')
-			}
+				rewrite: (path) => path.replace(/^\/local/, ''),
+			},
+			'/dev': {
+				target: 'https://195.248.241.217:8081',
+				changeOrigin: true,
+				secure: false,
+				rewrite: (path) => path.replace(/^\/dev/, ''),
+			},
 		},
 		cors: true,
-		port: 1880
+		port: 1880,
 	},
 	preview: {
 		host: '0.0.0.0',
@@ -23,6 +29,6 @@ export default defineConfig({
 		sourcemap: true,
 	},
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	}
+		include: ['src/**/*.{test,spec}.{js,ts}'],
+	},
 });
