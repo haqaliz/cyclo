@@ -11,7 +11,7 @@ export default defineConfig({
 				rewrite: (path) => path.replace(/^\/local/, ''),
 			},
 			'/dev': {
-				target: 'https://195.248.241.217:8081',
+				target: 'https://backend.cyclo.dev',
 				changeOrigin: true,
 				secure: false,
 				rewrite: (path) => path.replace(/^\/dev/, ''),
