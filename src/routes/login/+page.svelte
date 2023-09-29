@@ -66,5 +66,6 @@
             </div>
         {/if}
         <a href="/signup" class="btn link blue">Create new account</a>
+        <a href="/" class="btn link blue">Go back to home</a>
     </div>
 </div>

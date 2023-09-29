@@ -82,5 +82,6 @@
             </div>
         {/if}
         <a href="/login" class="btn link blue">Already have an account?</a>
+        <a href="/" class="btn link blue">Go back to home</a>
     </div>
 </div>
