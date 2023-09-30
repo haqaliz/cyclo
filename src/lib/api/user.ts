@@ -6,7 +6,7 @@ export const info = async () => {
 		method: 'GET'
 	}).catch((e) => e.response);
 	if (!r?.ok) return;
-    return r.json();
+	return r.json();
 };
 
 interface GetRecordedDayPayload {
@@ -16,29 +16,23 @@ interface GetRecordedDayPayload {
 export const getRecordedDays = async (payload: GetRecordedDayPayload) => {
 	const params = new URLSearchParams({
 		from: payload.from.toString(),
-		to: payload.to.toString(),
+		to: payload.to.toString()
 	});
-	const r = await fetch(
-		`${API_BASE_URL}/user/recorded-days?${params}`,
-		{
-			...REQ_OPTIONS,
-			method: 'GET'
-		},
-	).catch((e) => e.response);
+	const r = await fetch(`${API_BASE_URL}/user/recorded-days?${params}`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
 	if (!r?.ok) return;
-    return r.json();
+	return r.json();
 };
 
 export const getLatestMenstrualCycleStart = async () => {
-	const r = await fetch(
-		`${API_BASE_URL}/user/recorded-days/menstrual-cycles/latest/start`,
-		{
-			...REQ_OPTIONS,
-			method: 'GET'
-		},
-	).catch((e) => e.response);
+	const r = await fetch(`${API_BASE_URL}/user/recorded-days/menstrual-cycles/latest/start`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
 	if (!r?.ok) return;
-    return r.json();
+	return r.json();
 };
 
 interface GetMenstrualCyclesPayload {
@@ -48,17 +42,14 @@ interface GetMenstrualCyclesPayload {
 export const getMenstrualCycles = async (payload: GetMenstrualCyclesPayload) => {
 	const params = new URLSearchParams({
 		from: payload.from.toString(),
-		to: payload.to.toString(),
+		to: payload.to.toString()
 	});
-	const r = await fetch(
-		`${API_BASE_URL}/user/recorded-days/menstrual-cycles?${params}`,
-		{
-			...REQ_OPTIONS,
-			method: 'GET'
-		},
-	).catch((e) => e.response);
+	const r = await fetch(`${API_BASE_URL}/user/recorded-days/menstrual-cycles?${params}`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
 	if (!r?.ok) return;
-    return r.json();
+	return r.json();
 };
 
 export const addRecordedDay = async (payload: any) => {
@@ -90,10 +81,10 @@ export const subscribeForPlan = async (payload: any) => {
 
 export default {
 	info,
-    getRecordedDays,
+	getRecordedDays,
 	getLatestMenstrualCycleStart,
 	getMenstrualCycles,
 	addRecordedDay,
 	updateRecordedDay,
-	subscribeForPlan,
+	subscribeForPlan
 };

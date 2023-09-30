@@ -33,5 +33,5 @@ export const logout = async () => {
 export default {
 	login,
 	signup,
-	logout,
+	logout
 };

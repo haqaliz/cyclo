@@ -6,9 +6,9 @@ export const list = async () => {
 		method: 'GET'
 	}).catch((e) => e.response);
 	if (!r?.ok) return;
-    return r.json();
+	return r.json();
 };
 
 export default {
-	list,
+	list
 };

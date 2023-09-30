@@ -88,8 +88,8 @@
 			</div>
 			<div class="flex flex-col">
 				<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-					While spotting and regular periods are often normal, it's important to consult a healthcare
-					professional if you experience any of the following:
+					While spotting and regular periods are often normal, it's important to consult a
+					healthcare professional if you experience any of the following:
 				</p>
 				<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
 					<li>Abnormal bleeding that persists or worsens over time.</li>

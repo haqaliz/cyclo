@@ -77,8 +77,8 @@
 			</div>
 			<div class="flex flex-col">
 				<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-					While some genital pimples may resolve on their own, it is important to consult a healthcare
-					professional if you experience any of the following:
+					While some genital pimples may resolve on their own, it is important to consult a
+					healthcare professional if you experience any of the following:
 				</p>
 				<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
 					<li>Pimples that persist, worsen, or are accompanied by severe pain</li>

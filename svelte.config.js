@@ -11,7 +11,7 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			fallback: 'index.html',
+			fallback: 'index.html'
 		}),
 
 		alias: {
@@ -20,13 +20,13 @@ const config = {
 			$styles: 'src/lib/styles/index.css',
 			$components: 'src/lib/components',
 			$directives: 'src/lib/directives',
-			$api: 'src/lib/api',
-		},
+			$api: 'src/lib/api'
+		}
 	},
 
 	prerender: {
-		default: true,
-	},
+		default: true
+	}
 };
 
 export default config;

@@ -2,21 +2,44 @@
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 
-	type ChartType = 'AnnotationChart' | 'AreaChart' | 'BarChart'
-		| 'BubbleChart' | 'Calendar' | 'CandlestickChart' | 'ColumnChart'
-		| 'ComboChart' | 'DiffChart' | 'DonutChart' | 'Gantt' | 'Gauge'
-		| 'GeoChart' | 'Histogram' | 'LineChart' | 'Line' | 'Bar' | 'Map'
-		| 'OrgChart' | 'PieChart' | 'Sankey' | 'ScatterChart' | 'Scatter'
-		| 'SteppedAreaChart' | 'Table' | 'Timeline' | 'TreeMap' | 'WaterfallChart'
+	type ChartType =
+		| 'AnnotationChart'
+		| 'AreaChart'
+		| 'BarChart'
+		| 'BubbleChart'
+		| 'Calendar'
+		| 'CandlestickChart'
+		| 'ColumnChart'
+		| 'ComboChart'
+		| 'DiffChart'
+		| 'DonutChart'
+		| 'Gantt'
+		| 'Gauge'
+		| 'GeoChart'
+		| 'Histogram'
+		| 'LineChart'
+		| 'Line'
+		| 'Bar'
+		| 'Map'
+		| 'OrgChart'
+		| 'PieChart'
+		| 'Sankey'
+		| 'ScatterChart'
+		| 'Scatter'
+		| 'SteppedAreaChart'
+		| 'Table'
+		| 'Timeline'
+		| 'TreeMap'
+		| 'WaterfallChart'
 		| 'WordTree';
 
 	let chartId = Math.random();
 	const version = 'current';
-	export let type:ChartType;
+	export let type: ChartType;
 	export let data;
 	export let settings = {
 		packages: ['corechart', 'controls'],
-		language: 'en',
+		language: 'en'
 	};
 	export let options = {};
 	let chart;
@@ -54,7 +77,7 @@
 		chart = new visualization[type](ctx);
 		redraw(chart, data, options);
 	};
-	
+
 	$: redraw(chart, data, options);
 
 	let onResizeEnd;
@@ -64,9 +87,9 @@
 			redraw(chart, data, options);
 		}, 100);
 	};
-	
+
 	const update = async () => {
-		if ((browser && window.google === undefined)) return;
+		if (browser && window.google === undefined) return;
 		const loader = window.google.charts;
 		loader.load(version, settings);
 		loader.setOnLoadCallback(draw);

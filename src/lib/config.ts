@@ -8,11 +8,11 @@ export const API_BASE_URL = `${API_ORIGIN}`;
 export const REQ_OPTIONS = {
 	redirect: 'follow',
 	headers: {
-		'Content-Type': 'application/json',
-	},
+		'Content-Type': 'application/json'
+	}
 };
 
 export default {
 	API_BASE_URL,
-	REQ_OPTIONS,
+	REQ_OPTIONS
 };

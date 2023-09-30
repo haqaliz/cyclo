@@ -12,7 +12,7 @@ const inject = (node, argument = 'body') => {
 	return {
 		destroy() {
 			node.remove();
-		},
+		}
 	};
 };
 

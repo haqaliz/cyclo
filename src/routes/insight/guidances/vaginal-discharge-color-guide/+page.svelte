@@ -91,9 +91,9 @@
 					<li>Discharge that persists for an extended period or worsens over time</li>
 				</ul>
 				<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
-					Remember, every woman's body is unique, and what may be normal for one person may not be for
-					another. Trust your instincts and reach out to a healthcare provider if you have concerns
-					about your vaginal health.
+					Remember, every woman's body is unique, and what may be normal for one person may not be
+					for another. Trust your instincts and reach out to a healthcare provider if you have
+					concerns about your vaginal health.
 				</p>
 			</div>
 		</div>

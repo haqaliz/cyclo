@@ -15,10 +15,10 @@ const mask = (node, args) => {
 		const fireMaskEvents = (node, data) => {
 			const unmaskedValue = data.replace(/[^\w\s]/gi, '').replace(/ +/g, '');
 			fireEvent(node, 'accept', {
-				unmaskedValue,
+				unmaskedValue
 			});
 			fireEvent(node, 'accept', {
-				unmaskedValue,
+				unmaskedValue
 			});
 		};
 		node.addEventListener('keyup', (e) => fireMaskEvents(node, e.target.value));
@@ -62,7 +62,7 @@ const mask = (node, args) => {
 	return {
 		destroy() {
 			maskedNode.destroy();
-		},
+		}
 	};
 };
 

@@ -1,29 +1,26 @@
 <svelte:head>
-    <title>404 | Not Found</title>
-    <meta
-        name="description"
-        content="Oops! Lost in cyberspace? Our 404 page guides you back to your menstrual health journey with ease."
-    >
+	<title>404 | Not Found</title>
+	<meta
+		name="description"
+		content="Oops! Lost in cyberspace? Our 404 page guides you back to your menstrual health journey with ease."
+	/>
 </svelte:head>
 
 <div class="flex flex-col items-center justify-center p-2 mt-2 sm:mt-4">
-    <div
-        class={`
+	<div
+		class={`
             bg-cover bg-no-repeat bg-center w-[256px] h-[512px] rounded relative
             flex flex-row items-center justify-center overflow-hidden mb-2 sm:mb-4
         `}
-        style:background-image="url(/img/misc/lost.webp)"
-    />
-    <div class="flex flex-col w-full sm:w-auto mb-2 sm:mb-4">
-        <div class="alert primary">
-            <i class="material-icons mr-2">info</i>
-            Seems you're lost.
-        </div>
-    </div>
-    <a
-        href="/calendar"
-        class="btn black justify-center"
-    >
-        Go To Home
-    </a>
+		style:background-image="url(/img/misc/lost.webp)"
+	/>
+	<div class="flex flex-col w-full sm:w-auto mb-2 sm:mb-4">
+		<div
+			class="p-2 rounded font-sans font-medium text-lg flex items-center bg-purple-400 text-black"
+		>
+			<i class="material-icons mr-2">info</i>
+			Seems you're lost.
+		</div>
+	</div>
+	<a href="/calendar" class="btn black justify-center"> Go To Home </a>
 </div>
