@@ -23,7 +23,7 @@
 			return;
 		}
 		showError = false;
-		await goto('/');
+		await goto('/calendar');
 		await user.get();
 	};
 </script>
@@ -43,9 +43,25 @@
 	/>
 	<h3 class="font-sans font-semibold text-2xl mb-4">Login to your account</h3>
 	<div class="flex flex-col space-y-3 min-w-[25%]">
-		<input bind:value={form.email} type="email" placeholder="Email" />
-		<input bind:value={form.password} type="password" placeholder="Password" />
-		<button on:click={login} class="btn black justify-center"> Login </button>
+		<input
+			bind:value={form.email}
+			type="email"
+			placeholder="Email"
+			class="p-2 rounded font-sans font-medium text-lg border-2 resize-none"
+		/>
+		<input
+			bind:value={form.password}
+			type="password"
+			placeholder="Password"
+			class="p-2 rounded font-sans font-medium text-lg border-2 resize-none"
+		/>
+		<button
+			on:click={login}
+			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center"
+		>
+			Login
+		</button>
 		{#if showError}
 			<div
 				class="p-2 rounded font-sans font-medium text-lg flex items-center bg-red-600 text-black"
@@ -54,7 +70,17 @@
 				Wrong email or password
 			</div>
 		{/if}
-		<a href="/signup" class="btn link blue">Create new account</a>
-		<a href="/" class="btn link blue">Go back to home</a>
+		<a
+			href="/signup"
+			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-blue-500 hover:bg-gray-50"
+			>Create new account</a
+		>
+		<a
+			href="/"
+			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-blue-500 hover:bg-gray-50"
+			>Go back to home</a
+		>
 	</div>
 </div>

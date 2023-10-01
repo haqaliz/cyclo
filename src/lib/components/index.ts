@@ -1,4 +1,6 @@
-export { default as Modal } from './modal.svelte';
-export { default as Tabs } from './tabs.svelte';
+// Primary Components
+export { default as Modal } from './primary/modal.svelte';
+export { default as Tabs } from './primary/tabs.svelte';
+
 export { default as Calendar } from './calendar.svelte';
 export { default as GChart } from './google-chart.svelte';

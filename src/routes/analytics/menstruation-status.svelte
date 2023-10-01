@@ -20,14 +20,18 @@
 
 {#if days?.length === 7 && startRangeOfMC && differenceInMonths(new Date(), startRangeOfMC) === 0}
 	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mb-2 sm:mb-4">
-		<div class="flex flex-row flex-1">
+		<div class="flex flex-row flex-1 overflow-x-scroll hide-scrollbar">
 			{#each days as day, k}
 				{@const isToday =
 					differenceInDays(new Date(), day) === 0 && getDate(new Date()) === getDate(day)}
 				<button
-					class="btn flex flex-col flex-1 items-center"
-					class:gray={!isToday}
-					class:primary={isToday}
+					class={`p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+						focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center
+						${
+							isToday
+								? 'bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400'
+								: 'bg-gray-200 text-black hover:bg-gray-400 focus:ring-gray-300'
+						}`}
 					class:mr-2={days.length - 1 !== k}
 					class:sm:mr-4={days.length - 1 !== k}
 				>
@@ -53,7 +57,9 @@
 
 		{#if startRangeOfMC}
 			{@const diff = differenceInDays(new Date(), startRangeOfMC) + 1}
-			<div class="bg-rose-200 rounded p-2 sm:p-4 flex flex-row mt-2 sm:mt-4 items-center">
+			<div
+				class="bg-rose-200 h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded p-2 sm:p-4 flex flex-row mt-2 sm:mt-4 items-center"
+			>
 				{#if diff <= 7}
 					<h5 class="font-sans font-semibold text-xs sm:text-lg">Period in.</h5>
 				{/if}
@@ -65,7 +71,7 @@
 					<h5 class="font-sans font-semibold text-xs sm:text-lg ml-2 sm:ml-4">Past from Period.</h5>
 				{/if}
 				<h5
-					class="rounded font-sans font-semibold text-xs sm:text-lg p-2 sm:p-2 ml-2 sm:ml-4"
+					class="rounded font-sans font-semibold text-xs sm:text-lg p-2 ml-2 sm:ml-4"
 					class:bg-red-500={diff <= 7}
 					class:bg-green-400={diff > 7}
 				>

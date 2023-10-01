@@ -72,7 +72,7 @@
 		if (!ctx) return;
 		let visualization = window.google.visualization;
 		if (settings?.packages?.includes('bar')) {
-			visualization = google.charts;
+			visualization = window.google.charts;
 		}
 		chart = new visualization[type](ctx);
 		redraw(chart, data, options);

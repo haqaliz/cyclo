@@ -6,10 +6,6 @@
 	import { startOfDay, endOfDay } from 'date-fns';
 	let selectedDay = new Date();
 	let recordedDays: any[] = [];
-	interface User {
-		id: string;
-		email: string;
-	}
 	const getRecordedDays = async (d: Date) => {
 		if (!$user) return;
 		const r = await usr.getRecordedDays({

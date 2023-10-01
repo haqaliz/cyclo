@@ -43,12 +43,16 @@
 			{/if}
 		</h3>
 		<div style:flex="1" />
-		<a href="/calendar/detail" class="btn black">
+		<a
+			href="/calendar/detail"
+			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400"
+		>
 			<i class="material-icons">today</i>
 		</a>
 	</div>
 	<div class="grid grid-cols-7 gap-4 mt-2 sm:mt-4">
-		{#each Object.keys(days) as key, index}
+		{#each Object.keys(days) as key}
 			{@const item = days[key]}
 			{@const isSelected =
 				differenceInDays(item.date, selectedDay) === 0 &&
@@ -60,9 +64,13 @@
 				differenceInDays(item.date, MCStartDate) === 0 &&
 				getDate(item.date) === getDate(MCStartDate)}
 			<button
-				class="btn flex flex-col flex-1 items-center"
-				class:primary={isSelected}
-				class:gray={!isSelected}
+				class={`p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+					focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center
+					${
+						isSelected
+							? 'bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400'
+							: 'bg-gray-200 text-black hover:bg-gray-400 focus:ring-gray-300'
+					}`}
 				class:border-l-4={isMCStart}
 				class:border-red-600={isMCStart}
 				title={isToday ? 'Today' : ''}

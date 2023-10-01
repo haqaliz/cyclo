@@ -70,7 +70,7 @@
 	let show = false;
 	let logType: string | null = null;
 	let logTypeValue: string | null = null;
-	let logTypeIntensity: number = 0;
+	let logTypeIntensity = 0;
 	export let selectedDay: Date;
 	export let recordedDay: any;
 	$: isSaveDisabled = ((): boolean => {
@@ -167,11 +167,19 @@
 
 	<svelte:fragment slot="content">
 		<!-- log type -->
-		<div class="input-group">
-			<label for="log_type">Log Type:</label>
-			<select bind:value={logType} name="log_type" id="log_type" on:change={logTypeChanged}>
+		<div class="flex flex-col">
+			<label for="log_type" class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
+				>Log Type:</label
+			>
+			<select
+				bind:value={logType}
+				name="log_type"
+				id="log_type"
+				on:change={logTypeChanged}
+				class="p-2 rounded font-sans font-medium text-lg border-2 capitalize"
+			>
 				{#each Object.keys(logTypes) as i}
-					<option value={i}>
+					<option value={i} class="font-sans font-medium text-lg capitalize">
 						{i.replace(/_/gi, ' ')}
 					</option>
 				{/each}
@@ -184,11 +192,20 @@
 			<!-- log types with predefined types -->
 			{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc', 'bleeding_type', 'blood_color', 'pregnancy_test', 'sex_situation'].includes(logType)}
 				<!-- {logType} type -->
-				<div class="input-group mt-1 sm:mt-2">
-					<label for="log_type_value">{strippedLogType} Type:</label>
-					<select bind:value={logTypeValue} name="log_type_value" id="log_type_value">
+				<div class="flex flex-col mt-1 sm:mt-2">
+					<label
+						for="log_type_value"
+						class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
+						>{strippedLogType} Type:</label
+					>
+					<select
+						bind:value={logTypeValue}
+						name="log_type_value"
+						id="log_type_value"
+						class="p-2 rounded font-sans font-medium text-lg border-2 capitalize"
+					>
 						{#each logTypes[logType] as i}
-							<option value={i}>
+							<option value={i} class="font-sans font-medium text-lg capitalize">
 								{i.replace(/_/gi, ' ')}
 							</option>
 						{/each}
@@ -196,8 +213,11 @@
 				</div>
 
 				{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc'].includes(logType)}
-					<div class="input-group mt-1 sm:mt-2">
-						<label for="log_type_intensity">
+					<div class="flex flex-col mt-1 sm:mt-2">
+						<label
+							for="log_type_intensity"
+							class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
+						>
 							{strippedLogType} Intensity:
 						</label>
 						<div class="flex flex-row items-center">
@@ -208,7 +228,7 @@
 								name="log_type_intensity"
 								min="0"
 								max="10"
-								class="flex-1"
+								class="p-2 rounded font-sans font-medium text-lg border-2 resize-none flex-1"
 							/>
 							<span class="bg-gray-300 rounded px-1 sm:px-2 ml-1 font-sans font-semibold text-l"
 								>{logTypeIntensity}</span
@@ -220,8 +240,12 @@
 
 			<!-- log types with only intensity -->
 			{#if ['bleeding_amount'].includes(logType)}
-				<div class="input-group mt-1 sm:mt-2">
-					<label for="log_type_intensity">{strippedLogType} Intensity:</label>
+				<div class="flex flex-col mt-1 sm:mt-2">
+					<label
+						for="log_type_intensity"
+						class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
+						>{strippedLogType} Intensity:</label
+					>
 					<div class="flex flex-row items-center">
 						<input
 							bind:value={logTypeIntensity}
@@ -230,7 +254,7 @@
 							name="log_type_intensity"
 							min="0"
 							max="10"
-							class="flex-1"
+							class="p-2 rounded font-sans font-medium text-lg border-2 resize-none flex-1"
 						/>
 						<span class="bg-gray-300 rounded px-1 sm:px-2 ml-1 font-sans font-semibold text-l"
 							>{logTypeIntensity}</span
@@ -241,8 +265,12 @@
 
 			<!-- log types with only description -->
 			{#if ['medications'].includes(logType)}
-				<div class="input-group mt-1 sm:mt-2">
-					<label for="log_type_intensity">{strippedLogType} Intensity:</label>
+				<div class="flex flex-col mt-1 sm:mt-2">
+					<label
+						for="log_type_intensity"
+						class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
+						>{strippedLogType} Intensity:</label
+					>
 					<textarea bind:value={logTypeValue} />
 				</div>
 			{/if}
@@ -252,7 +280,8 @@
 	<svelte:fragment slot="footer">
 		<div class="flex flex-row flex-1 justify-end">
 			<button
-				class="btn black justify-center flex-1 sm:flex-none"
+				class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center flex-1 sm:flex-none"
 				disabled={isSaveDisabled}
 				on:click={saveLog}
 			>

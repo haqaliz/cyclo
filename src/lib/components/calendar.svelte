@@ -24,7 +24,6 @@
 			const SM = startOfMonth(sourceDate);
 			const SMW = getDay(SM);
 			const EM = endOfMonth(sourceDate);
-			const EMW = getDay(EM);
 			// when days are in previous month
 			if (i < SMW) {
 				return {
@@ -47,9 +46,9 @@
 	export let selectedDay = today;
 	interface Day {
 		date: Date;
-		earlier?: Boolean;
-		later?: Boolean;
-		fit?: Boolean;
+		earlier?: boolean;
+		later?: boolean;
+		fit?: boolean;
 	}
 	const select = (e: Day) => {
 		if (e.earlier) {
@@ -72,7 +71,8 @@
 		<!-- Controll Section -->
 		<div class="flex flex-1 flex-row items-center">
 			<button
-				class="btn black justify-center"
+				class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center"
 				title="Previous Month"
 				on:click={() => (sourceDate = subMonths(sourceDate, 1))}
 			>
@@ -84,7 +84,8 @@
 			</h4>
 			<div class="flex-1" />
 			<button
-				class="btn black justify-center"
+				class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center"
 				title="Next Month"
 				on:click={() => (sourceDate = addMonths(sourceDate, 1))}
 			>
@@ -118,9 +119,13 @@
 					differenceInDays(item.date, MCStartDate) === 0 &&
 					getDate(item.date) === getDate(MCStartDate)}
 				<button
-					class="btn flex flex-col flex-1 items-center"
-					class:primary={isSelected}
-					class:gray={!isSelected}
+					class={`p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+						focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center
+						${
+							isSelected
+								? 'bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400'
+								: 'bg-gray-200 text-black hover:bg-gray-400 focus:ring-gray-300'
+						}`}
 					class:opacity-25={!item.fit}
 					class:border-l-4={isMCStart}
 					class:border-red-600={isMCStart}

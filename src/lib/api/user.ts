@@ -18,21 +18,25 @@ export const getRecordedDays = async (payload: GetRecordedDayPayload) => {
 		from: payload.from.toString(),
 		to: payload.to.toString()
 	});
-	const r = await fetch(`${API_BASE_URL}/user/recorded-days?${params}`, {
+	let r = await fetch(`${API_BASE_URL}/user/recorded-days?${params}`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);
 	if (!r?.ok) return;
-	return r.json();
+	r = await r.text();
+	if (r === '') return;
+	return JSON.parse(r);
 };
 
 export const getLatestMenstrualCycleStart = async () => {
-	const r = await fetch(`${API_BASE_URL}/user/recorded-days/menstrual-cycles/latest/start`, {
+	let r = await fetch(`${API_BASE_URL}/user/recorded-days/menstrual-cycles/latest/start`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);
 	if (!r?.ok) return;
-	return r.json();
+	r = await r.text();
+	if (r === '') return;
+	return JSON.parse(r);
 };
 
 interface GetMenstrualCyclesPayload {
@@ -44,12 +48,14 @@ export const getMenstrualCycles = async (payload: GetMenstrualCyclesPayload) => 
 		from: payload.from.toString(),
 		to: payload.to.toString()
 	});
-	const r = await fetch(`${API_BASE_URL}/user/recorded-days/menstrual-cycles?${params}`, {
+	let r = await fetch(`${API_BASE_URL}/user/recorded-days/menstrual-cycles?${params}`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);
 	if (!r?.ok) return;
-	return r.json();
+	r = await r.text();
+	if (r === '') return;
+	return JSON.parse(r);
 };
 
 export const addRecordedDay = async (payload: any) => {

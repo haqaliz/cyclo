@@ -111,8 +111,8 @@
 	{:else}
 		<div
 			class="
-                p-2 sm:p-4 rounded font-sans font-medium text-lg flex items-center
-                bg-yellow-300 text-black mt-2 sm:mt-4
+                p-2 sm:p-4 h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded font-sans text-xs sm:text-lg flex items-center
+                bg-yellow-300 font-semibold text-black mt-2 sm:mt-4
             "
 		>
 			<i class="material-icons mr-2">info</i>

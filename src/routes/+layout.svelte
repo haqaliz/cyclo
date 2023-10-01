@@ -7,13 +7,13 @@
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
-	import Nav from './nav.svelte';
+	import Nav from './nav/index.svelte';
 
 	let loading = false;
 	let requestedForUser = false;
 
 	const publicPages = ['login', 'signup'];
-	const privatePages = ['calendar', 'analytics', 'insight', 'subscribe'];
+	const privatePages = ['profile', 'calendar', 'analytics', 'insight', 'subscribe'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
 		private: new RegExp(`^/(${privatePages.join('|')})`, 'i')
@@ -49,7 +49,7 @@
 		await goto($page.url);
 	};
 
-	user.subscribe(async (v) => {
+	user.subscribe(async () => {
 		await redirects();
 	});
 

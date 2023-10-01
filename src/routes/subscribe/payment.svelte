@@ -105,7 +105,7 @@
 			<input
 				bind:value={cardNumber}
 				type="text"
-				class="w-full max-h-[48px]"
+				class="p-2 rounded font-sans font-medium text-lg border-2 resize-none w-full max-h-[48px]"
 				placeholder="Card Number"
 				use:mask={'0000 - 0000 - 0000[ - 0000]'}
 				on:complete={({ detail }) => (card.number = detail.unmaskedValue)}
@@ -121,7 +121,7 @@
 					type="text"
 					placeholder="Expiry Date"
 					use:mask={'00 / 00'}
-					class="max-h-[48px]"
+					class="p-2 rounded font-sans font-medium text-lg border-2 resize-none max-h-[48px]"
 					on:complete={({ detail }) => (card.expiry_date = detail.unmaskedValue)}
 				/>
 				{#if expiryDateError.length}
@@ -133,7 +133,7 @@
 					bind:value={cvc}
 					type="text"
 					placeholder="CVC"
-					class="flex-1 max-h-[48px]"
+					class="p-2 rounded font-sans font-medium text-lg border-2 resize-none flex-1 max-h-[48px]"
 					use:mask={'000[0]'}
 					on:complete={({ detail }) => (card.cvc = detail.unmaskedValue)}
 				/>
@@ -163,13 +163,15 @@
 		<!-- Buttons Container -->
 		<div class="flex flex-col sm:flex-row w-full sm:w-auto">
 			<button
-				class="btn black justify-center flex-1 sm:w-auto mb-2 sm:mb-0 sm:mr-4 px-8"
+				class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center flex-1 sm:w-auto mb-2 sm:mb-0 sm:mr-4 px-8"
 				on:click={backToPlans}
 			>
 				Back To Plans
 			</button>
 			<button
-				class="btn black justify-center flex-1 sm:w-auto px-8"
+				class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center flex-1 sm:w-auto px-8"
 				disabled={isCheckoutDisabled}
 				on:click={checkout}
 			>
