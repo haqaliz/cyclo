@@ -4,6 +4,7 @@
 		name?: string;
 		icon?: string;
 		path?: string;
+		title?: string;
 		onClick?: () => Promise<void>;
 	}
 	export let items: Array<MenuItem> = [];
@@ -21,6 +22,7 @@
 										: 'bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400'
 								}
                 ${item.icon ? 'w-11 h-11' : ''}`}
+			title={item.title ? item.title : ''}
 		>
 			{#if item.name}
 				{item.name}
@@ -34,6 +36,7 @@
                 focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center
                 bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center w-11 h-11
                 ${item.icon ? 'w-11 h-11' : ''}`}
+			title={item.title ? item.title : ''}
 			on:click={item.onClick}
 		>
 			{#if item.name}

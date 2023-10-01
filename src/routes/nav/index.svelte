@@ -33,10 +33,12 @@
 			},
 			{
 				icon: 'person',
+				title: 'Profile',
 				path: '/profile'
 			},
 			{
 				icon: 'logout',
+				title: 'Logout',
 				onClick: async () => {
 					await auth.logout();
 					user.set(null);
