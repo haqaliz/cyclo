@@ -197,4 +197,9 @@
 			</a>
 		</div>
 	</div>
+
+	<!-- footer -->
+	<div class="flex flex-col items-center p-2 md:p-4">
+		<span class="text-gray-600">© Cyclo 2023 | All Rights Reserved</span>
+	</div>
 </div>
