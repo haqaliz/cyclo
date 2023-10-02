@@ -51,7 +51,7 @@
 			<i class="material-icons">today</i>
 		</a>
 	</div>
-	<div class="grid grid-cols-7 gap-4 mt-2 sm:mt-4">
+	<div class="flex flex-row mt-2 sm:mt-4 overflow-x-scroll hide-scrollbar sm:overflow-auto">
 		{#each Object.keys(days) as key}
 			{@const item = days[key]}
 			{@const isSelected =
@@ -64,8 +64,9 @@
 				differenceInDays(item.date, MCStartDate) === 0 &&
 				getDate(item.date) === getDate(MCStartDate)}
 			<button
-				class={`p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				class={`p-2 min-w-[80px] sm:min-w-min rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
 					focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center
+					mr-2 sm:mr-4 last:mr-0
 					${
 						isSelected
 							? 'bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400'

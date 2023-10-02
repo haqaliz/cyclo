@@ -72,7 +72,11 @@
 </div>
 
 {#if show}
-	<div in:slide out:slide class="md:hidden bg-purple-200 flex flex-row items-center p-2">
+	<div
+		in:slide
+		out:slide
+		class="md:hidden bg-purple-200 flex flex-row items-center p-2 overflow-x-scroll hide-scrollbar"
+	>
 		<Menu {items} />
 	</div>
 {/if}

@@ -58,20 +58,20 @@
 		{#if startRangeOfMC}
 			{@const diff = differenceInDays(new Date(), startRangeOfMC) + 1}
 			<div
-				class="bg-rose-200 h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded p-2 sm:p-4 flex flex-row mt-2 sm:mt-4 items-center"
+				class="bg-rose-200 min-h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded p-2 sm:p-4 flex flex-col sm:flex-row mt-2 sm:mt-4 sm:items-center"
 			>
 				{#if diff <= 7}
 					<h5 class="font-sans font-semibold text-xs sm:text-lg">Period in.</h5>
 				{/if}
-				<h3 class="font-sans font-semibold text-lg sm:text-4xl ml-2 sm:ml-4">
+				<h3 class="font-sans font-semibold text-lg sm:text-4xl sm:ml-4">
 					{diff}
 					{diff > 1 ? 'Days' : 'Day'}
 				</h3>
 				{#if diff > 7}
-					<h5 class="font-sans font-semibold text-xs sm:text-lg ml-2 sm:ml-4">Past from Period.</h5>
+					<h5 class="font-sans font-semibold text-xs sm:text-lg sm:ml-4">Past from Period.</h5>
 				{/if}
 				<h5
-					class="rounded font-sans font-semibold text-xs sm:text-lg p-2 ml-2 sm:ml-4"
+					class="rounded font-sans font-semibold text-xs sm:text-lg p-2 sm:ml-4"
 					class:bg-red-500={diff <= 7}
 					class:bg-green-400={diff > 7}
 				>

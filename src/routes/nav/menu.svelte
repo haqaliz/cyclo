@@ -15,7 +15,7 @@
 		<a
 			href={item.path}
 			class={`p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-                focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center justify-center mr-4 last:mr-0
+                focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center justify-center mr-2 sm:mr-4 last:mr-0
                 ${
 									$page.url.pathname === item.path
 										? 'bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400'

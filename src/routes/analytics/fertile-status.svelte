@@ -63,22 +63,20 @@
 			{@const diff = differenceInDays(new Date(), startFertileWindow) + 1}
 			{@const mcDiff = differenceInDays(new Date(), startRangeOfMC)}
 			<div
-				class="bg-teal-200 h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded p-2 sm:p-4 flex flex-row mt-2 sm:mt-4 items-center"
+				class="bg-teal-200 min-h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded p-2 sm:p-4 flex flex-col sm:flex-row mt-2 sm:mt-4 sm:items-center"
 			>
 				{#if mcDiff >= menstrualCycleLength + gapBetweenMCandFW && mcDiff <= menstrualCycleLength + gapBetweenMCandFW + 6}
 					<h5 class="font-sans font-semibold text-xs sm:text-lg">Fertility in.</h5>
-					<h3 class="font-sans font-semibold text-lg sm:text-4xl ml-2 sm:ml-4">
+					<h3 class="font-sans font-semibold text-lg sm:text-4xl sm:ml-4">
 						{diff}
 						{diff > 1 ? 'Days' : 'Day'}
 					</h3>
 					{#if diff > 4}
-						<h5 class="font-sans font-semibold text-xs sm:text-lg ml-2 sm:ml-4">
+						<h5 class="font-sans font-semibold text-xs sm:text-lg sm:ml-4">
 							Past from Start of Fertility.
 						</h5>
 					{/if}
-					<h5
-						class="rounded font-sans font-semibold bg-green-400 text-xs sm:text-lg p-2 ml-2 sm:ml-4"
-					>
+					<h5 class="rounded font-sans font-semibold bg-green-400 text-xs sm:text-lg p-2 sm:ml-4">
 						{#if diff <= 3}
 							Most Fertile Days
 						{:else if diff === 4}
@@ -88,11 +86,15 @@
 						{/if}
 					</h5>
 				{:else if mcDiff < menstrualCycleLength + gapBetweenMCandFW}
-					<h5 class="font-sans font-semibold text-xs sm:text-lg">
-						Fertility window hasn't started yet.
-					</h5>
+					<div class="flex flex-col flex-1 justify-center">
+						<h5 class="font-sans font-semibold text-xs sm:text-lg">
+							Fertility window hasn't started yet.
+						</h5>
+					</div>
 				{:else if mcDiff > menstrualCycleLength + gapBetweenMCandFW + 6}
-					<h5 class="font-sans font-semibold text-xs sm:text-lg">Fertility window has ended.</h5>
+					<div class="flex flex-col flex-1 justify-center">
+						<h5 class="font-sans font-semibold text-xs sm:text-lg">Fertility window has ended.</h5>
+					</div>
 				{/if}
 			</div>
 		{/if}
