@@ -23,7 +23,7 @@
 		</div>
 	</div>
 	<a
-		href="/calendar"
+		href="/"
 		class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
 	focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center"
 	>
