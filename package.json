@@ -6,7 +6,7 @@
 		"dev": "vite dev",
 		"dev:local": "vite dev --mode development:local",
 		"build": "vite build",
-		"build:sitemap": "node bin/generate-sitemap.js",
+		"build:optimize": "node bin/optimize.js",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

@@ -5,7 +5,7 @@ import plans from './plans';
 const user = writable(null);
 
 user.get = async () => {
-	const r = await usr.info();
+	const r = await usr.getInfo();
 	if (!r) return;
 	if (!r.subscription)
 		r.subscription = {

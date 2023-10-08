@@ -1,12 +1,25 @@
 import { API_BASE_URL, REQ_OPTIONS } from '$config';
 
-export const info = async () => {
+export const getInfo = async () => {
 	const r = await fetch(`${API_BASE_URL}/user/info`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);
 	if (!r?.ok) return;
 	return r.json();
+};
+
+interface UpdateInfoPayload {
+	prefs: any;
+}
+export const updateInfo = async (payload: UpdateInfoPayload) => {
+	const r = await fetch(`${API_BASE_URL}/user/info`, {
+		...REQ_OPTIONS,
+		method: 'PUT',
+		body: JSON.stringify(payload)
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return !!r?.ok;
 };
 
 interface GetRecordedDayPayload {
@@ -86,7 +99,8 @@ export const subscribeForPlan = async (payload: any) => {
 };
 
 export default {
-	info,
+	getInfo,
+	updateInfo,
 	getRecordedDays,
 	getLatestMenstrualCycleStart,
 	getMenstrualCycles,
