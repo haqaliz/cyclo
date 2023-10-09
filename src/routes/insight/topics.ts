@@ -122,34 +122,44 @@ export default [
 				classes: 'bg-violet-400 hover:bg-violet-500',
 				link: guidances('does-the-pull-out-method-work'),
 				permission: permission.beginner
+			},
+			{
+				name: 'Can\'t orgasm? This could be why',
+				classes: 'bg-pink-400 hover:bg-pink-500',
+				link: guidances('cant-orgasm-this-could-be-why'),
+				permission: permission.beginner
 			}
-			// {
-			//   "name": "Can't orgasm? This could be why"
-			// }
 		]
 	},
-	// {
-	//   "name": "Your late period",
-	//   "items": [
-	//     {
-	//       "name": "Early signs of pregnancy",
-	//       "classes": "bg-orange-100 hover:bg-orange-200",
-	//       "link": guidances('early-signs-of-pregnancy'),
-	//     },
-	//     {
-	//       "name": "Late period causes that aren't pregnancy"
-	//     },
-	//     {
-	//       "name": "Do late period remedies work?"
-	//     },
+	{
+	  "name": "Your late period",
+	  "items": [
+	    {
+			name: 'Early signs of pregnancy',
+			classes: 'bg-orange-100 hover:bg-orange-200',
+			link: guidances('early-signs-of-pregnancy'),
+			permission: permission.beginner
+		},
+	    {
+			name: 'Late period causes that aren\'t pregnancy',
+			classes: 'bg-teal-400 hover:bg-teal-500',
+			link: guidances('late-period-causes-that-arent-pregnancy'),
+			permission: permission.beginner
+	    },
+		{
+			name: 'Do late period remedies work?',
+			classes: 'bg-sky-200 hover:bg-sky-300',
+			link: guidances('do-late-period-remedies-work'),
+			permission: permission.beginner
+		},
 	//     {
 	//       "name": "Cramps but no period? Learn why"
 	//     },
 	//     {
 	//       "name": "What counts as a late period?"
 	//     }
-	//   ]
-	// },
+	  ]
+	},
 	{
 		name: 'Orgasms and pleasure',
 		items: [
@@ -217,9 +227,9 @@ export default [
 	//     }
 	//   ]
 	// },
-	// {
-	//   "name": "Common sex worries",
-	//   "items": [
+	{
+	  "name": "Common sex worries",
+	  "items": [
 	//     {
 	//       "name": "6 reasons for genital pimples"
 	//     },
@@ -229,9 +239,12 @@ export default [
 	//     {
 	//       "name": "Burning during sex: 5 causes"
 	//     },
-	//     {
-	//       "name": "Can't orgasm? This could be why"
-	//     },
+	{
+		name: 'Can\'t orgasm? This could be why',
+		classes: 'bg-pink-400 hover:bg-pink-500',
+		link: guidances('cant-orgasm-this-could-be-why'),
+		permission: permission.beginner
+	}
 	//     {
 	//       "name": "How herpes helped my sex life"
 	//     },
@@ -246,17 +259,20 @@ export default [
 	//     {
 	//       "name": "Low sex drive"
 	//     }
-	//   ]
-	// },
-	// {
-	//   "name": "User's favorites",
-	//   "items": [
+	  ]
+	},
+	{
+	  "name": "User's favorites",
+	  "items": [
 	//     {
 	//       "name": "Sore boobs club: What you can do"
 	//     },
-	//     {
-	//       "name": "Late period causes that aren't pregnancy"
-	//     },
+		{
+			name: 'Late period causes that aren\'t pregnancy',
+			classes: 'bg-teal-400 hover:bg-teal-500',
+			link: guidances('late-period-causes-that-arent-pregnancy'),
+			permission: permission.beginner
+		},
 	//     {
 	//       "name": "Pregnancy test: How early can you get pregnant?"
 	//     },
@@ -266,27 +282,34 @@ export default [
 	//     {
 	//       "name": "How to initiate sex"
 	//     }
-	//   ]
-	// },
-	// {
-	//   "name": "The lowdown on late periods",
-	//   "items": [
-	//     {
-	//       "name": "Early signs of pregnancy",
-	//       "classes": "bg-orange-100 hover:bg-orange-200",
-	//       "link": guidances('early-signs-of-pregnancy'),
-	//     },
+	  ]
+	},
+	{
+	  "name": "The lowdown on late periods",
+	  "items": [
+	    {
+			name: 'Early signs of pregnancy',
+			classes: 'bg-orange-100 hover:bg-orange-200',
+			link: guidances('early-signs-of-pregnancy'),
+			permission: permission.beginner
+		},
 	//     {
 	//       "name": "What counts as a late period?"
 	//     },
-	//     {
-	//       "name": "Do late period remedies work?"
-	//     },
-	//     {
-	//       "name": "Late period causes that aren't pregnancy"
-	//     }
-	//   ]
-	// },
+		{
+			name: 'Do late period remedies work?',
+			classes: 'bg-sky-200 hover:bg-sky-300',
+			link: guidances('do-late-period-remedies-work'),
+			permission: permission.beginner
+		},
+		{
+			name: 'Late period causes that aren\'t pregnancy',
+			classes: 'bg-teal-400 hover:bg-teal-500',
+			link: guidances('late-period-causes-that-arent-pregnancy'),
+			permission: permission.beginner
+		},
+	  ]
+	},
 	{
 		name: 'Safer sex',
 		items: [
@@ -490,14 +513,15 @@ export default [
 			//     }
 		]
 	},
-	// {
-	//   "name": "Pregnancy explained",
-	//   "items": [
-	//     {
-	//       "name": "Early signs of pregnancy",
-	//       "classes": "bg-orange-100 hover:bg-orange-200",
-	//       "link": guidances('early-signs-of-pregnancy'),
-	//     },
+	{
+	  "name": "Pregnancy explained",
+	  "items": [
+	    {
+			name: 'Early signs of pregnancy',
+			classes: 'bg-orange-100 hover:bg-orange-200',
+			link: guidances('early-signs-of-pregnancy'),
+			permission: permission.beginner
+		},
 	//     {
 	//       "name": "Getting pregnant"
 	//     },
@@ -516,8 +540,8 @@ export default [
 	//     {
 	//       "name": "Period sex pregnancy risk"
 	//     }
-	//   ]
-	// },
+	  ]
+	},
 	// {
 	//   "name": "Flow guide",
 	//   "items": [
