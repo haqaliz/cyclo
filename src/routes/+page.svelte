@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { user } from '$stores';
+</script>
+
 <!-- Root Placeholder -->
 <svelte:head>
 	<title>Cyclo</title>
@@ -183,19 +187,21 @@
 			and embrace a brighter, healthier tomorrow. Welcome to Cyclo, where knowledge is power, and
 			empowerment is everything.
 		</p>
-		<div class="flex flex-row items-center justify-center">
-			<a
-				href="/signup"
-				class="
-					p-2 rounded bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400
-					font-sans font-medium text-lg focus:outline-none focus:ring-2
-            		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center
-					justify-center px-8 w-full md:w-auto
-				"
-			>
-				Join Us Now
-			</a>
-		</div>
+		{#if !$user}
+			<div class="flex flex-row items-center justify-center">
+				<a
+					href="/signup"
+					class="
+						p-2 rounded bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400
+						font-sans font-medium text-lg focus:outline-none focus:ring-2
+						focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center
+						justify-center px-8 w-full md:w-auto
+					"
+				>
+					Join Us Now
+				</a>
+			</div>
+		{/if}
 	</div>
 
 	<!-- footer -->
