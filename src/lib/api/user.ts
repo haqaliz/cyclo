@@ -10,7 +10,8 @@ export const getInfo = async () => {
 };
 
 interface UpdateInfoPayload {
-	prefs: any;
+	prefs?: any;
+	email?: string;
 }
 export const updateInfo = async (payload: UpdateInfoPayload) => {
 	const r = await fetch(`${API_BASE_URL}/user/info`, {
