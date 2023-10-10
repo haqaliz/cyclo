@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2023 by original authors @ fontello.com</metadata>
+<defs>
+<font id="foresight" horiz-adv-x="1000" >
+<font-face font-family="foresight" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="facebook-f" unicode="&#xe809;" d="M545 288l28 181h-174v117c0 49 25 98 102 98h79v154s-71 12-140 12c-143 0-236-87-236-244v-137h-159v-181h159v-438h195v438z" horiz-adv-x="625" />
+
+<glyph glyph-name="linkedin-in" unicode="&#xe80a;" d="M196-25h-181v584h181z m-91 664c-58 0-105 48-105 106a105 105 0 0 0 210 0c0-58-47-106-105-106z m770-664h-181v284c0 68-2 155-94 155-95 0-109-74-109-150v-289h-181v584h174v-79h2c24 45 83 94 172 94 183 0 217-121 217-278v-321z" horiz-adv-x="875" />
+
+<glyph glyph-name="instagram" unicode="&#xe80b;" d="M438 575c-124 0-225-101-225-225s101-224 225-224 224 100 224 224-100 225-224 225z m0-371c-81 0-146 66-146 146s65 146 146 146 146-65 146-146-66-146-146-146z m286 380c0-29-24-53-53-53-29 0-52 24-52 53s23 52 52 52 53-23 53-52z m148-53c-3 70-19 132-70 183-52 51-114 67-184 71-72 4-289 4-361 0-70-4-132-20-183-71s-68-113-71-183c-4-72-4-289 0-361 3-70 19-132 71-184s113-67 183-70c72-5 289-5 361 0 70 3 132 19 184 70 51 52 67 114 70 184 4 72 4 288 0 361z m-93-439c-15-38-45-68-83-83-58-23-195-18-258-18s-201-5-258 18c-39 15-68 45-83 83-23 58-18 195-18 258s-5 201 18 258c15 39 44 68 83 83 57 23 194 18 258 18s200 5 258-18c38-15 68-44 83-83 23-57 18-194 18-258s5-200-18-258z" horiz-adv-x="875" />
+
+<glyph glyph-name="x-twitter" unicode="&#xe80c;" d="M760 756h138l-301-344 354-468h-277l-218 284-248-284h-138l322 368-340 444h285l196-259 227 259z m-48-730h76l-493 652h-82l499-652z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

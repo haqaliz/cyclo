@@ -95,9 +95,9 @@
 			style:background-image="url(/img/misc/applications.webp)"
 		/>
 		<div class="flex flex-col">
-			<h1 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
+			<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
 				What is Cyclo?
-			</h1>
+			</h2>
 			<p class="text-base md:text-lg text-justify">
 				Cyclo is more than just a period tracker; it's your partner in every phase of your cycle. We
 				believe that understanding your body should be empowering, not confusing. With Cyclo, you'll
@@ -235,7 +235,50 @@
 	</div>
 
 	<!-- footer -->
-	<div class="flex flex-col items-center p-2 md:p-4">
-		<span class="text-gray-600">© Cyclo 2023 | All Rights Reserved</span>
+	<div class="flex flex-col p-2 md:p-4">
+		<div
+			class="flex flex-col p-2 md:p-4 md:flex-row border-t-2 border-t-black mb-2 sm:mb-4 pt-2 sm:pt-4"
+		>
+			<div class="flex flex-col sm:max-w-sm mb-2 md:mb-0">
+				<a href="/" class="flex flex-row items-center select-none mb-2 sm:mb-4">
+					<div
+						class="bg-cover bg-no-repeat bg-center w-[39px] h-[27px] mr-2"
+						style:background-image="url(/img/misc/cyclo-logo.svg)"
+					/>
+					<h3 class="font-sans font-semibold text-2xl">Cyclo</h3>
+				</a>
+				<p class="tracking-wide text-gray-700">
+					Empowering individuals on their menstrual health journey, Cyclo offers comprehensive
+					tracking, insights, and a vibrant community for informed choices and wellness. Join us
+					today!
+				</p>
+			</div>
+
+			<div class="flex-1" />
+
+			<!-- <div class="flex flex-row items-center">
+				<div class="flex flex-col mr-8">
+					<a href="/about" class="font-semibold mb-2 sm:mb-4">About Us</a>
+					<a href="/contact" class="font-semibold">Contact Us</a>
+				</div>
+				<div class="flex flex-col">
+					<a href="/terms-and-conditions" class="font-semibold mb-2 sm:mb-4">Terms and Conditions</a>
+					<a href="/privacy-policy" class="font-semibold">Privacy Policy</a>
+				</div>
+			</div> -->
+		</div>
+
+		<div class="flex flex-row items-center">
+			<span class="tracking-wide text-gray-700">© Cyclo 2023 | All Rights Reserved</span>
+			<div class="flex-1" />
+			<div class="flex flex-row items-center">
+				<a href="https://www.linkedin.com/company/cyclotic/" class="mr-2 sm:mr-4">
+					<i class="cy-linkedin-in text-2xl" />
+				</a>
+				<a href="https://twitter.com/cycloticx">
+					<i class="cy-x-twitter text-2xl" />
+				</a>
+			</div>
+		</div>
 	</div>
 </div>

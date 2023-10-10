@@ -8,39 +8,39 @@ const getDirectories = async (source) =>
 const getRoutes = async () => {
 	const guidances = await getDirectories('./src/routes/insight/guidances');
 	return [
-		{
-			path: '/analytics'
-		},
-		{
-			path: '/calendar'
-		},
-		{
-			path: '/calendar/detail'
-		},
-		{
-			path: '/insight'
-		},
-		...guidances.map((i) => ({
-			path: `/insight/guidances/${i}`
-		})),
+		// {
+		// 	path: '/analytics'
+		// },
+		// {
+		// 	path: '/calendar'
+		// },
+		// {
+		// 	path: '/calendar/detail'
+		// },
+		// {
+		// 	path: '/insight'
+		// },
+		// ...guidances.map((i) => ({
+		// 	path: `/insight/guidances/${i}`
+		// })),
 		{
 			path: '/login'
 		},
 		{
 			path: '/signup'
-		},
-		{
-			path: '/profile'
-		},
-		{
-			path: '/profile/account'
-		},
-		{
-			path: '/profile/preferences'
-		},
-		{
-			path: '/subscribe'
 		}
+		// {
+		// 	path: '/profile'
+		// },
+		// {
+		// 	path: '/profile/account'
+		// },
+		// {
+		// 	path: '/profile/preferences'
+		// },
+		// {
+		// 	path: '/subscribe'
+		// }
 	];
 };
 
