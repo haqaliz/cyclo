@@ -50,7 +50,13 @@
 </script>
 
 <div class="bg-purple-200 flex flex-row items-center p-2 sm:p-4">
-	<a href="/" class="flex flex-row items-center select-none">
+	<a
+		href="/"
+		class="
+			flex flex-row items-center select-none hover:bg-black
+			hover:bg-opacity-10 transition-colors ease-in-out rounded p-2
+		"
+	>
 		<div
 			class="bg-cover bg-no-repeat bg-center w-[39px] h-[27px] mr-2"
 			style:background-image="url(/img/misc/cyclo-logo.svg)"

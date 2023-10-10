@@ -1,11 +1,6 @@
 <script lang="ts">
 	import { user } from '$stores';
-	const origin = {
-		'development:local': 'https://cyclotic-fc537.web.app/',
-		development: 'https://cyclotic-fc537.web.app/',
-		staging: 'https://cyclotic-fc537.web.app/',
-		production: 'https://cyclo.dev/'
-	}[import.meta.env.MODE];
+	import { DOMAIN } from '$config';
 	const title = 'Cyclo | Your Menstrual Health Companion';
 	const description =
 		'Begin yo transformative menstrual health journey with Cyclo, Your trusted tracking and insight companion. Join us and embrace the power of informed choices!';
@@ -27,17 +22,17 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content={origin} />
+	<meta property="og:url" content={DOMAIN} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content={`${origin}img/misc/cover.webp`} />
+	<meta property="og:image" content={`${DOMAIN}img/misc/cover.webp`} />
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content={origin} />
+	<meta property="twitter:url" content={DOMAIN} />
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
-	<meta property="twitter:image" content={`${origin}img/misc/cover.webp`} />
+	<meta property="twitter:image" content={`${DOMAIN}img/misc/cover.webp`} />
 
 	<style>
 		body {
@@ -65,7 +60,7 @@
 			<div class="flex flex-row items-center justify-center">
 				<div
 					class="bg-contain bg-no-repeat bg-center w-full h-[180px] md:h-[240px]"
-					style:background-image="url(/img/misc/analytics.webp)"
+					style:background-image="url(/img/home/analytics.webp)"
 				/>
 			</div>
 		</div>
@@ -82,7 +77,7 @@
 			<div class="flex flex-row items-center justify-center">
 				<div
 					class="bg-contain bg-no-repeat bg-center w-full h-[180px] md:h-[260px]"
-					style:background-image="url(/img/misc/books.webp)"
+					style:background-image="url(/img/home/books.webp)"
 				/>
 			</div>
 		</div>
@@ -91,8 +86,8 @@
 	<!-- Intro section -->
 	<div class="flex flex-col md:flex-row p-2 md:py-4 md:px-16">
 		<div
-			class="hidden md:flex bg-contain bg-no-repeat bg-center w-full md:max-w-xl md:h-[250px]"
-			style:background-image="url(/img/misc/applications.webp)"
+			class="hidden md:flex bg-contain bg-no-repeat bg-center w-full md:max-w-xs md:h-[250px]"
+			style:background-image="url(/img/home/applications.webp)"
 		/>
 		<div class="flex flex-col">
 			<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
@@ -202,7 +197,7 @@
 		<div class="flex flex-row items-center justify-center">
 			<div
 				class="bg-contain bg-no-repeat bg-center w-full h-[190px] md:h-[228px]"
-				style:background-image="url(/img/misc/say-hello.webp)"
+				style:background-image="url(/img/home/say-hello.webp)"
 			/>
 		</div>
 	</div>
@@ -232,53 +227,5 @@
 				</a>
 			</div>
 		{/if}
-	</div>
-
-	<!-- footer -->
-	<div class="flex flex-col p-2 md:p-4">
-		<div
-			class="flex flex-col p-2 md:p-4 md:flex-row border-t-2 border-t-black mb-2 sm:mb-4 pt-2 sm:pt-4"
-		>
-			<div class="flex flex-col sm:max-w-sm mb-2 md:mb-0">
-				<a href="/" class="flex flex-row items-center select-none mb-2 sm:mb-4">
-					<div
-						class="bg-cover bg-no-repeat bg-center w-[39px] h-[27px] mr-2"
-						style:background-image="url(/img/misc/cyclo-logo.svg)"
-					/>
-					<h3 class="font-sans font-semibold text-2xl">Cyclo</h3>
-				</a>
-				<p class="tracking-wide text-gray-700">
-					Empowering individuals on their menstrual health journey, Cyclo offers comprehensive
-					tracking, insights, and a vibrant community for informed choices and wellness. Join us
-					today!
-				</p>
-			</div>
-
-			<div class="flex-1" />
-
-			<!-- <div class="flex flex-row items-center">
-				<div class="flex flex-col mr-8">
-					<a href="/about" class="font-semibold mb-2 sm:mb-4">About Us</a>
-					<a href="/contact" class="font-semibold">Contact Us</a>
-				</div>
-				<div class="flex flex-col">
-					<a href="/terms-and-conditions" class="font-semibold mb-2 sm:mb-4">Terms and Conditions</a>
-					<a href="/privacy-policy" class="font-semibold">Privacy Policy</a>
-				</div>
-			</div> -->
-		</div>
-
-		<div class="flex flex-row items-center">
-			<span class="tracking-wide text-gray-700">© Cyclo 2023 | All Rights Reserved</span>
-			<div class="flex-1" />
-			<div class="flex flex-row items-center">
-				<a href="https://www.linkedin.com/company/cyclotic/" class="mr-2 sm:mr-4">
-					<i class="cy-linkedin-in text-2xl" />
-				</a>
-				<a href="https://twitter.com/cycloticx">
-					<i class="cy-x-twitter text-2xl" />
-				</a>
-			</div>
-		</div>
 	</div>
 </div>

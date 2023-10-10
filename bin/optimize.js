@@ -28,6 +28,9 @@ const getRoutes = async () => {
 		},
 		{
 			path: '/signup'
+		},
+		{
+			path: '/about'
 		}
 		// {
 		// 	path: '/profile'

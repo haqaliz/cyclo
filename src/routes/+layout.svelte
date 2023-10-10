@@ -8,11 +8,12 @@
 	import { onMount } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
 	import Nav from './nav/index.svelte';
+	import Footer from './footer/index.svelte';
 
 	let loading = false;
 	let requestedForUser = false;
 
-	const publicPages = ['login', 'signup'];
+	const publicPages = ['login', 'signup', 'about'];
 	const privatePages = ['profile', 'calendar', 'analytics', 'insight', 'subscribe'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
@@ -61,7 +62,7 @@
 </script>
 
 <!-- Layout -->
-{#if $page.url.pathname.match(pages.private) || $page.url.pathname === '/'}
+{#if $page.url.pathname.match(pages.private) || ['/', '/about'].includes($page.url.pathname)}
 	<div in:slide out:slide class="flex flex-col">
 		<Nav />
 	</div>
@@ -69,6 +70,10 @@
 {#if !loading}
 	<div in:fade out:fade class="flex flex-col">
 		<slot />
+
+		{#if ['/', '/about'].includes($page.url.pathname)}
+			<Footer />
+		{/if}
 	</div>
 {:else}
 	<div in:fade out:fade class="flex flex-col items-center justify-center absolute inset-0">
