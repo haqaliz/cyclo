@@ -74,7 +74,6 @@ const generateSitemap = async (host, dest) => {
 
 const generateRobots = (host, dest) => {
 	let content = 'User-agent: *\n';
-	content += 'Disallow: *\n';
 	content += `Sitemap: ${host}\n`;
 	writeFile(dest, content);
 };
