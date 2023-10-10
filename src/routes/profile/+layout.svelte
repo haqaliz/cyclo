@@ -6,7 +6,7 @@
 	import { goto } from '$app/navigation';
 
 	const tabs = ['Account', 'Preferences'];
-	let selectTabItem: string = '';
+	let selectTabItem = '';
 	$: {
 		if (browser && $page.url.pathname !== '/profile') {
 			goto(`/profile/${selectTabItem.toLowerCase()}`);

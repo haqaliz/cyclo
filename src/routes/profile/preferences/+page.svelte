@@ -11,7 +11,7 @@
 		if (!v) return;
 		fertility = v?.metadata?.prefs?.notifications?.fertility_window;
 		pmsSymptoms = v?.metadata?.prefs?.notifications?.pms_symptoms;
-		selfCareTips = v?.metadata?.prefs?.notifications?.self_care;
+		selfCareTips = v?.metadata?.prefs?.notifications?.self_care_tips;
 	});
 
 	const save = async () => {
@@ -20,7 +20,7 @@
 				notifications: {
 					fertility_window: fertility,
 					pms_symptoms: pmsSymptoms,
-					self_care: selfCareTips
+					self_care_tips: selfCareTips
 				}
 			}
 		});

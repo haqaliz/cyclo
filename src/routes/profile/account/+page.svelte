@@ -14,7 +14,7 @@
 
 	const save = async () => {
 		await userApi.updateInfo({
-			email: user?.email,
+			email: user?.email
 		});
 		await auth.logout();
 		usr.set(null);

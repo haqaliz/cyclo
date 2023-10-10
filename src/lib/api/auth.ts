@@ -5,12 +5,15 @@ interface Login {
 	password: string;
 }
 export const login = async (payload: Login) => {
-	const r = await fetch(`${API_BASE_URL}/auth/login`, {
+	let r = await fetch(`${API_BASE_URL}/auth/login`, {
 		...REQ_OPTIONS,
 		method: 'POST',
 		body: JSON.stringify(payload)
 	}).catch((e) => e.response);
-	return !!r?.ok;
+	if (!r?.ok) return;
+	r = await r.text();
+	if (r === '') return;
+	return JSON.parse(r);
 };
 
 export const signup = async (payload: Login) => {

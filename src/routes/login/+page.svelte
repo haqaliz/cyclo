@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { auth } from '$api';
-	import { user } from '$stores';
+	import { token, user } from '$stores';
 
 	interface Form {
 		email: string;
@@ -22,6 +22,7 @@
 			showError = true;
 			return;
 		}
+		token.set(r?.token);
 		showError = false;
 		await goto('/calendar');
 		await user.get();

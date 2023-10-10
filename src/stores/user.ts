@@ -1,10 +1,12 @@
 import { user as usr } from '$api';
 import { writable } from 'svelte/store';
+import token from './token';
 import plans from './plans';
 
 const user = writable(null);
 
 user.get = async () => {
+	if (localStorage.getItem('token')) token.set(localStorage.getItem('token'));
 	const r = await usr.getInfo();
 	if (!r) return;
 	if (!r.subscription)
