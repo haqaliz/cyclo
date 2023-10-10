@@ -6,9 +6,16 @@
 		staging: 'https://cyclotic-fc537.web.app/',
 		production: 'https://cyclo.dev/'
 	}[import.meta.env.MODE];
-	const title = 'Cyclo';
+	const title = 'Cyclo | Your Menstrual Health Companion';
 	const description =
-		'Empower your menstrual health journey with our comprehensive tracking and insights app. Join us today!';
+		'Begin yo transformative menstrual health journey with Cyclo, Your trusted tracking and insight companion. Join us and embrace the power of informed choices!';
+	const keywords = [
+		'menstrual cycle tracker',
+		"women's health, period tracking app",
+		'fertility tracker',
+		'PMS management',
+		'reproductive health'
+	];
 </script>
 
 <svelte:head>
@@ -16,6 +23,7 @@
 	<title>{title}</title>
 	<meta name="title" content={title} />
 	<meta name="description" content={description} />
+	<meta name="keywords" content={keywords.join(',')} />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
@@ -48,11 +56,11 @@
             "
 		>
 			<h1 class="font-semibold text-2xl md:text-6xl md:leading-snug md:max-w-3xl mb-2 md:mb-8">
-				Welcome to Cyclo: Your Ultimate Menstrual Health Companion
+				Your Ultimate Menstrual Health Companion
 			</h1>
 			<p class="text-base md:text-lg text-justify mb-2 md:mb-6">
-				Are you ready to take control of your menstrual health like never before? Welcome to Cyclo,
-				your all-in-one menstrual cycle tracking and empowerment platform.
+				Are you ready to take control of your menstrual health like never before? Get started with
+				Cyclo, your all-in-one menstrual cycle tracking and empowerment platform.
 			</p>
 			<div class="flex flex-row items-center justify-center">
 				<div
@@ -62,7 +70,7 @@
 			</div>
 		</div>
 
-		<!-- Welcome section -->
+		<!-- Info section -->
 		<div class="flex flex-col p-2 md:p-4">
 			<h3 class="font-semibold text-lg md:text-3xl md:mt-16 mb-2 md:mb-6">
 				Your personalized health dashboard
@@ -101,9 +109,9 @@
 
 	<!-- Why section -->
 	<div class="flex flex-col p-2 md:py-4 md:px-16">
-		<h1 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
+		<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
 			Why Choose Cyclo?
-		</h1>
+		</h2>
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 md:gap-8">
 			<div
 				class="
@@ -183,9 +191,9 @@
 
 	<!-- Join section -->
 	<div class="flex flex-col p-2 md:py-4 md:px-16">
-		<h1 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
+		<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
 			Join Our Menstrual Health Revolution
-		</h1>
+		</h2>
 		<p class="text-base md:text-lg text-justify">
 			Ready to embark on a journey of self-discovery and empowerment? Join Cyclo today and become
 			part of our menstrual health revolution. Take control, gain insights, and live life on your
@@ -201,13 +209,13 @@
 
 	<!-- Start section -->
 	<div class="flex flex-col p-2 md:py-4 md:px-16">
-		<h1 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
+		<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
 			Get Started Now
-		</h1>
+		</h2>
 		<p class="text-base md:text-lg text-justify mb-2 md:mb-4">
 			Sign up today to begin your Cyclo journey. It's time to take charge of your menstrual health
-			and embrace a brighter, healthier tomorrow. Welcome to Cyclo, where knowledge is power, and
-			empowerment is everything.
+			and embrace a brighter, healthier tomorrow. Step into Cyclo's world, where knowledge is power,
+			and empowerment is everything.
 		</p>
 		{#if !$user}
 			<div class="flex flex-row items-center justify-center">
