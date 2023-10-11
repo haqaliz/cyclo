@@ -13,10 +13,12 @@
 	let loading = false;
 	let requestedForUser = false;
 
-	const publicPages = ['login', 'signup', 'about'];
+	const publicPages = ['login', 'signup', 'about', 'terms-and-conditions'];
+	const publicPagesWithNav = ['about', 'terms-and-conditions'];
 	const privatePages = ['profile', 'calendar', 'analytics', 'insight', 'subscribe'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
+		publicWithNav: new RegExp(`^/(${publicPagesWithNav.join('|')})`, 'i'),
 		private: new RegExp(`^/(${privatePages.join('|')})`, 'i')
 	};
 
@@ -62,7 +64,7 @@
 </script>
 
 <!-- Layout -->
-{#if $page.url.pathname.match(pages.private) || ['/', '/about'].includes($page.url.pathname)}
+{#if $page.url.pathname.match(pages.private) || $page.url.pathname.match(pages.publicWithNav) || '/' === $page.url.pathname}
 	<div in:slide out:slide class="flex flex-col">
 		<Nav />
 	</div>
@@ -71,7 +73,7 @@
 	<div in:fade out:fade class="flex flex-col">
 		<slot />
 
-		{#if ['/', '/about'].includes($page.url.pathname)}
+		{#if $page.url.pathname.match(pages.publicWithNav) || '/' === $page.url.pathname}
 			<Footer />
 		{/if}
 	</div>

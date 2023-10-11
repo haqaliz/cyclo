@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { user } from '$stores';
 	import { DOMAIN } from '$config';
-	const title = 'About Cyclo | Empowering Menstrual Health';
+	const title = 'About | Cyclo';
 	const description =
 		"Discover Cyclo's mission, team, and commitment to menstrual health empowerment.";
 	const keywords = [
 		'Cyclo mission',
 		'Cyclo team',
-		'menstrual health empowerment',
+		'Cyclo menstrual health empowerment',
 		'about Cyclo',
 		'meet the Cyclo team',
-		'informed choices',
-		'menstrual health journey'
+		'Cyclo informed choices',
+		'Cyclo menstrual health journey'
 	];
 </script>
 

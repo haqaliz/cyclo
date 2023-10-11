@@ -31,6 +31,9 @@ const getRoutes = async () => {
 		},
 		{
 			path: '/about'
+		},
+		{
+			path: '/terms-and-conditions'
 		}
 		// {
 		// 	path: '/profile'
