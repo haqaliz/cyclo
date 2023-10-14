@@ -25,7 +25,7 @@
 
 		<div class="flex-1" />
 
-		<div class="flex flex-row items-center">
+		<div class="flex flex-row items-start">
 			<div class="flex flex-col items-start mr-8">
 				<a
 					href="/about"
@@ -33,12 +33,14 @@
 				>
 					About Us</a
 				>
-				<!-- <a
-                    href="/contact"
-                    class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold"
-                >
-                    Contact Us</a> -->
+				<a
+					href="/contact"
+					class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold"
+				>
+					Contact Us</a
+				>
 			</div>
+			<div class="flex-1" />
 			<div class="flex flex-col items-start">
 				<a
 					href="/terms-and-conditions"
@@ -46,11 +48,12 @@
 				>
 					Terms and Conditions</a
 				>
-				<!-- <a
-                    href="/privacy-policy"
-                    class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold"
-                >
-                    Privacy Policy</a> -->
+				<a
+					href="/privacy-policy"
+					class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold"
+				>
+					Privacy Policy</a
+				>
 			</div>
 		</div>
 	</div>

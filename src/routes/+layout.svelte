@@ -13,8 +13,15 @@
 	let loading = false;
 	let requestedForUser = false;
 
-	const publicPages = ['login', 'signup', 'about', 'terms-and-conditions'];
-	const publicPagesWithNav = ['about', 'terms-and-conditions'];
+	const publicPages = [
+		'login',
+		'signup',
+		'about',
+		'contact',
+		'privacy-policy',
+		'terms-and-conditions'
+	];
+	const publicPagesWithNav = ['about', 'contact', 'privacy-policy', 'terms-and-conditions'];
 	const privatePages = ['profile', 'calendar', 'analytics', 'insight', 'subscribe'];
 	const pages = {
 		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),

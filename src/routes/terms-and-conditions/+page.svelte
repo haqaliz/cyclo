@@ -217,9 +217,9 @@
 			<li>
 				<strong>Jurisdiction</strong>
 				<span
-					>These terms are governed by the laws of [Jurisdiction]. Any disputes arising from or in
+					>These terms are governed by the laws of Canada. Any disputes arising from or in
 					connection with these terms will be subject to the exclusive jurisdiction of the courts in
-					[Jurisdiction].</span
+					Canada.</span
 				>
 			</li>
 		</ol>
@@ -246,10 +246,18 @@
 			</li>
 			<li>
 				<strong>Contact</strong>
-				<span
-					>If you have any questions or concerns about these terms, please feel free to contact us
-					at [Contact Email].</span
-				>
+				<p class="flex flex-row flex-wrap">
+					If you have any questions or concerns about these terms, please feel free to contact us at
+					<a
+						href="mailto:info@cyclo.dev"
+						class="
+							flex flex-row transition-all ease-in-out
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
+						"
+					>
+						info@cyclo.dev
+					</a>.
+				</p>
 			</li>
 		</ol>
 	</div>

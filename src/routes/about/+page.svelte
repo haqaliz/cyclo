@@ -186,7 +186,7 @@
 						href="https://www.linkedin.com/in/alihaqiqi/"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						Ali Alizade Haqiqi:
@@ -204,7 +204,7 @@
 						href="https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1196/annals.1429.018"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						Dr. Shannon M. Hawkins,
@@ -213,7 +213,7 @@
 						href="https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1196/annals.1429.018"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						Dr. Martin M. Matzuk,
@@ -222,7 +222,7 @@
 						href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						M. Mihm,
@@ -231,7 +231,7 @@
 						href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						S. Gangooly
@@ -240,7 +240,7 @@
 						href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						and S. Muttukrishna:
@@ -257,7 +257,7 @@
 						href="https://www.linkedin.com/in/alihaqiqi/"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						Ali Alizade Haqiqi:
@@ -274,7 +274,7 @@
 						href="https://www.linkedin.com/in/alihaqiqi/"
 						class="
 							flex flex-row transition-all ease-in-out
-							hover:bg-black hover:bg-opacity-10 py-1 px-2 rounded font-semibold
+							hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
 						"
 					>
 						Ali Alizade Haqiqi:
