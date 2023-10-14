@@ -185,7 +185,7 @@
 			Response Time
 		</h2>
 		<p class="text-base md:text-lg text-justify mb-2 md:mb-4">
-			We aim to respond to inquiries within [Specify Response Time]. Please note that response times
+			We aim to respond to inquiries within 48 hours. Please note that response times
 			may vary based on the volume of inquiries.
 		</p>
 	</div>
@@ -195,9 +195,17 @@
 		<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
 			Customer Support
 		</h2>
-		<p class="text-base md:text-lg text-justify mb-2 md:mb-4">
-			For additional support or urgent matters, you can reach our customer support team at [Customer
-			Support Email Address].
+		<p class="flex flex-row flex-wrap text-base md:text-lg text-justify mb-2 md:mb-4">
+			For additional support or urgent matters, you can reach our customer support team at
+			<a
+				href="mailto:info@cyclo.dev"
+				class="
+					flex flex-row transition-all ease-in-out
+					hover:bg-black hover:bg-opacity-10 px-2 rounded font-semibold
+				"
+			>
+				info@cyclo.dev
+			</a>.
 		</p>
 	</div>
 
