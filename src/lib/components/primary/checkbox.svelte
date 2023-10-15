@@ -2,9 +2,17 @@
 	const uuid = Math.random().toString();
 	export let value = false;
 	export let label = '';
+	const clickEvent = () => {
+		// just for stop propagation
+	};
 </script>
 
-<label for={uuid} class="group/checkbox flex flex-row select-none cursor-pointer relative">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<label
+	for={uuid}
+	class="group/checkbox flex flex-row select-none cursor-pointer relative"
+	on:click|stopPropagation={clickEvent}
+>
 	<input id={uuid} type="checkbox" class="absolute opacity-0 w-0 h-0" bind:checked={value} />
 	<div
 		class={`w-7 h-7 rounded flex flex-row items-center justify-center

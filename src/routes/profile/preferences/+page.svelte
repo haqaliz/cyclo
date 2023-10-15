@@ -1,27 +1,21 @@
 <script lang="ts">
 	import { user } from '$stores';
 	import { user as usr } from '$api';
-	import { Checkbox } from '$components';
+	import Notifications from './notifications.svelte';
+	import MenstruationProducts from './menstruation-products.svelte';
 
-	let fertility = false;
-	let pmsSymptoms = false;
-	let selfCareTips = false;
-
-	user.subscribe((v: any) => {
-		if (!v) return;
-		fertility = v?.metadata?.prefs?.notifications?.fertility_window;
-		pmsSymptoms = v?.metadata?.prefs?.notifications?.pms_symptoms;
-		selfCareTips = v?.metadata?.prefs?.notifications?.self_care_tips;
-	});
+	let notifications: any;
+	let menstruationProducts: any;
 
 	const save = async () => {
 		await usr.updateInfo({
 			prefs: {
 				notifications: {
-					fertility_window: fertility,
-					pms_symptoms: pmsSymptoms,
-					self_care_tips: selfCareTips
-				}
+					fertility_window: notifications?.fertility,
+					pms_symptoms: notifications?.pmsSymptoms,
+					self_care_tips: notifications?.selfCareTips
+				},
+				menstruation_products: menstruationProducts
 			}
 		});
 		await user.get();
@@ -37,19 +31,8 @@
 </svelte:head>
 
 <div class="flex flex-col bg-gray-100 rounded p-2 sm:p-4 relative overflow-hidden">
-	<div class="flex flex-col mb-2 md:mb-4">
-		<div class="flex flex-row -items-center mb-2 sm:mb-4">
-			<Checkbox label="Fertility Window Notifications" bind:value={fertility} />
-		</div>
-
-		<div class="flex flex-row -items-center mb-2">
-			<Checkbox label="PMS Symptoms Notifications" bind:value={pmsSymptoms} />
-		</div>
-
-		<!-- <div class="flex flex-row -items-center">
-			<Checkbox label="Self Care Tips Notifications" bind:value={selfCareTips} />
-		</div> -->
-	</div>
+	<Notifications bind:value={notifications} />
+	<MenstruationProducts bind:value={menstruationProducts} />
 
 	<div class="flex flex-row">
 		<button

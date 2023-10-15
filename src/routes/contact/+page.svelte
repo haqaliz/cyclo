@@ -185,8 +185,8 @@
 			Response Time
 		</h2>
 		<p class="text-base md:text-lg text-justify mb-2 md:mb-4">
-			We aim to respond to inquiries within 48 hours. Please note that response times
-			may vary based on the volume of inquiries.
+			We aim to respond to inquiries within 48 hours. Please note that response times may vary based
+			on the volume of inquiries.
 		</p>
 	</div>
 

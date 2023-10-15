@@ -96,7 +96,7 @@
 				<span>Powered by</span>
 				<div
 					class="bg-cover bg-no-repeat bg-center w-[60px] h-[25px] ml-2"
-					style:background-image="url(/img/misc/stripe-logo.svg)"
+					style:background-image="url(/img/misc/brands/stripe.svg)"
 				/>
 			</div>
 		</div>
