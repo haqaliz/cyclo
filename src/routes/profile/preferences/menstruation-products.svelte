@@ -9,7 +9,7 @@
 		ob: boolean;
 		always: boolean;
 		kotex: boolean;
-		'seventh-generation': boolean;
+		cora: boolean;
 		divacup: boolean;
 		lunette: boolean;
 		saalt: boolean;
@@ -30,7 +30,7 @@
 			ob: false,
 			always: false,
 			kotex: false,
-			'seventh-generation': false,
+			cora: false,
 			divacup: false,
 			lunette: false,
 			saalt: false
@@ -46,7 +46,7 @@
 		pad: {
 			name: 'Sanity Pads',
 			title: 'Which pad brands you use?',
-			brands: ['always', 'kotex', 'seventh-generation']
+			brands: ['always', 'kotex', 'cora']
 		},
 		cup: {
 			name: 'Menstrual Cups',
