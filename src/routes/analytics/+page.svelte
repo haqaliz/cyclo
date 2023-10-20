@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { user } from '$stores';
 	import { user as usr } from '$api';
+	import { Recommendations } from '$components';
 	import MenstruationStatus from './menstruation-status.svelte';
 	import FertileStatus from './fertile-status.svelte';
 	import CycleLength from './cycle-length.svelte';
+
 	let latestMenstrualCycleStart: any;
 	user.subscribe(async (v) => {
 		if (!v) return;
@@ -23,4 +25,5 @@
 	<MenstruationStatus {latestMenstrualCycleStart} />
 	<CycleLength />
 	<FertileStatus {latestMenstrualCycleStart} />
+	<Recommendations />
 </div>

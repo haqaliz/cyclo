@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { user } from '$stores';
 	import { user as usr } from '$api';
+	import { Recommendations } from '$components';
 	import Agenda from './agenda.svelte';
 	import RecordedDays from './recorded-days/index.svelte';
 	import { startOfDay, endOfDay } from 'date-fns';
@@ -37,5 +38,9 @@
 
 	<div class="mt-2 sm:mt-4">
 		<RecordedDays {recordedDays} {selectedDay} on:update={() => getRecordedDays(selectedDay)} />
+	</div>
+
+	<div class="mt-2 sm:mt-4">
+		<Recommendations />
 	</div>
 </div>

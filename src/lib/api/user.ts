@@ -9,6 +9,15 @@ export const getInfo = async () => {
 	return r.json();
 };
 
+export const getRecommendations = async () => {
+	const r = await fetch(`${API_BASE_URL}/user/recommendations`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 interface UpdateInfoPayload {
 	prefs?: any;
 	email?: string;
@@ -101,6 +110,7 @@ export const subscribeForPlan = async (payload: any) => {
 
 export default {
 	getInfo,
+	getRecommendations,
 	updateInfo,
 	getRecordedDays,
 	getLatestMenstrualCycleStart,
