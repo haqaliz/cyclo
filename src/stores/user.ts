@@ -28,10 +28,7 @@ user.get = async () => {
 			key: 'beginner_monthly'
 		};
 	user.set(r);
-	await Promise.all([
-		plans.get(),
-		recommendations.get(),
-	]);
+	await Promise.all([plans.get(), recommendations.get()]);
 };
 
 export default user;
