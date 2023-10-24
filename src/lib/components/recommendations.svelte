@@ -7,7 +7,7 @@
 	recommendations.subscribe((v: any) => {
 		if (!v?.menstruation_products) return;
 		// Menstruation Product Index
-		const MPI = Math.floor(Math.random() * (v?.menstruation_products.length - 1)) + 0;
+		const MPI = Math.floor(Math.random() * v?.menstruation_products.length) + 0;
 		menstruationProduct = v?.menstruation_products?.[MPI];
 		menstruationProductColor = {
 			pad: 'bg-orange-200 hover:bg-orange-300 transition-colors ease-in-out',
@@ -75,9 +75,11 @@
 			{/if}
 		</div>
 	</div>
-	<Modal bind:show={modal.show} trigger={false} title={modal.title}>
+	<Modal bind:show={modal.show} trigger={false} title={modal.title} containerClass="max-w-md">
 		<svelte:fragment slot="content">
-			<div class="flex flex-col max-w-md text-justify text-lg">
+			<div
+				class="flex-1 w-full flex flex-col max-h-[320px] hide-scrollbar overflow-y-scroll text-justify text-lg"
+			>
 				{modal.content}
 			</div>
 		</svelte:fragment>

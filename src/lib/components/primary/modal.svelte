@@ -5,6 +5,7 @@
 	export let triggerTooltip = '';
 	export let triggerClass = `p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
             focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400`;
+	export let containerClass = '';
 	export let show = false;
 	export let title = '';
 </script>
@@ -25,10 +26,11 @@
 		"
 	>
 		<div
-			class="
+			class={`
 				bg-white rounded flex flex-col p-2 sm:p-4 z-[2]
 				w-full h-full sm:w-auto sm:h-auto sm:min-w-[30%] sm:min-h-[320px]
-			"
+				${containerClass ?? ''}
+			`}
 			use:clickOutside
 			on:outclick={() => (show = false)}
 		>
