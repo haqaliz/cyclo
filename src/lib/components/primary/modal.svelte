@@ -35,6 +35,8 @@
 			<div class="flex flex-row items-center">
 				{#if title?.length}
 					<h1 class="font-sans font-semibold text-3xl">{title}</h1>
+				{:else if $$slots.title}
+					<slot name="title" />
 				{/if}
 				<div class="flex-1" />
 				<button

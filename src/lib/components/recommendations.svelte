@@ -1,17 +1,30 @@
 <script lang="ts">
+	import { Modal } from '$components';
 	import { recommendations } from '$stores';
 
 	let menstruationProduct: any;
 	let menstruationProductColor = 'bg-purple-200';
 	recommendations.subscribe((v: any) => {
 		if (!v?.menstruation_products) return;
-		menstruationProduct = v?.menstruation_products?.[0];
+		// Menstruation Product Index
+		const MPI = Math.floor(Math.random() * (v?.menstruation_products.length - 1)) + 0;
+		menstruationProduct = v?.menstruation_products?.[MPI];
 		menstruationProductColor = {
-			pad: 'bg-orange-200',
-			tampon: 'bg-rose-200',
-			cup: 'bg-sky-200'
+			pad: 'bg-orange-200 hover:bg-orange-300 transition-colors ease-in-out',
+			tampon: 'bg-rose-200 hover:bg-rose-300 transition-colors ease-in-out',
+			cup: 'bg-sky-200 hover:bg-sky-300 transition-colors ease-in-out'
 		}[menstruationProduct?.type];
 	});
+	let modal: any = {
+		show: false,
+		title: '',
+		content: ''
+	};
+	const showFeature = (v: any) => {
+		modal.title = v?.title;
+		modal.content = v?.content;
+		modal.show = true;
+	};
 </script>
 
 {#if menstruationProduct}
@@ -20,9 +33,13 @@
             min-w-[280px] sm:min-w-[250px] min-h-[180px] sm:min-h-[120px]
             bg-gray-100 hover:bg-gray-200"
 	>
-		<div class={`flex flex-col items-center ${menstruationProductColor} rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full sm:w-auto`}>
+		<div
+			class={`flex flex-col items-center ${menstruationProductColor} overflow-hidden rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full sm:w-auto`}
+		>
 			<div
-				class="bg-no-repeat bg-contain bg-center w-[240px] h-[240px] mix-blend-multiply"
+				class="
+					bg-no-repeat relative bg-contain bg-center w-[240px] h-[240px]
+				"
 				style:background-image={`url(${menstruationProduct?.img ?? ''})`}
 			/>
 		</div>
@@ -47,14 +64,22 @@
 			{#if menstruationProduct?.features?.length}
 				<div class="flex flex-row flex-wrap">
 					{#each menstruationProduct?.features as feature}
-						<div
+						<button
 							class={`flex flex-col ${menstruationProductColor} rounded p-2 sm:p-4 mb-2 sm:mb-4 mr-2 sm:mr-4 font-semibold`}
+							on:click={() => showFeature(feature)}
 						>
 							{feature?.title}
-						</div>
+						</button>
 					{/each}
 				</div>
 			{/if}
 		</div>
 	</div>
+	<Modal bind:show={modal.show} trigger={false} title={modal.title}>
+		<svelte:fragment slot="content">
+			<div class="flex flex-col max-w-md text-justify text-lg">
+				{modal.content}
+			</div>
+		</svelte:fragment>
+	</Modal>
 {/if}
