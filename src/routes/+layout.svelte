@@ -3,7 +3,7 @@
 
 	import { user } from '$stores';
 	import { page } from '$app/stores';
-	
+
 	import { onMount } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
 	import Nav from './nav/index.svelte';

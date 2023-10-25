@@ -11,10 +11,10 @@
 	user.subscribe((v) => {
 		if (!v) {
 			items = [
-				{
-					name: 'Join Us',
-					path: '/explore'
-				},
+				// {
+				// 	name: 'Explore',
+				// 	path: '/explore'
+				// },
 				{
 					name: 'Join Us',
 					path: '/signup'
@@ -42,7 +42,7 @@
 			{
 				icon: 'person',
 				title: 'Profile',
-				path: '/profile',
+				path: '/profile'
 			},
 			{
 				icon: 'logout',
