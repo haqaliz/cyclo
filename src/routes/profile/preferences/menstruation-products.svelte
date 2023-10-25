@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { user } from '$stores';
-	import { slide } from 'svelte/transition';
 	import { Checkbox } from '$components';
 
 	interface MenstruationProductsBrands {
@@ -96,9 +95,8 @@
 	</div>
 
 	{#each Object.keys(products) as productKey}
-		<!-- {productKey} -->
 		{#if value[productKey]}
-			<div in:slide out:slide class="flex flex-col mt-2 mb-mt-4">
+			<div class="flex flex-col mt-2 mb-mt-4">
 				<h3 class="text-2xl font-semibold mb-2 md:mb-4">{products[productKey].title}</h3>
 				<div class="flex flex-row overflow-x-scroll hide-scrollbar">
 					{#each products[productKey].brands as brand}

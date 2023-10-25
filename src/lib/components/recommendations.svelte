@@ -34,11 +34,14 @@
             bg-gray-100 hover:bg-gray-200"
 	>
 		<div
-			class={`flex flex-col items-center ${menstruationProductColor} p-4 overflow-hidden rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full sm:w-auto`}
+			class={`
+				flex flex-col items-center ${menstruationProductColor} p-4 overflow-hidden
+				rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[240px] h-[240px]
+			`}
 		>
 			<div
 				class="
-					bg-no-repeat relative bg-contain bg-center rounded w-[240px] h-[240px]
+					bg-no-repeat relative bg-contain bg-center rounded w-full h-full
 				"
 				style:background-image={`url(${menstruationProduct?.img ?? ''})`}
 			/>

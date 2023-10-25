@@ -2,76 +2,25 @@
 	import '$styles';
 
 	import { user } from '$stores';
-	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
+	
 	import { onMount } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
 	import Nav from './nav/index.svelte';
 	import Footer from './footer/index.svelte';
+	import { permissions, redirects, loading, setLoading } from './index';
 
-	let loading = false;
-	let requestedForUser = false;
-
-	const publicPages = [
-		'login',
-		'signup',
-		'about',
-		'contact',
-		'privacy-policy',
-		'terms-and-conditions'
-	];
-	const publicPagesWithNav = ['about', 'contact', 'privacy-policy', 'terms-and-conditions'];
-	const privatePages = ['profile', 'calendar', 'analytics', 'insight', 'subscribe'];
-	const pages = {
-		public: new RegExp(`^/(${publicPages.join('|')})`, 'i'),
-		publicWithNav: new RegExp(`^/(${publicPagesWithNav.join('|')})`, 'i'),
-		private: new RegExp(`^/(${privatePages.join('|')})`, 'i')
-	};
-
-	const redirects = async () => {
-		if (!browser) return;
-		if (!requestedForUser && !$user) await user.get();
-		if (
-			!$page.url.pathname.match(pages.private) &&
-			!$page.url.pathname.match(pages.public) &&
-			$page.url.pathname !== '/'
-		) {
-			loading = false;
-			return;
-		}
-		if (!$user && !!$page.url.pathname.match(pages.private)) {
-			loading = false;
-			await goto('/login');
-			return;
-		}
-		if (!$user && !!$page.url.pathname.match(pages.public)) {
-			loading = false;
-			await goto($page.url);
-			return;
-		}
-		if ($user && !!$page.url.pathname.match(pages.public)) {
-			loading = false;
-			await goto('/');
-			return;
-		}
-		loading = false;
-		await goto($page.url);
-	};
-
-	user.subscribe(async () => {
-		await redirects();
-	});
+	user.subscribe(redirects);
 
 	onMount(async () => {
-		loading = true;
+		setLoading(true);
 		// get current user detail
 		await user.get();
 	});
 </script>
 
 <!-- Layout -->
-{#if $page.url.pathname.match(pages.private) || $page.url.pathname.match(pages.publicWithNav) || '/' === $page.url.pathname}
+{#if permissions.private.test($page.url.pathname) || permissions.publicWithNav.test($page.url.pathname) || '/' === $page.url.pathname}
 	<div in:slide out:slide class="flex flex-col">
 		<Nav />
 	</div>
@@ -80,7 +29,7 @@
 	<div in:fade out:fade class="flex flex-col">
 		<slot />
 
-		{#if $page.url.pathname.match(pages.publicWithNav) || '/' === $page.url.pathname}
+		{#if permissions.publicWithFooter.test($page.url.pathname) || '/' === $page.url.pathname}
 			<Footer />
 		{/if}
 	</div>

@@ -13,6 +13,10 @@
 			items = [
 				{
 					name: 'Join Us',
+					path: '/explore'
+				},
+				{
+					name: 'Join Us',
 					path: '/signup'
 				}
 			];
@@ -31,10 +35,14 @@
 				name: 'Insight',
 				path: '/insight'
 			},
+			// {
+			// 	name: 'Explore',
+			// 	path: '/explore'
+			// },
 			{
 				icon: 'person',
 				title: 'Profile',
-				path: '/profile'
+				path: '/profile',
 			},
 			{
 				icon: 'logout',
@@ -78,11 +86,11 @@
 </div>
 
 {#if show}
-	<div
-		in:slide
-		out:slide
-		class="md:hidden bg-purple-200 flex flex-row items-center p-2 overflow-x-scroll hide-scrollbar"
-	>
-		<Menu {items} />
+	<div in:slide out:slide class="flex flex-col">
+		<div
+			class="md:hidden bg-purple-200 flex flex-row items-center p-2 overflow-x-scroll hide-scrollbar"
+		>
+			<Menu {items} />
+		</div>
 	</div>
 {/if}
