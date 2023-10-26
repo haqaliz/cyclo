@@ -37,7 +37,7 @@
 					{#each trends as trend}
 						<li>
 							<a
-								href={`/explore?q=${trend.value}`}
+								href={`/explore/overview?q=${trend.value}`}
 								class="flex flex-col hover:bg-black hover:bg-opacity-10 p-2 md:p-4"
 							>
 								<strong>#{trend.value}</strong>

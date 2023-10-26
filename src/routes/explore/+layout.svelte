@@ -10,13 +10,15 @@
 	let selectTabItem = '';
 	$: {
 		if (browser && $page.url.pathname !== '/explore') {
-			goto(`/explore/${selectTabItem.toLowerCase()}`);
+			const query = $page.url.search ?? '';
+			goto(`/explore/${selectTabItem.toLowerCase()}${query}`);
 		}
 	}
 	onMount(() => {
+		const query = $page.url.search ?? '';
 		if ($page.url.pathname === '/explore') {
 			selectTabItem = 'Overview';
-			goto(`/explore/${selectTabItem.toLowerCase()}`);
+			goto(`/explore/${selectTabItem.toLowerCase()}${query}`);
 		} else {
 			const path = $page.url.pathname.split('/');
 			const tab: string = path[path.length - 1];
