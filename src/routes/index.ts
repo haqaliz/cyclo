@@ -67,8 +67,8 @@ export const pages = [
 	},
 	{
 		key: '/explore/me',
-		private: true,
-	},
+		private: true
+	}
 ];
 
 export const permissions: any = {

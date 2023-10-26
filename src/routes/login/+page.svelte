@@ -67,7 +67,7 @@
 		>
 			Login
 		</button>
-		
+
 		{#if loading}
 			<Progress />
 		{/if}

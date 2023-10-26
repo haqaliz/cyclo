@@ -41,5 +41,5 @@ export const trends = async () => {
 export default {
 	contact,
 	explore,
-	trends,
+	trends
 };

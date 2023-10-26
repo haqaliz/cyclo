@@ -12,7 +12,7 @@
 		if (loading) return;
 		loading = true;
 		posts = await misc.explore({
-			query: q,
+			query: q
 		});
 		loading = false;
 	};

@@ -12,7 +12,7 @@
 		loading = true;
 		posts = await usr.getPosts({
 			query: q,
-			limit: 1000,
+			limit: 1000
 		});
 		loading = false;
 	};
@@ -28,9 +28,7 @@
 			<span class="text-xl">(searched for: {query})</span>
 		{/if}
 	</h1>
-	<div
-		class="flex flex-col md:h-[calc(100vh-240px)] md:overflow-y-scroll hide-scrollbar"
-	>
+	<div class="flex flex-col md:h-[calc(100vh-240px)] md:overflow-y-scroll hide-scrollbar">
 		<NewPost on:created={() => update(query)} />
 
 		{#if loading}

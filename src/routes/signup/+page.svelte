@@ -17,7 +17,7 @@
 	};
 
 	let errorMsg = '';
-	let loading= false;
+	let loading = false;
 
 	const signup = async (): Promise<void> => {
 		if (loading) return;

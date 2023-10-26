@@ -122,7 +122,7 @@ export const createPost = async (payload: CreatePostPayload) => {
 
 export const getPosts = async (payload: any) => {
 	const q = payload.query?.length ? `&query=${payload.query}` : '';
-	const fromTo = (payload.from && payload.to) ? `&from=${payload.from}&to=${payload.to}` : '';
+	const fromTo = payload.from && payload.to ? `&from=${payload.from}&to=${payload.to}` : '';
 	const r = await fetch(`${API_BASE_URL}/user/posts?limit=${payload.limit}${fromTo}${q}`, {
 		...REQ_OPTIONS,
 		method: 'GET'

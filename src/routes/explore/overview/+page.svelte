@@ -51,7 +51,9 @@
 </svelte:head>
 
 <div class="flex flex-col md:flex-row">
-	<div class="flex flex-col flex-1 w-full md:min-w-[calc(100%-350px-1rem)] md:max-w-[calc(100%-350px-1rem)]">
+	<div
+		class="flex flex-col flex-1 w-full md:min-w-[calc(100%-350px-1rem)] md:max-w-[calc(100%-350px-1rem)]"
+	>
 		<Timeline {query} />
 	</div>
 	<div class="flex flex-col w-full md:min-w-[350px] md:max-w-[350px] md:mr-4">
