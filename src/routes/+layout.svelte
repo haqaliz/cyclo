@@ -8,14 +8,13 @@
 	import { slide, fade } from 'svelte/transition';
 	import Nav from './nav/index.svelte';
 	import Footer from './footer/index.svelte';
-	import { permissions, redirects, loading, setLoading } from './index';
+	import { permissions, redirects, loading } from './index';
 
 	user.subscribe(redirects);
 
 	onMount(async () => {
-		setLoading(true);
 		// get current user detail
-		await user.get();
+		if (!$user) await user.get();
 	});
 </script>
 

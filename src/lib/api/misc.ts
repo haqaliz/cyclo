@@ -16,6 +16,30 @@ export const contact = async (payload: ContactPayload) => {
 	return !!r?.ok;
 };
 
+interface ExplorePayload {
+	query: string;
+}
+export const explore = async (payload: ExplorePayload) => {
+	const q = payload.query?.length ? `query=${payload.query}` : '';
+	const r = await fetch(`${API_BASE_URL}/explore?${q}`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
+export const trends = async () => {
+	const r = await fetch(`${API_BASE_URL}/trends`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export default {
-	contact
+	contact,
+	explore,
+	trends,
 };

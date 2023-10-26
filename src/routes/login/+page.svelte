@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { auth } from '$api';
 	import { token, user } from '$stores';
+	import { Progress } from '$components';
 
 	interface Form {
 		email: string;
@@ -14,9 +15,11 @@
 	};
 
 	let showError = false;
+	let loading = false;
 
 	const login = async (): Promise<void> => {
-		if (!form.email.length || !form.password.length) return;
+		if (!form.email.length || !form.password.length || loading) return;
+		loading = true;
 		const r = await auth.login(form);
 		if (!r) {
 			showError = true;
@@ -24,8 +27,9 @@
 		}
 		token.set(r?.token);
 		showError = false;
-		await goto('/calendar');
 		await user.get();
+		await goto('/calendar');
+		loading = false;
 	};
 </script>
 
@@ -63,6 +67,11 @@
 		>
 			Login
 		</button>
+		
+		{#if loading}
+			<Progress />
+		{/if}
+
 		{#if showError}
 			<div
 				class="p-2 rounded font-sans font-medium text-lg flex items-center bg-red-600 text-black"
@@ -74,13 +83,13 @@
 		<a
 			href="/signup"
 			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-blue-500 hover:bg-gray-50"
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-purple-400 hover:bg-gray-50"
 			>Create new account</a
 		>
 		<a
 			href="/"
 			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-blue-500 hover:bg-gray-50"
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-purple-400 hover:bg-gray-50"
 			>Go back to home</a
 		>
 	</div>

@@ -108,6 +108,37 @@ export const subscribeForPlan = async (payload: any) => {
 	return !!r?.ok;
 };
 
+interface CreatePostPayload {
+	content: string;
+}
+export const createPost = async (payload: CreatePostPayload) => {
+	const r = await fetch(`${API_BASE_URL}/user/posts`, {
+		...REQ_OPTIONS,
+		method: 'POST',
+		body: JSON.stringify(payload)
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
+export const getPosts = async (payload: any) => {
+	const q = payload.query?.length ? `&query=${payload.query}` : '';
+	const fromTo = (payload.from && payload.to) ? `&from=${payload.from}&to=${payload.to}` : '';
+	const r = await fetch(`${API_BASE_URL}/user/posts?limit=${payload.limit}${fromTo}${q}`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
+export const removePost = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/posts/${payload.post_id}`, {
+		...REQ_OPTIONS,
+		method: 'DELETE'
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
 export default {
 	getInfo,
 	getRecommendations,
@@ -117,5 +148,8 @@ export default {
 	getMenstrualCycles,
 	addRecordedDay,
 	updateRecordedDay,
-	subscribeForPlan
+	subscribeForPlan,
+	createPost,
+	getPosts,
+	removePost
 };

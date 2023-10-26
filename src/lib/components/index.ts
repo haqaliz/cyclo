@@ -1,4 +1,5 @@
 // Primary Components
+export { default as Progress } from './primary/progress.svelte';
 export { default as Checkbox } from './primary/checkbox.svelte';
 export { default as Modal } from './primary/modal.svelte';
 export { default as Tabs } from './primary/tabs.svelte';

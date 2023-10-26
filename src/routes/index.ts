@@ -3,105 +3,105 @@ import { browser } from '$app/environment';
 import { user as usr } from '$stores';
 import { page as pg } from '$app/stores';
 
-export let loading = false;
-
-export const setLoading = (v: boolean) => {
-	loading = v;
-};
+export let loading = true;
 
 export const pages = [
 	{
-		key: 'about',
+		key: '/about',
 		public: true,
 		nav: true,
 		footer: true
 	},
 	{
-		key: 'contact',
+		key: '/contact',
 		public: true,
 		nav: true,
 		footer: true
 	},
 	{
-		key: 'privacy-policy',
+		key: '/privacy-policy',
 		public: true,
 		nav: true,
 		footer: true
 	},
 	{
-		key: 'terms-and-conditions',
+		key: '/terms-and-conditions',
 		public: true,
 		nav: true,
 		footer: true
 	},
 	{
-		key: 'explore',
+		key: '/explore',
 		public: true,
 		nav: true
 	},
 	{
-		key: 'login',
+		key: '/login',
 		public: true,
 		noSession: true
 	},
 	{
-		key: 'signup',
+		key: '/signup',
 		public: true,
 		noSession: true
 	},
 	{
-		key: 'profile',
+		key: '/profile',
 		private: true
 	},
 	{
-		key: 'calendar',
+		key: '/calendar',
 		private: true
 	},
 	{
-		key: 'analytics',
+		key: '/analytics',
 		private: true
 	},
 	{
-		key: 'insight',
+		key: '/insight',
 		private: true
 	},
 	{
-		key: 'subscribe',
+		key: '/subscribe',
 		private: true
-	}
+	},
+	{
+		key: '/explore/me',
+		private: true,
+	},
 ];
 
 export const permissions: any = {
 	auth: new RegExp(
-		`^/(${pages
+		`^(${pages
 			.filter((i) => i.public && i.noSession)
 			.map((i) => i.key)
 			.join('|')})`,
 		'i'
 	),
 	public: new RegExp(
-		`^/(${pages
+		`^(${pages
 			.filter((i) => i.public)
 			.map((i) => i.key)
 			.join('|')})`,
 		'i'
 	),
 	publicWithNav: new RegExp(
-		`^/(${pages
+		`^(${pages
 			.filter((i) => i.public && i.nav)
 			.map((i) => i.key)
 			.join('|')})`,
 		'i'
 	),
 	publicWithFooter: new RegExp(
-		`^/(${pages
+		`^(${pages
 			.filter((i) => i.public && i.footer)
 			.map((i) => i.key)
 			.join('|')})`,
 		'i'
 	),
 	private: new RegExp(
-		`^/(${pages
+		`^(${pages
 			.filter((i) => i.private)
 			.map((i) => i.key)
 			.join('|')})`,
@@ -116,7 +116,6 @@ export const redirects = async () => {
 	if (!browser) return;
 	usr.subscribe((v) => (user = v));
 	pg.subscribe((v) => (page = v));
-	if (!user) await usr.get();
 	if (
 		!page.url.pathname.match(permissions.private) &&
 		!page.url.pathname.match(permissions.public) &&
@@ -125,17 +124,17 @@ export const redirects = async () => {
 		loading = false;
 		return;
 	}
-	if (!user && !!page.url.pathname.match(permissions.private)) {
+	if (!user && permissions.private.test(page.url.pathname)) {
 		loading = false;
-		await goto('/login');
+		window.location.href = '/login';
 		return;
 	}
-	if (!user && !!page.url.pathname.match(permissions.public)) {
+	if (!user && permissions.public.test(page.url.pathname)) {
 		loading = false;
 		await goto(page.url);
 		return;
 	}
-	if (user && !!page.url.pathname.match(permissions.auth)) {
+	if (user && permissions.auth.test(page.url.pathname)) {
 		loading = false;
 		await goto('/');
 		return;
@@ -146,7 +145,6 @@ export const redirects = async () => {
 
 export default {
 	loading,
-	setLoading,
 	pages,
 	permissions,
 	redirects

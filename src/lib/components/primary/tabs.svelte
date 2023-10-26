@@ -4,7 +4,7 @@
 </script>
 
 {#if items?.length}
-	<div class="flex flex-col">
+	<div class={`flex flex-col ${$$props['tab-container-class'] ?? ''}`}>
 		<div class={`flex flex-row mb-2 sm:mb-4 ${$$props['tab-items-class'] ?? ''}`}>
 			{#each items as item, k}
 				<button
@@ -14,7 +14,8 @@
 							selected === item
 								? 'bg-purple-400 text-black hover:bg-purple-800 focus:ring-purple-400'
 								: 'bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400'
-						}`}
+						}
+						${$$props['tab-item-class'] ?? ''}`}
 					class:mr-2={k < items.length - 1}
 					class:sm:mr-4={k < items.length - 1}
 					on:click={() => (selected = item)}

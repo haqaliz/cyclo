@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { auth } from '$api';
 	import { user } from '$stores';
+	import { Progress } from '$components';
 
 	interface Form {
 		email: string;
@@ -16,8 +17,10 @@
 	};
 
 	let errorMsg = '';
+	let loading= false;
 
 	const signup = async (): Promise<void> => {
+		if (loading) return;
 		if (!form.email.length || !form.password.length || !form.confirmPassword.length) {
 			errorMsg = 'All fields are required';
 			return;
@@ -25,6 +28,7 @@
 		if (form.password !== form.confirmPassword) {
 			errorMsg = 'Password and confirmation must be the same';
 		}
+		loading = true;
 		const r = await auth.signup({
 			email: form.email,
 			password: form.password
@@ -36,6 +40,7 @@
 		errorMsg = '';
 		await goto('/');
 		await user.get();
+		loading = false;
 	};
 </script>
 
@@ -79,6 +84,11 @@
 		>
 			Signup
 		</button>
+
+		{#if loading}
+			<Progress />
+		{/if}
+
 		{#if errorMsg.length}
 			<div
 				class="p-2 rounded font-sans font-medium text-lg flex items-center bg-red-600 text-black"
@@ -90,13 +100,13 @@
 		<a
 			href="/login"
 			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-blue-500 hover:bg-gray-50"
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-purple-400 hover:bg-gray-50"
 			>Already have an account?</a
 		>
 		<a
 			href="/"
 			class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-blue-500 hover:bg-gray-50"
+		focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-transparent text-purple-400 hover:bg-gray-50"
 			>Go back to home</a
 		>
 	</div>
