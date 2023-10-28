@@ -2,7 +2,8 @@
 	import { createEventDispatcher } from 'svelte';
 	import { DOMAIN } from '$config';
 	import { Modal } from '$components';
-	import { user } from '$api';
+	import { user as usr } from '$api';
+	import { user } from '$stores';
 	import { goto } from '$app/navigation';
 	import { formatDistanceToNow } from 'date-fns';
 	const dispatch = createEventDispatcher();
@@ -14,11 +15,22 @@
 	$: brief = post.content.length > 128 ? `${post.content.substr(0, 128)}...` : post.content;
 	$: sharedContent = encodeURIComponent(`${brief}\n${DOMAIN}posts/${post.id}`);
 	const deletePost = async () => {
-		await user.removePost({
+		await usr.removePost({
 			post_id: post.id
 		});
 		showConfirmation = false;
 		dispatch('deleted');
+	};
+	let isLiked: boolean;
+	user.subscribe((v) => {
+		if (!v) return;
+		isLiked = post.likes?.[v.id];
+	});
+	const likePost = async () => {
+		isLiked = !isLiked;
+		await usr.likePost({
+			post_id: post.id
+		});
 	};
 	const clickEvent = async () => {
 		if (!clickable) return;
@@ -55,28 +67,71 @@
 	<p class="font-sans">
 		{post.content}
 	</p>
-	{#if !compact}
-		<div class="flex flex-col items-start mt-w md:mt-4">
-			<div class="flex flex-row">
-				<a
-					href={`https://twitter.com/intent/tweet?text=${sharedContent}&related=cyclo`}
-					target="_blank"
-					class="
-						rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-						focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
-						focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
-						w-[40px] h-[40px]
-					"
-				>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[25px] h-[25px]">
-						<path
-							d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-						/>
-					</svg>
-				</a>
-			</div>
+	<!-- actions section -->
+	<div class="flex flex-col items-start mt-w md:mt-4">
+		<div class="flex flex-row w-full">
+			{#if !compact}
+				<!-- share section -->
+				<div class="flex flex-row">
+					<a
+						href={`https://twitter.com/intent/tweet?text=${sharedContent}&related=cyclo`}
+						target="_blank"
+						class="
+							rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+							focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
+							focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
+							w-[40px] h-[40px]
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[25px] h-[25px]">
+							<path
+								d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+							/>
+						</svg>
+					</a>
+				</div>
+			{/if}
+			<div class="flex-1" />
+			<!-- like section -->
+			{#if $user}
+				<div class="flex flex-row items-center">
+					<span class="text-zinc-900 text-lg font-semibold mr-2">
+						{isLiked
+							? Object.keys(post.likes ?? {}).length + 1
+							: Object.keys(post.likes ?? {}).length}
+					</span>
+					<button
+						class="
+							rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+							focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
+							focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
+							w-[40px] h-[40px]
+						"
+						on:click|stopPropagation={likePost}
+					>
+						<i class="material-icons" class:text-zinc-900={!isLiked} class:text-red-500={isLiked}
+							>favorite</i
+						>
+					</button>
+				</div>
+			{:else}
+				<div class="flex flex-row items-center">
+					<span class="text-zinc-900 text-lg font-semibold mr-2">
+						{Object.keys(post.likes ?? {}).length}
+					</span>
+					<div
+						class="
+							rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+							focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
+							justify-center w-[40px] h-[40px] select-none
+						"
+					>
+						<i class="material-icons text-zinc-900">favorite</i>
+					</div>
+				</div>
+			{/if}
 		</div>
-	{/if}
+	</div>
 </a>
 
 <Modal

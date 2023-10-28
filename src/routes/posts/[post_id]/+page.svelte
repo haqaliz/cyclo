@@ -24,15 +24,19 @@
 	export let data: any;
 	let post: any;
 	let loading = false;
-	$: (async () => {
-		if (!/[a-zA-Z0-9]+/.test(data?.post_id) || data?.post_id === 'undefined')
-			await goto('/explore/overview');
-		if (loading || post) return;
+	const update = async () => {
+		if (loading) return;
 		loading = true;
 		post = await user.getPost({
 			post_id: data?.post_id
 		});
 		loading = false;
+	};
+	$: (async () => {
+		if (!/[a-zA-Z0-9]+/.test(data?.post_id) || data?.post_id === 'undefined')
+			await goto('/explore/overview');
+		if (post) return;
+		await update();
 	})();
 </script>
 

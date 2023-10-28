@@ -148,6 +148,14 @@ export const removePost = async (payload: any) => {
 	return !!r?.ok;
 };
 
+export const likePost = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/posts/${payload.post_id}/like`, {
+		...REQ_OPTIONS,
+		method: 'POST'
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
 export default {
 	getInfo,
 	getRecommendations,
@@ -161,5 +169,6 @@ export default {
 	createPost,
 	getPosts,
 	getPost,
-	removePost
+	removePost,
+	likePost
 };

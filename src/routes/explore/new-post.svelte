@@ -46,7 +46,7 @@
 				disabled={postIsDisabled}
 				on:click={savePost}
 			>
-				Post
+				Share
 			</button>
 		</div>
 	</div>

@@ -3,6 +3,7 @@
 	import { misc } from '$api';
 	import { user } from '$stores';
 	import { Progress } from '$components';
+	import _ from 'lodash';
 	let trends: any = [];
 	let loading = false;
 	const update = async () => {
@@ -14,6 +15,7 @@
 	$: {
 		if (browser) update();
 	}
+	$: top10Trends = _.orderBy(trends, (i: any) => i.count, 'desc')?.slice(0, 10);
 </script>
 
 <div class="flex flex-col px-2 md:px-0">
@@ -33,8 +35,8 @@
 			class:md:h-[calc(100vh-360px)]={!!$user}
 		>
 			<ul>
-				{#if trends?.length}
-					{#each trends as trend}
+				{#if top10Trends?.length}
+					{#each top10Trends as trend}
 						<li>
 							<a
 								href={`/explore/overview?q=${trend.value}`}
