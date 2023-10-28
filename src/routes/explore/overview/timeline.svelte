@@ -4,7 +4,7 @@
 	import { user } from '$stores';
 	import { Progress } from '$components';
 	import NewPost from '../new-post.svelte';
-	import { formatDistanceToNow } from 'date-fns';
+	import SinglePostItem from '../single-post-item.svelte';
 	export let query: string;
 	let posts: any = [];
 	let loading = false;
@@ -43,19 +43,7 @@
 
 		{#if posts?.length}
 			{#each posts as post}
-				<div
-					class="
-					flex flex-col rounded bg-white transition-all ease-in-out bg-opacity-25
-					hover:bg-black hover:bg-opacity-10 p-2 md:p-4 mb-2 md:mb-4
-				"
-				>
-					<span class="text-sm font-semibold text-gray-600 mb-1 md:mb-2">
-						{formatDistanceToNow(new Date(post.created_at.seconds * 1000), { addSuffix: true })}
-					</span>
-					<p class="font-sans">
-						{post.content}
-					</p>
-				</div>
+				<SinglePostItem {post} />
 			{/each}
 		{/if}
 	</div>

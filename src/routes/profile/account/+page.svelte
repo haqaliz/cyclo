@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { user as usr } from '$stores';
+	import { user as usr, token } from '$stores';
 	import { user as userApi, auth } from '$api';
 	import { goto } from '$app/navigation';
 
@@ -13,12 +13,16 @@
 	});
 
 	const save = async () => {
+		await auth.updateUserEmail({
+			email: user?.email
+		});
 		await userApi.updateInfo({
 			email: user?.email
 		});
 		await auth.logout();
 		usr.set(null);
-		await goto('/');
+		token.set(null);
+		await goto('/login');
 	};
 </script>
 
@@ -45,7 +49,7 @@
 		<div class="flex flex-row">
 			<button
 				on:click={save}
-				class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+				class="py-2 px-8 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
 			focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center"
 			>
 				Save

@@ -38,6 +38,7 @@
 				tab-item-class="px-6"
 				tab-container-class="flex-1"
 			>
+				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 				<svelte:fragment slot="content" let:selected={selectTabItem} />
 			</Tabs>
 		</div>

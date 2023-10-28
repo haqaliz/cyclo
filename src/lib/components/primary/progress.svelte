@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let progressBarClass: string = '';
+	export let progressBarClass = '';
 </script>
 
 <div class="w-full h-2 bg-gray-200 rounded-sm overflow-hidden">

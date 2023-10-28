@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { auth } from '$api';
-	import { user } from '$stores';
+	import { user, token } from '$stores';
 	import { slide } from 'svelte/transition';
 	import Menu from './menu.svelte';
 
@@ -50,6 +50,7 @@
 				onClick: async () => {
 					await auth.logout();
 					user.set(null);
+					token.set(null);
 					await goto('/');
 				}
 			}

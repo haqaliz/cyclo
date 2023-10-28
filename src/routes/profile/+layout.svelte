@@ -5,7 +5,7 @@
 	import { Tabs } from '$components';
 	import { goto } from '$app/navigation';
 
-	const tabs = ['Account', 'Preferences'];
+	const tabs = ['Account', 'Password', 'Preferences'];
 	let selectTabItem = '';
 	$: {
 		if (browser && $page.url.pathname !== '/profile') {

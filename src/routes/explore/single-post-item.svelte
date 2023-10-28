@@ -51,7 +51,7 @@
 	<svelte:fragment slot="content">
 		<div class="flex flex-col flex-1">
 			<div class="flex flex-col bg-yellow-200 p-2 md:p-4 rounded-t">
-				<span class="text-sm font-semibold text-gray-600 mb-1 md:mb-2">
+				<span class="text-sm font-semibold text-gray-600">
 					{formatDistanceToNow(new Date(post.created_at.seconds * 1000), { addSuffix: true })}
 				</span>
 			</div>
