@@ -2,8 +2,7 @@
 	import { DOMAIN } from '$config';
 	import { page } from '$app/stores';
 	import Timeline from './timeline.svelte';
-	import Trends from '../trends.svelte';
-	import Footer from '../../footer/index.svelte';
+	import { Trends, Footer } from '$components';
 	const title = 'Your Shared Journey in Menstrual Health | Cyclo';
 	const description =
 		"Discover a world of shared experiences and knowledge on Cyclo's Explore page.";

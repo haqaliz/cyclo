@@ -2,9 +2,8 @@
 	import { browser } from '$app/environment';
 	import { misc } from '$api';
 	import { user } from '$stores';
-	import { Progress } from '$components';
+	import { Progress, SinglePostItem } from '$components';
 	import NewPost from '../new-post.svelte';
-	import SinglePostItem from '../single-post-item.svelte';
 	export let query: string;
 	let posts: any = [];
 	let loading = false;

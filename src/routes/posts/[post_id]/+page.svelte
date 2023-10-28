@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { DOMAIN } from '$config';
-	import { page } from '$app/stores';
-	import Timeline from './timeline.svelte';
-	import { Trends, Footer } from '$components';
+	import { Trends, Footer, SinglePostItem, Progress } from '$components';
+	import { user as usr } from '$stores';
+	import { user } from '$api';
+	import { goto } from '$app/navigation';
 	const title = 'Your Shared Journey in Menstrual Health | Cyclo';
 	const description =
 		"Discover a world of shared experiences and knowledge on Cyclo's Explore page.";
@@ -18,7 +19,21 @@
 		'Cycle Explorers',
 		'Community Interaction'
 	];
-	$: query = $page.url.searchParams.get('q') ?? '';
+
+	/** @type {import('./$types').PageData} */
+	export let data: any;
+	let post: any;
+	let loading = false;
+	$: (async () => {
+		if (!/[a-zA-Z0-9]+/.test(data?.post_id) || data?.post_id === 'undefined')
+			await goto('/explore/overview');
+		if (loading || post) return;
+		loading = true;
+		post = await user.getPost({
+			post_id: data?.post_id
+		});
+		loading = false;
+	})();
 </script>
 
 <svelte:head>
@@ -53,7 +68,24 @@
 	<div
 		class="flex flex-col flex-1 w-full md:min-w-[calc(100%-350px-1rem)] md:max-w-[calc(100%-350px-1rem)]"
 	>
-		<Timeline {query} />
+		<div class="flex flex-col w-full px-2 md:px-4">
+			<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Post</h1>
+			{#if loading}
+				<div class="flex flex-row mb-2 md:mb-4">
+					<Progress />
+				</div>
+			{/if}
+
+			{#if post}
+				<SinglePostItem
+					{post}
+					actions={$usr && $usr?.id === post?.user_id}
+					clickable={false}
+					compact={false}
+					on:deleted={() => goto('/explore/overview')}
+				/>
+			{/if}
+		</div>
 	</div>
 	<div class="flex flex-col w-full md:min-w-[350px] md:max-w-[350px] md:mr-4">
 		<Trends />

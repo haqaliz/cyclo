@@ -7,7 +7,7 @@
 	import { onMount } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
 	import Nav from './nav/index.svelte';
-	import Footer from './footer/index.svelte';
+	import { Footer } from '$components';
 	import { permissions, redirects, loading } from './index';
 
 	user.subscribe(redirects);

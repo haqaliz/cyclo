@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { user as usr } from '$api';
-	import { Progress } from '$components';
+	import { Progress, SinglePostItem } from '$components';
 	import NewPost from '../new-post.svelte';
-	import SinglePostItem from '../single-post-item.svelte';
 	export let query: string;
 	let posts: any = [];
 	let loading = false;

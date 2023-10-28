@@ -36,6 +36,11 @@ export const pages = [
 		nav: true
 	},
 	{
+		key: '/posts',
+		public: true,
+		nav: true
+	},
+	{
 		key: '/login',
 		public: true,
 		noSession: true

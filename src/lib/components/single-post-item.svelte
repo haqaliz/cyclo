@@ -1,12 +1,18 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { DOMAIN } from '$config';
 	import { Modal } from '$components';
 	import { user } from '$api';
+	import { goto } from '$app/navigation';
 	import { formatDistanceToNow } from 'date-fns';
 	const dispatch = createEventDispatcher();
 	export let post: any;
+	export let clickable = true;
+	export let compact = true;
 	export let actions: boolean;
 	let showConfirmation = false;
+	$: brief = post.content.length > 128 ? `${post.content.substr(0, 128)}...` : post.content;
+	$: sharedContent = encodeURIComponent(`${brief}\n${DOMAIN}posts/${post.id}`);
 	const deletePost = async () => {
 		await user.removePost({
 			post_id: post.id
@@ -14,13 +20,21 @@
 		showConfirmation = false;
 		dispatch('deleted');
 	};
+	const clickEvent = async () => {
+		if (!clickable) return;
+		await goto(`/posts/${post.id}`);
+	};
 </script>
 
-<div
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-missing-attribute -->
+<a
 	class="
-    flex flex-col rounded bg-white transition-all ease-in-out bg-opacity-25
-    hover:bg-black hover:bg-opacity-10 p-2 md:p-4 mb-2 md:mb-4
-"
+		flex flex-col rounded bg-white transition-all ease-in-out bg-opacity-25
+		hover:bg-black hover:bg-opacity-10 p-2 md:p-4 mb-2 md:mb-4
+	"
+	class:cursor-pointer={clickable}
+	on:click|stopPropagation={clickEvent}
 >
 	<div class="flex flex-row">
 		<span class="text-sm font-semibold text-gray-600 mb-1 md:mb-2">
@@ -32,7 +46,7 @@
 				class="rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
                 focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
                 focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30 text-red-500"
-				on:click={() => (showConfirmation = true)}
+				on:click|stopPropagation={() => (showConfirmation = true)}
 			>
 				<i class="material-icons">delete</i>
 			</button>
@@ -41,7 +55,29 @@
 	<p class="font-sans">
 		{post.content}
 	</p>
-</div>
+	{#if !compact}
+		<div class="flex flex-col items-start mt-w md:mt-4">
+			<div class="flex flex-row">
+				<a
+					href={`https://twitter.com/intent/tweet?text=${sharedContent}&related=cyclo`}
+					target="_blank"
+					class="
+						rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+						focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
+						focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
+						w-[40px] h-[40px]
+					"
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[25px] h-[25px]">
+						<path
+							d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+						/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	{/if}
+</a>
 
 <Modal
 	bind:show={showConfirmation}

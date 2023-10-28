@@ -131,6 +131,15 @@ export const getPosts = async (payload: any) => {
 	return r.json();
 };
 
+export const getPost = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/posts/${payload.post_id}`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export const removePost = async (payload: any) => {
 	const r = await fetch(`${API_BASE_URL}/user/posts/${payload.post_id}`, {
 		...REQ_OPTIONS,
@@ -151,5 +160,6 @@ export default {
 	subscribeForPlan,
 	createPost,
 	getPosts,
+	getPost,
 	removePost
 };
