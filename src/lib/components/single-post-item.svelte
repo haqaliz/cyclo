@@ -53,7 +53,7 @@
 			{formatDistanceToNow(new Date(post.created_at.seconds * 1000), { addSuffix: true })}
 		</span>
 		<div class="flex-1" />
-		{#if actions}
+		{#if actions && $user && $user.id === post?.user_id}
 			<button
 				class="rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
                 focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2

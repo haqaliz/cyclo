@@ -41,7 +41,7 @@
 
 		{#if posts?.length}
 			{#each posts as post}
-				<SinglePostItem {post} />
+				<SinglePostItem {post} actions={true} on:deleted={() => update(query)} />
 			{/each}
 		{/if}
 

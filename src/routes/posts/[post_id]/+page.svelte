@@ -93,7 +93,7 @@
 
 				<SinglePostItem
 					{post}
-					actions={$usr && $usr?.id === post?.user_id}
+					actions={true}
 					clickable={false}
 					compact={false}
 					on:deleted={() => goto('/explore/overview')}
@@ -106,7 +106,12 @@
 				</SinglePostItem>
 
 				{#if $usr}
-					<NewPost parentId={post?.id} placeholder="Comment" submitButtonText="Reply" />
+					<NewPost
+						parentId={post?.id}
+						placeholder="Comment"
+						submitButtonText="Reply"
+						on:created={update}
+					/>
 
 					{#if post.comments?.length}
 						{#each post.comments as comment}

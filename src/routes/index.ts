@@ -1,6 +1,6 @@
 import { goto } from '$app/navigation';
 import { browser } from '$app/environment';
-import { user as usr } from '$stores';
+import { user as usr, token as tkn } from '$stores';
 import { page as pg } from '$app/stores';
 
 export let loading = true;
@@ -115,11 +115,13 @@ export const permissions: any = {
 };
 
 let user: any;
+let token: any;
 let page: any;
 
 export const redirects = async () => {
 	if (!browser) return;
 	usr.subscribe((v) => (user = v));
+	tkn.subscribe((v) => (token = v));
 	pg.subscribe((v) => (page = v));
 	if (
 		!page.url.pathname.match(permissions.private) &&
@@ -129,19 +131,20 @@ export const redirects = async () => {
 		loading = false;
 		return;
 	}
-	if (!user && permissions.private.test(page.url.pathname)) {
+	if (!user && !token && permissions.private.test(page.url.pathname)) {
 		loading = false;
 		window.location.href = '/login';
 		return;
 	}
-	if (!user && permissions.public.test(page.url.pathname)) {
+	if (!user && !token && permissions.public.test(page.url.pathname)) {
 		loading = false;
 		await goto(page.url);
 		return;
 	}
-	if (user && permissions.auth.test(page.url.pathname)) {
+	if ((user || token) && permissions.auth.test(page.url.pathname)) {
 		loading = false;
 		await goto('/');
+		console.log(page.url.pathname, user, permissions);
 		return;
 	}
 	loading = false;
