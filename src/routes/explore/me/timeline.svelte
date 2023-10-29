@@ -1,18 +1,22 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { user as usr } from '$api';
-	import { Progress, SinglePostItem } from '$components';
-	import NewPost from '../new-post.svelte';
+	import { Progress, SinglePostItem, NewPost, InfiniteScroll } from '$components';
+	import _ from 'lodash';
 	export let query: string;
+	let startAfterPostId: any;
+	const pageLimit = 20;
 	let posts: any = [];
 	let loading = false;
 	const update = async (q: string) => {
 		if (loading) return;
 		loading = true;
-		posts = await usr.getPosts({
+		const fetchedPosts = await usr.getPosts({
 			query: q,
-			limit: 1000
+			limit: pageLimit,
+			start_after: startAfterPostId
 		});
+		posts = _.uniqBy([...posts, ...fetchedPosts], (i: any) => i.id);
 		loading = false;
 	};
 	$: {
@@ -30,16 +34,25 @@
 	<div class="flex flex-col md:h-[calc(100vh-240px)] md:overflow-y-scroll hide-scrollbar">
 		<NewPost on:created={() => update(query)} />
 
+		{#if posts?.length}
+			{#each posts as post}
+				<SinglePostItem {post} actions={true} on:deleted={() => update(query)} />
+			{/each}
+		{/if}
+
 		{#if loading}
 			<div class="flex flex-row mb-2 md:mb-4">
 				<Progress />
 			</div>
 		{/if}
 
-		{#if posts?.length}
-			{#each posts as post}
-				<SinglePostItem {post} actions={true} on:deleted={() => update(query)} />
-			{/each}
-		{/if}
+		<InfiniteScroll
+			hasMore={posts.length}
+			threshold={pageLimit}
+			on:loadMore={() => {
+				startAfterPostId = posts[posts.length - 1].id;
+				update(query);
+			}}
+		/>
 	</div>
 </div>

@@ -9,5 +9,7 @@ export { default as Calendar } from './calendar.svelte';
 export { default as Recommendations } from './recommendations.svelte';
 export { default as Trends } from './trends.svelte';
 export { default as SinglePostItem } from './single-post-item.svelte';
+export { default as NewPost } from './new-post.svelte';
+export { default as InfiniteScroll } from './infinite-scroll.svelte';
 export { default as Footer } from './footer/index.svelte';
 export { default as GChart } from './google-chart.svelte';

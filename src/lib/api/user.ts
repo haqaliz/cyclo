@@ -109,6 +109,7 @@ export const subscribeForPlan = async (payload: any) => {
 };
 
 interface CreatePostPayload {
+	parent_id: string;
 	content: string;
 }
 export const createPost = async (payload: CreatePostPayload) => {
@@ -121,18 +122,22 @@ export const createPost = async (payload: CreatePostPayload) => {
 };
 
 export const getPosts = async (payload: any) => {
+	const startAfter = payload.start_after?.length ? `&start_after=${payload.start_after}` : '';
 	const q = payload.query?.length ? `&query=${payload.query}` : '';
 	const fromTo = payload.from && payload.to ? `&from=${payload.from}&to=${payload.to}` : '';
-	const r = await fetch(`${API_BASE_URL}/user/posts?limit=${payload.limit}${fromTo}${q}`, {
-		...REQ_OPTIONS,
-		method: 'GET'
-	}).catch((e) => e.response);
+	const r = await fetch(
+		`${API_BASE_URL}/explore?limit=${payload.limit}${startAfter}${fromTo}${q}`,
+		{
+			...REQ_OPTIONS,
+			method: 'GET'
+		}
+	).catch((e) => e.response);
 	if (!r?.ok) return;
 	return r.json();
 };
 
 export const getPost = async (payload: any) => {
-	const r = await fetch(`${API_BASE_URL}/user/posts/${payload.post_id}`, {
+	const r = await fetch(`${API_BASE_URL}/user/posts/${payload.post_id}?comments=true`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);

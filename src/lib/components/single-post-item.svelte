@@ -4,7 +4,6 @@
 	import { Modal } from '$components';
 	import { user as usr } from '$api';
 	import { user } from '$stores';
-	import { goto } from '$app/navigation';
 	import { formatDistanceToNow } from 'date-fns';
 	const dispatch = createEventDispatcher();
 	export let post: any;
@@ -34,7 +33,7 @@
 	};
 	const clickEvent = async () => {
 		if (!clickable) return;
-		await goto(`/posts/${post.id}`);
+		window.location.href = `/posts/${post.id}`;
 	};
 </script>
 
@@ -48,8 +47,9 @@
 	class:cursor-pointer={clickable}
 	on:click|stopPropagation={clickEvent}
 >
-	<div class="flex flex-row">
-		<span class="text-sm font-semibold text-gray-600 mb-1 md:mb-2">
+	<div class="flex flex-row items-center mb-1 md:mb-2">
+		<slot name="before-header-first-element" />
+		<span class="text-sm font-semibold text-gray-600">
 			{formatDistanceToNow(new Date(post.created_at.seconds * 1000), { addSuffix: true })}
 		</span>
 		<div class="flex-1" />
@@ -63,6 +63,7 @@
 				<i class="material-icons">delete</i>
 			</button>
 		{/if}
+		<slot name="after-header-last-element" />
 	</div>
 	<p class="font-sans">
 		{post.content}

@@ -18,10 +18,13 @@ export const contact = async (payload: ContactPayload) => {
 
 interface ExplorePayload {
 	query: string;
+	limit: number;
+	start_after: string;
 }
 export const explore = async (payload: ExplorePayload) => {
-	const q = payload.query?.length ? `query=${payload.query}` : '';
-	const r = await fetch(`${API_BASE_URL}/explore?${q}`, {
+	const startAfter = payload.start_after?.length ? `&start_after=${payload.start_after}` : '';
+	const q = payload.query?.length ? `&query=${payload.query}` : '';
+	const r = await fetch(`${API_BASE_URL}/explore?limit=${payload.limit}${startAfter}${q}`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);

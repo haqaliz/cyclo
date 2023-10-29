@@ -4,11 +4,15 @@
 	import { user as usr } from '$api';
 	import { SmartTextarea } from '$components';
 	const dispatch = createEventDispatcher();
+	export let parentId: string;
+	export let placeholder = "What's gucci?!";
+	export let submitButtonText = 'Share';
 	let newPostContent = '';
 	$: postIsDisabled = !newPostContent?.length || newPostContent?.length > 144;
 	const savePost = async () => {
 		if (!newPostContent?.length) return;
 		await usr.createPost({
+			parent_id: parentId,
 			content: newPostContent
 		});
 		newPostContent = '';
@@ -18,12 +22,7 @@
 
 {#if $user}
 	<div class="flex flex-col bg-white rounded mb-2 md:mb-4 relative">
-		<SmartTextarea
-			bind:value={newPostContent}
-			placeholder="What's gucci?!"
-			minRows={6}
-			maxRows={14}
-		/>
+		<SmartTextarea bind:value={newPostContent} {placeholder} minRows={6} maxRows={14} />
 		<div class="flex flex-row items-end absolute right-2 md:right-4 bottom-2 md:bottom-4">
 			<div
 				class="py-1 px-2 font-semibold text-sm rounded mr-2 md:mr-4"
@@ -46,7 +45,7 @@
 				disabled={postIsDisabled}
 				on:click={savePost}
 			>
-				Share
+				{submitButtonText}
 			</button>
 		</div>
 	</div>

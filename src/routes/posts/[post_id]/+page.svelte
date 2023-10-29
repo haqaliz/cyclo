@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DOMAIN } from '$config';
-	import { Trends, Footer, SinglePostItem, Progress } from '$components';
+	import { Trends, Footer, SinglePostItem, NewPost, Progress } from '$components';
 	import { user as usr } from '$stores';
 	import { user } from '$api';
 	import { goto } from '$app/navigation';
@@ -81,13 +81,43 @@
 			{/if}
 
 			{#if post}
+				{#if post.parent_id}
+					<SinglePostItem post={post.parent} actions={true} on:deleted={update}>
+						<svelte:fragment slot="before-header-first-element">
+							{#if post.parent.parent_id}
+								<i class="material-icons text-gray-600 mr-2">reply</i>
+							{/if}
+						</svelte:fragment>
+					</SinglePostItem>
+				{/if}
+
 				<SinglePostItem
 					{post}
 					actions={$usr && $usr?.id === post?.user_id}
 					clickable={false}
 					compact={false}
 					on:deleted={() => goto('/explore/overview')}
-				/>
+				>
+					<svelte:fragment slot="before-header-first-element">
+						{#if post.parent_id}
+							<i class="material-icons text-gray-600 mr-2">reply</i>
+						{/if}
+					</svelte:fragment>
+				</SinglePostItem>
+
+				{#if $usr}
+					<NewPost parentId={post?.id} placeholder="Comment" submitButtonText="Reply" />
+
+					{#if post.comments?.length}
+						{#each post.comments as comment}
+							<SinglePostItem post={comment} actions={true} on:deleted={update}>
+								<svelte:fragment slot="before-header-first-element">
+									<i class="material-icons text-gray-600 mr-2">reply</i>
+								</svelte:fragment>
+							</SinglePostItem>
+						{/each}
+					{/if}
+				{/if}
 			{/if}
 		</div>
 	</div>
