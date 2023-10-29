@@ -151,21 +151,30 @@ export default [
 				classes: 'bg-sky-200 hover:bg-sky-300',
 				link: guidances('do-late-period-remedies-work'),
 				permission: permission.beginner
-			}
-			//     {
-			//       "name": "Cramps but no period? Learn why"
-			//     },
-			//     {
-			//       "name": "What counts as a late period?"
-			//     }
+			},
+			{
+				name: 'Cramps but no period? Learn why',
+				classes: 'bg-yellow-200 hover:bg-yellow-300',
+				link: guidances('cramps-but-no-period-learn-why'),
+				permission: permission.beginner
+			},
+			{
+				name: 'What counts as a late period?',
+				classes: 'bg-blue-500 hover:bg-blue-600',
+				link: guidances('what-counts-as-a-late-period'),
+				permission: permission.beginner
+			},
 		]
 	},
 	{
 		name: 'Orgasms and pleasure',
 		items: [
-			//     {
-			//       "name": "Mastering your orgasm"
-			//     },
+			{
+				name: 'Mastering your orgasm',
+				classes: 'bg-blue-500 hover:bg-blue-600',
+				link: guidances('mastering-your-orgasm'),
+				permission: permission.beginner
+			},
 			//     {
 			//       "name": "9 life-changing masturbation tips"
 			//     },
@@ -244,10 +253,13 @@ export default [
 				classes: 'bg-pink-400 hover:bg-pink-500',
 				link: guidances('cant-orgasm-this-could-be-why'),
 				permission: permission.beginner
+			},
+			{
+				name: "How herpes helped my sex life",
+				classes: 'bg-pink-200 hover:bg-pink-300',
+				link: guidances('how-herpes-helped-my-sex-life'),
+				permission: permission.beginner
 			}
-			//     {
-			//       "name": "How herpes helped my sex life"
-			//     },
 			//     {
 			//       "name": "What to do after unprotected sex",
 			//       "classes": "bg-rose-200 hover:bg-rose-300",
@@ -293,9 +305,12 @@ export default [
 				link: guidances('early-signs-of-pregnancy'),
 				permission: permission.beginner
 			},
-			//     {
-			//       "name": "What counts as a late period?"
-			//     },
+			{
+				name: 'What counts as a late period?',
+				classes: 'bg-blue-500 hover:bg-blue-600',
+				link: guidances('what-counts-as-a-late-period'),
+				permission: permission.beginner
+			},
 			{
 				name: 'Do late period remedies work?',
 				classes: 'bg-sky-200 hover:bg-sky-300',
@@ -318,10 +333,13 @@ export default [
 				classes: 'bg-violet-400 hover:bg-violet-500',
 				link: guidances('does-the-pull-out-method-work'),
 				permission: permission.beginner
+			},
+			{
+				name: "How herpes helped my sex life",
+				classes: 'bg-pink-200 hover:bg-pink-300',
+				link: guidances('how-herpes-helped-my-sex-life'),
+				permission: permission.beginner
 			}
-			//     {
-			//       "name": "How herpes helped my sex life"
-			//     },
 			//     {
 			//       "name": "How to reduce your STI risk"
 			//     },
@@ -473,9 +491,12 @@ export default [
 			//     {
 			//       "name": "9 life-changing masturbation tips"
 			//     },
-			//     {
-			//       "name": "Mastering your orgasm"
-			//     },
+			{
+				name: 'Mastering your orgasm',
+				classes: 'bg-blue-500 hover:bg-blue-600',
+				link: guidances('mastering-your-orgasm'),
+				permission: permission.beginner
+			},
 			{
 				name: 'How to choose your first sex toy',
 				classes: 'bg-pink-200 hover:bg-pink-300',

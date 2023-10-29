@@ -34,6 +34,14 @@
 </svelte:head>
 
 {#if isValid === true}
+	{#if targetTopic?.name?.length}
+		<div class="px-2 pt-2 sm:px-4 sm:pt-4 flex flex-col">
+			<div class={`rounded p-2 sm:p-4 flex flex-col ${targetTopic?.classes}`}>
+				<h1 class="font-sans font-semibold text-4xl">{targetTopic?.name}</h1>
+			</div>
+		</div>
+	{/if}
+
 	<slot />
 {:else if isValid === false}
 	<div class="flex flex-col items-center justify-center p-2 mt-2 sm:mt-4">
