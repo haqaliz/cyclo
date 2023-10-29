@@ -163,7 +163,7 @@ export default [
 				classes: 'bg-blue-500 hover:bg-blue-600',
 				link: guidances('what-counts-as-a-late-period'),
 				permission: permission.beginner
-			},
+			}
 		]
 	},
 	{
@@ -255,7 +255,7 @@ export default [
 				permission: permission.beginner
 			},
 			{
-				name: "How herpes helped my sex life",
+				name: 'How herpes helped my sex life',
 				classes: 'bg-pink-200 hover:bg-pink-300',
 				link: guidances('how-herpes-helped-my-sex-life'),
 				permission: permission.beginner
@@ -335,7 +335,7 @@ export default [
 				permission: permission.beginner
 			},
 			{
-				name: "How herpes helped my sex life",
+				name: 'How herpes helped my sex life',
 				classes: 'bg-pink-200 hover:bg-pink-300',
 				link: guidances('how-herpes-helped-my-sex-life'),
 				permission: permission.beginner
