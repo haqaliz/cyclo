@@ -23,6 +23,7 @@
 		const r = await auth.login(form);
 		if (!r) {
 			showError = true;
+			loading = false;
 			return;
 		}
 		token.set(r?.token);

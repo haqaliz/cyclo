@@ -121,7 +121,7 @@ let page: any;
 export const redirects = async () => {
 	if (!browser) return;
 	usr.subscribe((v) => (user = v));
-	tkn.subscribe((v) => (token = v));
+	tkn.subscribe((v) => (token = !v || v === 'null' ? null : v));
 	pg.subscribe((v) => (page = v));
 	if (
 		!page.url.pathname.match(permissions.private) &&
@@ -144,7 +144,6 @@ export const redirects = async () => {
 	if ((user || token) && permissions.auth.test(page.url.pathname)) {
 		loading = false;
 		await goto('/');
-		console.log(page.url.pathname, user, permissions);
 		return;
 	}
 	loading = false;

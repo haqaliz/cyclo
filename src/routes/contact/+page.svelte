@@ -29,7 +29,6 @@
 	};
 
 	const submit = async () => {
-		console.log(form);
 		if (!form.name || !form.email || !form.subject || !form.message) return;
 		await misc.contact(form);
 		form.name = '';
