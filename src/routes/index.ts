@@ -73,6 +73,10 @@ export const pages = [
 	{
 		key: '/explore/me',
 		private: true
+	},
+	{
+		key: '/explore/challeneges',
+		private: true
 	}
 ];
 

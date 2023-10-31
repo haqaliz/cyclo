@@ -2,6 +2,7 @@ import { user as usr } from '$api';
 import { writable } from 'svelte/store';
 import token from './token';
 import plans from './plans';
+import challenges from './challenges';
 import recommendations from './recommendations';
 
 const user = writable(null);
@@ -28,7 +29,7 @@ user.get = async () => {
 			key: 'beginner_monthly'
 		};
 	user.set(r);
-	await Promise.all([plans.get(), recommendations.get()]);
+	await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
 };
 
 export default user;
