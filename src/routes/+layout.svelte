@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '$styles';
 
-	import { user } from '$stores';
+	import { user, plans, challenges, recommendations } from '$stores';
 	import { page } from '$app/stores';
 
 	import { onMount } from 'svelte';
@@ -14,7 +14,11 @@
 
 	onMount(async () => {
 		// get current user detail
-		if (!$user) await user.get();
+		if (!$user) {
+			await user.get();
+			return;
+		}
+		await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
 	});
 </script>
 
