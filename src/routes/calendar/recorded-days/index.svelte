@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Add from './add.svelte';
-	export let selectedDay: Date;
 	export let recordedDays: any[] = [];
 	$: recordedDay = recordedDays?.length ? recordedDays[0] : null;
 </script>
@@ -107,5 +105,3 @@
 		{/if}
 	</div>
 {/if}
-
-<Add {recordedDay} {selectedDay} on:update />

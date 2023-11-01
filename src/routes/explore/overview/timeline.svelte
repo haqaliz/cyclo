@@ -37,11 +37,25 @@
 		class:md:h-[calc(100vh-132px)]={!$user}
 		class:md:h-[calc(100vh-240px)]={!!$user}
 	>
-		<NewPost on:created={() => update(query)} />
+		<NewPost
+			on:created={async () => {
+				startAfterPostId = null;
+				posts = [];
+				await update(query);
+			}}
+		/>
 
 		{#if posts?.length}
 			{#each posts as post}
-				<SinglePostItem {post} actions={true} on:deleted={() => update(query)} />
+				<SinglePostItem
+					{post}
+					actions={true}
+					on:deleted={async () => {
+						startAfterPostId = null;
+						posts = [];
+						await update(query);
+					}}
+				/>
 			{/each}
 		{/if}
 
@@ -54,9 +68,9 @@
 		<InfiniteScroll
 			hasMore={posts.length}
 			threshold={pageLimit}
-			on:loadMore={() => {
+			on:loadMore={async () => {
 				startAfterPostId = posts[posts.length - 1].id;
-				update(query);
+				await update(query);
 			}}
 		/>
 	</div>

@@ -7,14 +7,17 @@
 	export let parentId: string;
 	export let placeholder = "What's gucci?!";
 	export let submitButtonText = 'Share';
+	let loading = false;
 	let newPostContent = '';
 	$: postIsDisabled = !newPostContent?.length || newPostContent?.length > 144;
 	const savePost = async () => {
-		if (!newPostContent?.length) return;
+		if (!newPostContent?.length || loading) return;
+		loading = true;
 		await usr.createPost({
 			parent_id: parentId,
 			content: newPostContent
 		});
+		loading = false;
 		newPostContent = '';
 		dispatch('created');
 	};
@@ -35,17 +38,26 @@
 			<button
 				class="px-8 py-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
                 focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center mr-2 sm:mr-4 last:mr-0
-                    focus:ring-gray-400 justify-center"
+                    focus:ring-gray-400 justify-center h-[44px]"
 				class:bg-zinc-900={!postIsDisabled}
 				class:hover:bg-gray-700={!postIsDisabled}
 				class:text-white={!postIsDisabled}
 				class:bg-gray-300={postIsDisabled}
 				class:hover:bg-gray-400={postIsDisabled}
 				class:text-gray-700={postIsDisabled}
+				class:cursor-not-allowed={postIsDisabled || loading}
 				disabled={postIsDisabled}
 				on:click={savePost}
 			>
-				{submitButtonText}
+				{#if !loading}
+					{submitButtonText}
+				{:else}
+					<div
+						class="w-3 h-3 rounded-full animate-ping"
+						class:bg-white={!postIsDisabled}
+						class:bg-gray-700={postIsDisabled}
+					/>
+				{/if}
 			</button>
 		</div>
 	</div>

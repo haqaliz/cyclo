@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import { user as usr } from '$api';
 import { writable } from 'svelte/store';
 import token from './token';
@@ -5,12 +6,16 @@ import plans from './plans';
 import challenges from './challenges';
 import recommendations from './recommendations';
 
-const user = writable(null);
+const user = writable((browser && JSON.parse(localStorage.getItem('user'))) || null);
 
 user.get = async () => {
 	if (localStorage.getItem('token')) token.set(localStorage.getItem('token'));
 	const r = await usr.getInfo();
-	if (!r) return;
+	if (!r) {
+		token.set(null);
+		user.set(null);
+		return;
+	}
 	if (!r.subscription)
 		r.subscription = {
 			updated_at: {
@@ -31,5 +36,14 @@ user.get = async () => {
 	user.set(r);
 	await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
 };
+
+user.subscribe((v: any) => {
+	if (!browser) return;
+	if (!v) {
+		localStorage.removeItem('user');
+		return;
+	}
+	localStorage.setItem('user', JSON.stringify(v));
+});
 
 export default user;

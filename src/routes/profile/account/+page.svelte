@@ -3,10 +3,7 @@
 	import { user as userApi, auth } from '$api';
 	import { goto } from '$app/navigation';
 
-	interface User {
-		email: string;
-	}
-	let user: User | null;
+	let user: any;
 	usr.subscribe((v) => {
 		if (!v) return;
 		user = structuredClone(v);
