@@ -23,7 +23,7 @@
 </script>
 
 <!-- Layout -->
-{#if permissions.private.test($page.url.pathname) || permissions.publicWithNav.test($page.url.pathname) || '/' === $page.url.pathname}
+{#if permissions.private.test($page.url.pathname) || permissions.withNav.test($page.url.pathname) || '/' === $page.url.pathname}
 	<div in:slide out:slide class="flex flex-col">
 		<Nav />
 	</div>
@@ -32,7 +32,7 @@
 	<div in:fade out:fade class="flex flex-col">
 		<slot />
 
-		{#if permissions.publicWithFooter.test($page.url.pathname) || '/' === $page.url.pathname}
+		{#if permissions.withFooter.test($page.url.pathname) || '/' === $page.url.pathname}
 			<Footer />
 		{/if}
 	</div>

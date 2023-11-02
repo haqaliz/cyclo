@@ -20,10 +20,11 @@
 		<div class="flex flex-row overflow-x-scroll hide-scrollbar ml-2 md:ml-4">
 			{#each value as challenge}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div
+				<a
 					class="flex flex-row items-start transition-colors rounded p-2 sm:p-4
 					min-w-max mr-2 sm:mr-4 cursor-pointer
-					min-h-[180px] sm:min-h-[120px] bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10"
+					min-h-[180px] bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10"
+					href={`/challenges/${challenge.id}`}
 				>
 					<div
 						class="bg-no-repeat bg-contain bg-center w-full max-w-[150px] h-full mr-2 md:mr-4"
@@ -34,7 +35,7 @@
 							{challenge.value}
 						</span>
 					</div>
-				</div>
+				</a>
 			{/each}
 		</div>
 	</div>

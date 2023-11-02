@@ -75,7 +75,7 @@ export const pages = [
 		private: true
 	},
 	{
-		key: '/explore/challeneges',
+		key: '/challenges',
 		private: true
 	}
 ];
@@ -95,16 +95,16 @@ export const permissions: any = {
 			.join('|')})`,
 		'i'
 	),
-	publicWithNav: new RegExp(
+	withNav: new RegExp(
 		`^(${pages
-			.filter((i) => i.public && i.nav)
+			.filter((i) => i.nav)
 			.map((i) => i.key)
 			.join('|')})`,
 		'i'
 	),
-	publicWithFooter: new RegExp(
+	withFooter: new RegExp(
 		`^(${pages
-			.filter((i) => i.public && i.footer)
+			.filter((i) => i.footer)
 			.map((i) => i.key)
 			.join('|')})`,
 		'i'
