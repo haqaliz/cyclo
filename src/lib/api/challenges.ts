@@ -12,7 +12,7 @@ export const list = async () => {
 };
 
 interface GetChallengePayload {
-	challenge_id: String;
+	challenge_id: string;
 }
 export const getChallenge = async (payload: GetChallengePayload) => {
 	let r = await fetch(`${API_BASE_URL}/challenges/${payload.challenge_id}`, {

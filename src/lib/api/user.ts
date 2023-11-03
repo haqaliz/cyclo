@@ -1,5 +1,14 @@
 import { API_BASE_URL, REQ_OPTIONS } from '$config';
 
+export const getToken = async () => {
+	const r = await fetch(`${API_BASE_URL}/user/token`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export const getInfo = async () => {
 	const r = await fetch(`${API_BASE_URL}/user/info`, {
 		...REQ_OPTIONS,
@@ -162,6 +171,7 @@ export const likePost = async (payload: any) => {
 };
 
 export default {
+	getToken,
 	getInfo,
 	getRecommendations,
 	updateInfo,

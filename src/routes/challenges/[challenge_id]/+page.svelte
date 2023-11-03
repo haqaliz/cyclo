@@ -68,9 +68,7 @@
 </svelte:head>
 
 <div class="flex flex-col md:flex-row">
-	<div
-		class="flex flex-col flex-1"
-	>
+	<div class="flex flex-col flex-1">
 		<div class="flex flex-col w-full px-2 md:px-4">
 			<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Challenge</h1>
 			{#if loading}

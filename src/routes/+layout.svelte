@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '$styles';
 
-	import { user, plans, challenges, recommendations } from '$stores';
+	import { user, token, plans, challenges, recommendations } from '$stores';
 	import { page } from '$app/stores';
 
 	import { onMount } from 'svelte';
@@ -18,6 +18,8 @@
 			await user.get();
 			return;
 		}
+		await token.check();
+		if (!$token) return;
 		await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
 	});
 </script>

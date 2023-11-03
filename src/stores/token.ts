@@ -1,8 +1,18 @@
 import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
+import { user as usr } from '$api';
 import config from '$config';
+import user from './user';
 
 const token = writable((browser && localStorage.getItem('token')) || null);
+
+token.check = async () => {
+	const r = await usr.getToken();
+	if (!r || Date.now() / 1000 > r?.exp) {
+		token.set(null);
+		user.set(null);
+	}
+};
 
 token.subscribe((v: any) => {
 	if (!browser) return;
