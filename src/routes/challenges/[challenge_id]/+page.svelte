@@ -94,7 +94,7 @@
 
 			{#if challenge}
 				<div
-					class="flex flex-col md:flex-row items-start transition-colors rounded p-2 sm:p-4 cursor-pointer
+					class="flex flex-col md:flex-row items-start transition-colors rounded p-2 md:p-4 cursor-pointer
 					min-h-[300px] bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10"
 				>
 					<div class="flex flex-row items-center justify-center flex-1 w-full md:max-w-[350px]">
@@ -103,8 +103,8 @@
 							style:background-image={`url(${challenge.img ?? ''})`}
 						/>
 					</div>
-					<div class="flex flex-col flex-1 items-start ml-2 md:ml-4">
-						<span class="font-sans font-semibold text-2xl sm:text-3xl mb-2 md:mb-4">
+					<div class="flex flex-col flex-1 items-start">
+						<span class="font-sans font-semibold text-2xl md:text-3xl mb-2 md:mb-4">
 							{challenge.value}
 						</span>
 						<p class="flex-1 text-gray-700 text-lg mb-2 md:mb-4">
@@ -112,7 +112,7 @@
 						</p>
 						<button
 							class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
-								focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center mr-2 sm:mr-4 last:mr-0
+								focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center mr-2 md:mr-4 last:mr-0
 								focus:ring-gray-400 justify-center h-11 min-w-[80px]"
 							class:bg-zinc-900={!challenge.user_challenge}
 							class:text-white={!challenge.user_challenge}
@@ -141,7 +141,7 @@
 							<a
 								href="/calendar"
 								class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2
-								font-semibold mt-2 sm:mt-4">Start your challenge from your calendar</a
+								font-semibold mt-2 md:mt-4">Start your challenge from your calendar</a
 							>
 						{/if}
 					</div>
