@@ -2,7 +2,7 @@
 	import { user } from '$stores';
 	import { slide } from 'svelte/transition';
 	import { user as usr } from '$api';
-	import { Recommendations, Progress } from '$components';
+	import { Recommendations, Challenges, Progress } from '$components';
 	import Agenda from './agenda.svelte';
 	import RecordedDays from './recorded-days/index.svelte';
 	import AddRecordedDay from './recorded-days/add.svelte';
@@ -52,10 +52,17 @@
 				<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
 			</div>
 
-			<Recommendations class="mt-2 sm:mt-4" />
+			<Recommendations />
 		</div>
 	{/if}
-	<div in:slide out:slide class="flex flex-row" class:mt-2={loading} class:sm:mt-4={loading}>
+	<Challenges />
+	<div
+		in:slide
+		out:slide
+		class="flex flex-row mt-2 md:mt-4"
+		class:mt-2={loading}
+		class:sm:mt-4={loading}
+	>
 		<AddRecordedDay
 			recordedDay={recordedDays?.length ? recordedDays[0] : null}
 			{selectedDay}

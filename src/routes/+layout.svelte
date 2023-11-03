@@ -3,6 +3,7 @@
 
 	import { user, token, plans, challenges, recommendations } from '$stores';
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	import { onMount } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
@@ -19,7 +20,10 @@
 			return;
 		}
 		await token.check();
-		if (!$token) return;
+		if (!$token) {
+			await goto('/');
+			return;
+		}
 		await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
 	});
 </script>

@@ -32,7 +32,6 @@
 		class="flex flex-col sm:flex-row items-start transition-colors rounded p-2 sm:p-4
             min-w-[280px] sm:min-w-[250px] min-h-[180px] sm:min-h-[120px]
             bg-gray-100 hover:bg-gray-200"
-		{...$$restProps}
 	>
 		<div
 			class={`

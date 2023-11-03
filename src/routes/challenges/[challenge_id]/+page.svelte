@@ -31,6 +31,22 @@
 		});
 		loading = false;
 	};
+	let toggleLoading = false;
+	const toggleAccept = async () => {
+		if (toggleLoading) return;
+		toggleLoading = true;
+		if (challenge.user_challenge) {
+			await challenges.rejectChallenge({
+				challenge_id: challenge.id
+			});
+		} else {
+			await challenges.acceptChallenge({
+				challenge_id: challenge.id
+			});
+		}
+		toggleLoading = false;
+		await update();
+	};
 	$: (async () => {
 		if (!/[a-zA-Z0-9]+/.test(data?.challenge_id) || data?.challenge_id === 'undefined')
 			await goto('/challenges');
@@ -70,7 +86,6 @@
 <div class="flex flex-col md:flex-row">
 	<div class="flex flex-col flex-1">
 		<div class="flex flex-col w-full px-2 md:px-4">
-			<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Challenge</h1>
 			{#if loading}
 				<div class="flex flex-row mb-2 md:mb-4">
 					<Progress />
@@ -79,18 +94,56 @@
 
 			{#if challenge}
 				<div
-					class="flex flex-row items-start transition-colors rounded p-2 sm:p-4
-					min-w-max cursor-pointer
+					class="flex flex-col md:flex-row items-start transition-colors rounded p-2 sm:p-4 cursor-pointer
 					min-h-[300px] bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10"
 				>
-					<div
-						class="bg-no-repeat bg-contain bg-center w-full max-w-[250px] h-full"
-						style:background-image={`url(${challenge.img ?? ''})`}
-					/>
-					<div class="flex flex-row flex-1 items-start">
-						<span class="font-sans font-semibold text-xl sm:text-2xl">
+					<div class="flex flex-row items-center justify-center flex-1 w-full md:max-w-[350px]">
+						<div
+							class="bg-no-repeat bg-contain bg-center w-full h-full min-h-[250px]"
+							style:background-image={`url(${challenge.img ?? ''})`}
+						/>
+					</div>
+					<div class="flex flex-col flex-1 items-start ml-2 md:ml-4">
+						<span class="font-sans font-semibold text-2xl sm:text-3xl mb-2 md:mb-4">
 							{challenge.value}
 						</span>
+						<p class="flex-1 text-gray-700 text-lg mb-2 md:mb-4">
+							{challenge.objective}
+						</p>
+						<button
+							class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+								focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center mr-2 sm:mr-4 last:mr-0
+								focus:ring-gray-400 justify-center h-11 min-w-[80px]"
+							class:bg-zinc-900={!challenge.user_challenge}
+							class:text-white={!challenge.user_challenge}
+							class:hover:bg-gray-700={!challenge.user_challenge}
+							class:bg-purple-400={challenge.user_challenge}
+							class:text-black={challenge.user_challenge}
+							class:hover:bg-purple-500={challenge.user_challenge}
+							on:click={toggleAccept}
+						>
+							{#if toggleLoading}
+								<div
+									class="w-3 h-3 rounded-full animate-ping"
+									class:bg-gray-700={challenge.user_challenge}
+									class:bg-white={!challenge.user_challenge}
+								/>
+							{:else if challenge.user_challenge}
+								<i class="material-icons mr-2">bookmark</i>
+								Reject The Challenge you accepted
+							{:else}
+								<i class="material-icons mr-2">bookmark_border</i>
+								Join Challenge for This Month
+							{/if}
+						</button>
+
+						{#if challenge.user_challenge}
+							<a
+								href="/calendar"
+								class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2
+								font-semibold mt-2 sm:mt-4">Start your challenge from your calendar</a
+							>
+						{/if}
 					</div>
 				</div>
 			{/if}

@@ -73,7 +73,6 @@
 		class="flex flex-col flex-1 w-full md:min-w-[calc(100%-350px-1rem)] md:max-w-[calc(100%-350px-1rem)]"
 	>
 		<div class="flex flex-col w-full px-2 md:px-4">
-			<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Post</h1>
 			{#if loading}
 				<div class="flex flex-row mb-2 md:mb-4">
 					<Progress />
