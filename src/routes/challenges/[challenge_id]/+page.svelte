@@ -180,16 +180,16 @@
 							{@const item = challenge.user_challenge?.content?.[k]}
 							<button
 								class="
-									flex flex-row transition-colors ease-in-out rounded py-4 px-8
-									font-semibold mr-2 md:mr-4 last:mr-0"
+									flex flex-row transition-colors ease-in-out rounded py-4 px-8 w-full md:w-auto
+									font-semibold mb-2 md:mb-0 md:mr-4 last:mr-0 last:mb-0"
 								class:text-white={!item && k === chlngIndex}
 								class:bg-zinc-900={!item && k === chlngIndex}
 								class:hover:bg-gray-700={!item && k === chlngIndex}
 								class:text-black={k !== chlngIndex}
 								class:bg-green-300={!!item && k <= chlngIndex}
 								class:hover:bg-green-400={!!item && k <= chlngIndex}
-								class:bg-red-300={!item && k < chlngIndex}
-								class:hover:bg-red-400={!item && k < chlngIndex}
+								class:!bg-red-300={!item && k < chlngIndex}
+								class:!hover:bg-red-400={!item && k < chlngIndex}
 								class:bg-yellow-300={!item && k !== chlngIndex}
 								class:hover:bg-yellow-400={!item && k !== chlngIndex}
 								class:cursor-not-allowed={!item && k !== chlngIndex}
