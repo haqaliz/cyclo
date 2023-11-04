@@ -133,28 +133,32 @@
 						<p class="flex-1 text-gray-700 text-lg mb-2 md:mb-4">
 							{challenge.objective}
 						</p>
-						{#if challenge.user_challenge?.content?.length}
+						{#if !Object.keys(challenge.user_challenge?.content ?? {})?.length}
 							<button
 								class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
 									focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center mr-2 md:mr-4 last:mr-0
-									focus:ring-gray-400 justify-center h-11 min-w-[80px]"
-								class:bg-zinc-900={!challenge.user_challenge}
-								class:text-white={!challenge.user_challenge}
-								class:hover:bg-gray-700={!challenge.user_challenge}
-								class:bg-purple-400={challenge.user_challenge}
-								class:text-black={challenge.user_challenge}
-								class:hover:bg-purple-500={challenge.user_challenge}
+									focus:ring-gray-400 justify-center h-11 min-w-[80px] bg-purple-400 text-black hover:bg-purple-500"
 								on:click={toggleAccept}
 							>
 								{#if toggleLoading}
-									<div
-										class="w-3 h-3 rounded-full animate-ping"
-										class:bg-gray-700={challenge.user_challenge}
-										class:bg-white={!challenge.user_challenge}
-									/>
+									<div class="w-3 h-3 rounded-full animate-ping bg-gray-700" />
 								{:else if challenge.user_challenge}
 									<i class="material-icons mr-2">bookmark</i>
 									Reject Challenge
+								{:else}
+									<i class="material-icons mr-2">bookmark_border</i>
+									Join Challenge
+								{/if}
+							</button>
+						{:else if !challenge.user_challenge}
+							<button
+								class="p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+									focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center mr-2 md:mr-4 last:mr-0
+									focus:ring-gray-400 justify-center h-11 min-w-[80px] bg-zinc-900 text-white hover:bg-gray-700"
+								on:click={toggleAccept}
+							>
+								{#if toggleLoading}
+									<div class="w-3 h-3 rounded-full animate-ping bg-white" />
 								{:else}
 									<i class="material-icons mr-2">bookmark_border</i>
 									Join Challenge
