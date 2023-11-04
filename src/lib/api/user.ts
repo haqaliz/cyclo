@@ -170,6 +170,18 @@ export const likePost = async (payload: any) => {
 	return !!r?.ok;
 };
 
+export const updateChallenge = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/challenges/${payload.challenge_id}`, {
+		...REQ_OPTIONS,
+		method: 'PUT',
+		body: JSON.stringify({
+			content: payload.content
+		})
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export default {
 	getToken,
 	getInfo,
@@ -185,5 +197,6 @@ export default {
 	getPosts,
 	getPost,
 	removePost,
-	likePost
+	likePost,
+	updateChallenge
 };

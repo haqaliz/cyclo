@@ -40,6 +40,10 @@
 				path: '/explore'
 			},
 			{
+				name: 'Challenges',
+				path: '/challenges'
+			},
+			{
 				icon: 'person',
 				title: 'Profile',
 				path: '/profile'

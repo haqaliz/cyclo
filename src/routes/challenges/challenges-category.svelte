@@ -19,7 +19,6 @@
 		<h3 class="text-2xl font-semibold my-2 ml-2 md:my-4 md:ml-4">{challenegeType}</h3>
 		<div class="flex flex-row overflow-x-scroll hide-scrollbar ml-2 md:ml-4">
 			{#each value as challenge}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<a
 					class="flex flex-row items-start transition-colors rounded p-2 sm:p-4
 					min-w-max mr-2 sm:mr-4 cursor-pointer

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DOMAIN } from '$config';
 	import { challenges } from '$stores';
+	import { Progress } from '$components';
 	import ChallengesCategory from './challenges-category.svelte';
 
 	const title = 'Cyclo | Track & Achieve';
@@ -13,6 +14,10 @@
 		'Cyclo community',
 		'menstrual cycle achievements'
 	];
+	let loading = true;
+	challenges.subscribe((v) => {
+		if (v) loading = false;
+	});
 </script>
 
 <svelte:head>
@@ -44,6 +49,11 @@
 </svelte:head>
 
 <div class="flex flex-col px-2 md:px-4">
+	{#if loading}
+		<div class="flex flex-row mb-2 md:mb-4">
+			<Progress />
+		</div>
+	{/if}
 	<div class="flex flex-col bg-white bg-opacity-25 rounded relative overflow-hidden">
 		{#if Object.keys($challenges ?? {})?.length}
 			{@const challengesKeys = Object.keys($challenges ?? {})}

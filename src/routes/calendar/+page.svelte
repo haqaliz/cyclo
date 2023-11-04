@@ -55,14 +55,10 @@
 			<Recommendations />
 		</div>
 	{/if}
-	<Challenges />
-	<div
-		in:slide
-		out:slide
-		class="flex flex-row mt-2 md:mt-4"
-		class:mt-2={loading}
-		class:sm:mt-4={loading}
-	>
+	<div class="mt-2 sm:mt-4">
+		<Challenges />
+	</div>
+	<div in:slide out:slide class="flex flex-row mt-2 md:mt-4">
 		<AddRecordedDay
 			recordedDay={recordedDays?.length ? recordedDays[0] : null}
 			{selectedDay}
