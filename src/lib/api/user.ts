@@ -39,6 +39,8 @@ export const getRecommendations = async () => {
 interface UpdateInfoPayload {
 	prefs?: any;
 	email?: string;
+	first_name?: string;
+	last_name?: string;
 }
 export const updateInfo = async (payload: UpdateInfoPayload) => {
 	const r = await fetch(`${API_BASE_URL}/user/info`, {

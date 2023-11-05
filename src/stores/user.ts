@@ -8,7 +8,7 @@ import recommendations from './recommendations';
 
 const user = writable((browser && JSON.parse(localStorage.getItem('user'))) || null);
 
-user.get = async () => {
+user.get = async (deep = true) => {
 	if (localStorage.getItem('token')) token.set(localStorage.getItem('token'));
 	const r = await usr.getInfo();
 	if (!r) {
@@ -34,7 +34,9 @@ user.get = async () => {
 			key: 'beginner_monthly'
 		};
 	user.set(r);
-	await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
+	if (deep) {
+		await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
+	}
 };
 
 user.subscribe((v: any) => {

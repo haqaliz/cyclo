@@ -4,7 +4,7 @@
 	import { user as usr } from '$api';
 	import { Progress } from '$components';
 	import { goto } from '$app/navigation';
-	import { challenges } from '$stores';
+	import { user as userStore, challenges } from '$stores';
 	import { slide } from 'svelte/transition';
 	const title = 'Your Shared Journey in Menstrual Health | Cyclo';
 	const description =
@@ -82,63 +82,84 @@
 	</style>
 </svelte:head>
 
-<div class="flex flex-col md:flex-row">
-	{#if loading}
-		<div in:slide out:slide class="flex flex-1 flex-row mb-2 md:mb-4">
-			<Progress />
-		</div>
-	{/if}
-
-	{#if user?.completed_challenges?.length}
-		<div in:slide out:slide class="flex flex-col w-full">
-			<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Badges</h1>
-			<div
-				class="flex flex-row flex-wrap w-full bg-white transition-all ease-in-out bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded p-2 sm:p-4"
-			>
-				{#each user?.completed_challenges as item}
-					<div class="flex flex-row items-center w-full sm:w-auto mb-2 last:mb-0 sm:mb-0 sm:mr-4">
-						{#each item?.history ?? [] as hs}
-							{#if hs.completed_days === 7}
-								<div
-									class="flex flex-row items-center justify-center min-w-max h-24 bg-green-300 select-none px-4 rounded-s relative"
-								>
-									<i class="material-icons text-5xl">verified</i>
-									<span class="bg-zinc-900 py-1 px-2 rounded text-white font-semibold ml-4">
-										{hs.count} Time{hs.count > 1 ? 's' : ''}
-									</span>
-								</div>
-							{:else if hs.completed_days < 7 && hs.completed_days >= 3}
-								<div
-									class="flex flex-row items-center justify-center w-full sm:w-auto min-w-max h-24 bg-yellow-300 select-none px-4 rounded-s relative"
-								>
-									<i class="material-icons text-5xl">military_tech</i>
-									<span class="bg-zinc-900 py-1 px-2 rounded text-white font-semibold ml-4">
-										{hs.count} Time{hs.count > 1 ? 's' : ''}
-									</span>
-								</div>
-							{:else if hs.completed_days < 7}
-								<div
-									class="flex flex-row items-center justify-center w-full sm:w-auto min-w-max h-24 bg-red-400 select-none px-4 rounded-s relative"
-								>
-									<i class="material-icons text-5xl">new_releases</i>
-									<span class="bg-zinc-900 py-1 px-2 rounded text-white font-semibold ml-4">
-										{hs.count} Time{hs.count > 1 ? 's' : ''}
-									</span>
-								</div>
-							{/if}
-						{/each}
-						<a
-							href={`/challenges/${item.challenge_id}`}
-							class="bg-white transition-all ease-in-out bg-opacity-40 hover:bg-black hover:bg-opacity-25 w-24 h-24 p-4 rounded-e"
+<div class="flex flex-col">
+	<div class="flex flex-col w-full flex-1">
+		{#if $userStore}
+			<div in:slide out:slide class="flex flex-col w-full mb-2 md:mb-4">
+				<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Info</h1>
+				<div
+					class="flex flex-row flex-wrap w-full bg-white transition-all ease-in-out bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded p-2 sm:p-4"
+				>
+					<div
+						class="flex flex-row items-center bg-gray-50 text-xl font-semibold rounded p-2 md:p-4"
+					>
+						<i class="material-icons mr-2 md:mr-4">person</i>
+						<span
+							>{$userStore?.metadata?.first_name ?? ''}
+							{$userStore?.metadata?.last_name ?? ''}</span
 						>
-							<div
-								class="bg-no-repeat bg-contain bg-center w-full h-full"
-								style:background-image={`url(${challengesById[item.challenge_id]?.img ?? ''})`}
-							/>
-						</a>
 					</div>
-				{/each}
+				</div>
 			</div>
-		</div>
-	{/if}
+		{/if}
+
+		{#if loading}
+			<div in:slide out:slide class="flex flex-1 flex-row mb-2 md:mb-4">
+				<Progress />
+			</div>
+		{/if}
+
+		{#if user?.completed_challenges?.length}
+			<div in:slide out:slide class="flex flex-col w-full">
+				<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Badges</h1>
+				<div
+					class="flex flex-row flex-wrap w-full bg-white transition-all ease-in-out bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded p-2 sm:p-4"
+				>
+					{#each user?.completed_challenges as item}
+						<div class="flex flex-row items-center w-full sm:w-auto mb-2 last:mb-0 sm:mb-0 sm:mr-4">
+							{#each item?.history ?? [] as hs}
+								{#if hs.completed_days === 7}
+									<div
+										class="flex flex-row items-center justify-center min-w-max h-24 bg-green-300 select-none px-4 rounded-s relative"
+									>
+										<i class="material-icons text-5xl">verified</i>
+										<span class="bg-zinc-900 py-1 px-2 rounded text-white font-semibold ml-4">
+											{hs.count} Time{hs.count > 1 ? 's' : ''}
+										</span>
+									</div>
+								{:else if hs.completed_days < 7 && hs.completed_days >= 3}
+									<div
+										class="flex flex-row items-center justify-center w-full sm:w-auto min-w-max h-24 bg-yellow-300 select-none px-4 rounded-s relative"
+									>
+										<i class="material-icons text-5xl">military_tech</i>
+										<span class="bg-zinc-900 py-1 px-2 rounded text-white font-semibold ml-4">
+											{hs.count} Time{hs.count > 1 ? 's' : ''}
+										</span>
+									</div>
+								{:else if hs.completed_days < 7}
+									<div
+										class="flex flex-row items-center justify-center w-full sm:w-auto min-w-max h-24 bg-red-400 select-none px-4 rounded-s relative"
+									>
+										<i class="material-icons text-5xl">new_releases</i>
+										<span class="bg-zinc-900 py-1 px-2 rounded text-white font-semibold ml-4">
+											{hs.count} Time{hs.count > 1 ? 's' : ''}
+										</span>
+									</div>
+								{/if}
+							{/each}
+							<a
+								href={`/challenges/${item.challenge_id}`}
+								class="bg-white transition-all ease-in-out bg-opacity-40 hover:bg-black hover:bg-opacity-25 w-24 h-24 p-4 rounded-e"
+							>
+								<div
+									class="bg-no-repeat bg-contain bg-center w-full h-full"
+									style:background-image={`url(${challengesById[item.challenge_id]?.img ?? ''})`}
+								/>
+							</a>
+						</div>
+					{/each}
+				</div>
+			</div>
+		{/if}
+	</div>
 </div>

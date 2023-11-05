@@ -3,10 +3,16 @@
 	import { user as userApi, auth } from '$api';
 	import { goto } from '$app/navigation';
 
-	let user: any;
+	let user: any = {
+		email: '',
+		first_name: '',
+		last_name: ''
+	};
 	usr.subscribe((v) => {
 		if (!v) return;
-		user = structuredClone(v);
+		user.email = v.email;
+		user.first_name = v?.metadata?.first_name ?? '';
+		user.last_name = v?.metadata?.last_name ?? '';
 	});
 
 	const save = async () => {
@@ -14,12 +20,18 @@
 			email: user?.email
 		});
 		await userApi.updateInfo({
-			email: user?.email
+			email: user?.email,
+			first_name: user?.first_name,
+			last_name: user?.last_name
 		});
-		await auth.logout();
-		usr.set(null);
-		token.set(null);
-		await goto('/login');
+		if ($usr && user?.email !== $usr?.email) {
+			await auth.logout();
+			usr.set(null);
+			token.set(null);
+			await goto('/login');
+		} else {
+			await usr.get(false);
+		}
 	};
 </script>
 
@@ -32,15 +44,35 @@
 </svelte:head>
 
 {#if user}
-	<div class="flex flex-col bg-gray-100 rounded p-2 sm:p-4">
-		<div class="flex flex-col mb-2 md:mb-4">
-			<label for="" class="text-lg font-semibold mb-2">Email</label>
-			<input
-				bind:value={user.email}
-				type="email"
-				placeholder="Email"
-				class="p-2 rounded bg-white font-sans font-medium text-lg border-2 resize-none"
-			/>
+	<div class="flex flex-col bg-gray-100 rounded p-2 md:p-4">
+		<div class="flex flex-col md:flex-row">
+			<div class="flex flex-col min-w-[50px] flex-1 mb-2 md:mr-4 md:mb-4">
+				<label for="" class="text-lg font-semibold mb-2">Email</label>
+				<input
+					bind:value={user.email}
+					type="email"
+					placeholder="Email"
+					class="p-2 rounded bg-white font-sans font-medium text-lg border-2 resize-none"
+				/>
+			</div>
+			<div class="flex flex-col min-w-[50px] flex-1 mb-2 md:mr-4 md:mb-4">
+				<label for="" class="text-lg font-semibold mb-2">First Name</label>
+				<input
+					bind:value={user.first_name}
+					type="text"
+					placeholder="First Name"
+					class="p-2 rounded bg-white font-sans font-medium text-lg border-2 resize-none"
+				/>
+			</div>
+			<div class="flex flex-col min-w-[50px] flex-1 mb-2">
+				<label for="" class="text-lg font-semibold mb-2">Last Name</label>
+				<input
+					bind:value={user.last_name}
+					type="text"
+					placeholder="Last Name"
+					class="p-2 rounded bg-white font-sans font-medium text-lg border-2 resize-none"
+				/>
+			</div>
 		</div>
 
 		<div class="flex flex-row">

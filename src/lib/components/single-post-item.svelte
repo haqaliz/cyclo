@@ -5,6 +5,7 @@
 	import { user as usr } from '$api';
 	import { user } from '$stores';
 	import { formatDistanceToNow } from 'date-fns';
+	import { goto } from '$app/navigation';
 	const dispatch = createEventDispatcher();
 	export let post: any;
 	export let clickable = true;
@@ -35,6 +36,13 @@
 		if (!clickable) return;
 		window.location.href = `/posts/${post.id}`;
 	};
+	$: profileColor = {
+		1: 'bg-gradient-to-r from-fuchsia-200 via-fuchsia-400 to-indigo-600',
+		2: 'bg-gradient-to-r from-blue-100 via-blue-300 to-red-500',
+		3: 'bg-gradient-to-r from-red-300 via-red-500 to-yellow-300',
+		4: 'bg-gradient-to-r from-green-300 via-green-500 to-amber-200',
+		5: 'bg-gradient-to-r from-blue-400 via-blue-600 to-teal-400'
+	}[Math.floor(Math.random() * 5) + 1];
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -49,6 +57,10 @@
 >
 	<div class="flex flex-row items-center mb-1 md:mb-2">
 		<slot name="before-header-first-element" />
+		<button
+			class={`w-8 h-8 rounded-full transition-all ease-in-out hover:rotate-12 hover:scale-125 mr-2 md:mr-4 ${profileColor}`}
+			on:click|stopPropagation={() => goto(`/profile/${post?.user_id ?? ''}`)}
+		/>
 		<span class="text-sm font-semibold text-gray-600">
 			{formatDistanceToNow(new Date(post.created_at.seconds * 1000), { addSuffix: true })}
 		</span>
