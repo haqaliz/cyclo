@@ -11,7 +11,9 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			fallback: 'index.html'
+			precompress: false,
+			strict: false,
+			fallback: '200.html'
 		}),
 
 		alias: {

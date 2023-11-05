@@ -34,7 +34,7 @@
 		<Nav />
 	</div>
 {/if}
-{#if !loading}
+{#if !loading || permissions.public.test($page.url.pathname)}
 	<div in:fade out:fade class="flex flex-col">
 		<slot />
 

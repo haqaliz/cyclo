@@ -137,12 +137,11 @@ export const redirects = async () => {
 	}
 	if (!user && !token && permissions.private.test(page.url.pathname)) {
 		loading = false;
-		window.location.href = '/login';
+		await goto('/login');
 		return;
 	}
 	if (!user && !token && permissions.public.test(page.url.pathname)) {
 		loading = false;
-		await goto(page.url);
 		return;
 	}
 	if ((user || token) && permissions.auth.test(page.url.pathname)) {
@@ -151,7 +150,6 @@ export const redirects = async () => {
 		return;
 	}
 	loading = false;
-	await goto(page.url);
 };
 
 export default {
