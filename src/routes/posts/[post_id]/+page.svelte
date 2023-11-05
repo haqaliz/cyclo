@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { DOMAIN } from '$config';
+	import { browser } from '$app/environment';
 	import { Trends, Footer, SinglePostItem, NewPost, Progress } from '$components';
 	import { user as usr } from '$stores';
 	import { user } from '$api';
@@ -25,7 +26,7 @@
 	let post: any;
 	let loading = false;
 	const update = async () => {
-		if (loading) return;
+		if (!browser || loading) return;
 		loading = true;
 		post = await user.getPost({
 			post_id: data?.post_id

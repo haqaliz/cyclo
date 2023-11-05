@@ -17,14 +17,14 @@
 		// get current user detail
 		if (!$user) {
 			await user.get();
+			await challenges.get();
 			return;
 		}
-		await token.check();
+		await Promise.all([plans.get(), challenges.get(), recommendations.get(), token.check()]);
 		if (!$token) {
 			await goto('/');
 			return;
 		}
-		await Promise.all([plans.get(), challenges.get(), recommendations.get()]);
 	});
 </script>
 

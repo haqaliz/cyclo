@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { DOMAIN } from '$config';
+	import { browser } from '$app/environment';
 	import { slide } from 'svelte/transition';
 	import { challenges, user } from '$api';
 	import { goto } from '$app/navigation';
@@ -26,7 +27,7 @@
 	let challenge: any;
 	let loading = false;
 	const update = async () => {
-		if (loading) return;
+		if (!browser || loading) return;
 		loading = true;
 		challenge = await challenges.getChallenge({
 			challenge_id: data?.challenge_id

@@ -52,6 +52,19 @@ export const pages = [
 	},
 	{
 		key: '/profile',
+		public: true,
+		nav: true
+	},
+	{
+		key: '/profile/account',
+		private: true
+	},
+	{
+		key: '/profile/password',
+		private: true
+	},
+	{
+		key: '/profile/preferences',
 		private: true
 	},
 	{

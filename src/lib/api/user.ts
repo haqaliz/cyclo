@@ -9,6 +9,15 @@ export const getToken = async () => {
 	return r.json();
 };
 
+export const getPublicInfo = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/${payload.user_id}/info`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export const getInfo = async () => {
 	const r = await fetch(`${API_BASE_URL}/user/info`, {
 		...REQ_OPTIONS,
@@ -184,6 +193,7 @@ export const updateChallenge = async (payload: any) => {
 
 export default {
 	getToken,
+	getPublicInfo,
 	getInfo,
 	getRecommendations,
 	updateInfo,
