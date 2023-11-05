@@ -48,7 +48,8 @@
 	};
 	$: (async () => {
 		if (!/[a-zA-Z0-9]+/.test(data?.user_id) || data?.user_id === 'undefined') await goto('/');
-		if (user) return;
+		if (user || !browser) return;
+		if (!$challenges) await challenges.get();
 		await update();
 	})();
 </script>
@@ -83,7 +84,7 @@
 
 <div class="flex flex-col md:flex-row">
 	{#if loading}
-		<div in:slide out:slide class="flex flex-row mb-2 md:mb-4">
+		<div in:slide out:slide class="flex flex-1 flex-row mb-2 md:mb-4">
 			<Progress />
 		</div>
 	{/if}
