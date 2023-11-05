@@ -4,7 +4,7 @@
 	import { user as usr } from '$api';
 	import { Progress } from '$components';
 	import { goto } from '$app/navigation';
-	import { user as userStore, challenges } from '$stores';
+	import { challenges } from '$stores';
 	import { slide } from 'svelte/transition';
 	const title = 'Your Shared Journey in Menstrual Health | Cyclo';
 	const description =
@@ -84,7 +84,7 @@
 
 <div class="flex flex-col">
 	<div class="flex flex-col w-full flex-1">
-		{#if $userStore}
+		{#if user?.first_name || user?.last_name}
 			<div in:slide out:slide class="flex flex-col w-full mb-2 md:mb-4">
 				<h1 class="font-semibold text-3xl font-sans mb-2 md:mb-4">Info</h1>
 				<div
@@ -95,8 +95,8 @@
 					>
 						<i class="material-icons mr-2 md:mr-4">person</i>
 						<span
-							>{$userStore?.metadata?.first_name ?? ''}
-							{$userStore?.metadata?.last_name ?? ''}</span
+							>{user?.first_name ?? ''}
+							{user?.last_name ?? ''}</span
 						>
 					</div>
 				</div>
