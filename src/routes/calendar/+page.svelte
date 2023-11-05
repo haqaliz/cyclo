@@ -43,18 +43,26 @@
 	<Agenda on:change={dateChanged} />
 
 	{#if loading}
-		<div class="mt-2 sm:mt-4">
+		<div
+			in:slide
+			out:slide
+			class="flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
+				bg-gray-100 hover:bg-gray-200 overflow-hidden mt-2 sm:mt-4"
+		>
 			<Progress />
 		</div>
 	{:else}
 		<div in:slide out:slide class="flex flex-col">
-			<div class="mt-2 sm:mt-4">
-				<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
-			</div>
-
-			<Recommendations />
+			{#if recordedDays?.length}
+				<div class="mt-2 sm:mt-4">
+					<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
+				</div>
+			{/if}
 		</div>
 	{/if}
+	<div class="mt-2 sm:mt-4">
+		<Recommendations />
+	</div>
 	<div class="mt-2 sm:mt-4">
 		<Challenges />
 	</div>

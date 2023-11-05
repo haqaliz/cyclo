@@ -28,12 +28,14 @@
 		<div class="flex flex-row items-start">
 			<div class="flex flex-col items-start mr-8">
 				<a
+					data-sveltekit-preload-data="hover"
 					href="/about"
 					class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold mb-2 sm:mb-4"
 				>
 					About Us</a
 				>
 				<a
+					data-sveltekit-preload-data="hover"
 					href="/contact"
 					class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold"
 				>
@@ -43,12 +45,14 @@
 			<div class="flex-1" />
 			<div class="flex flex-col items-start">
 				<a
+					data-sveltekit-preload-data="hover"
 					href="/terms-and-conditions"
 					class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold mb-2 sm:mb-4"
 				>
 					Terms and Conditions</a
 				>
 				<a
+					data-sveltekit-preload-data="hover"
 					href="/privacy-policy"
 					class="hover:bg-black hover:bg-opacity-10 transition-colors ease-in-out rounded p-2 font-semibold"
 				>

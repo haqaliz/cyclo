@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { auth } from '$api';
 	import { token, user } from '$stores';
 	import { Progress } from '$components';
@@ -29,7 +28,6 @@
 		token.set(r?.token);
 		showError = false;
 		await user.get();
-		await goto('/calendar');
 		loading = false;
 	};
 </script>

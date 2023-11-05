@@ -1,11 +1,14 @@
 <script lang="ts">
-	import { Modal } from '$components';
+	import { Modal, Progress } from '$components';
 	import { recommendations } from '$stores';
+	import { slide } from 'svelte/transition';
 
 	let menstruationProduct: any;
 	let menstruationProductColor = 'bg-purple-200';
+	let loading = true;
 	recommendations.subscribe((v: any) => {
 		if (!v?.menstruation_products) return;
+		loading = false;
 		// Menstruation Product Index
 		const MPI = Math.floor(Math.random() * v?.menstruation_products.length) + 0;
 		menstruationProduct = v?.menstruation_products?.[MPI];
@@ -27,11 +30,26 @@
 	};
 </script>
 
+{#if loading}
+	<div
+		in:slide
+		out:slide
+		class={`flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
+			bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0
+			${$$restProps['class'] ?? ''}`}
+	>
+		<Progress />
+	</div>
+{/if}
+
 {#if menstruationProduct}
 	<div
-		class="flex flex-col sm:flex-row items-start transition-colors rounded p-2 sm:p-4
+		in:slide
+		out:slide
+		class={`flex flex-col sm:flex-row items-start transition-colors rounded p-2 sm:p-4
             min-w-[280px] sm:min-w-[250px] min-h-[180px] sm:min-h-[120px]
-            bg-gray-100 hover:bg-gray-200"
+            bg-gray-100 hover:bg-gray-200
+			`}
 	>
 		<div
 			class={`

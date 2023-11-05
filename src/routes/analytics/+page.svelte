@@ -27,13 +27,20 @@
 
 <div class="p-2 sm:p-4">
 	{#if loading}
-		<Progress />
+		<div
+			in:slide
+			out:slide
+			class="flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
+				bg-gray-100 hover:bg-gray-200 overflow-hidden"
+		>
+			<Progress />
+		</div>
 	{:else}
 		<div in:slide out:slide class="flex flex-col">
 			<MenstruationStatus {latestMenstrualCycleStart} />
 			<CycleLength />
 			<FertileStatus {latestMenstrualCycleStart} />
-			<Recommendations />
 		</div>
 	{/if}
+	<Recommendations class="mt-2 sm:mt-4" />
 </div>

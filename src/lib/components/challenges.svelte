@@ -46,7 +46,14 @@
 </script>
 
 {#if loading}
-	<Progress />
+	<div
+		in:slide
+		out:slide
+		class="flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
+			bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0"
+	>
+		<Progress />
+	</div>
 {/if}
 
 {#if challenges?.length}

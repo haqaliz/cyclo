@@ -1,12 +1,12 @@
-import { readdir, writeFile } from 'fs/promises';
+import { /*readdir,*/ writeFile } from 'fs/promises';
 
-const getDirectories = async (source) =>
-	(await readdir(source, { withFileTypes: true }))
-		.filter((dirent) => dirent.isDirectory())
-		.map((dirent) => dirent.name);
+// const getDirectories = async (source) =>
+// 	(await readdir(source, { withFileTypes: true }))
+// 		.filter((dirent) => dirent.isDirectory())
+// 		.map((dirent) => dirent.name);
 
 const getRoutes = async () => {
-	const guidances = await getDirectories('./src/routes/insight/guidances');
+	// const guidances = await getDirectories('./src/routes/insight/guidances');
 	return [
 		// {
 		// 	path: '/analytics'
