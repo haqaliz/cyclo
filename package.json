@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"cyclo": "link:",
 		"date-fns": "^2.30.0",
 		"firebase": "^10.5.2",
 		"imask": "^7.1.3",

@@ -32,31 +32,27 @@
 			post_id: post.id
 		});
 	};
-	const clickEvent = async () => {
-		if (!clickable) return;
-		window.location.href = `/posts/${post.id}`;
-	};
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-missing-attribute -->
 <a
+	data-sveltekit-reload
+	href={`/posts/${post.id}`}
 	class="
 		flex flex-col rounded bg-white transition-all ease-in-out bg-opacity-25
 		hover:bg-black hover:bg-opacity-10 p-2 md:p-4 mb-2 md:mb-4
 	"
 	class:cursor-pointer={clickable}
-	on:click|stopPropagation={clickEvent}
 >
 	<div class="flex flex-row items-center mb-1 md:mb-2">
 		<slot name="before-header-first-element" />
-		<button
-			class="w-8 h-8 rounded-full bg-zinc-900 text-white
+		<a
+			data-sveltekit-reload
+			href={`/profile/${post?.user_id ?? ''}`}
+			class="flex flex-row items-center justify-center w-8 h-8 rounded-full bg-zinc-900 text-white
 			transition-all ease-in-out hover:rotate-12 hover:scale-125 mr-2 md:mr-4"
-			on:click|stopPropagation={() => goto(`/profile/${post?.user_id ?? ''}`)}
 		>
 			{post?.user_id?.substr(0, 2)}
-		</button>
+		</a>
 		<span class="text-sm font-semibold text-gray-600">
 			{formatDistanceToNow(new Date(post.created_at.seconds * 1000), { addSuffix: true })}
 		</span>
@@ -66,7 +62,7 @@
 				class="rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
                 focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
                 focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30 text-red-500"
-				on:click|stopPropagation={() => (showConfirmation = true)}
+				on:click|stopPropagation|preventDefault={() => (showConfirmation = true)}
 			>
 				<i class="material-icons">delete</i>
 			</button>
@@ -105,9 +101,7 @@
 			{#if $user}
 				<div class="flex flex-row items-center">
 					<span class="text-zinc-900 text-lg font-semibold mr-2">
-						{isLiked
-							? Object.keys(post.likes ?? {}).length + 1
-							: Object.keys(post.likes ?? {}).length}
+						{Object.keys(post.likes ?? {}).length}
 					</span>
 					<button
 						class="
@@ -116,7 +110,7 @@
 							focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
 							w-[40px] h-[40px]
 						"
-						on:click|stopPropagation={likePost}
+						on:click|stopPropagation|preventDefault={likePost}
 					>
 						<i class="material-icons" class:text-zinc-900={!isLiked} class:text-red-500={isLiked}
 							>favorite</i
