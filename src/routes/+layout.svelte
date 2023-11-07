@@ -17,6 +17,7 @@
 		// get current user detail
 		if (!$user) {
 			await user.get();
+			await challenges.get();
 			return;
 		}
 		await token.check();
