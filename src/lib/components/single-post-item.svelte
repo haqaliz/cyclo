@@ -74,11 +74,11 @@
 	<!-- actions section -->
 	<div class="flex flex-col items-start mt-w md:mt-4">
 		<div class="flex flex-row w-full">
-			{#if post.parent_id && post.parent_type === 'challenge'}
+			{#if post.parent_id && post.parent_type === 'challenge' && Object.keys($challenges ?? {}).length}
 				<a
 					href={`/challenges/${post.parent_id}`}
 					class="bg-white transition-all ease-in-out bg-opacity-40 hover:bg-black hover:bg-opacity-25 w-10 h-10 p-2 rounded"
-					title={challenges.withId(post.parent_id)?.value ?? ''}
+					title={challenges?.withId(post.parent_id)?.value ?? ''}
 				>
 					<div
 						class="bg-no-repeat bg-contain bg-center w-full h-full"

@@ -135,15 +135,19 @@
 									</div>
 								{/if}
 							{/each}
-							<a
-								href={`/challenges/${item.challenge_id}`}
-								class="bg-white transition-all ease-in-out bg-opacity-40 hover:bg-black hover:bg-opacity-25 w-24 h-24 p-4 rounded-e"
-							>
-								<div
-									class="bg-no-repeat bg-contain bg-center w-full h-full"
-									style:background-image={`url(${challenges.withId(item.challenge_id)?.img ?? ''})`}
-								/>
-							</a>
+							{#if Object.keys($challenges ?? {}).length}
+								<a
+									href={`/challenges/${item.challenge_id}`}
+									class="bg-white transition-all ease-in-out bg-opacity-40 hover:bg-black hover:bg-opacity-25 w-24 h-24 p-4 rounded-e"
+								>
+									<div
+										class="bg-no-repeat bg-contain bg-center w-full h-full"
+										style:background-image={`url(${
+											challenges?.withId(item.challenge_id)?.img ?? ''
+										})`}
+									/>
+								</a>
+							{/if}
 						</div>
 					{/each}
 				</div>

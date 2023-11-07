@@ -17,6 +17,6 @@ challenges.get = async () => {
 	challenges.set(r);
 };
 
-challenges.withId = (id) => challenges.byId[id];
+challenges.withId = (id) => challenges?.byId?.[id] ?? {};
 
 export default challenges;
