@@ -74,6 +74,10 @@
 		bar.show = false;
 		await update();
 	};
+	let windowWidth = window.innerWidth;
+	const resized = () => {
+		windowWidth = window.innerWidth;
+	};
 </script>
 
 <svelte:head>
@@ -103,6 +107,8 @@
 		}
 	</style>
 </svelte:head>
+
+<svelte:window on:resize={resized} />
 
 <div class="flex flex-col md:flex-row">
 	<div class="flex flex-col flex-1">
@@ -179,13 +185,14 @@
 						in:slide
 						out:slide
 						class="flex flex-col md:flex-row items-start transition-colors rounded p-2 md:p-4
-						bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10 mt-2 md:mt-4"
+						bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10 mt-2 md:mt-4 hide-scrollbar md:overflow-x-scroll"
+						style:width={`calc(${windowWidth}px - (2 * ${windowWidth < 768 ? '0.5rem' : '1rem'}))`}
 					>
 						{#each [...Array(7).keys()] as k}
 							{@const item = challenge.user_challenge?.content?.[k]}
 							<button
 								class="
-									flex flex-row transition-colors ease-in-out rounded py-4 px-8 w-full md:w-auto
+									flex flex-row transition-colors ease-in-out rounded py-4 px-8 w-full md:min-w-max md:w-auto
 									font-semibold mb-2 md:mb-0 md:mr-4 last:mr-0 last:mb-0"
 								class:text-white={!item && k === chlngIndex}
 								class:bg-zinc-900={!item && k === chlngIndex}
