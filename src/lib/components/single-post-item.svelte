@@ -3,9 +3,8 @@
 	import { DOMAIN } from '$config';
 	import { Modal } from '$components';
 	import { user as usr } from '$api';
-	import { user } from '$stores';
+	import { user, challenges } from '$stores';
 	import { formatDistanceToNow } from 'date-fns';
-	import { goto } from '$app/navigation';
 	const dispatch = createEventDispatcher();
 	export let post: any;
 	export let clickable = true;
@@ -75,6 +74,19 @@
 	<!-- actions section -->
 	<div class="flex flex-col items-start mt-w md:mt-4">
 		<div class="flex flex-row w-full">
+			{#if post.parent_id && post.parent_type === 'challenge'}
+				<a
+					href={`/challenges/${post.parent_id}`}
+					class="bg-white transition-all ease-in-out bg-opacity-40 hover:bg-black hover:bg-opacity-25 w-10 h-10 p-2 rounded"
+					title={challenges.withId(post.parent_id)?.value ?? ''}
+				>
+					<div
+						class="bg-no-repeat bg-contain bg-center w-full h-full"
+						style:background-image={`url(${challenges?.withId(post.parent_id)?.img ?? ''})`}
+					/>
+				</a>
+			{/if}
+
 			{#if !compact}
 				<!-- share section -->
 				<div class="flex flex-row">

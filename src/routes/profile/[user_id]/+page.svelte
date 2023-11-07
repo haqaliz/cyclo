@@ -22,18 +22,6 @@
 		'Community Interaction'
 	];
 
-	let challengesById: any = {};
-	challenges.subscribe((v) => {
-		challengesById = Object.fromEntries(
-			Object.values(v ?? {})
-				.reduce((a, i) => {
-					a = [...a, ...i];
-					return a;
-				}, [])
-				.map((i) => [i.id, i])
-		);
-	});
-
 	/** @type {import('./$types').PageData} */
 	export let data: any;
 	let user: any;
@@ -153,7 +141,7 @@
 							>
 								<div
 									class="bg-no-repeat bg-contain bg-center w-full h-full"
-									style:background-image={`url(${challengesById[item.challenge_id]?.img ?? ''})`}
+									style:background-image={`url(${challenges.withId(item.challenge_id)?.img ?? ''})`}
 								/>
 							</a>
 						</div>

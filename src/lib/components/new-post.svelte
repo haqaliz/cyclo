@@ -5,6 +5,7 @@
 	import { SmartTextarea } from '$components';
 	const dispatch = createEventDispatcher();
 	export let parentId: string;
+	export let parentType: string;
 	export let placeholder = "What's gucci?!";
 	export let submitButtonText = 'Share';
 	let loading = false;
@@ -14,6 +15,7 @@
 		if (!newPostContent?.length || loading) return;
 		loading = true;
 		await usr.createPost({
+			parent_type: parentType,
 			parent_id: parentId,
 			content: newPostContent
 		});

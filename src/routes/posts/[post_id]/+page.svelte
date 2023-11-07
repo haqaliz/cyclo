@@ -107,6 +107,7 @@
 
 				{#if $usr}
 					<NewPost
+						parentType="post"
 						parentId={post?.id}
 						placeholder="Comment"
 						submitButtonText="Reply"

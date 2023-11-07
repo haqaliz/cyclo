@@ -2,7 +2,7 @@
 	import { challenges as chlngs, user } from '$api';
 	import { Progress, Modal, SmartTextarea } from '$components';
 	import { slide } from 'svelte/transition';
-	import { differenceInDays } from 'date-fns';
+	import { differenceInDays, startOfDay } from 'date-fns';
 
 	let challenges: any;
 	let loading = false;
@@ -58,7 +58,10 @@
 
 {#if challenges?.length}
 	{#each challenges as chlng}
-		{@const chlngIndex = differenceInDays(new Date(), chlng.created_at.seconds * 1000)}
+		{@const chlngIndex = differenceInDays(
+			startOfDay(new Date()),
+			startOfDay(new Date(chlng.created_at.seconds * 1000))
+		)}
 		{@const activeDay = chlngIndex + 1}
 		<div
 			in:slide

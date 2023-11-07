@@ -129,6 +129,7 @@ export const subscribeForPlan = async (payload: any) => {
 };
 
 interface CreatePostPayload {
+	parent_type: string;
 	parent_id: string;
 	content: string;
 }
