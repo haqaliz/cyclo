@@ -68,9 +68,33 @@
 			out:slide
 			data-sveltekit-reload
 			class="flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
-				bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0"
+				bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0 relative"
 			href={`/challenges/${chlng.challenge.id}`}
 		>
+			<svg
+				width="60"
+				height="60"
+				viewBox="0 0 120 120"
+				class="absolute left-2 sm:left-4 top-2 sm:top-4 m-2 sm:m-4 -rotate-90"
+			>
+				<circle
+					cx="60"
+					cy="60"
+					r="54"
+					class="fill-none stroke-gray-300"
+					style:stroke-width="12px"
+				/>
+				<circle
+					class="fill-none stroke-purple-400"
+					style:stroke-dasharray="100"
+					style:stroke-dashoffset={`calc(100 - ${(activeDay * 100) / 7})`}
+					style:stroke-width="12px"
+					cx="60"
+					cy="60"
+					r="54"
+					pathLength="100"
+				/>
+			</svg>
 			<div
 				class="flex flex-row items-center bg-purple-100 p-2 md:p-4 rounded justify-center flex-1 w-full lg:max-w-[350px]"
 			>
