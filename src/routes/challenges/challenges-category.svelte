@@ -2,13 +2,6 @@
 	import { user } from '$stores';
 
 	export let value: any[] = [];
-	user.subscribe((v: any) => {
-		if (!v) return;
-		// value.tampon = v?.metadata?.prefs?.menstruation_products?.tampon;
-		// value.pad = v?.metadata?.prefs?.menstruation_products?.pad;
-		// value.cup = v?.metadata?.prefs?.menstruation_products?.cup;
-		// value.brands = v?.metadata?.prefs?.menstruation_products?.brands;
-	});
 </script>
 
 {#if value?.length}
@@ -20,11 +13,24 @@
 		<div class="flex flex-row overflow-x-scroll hide-scrollbar ml-2 md:ml-4">
 			{#each value as challenge}
 				<a
-					class="flex flex-row items-start transition-colors rounded p-2 sm:p-4
-					min-w-max mr-2 sm:mr-4 cursor-pointer
-					min-h-[180px] bg-white bg-opacity-25 hover:bg-black hover:bg-opacity-10"
+					class="flex flex-row items-start transition-colors rounded relative p-2 sm:p-4
+					min-w-max mr-2 sm:mr-4 cursor-pointer min-h-[180px]"
+					class:bg-white={!($user?.challenges ?? []).includes(challenge.id)}
+					class:bg-opacity-25={!($user?.challenges ?? []).includes(challenge.id)}
+					class:hover:bg-black={!($user?.challenges ?? []).includes(challenge.id)}
+					class:hover:bg-opacity-10={!($user?.challenges ?? []).includes(challenge.id)}
+					class:bg-green-500={($user?.challenges ?? []).includes(challenge.id)}
+					class:bg-opacity-40={($user?.challenges ?? []).includes(challenge.id)}
+					class:hover:bg-green-600={($user?.challenges ?? []).includes(challenge.id)}
+					class:hover:bg-opacity-70={($user?.challenges ?? []).includes(challenge.id)}
 					href={`/challenges/${challenge.id}`}
 				>
+					{#if ($user?.challenges ?? []).includes(challenge.id)}
+						<i
+							class="material-icons text-3xl text-gray-600 absolute top-2 sm:top-4 left-2 sm:left-4"
+							>bookmark</i
+						>
+					{/if}
 					<div
 						class="bg-no-repeat bg-contain bg-center w-full max-w-[150px] h-full mr-2 md:mr-4"
 						style:background-image={`url(${challenge.img ?? ''})`}

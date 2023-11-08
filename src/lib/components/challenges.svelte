@@ -63,11 +63,13 @@
 			startOfDay(new Date(chlng.created_at.seconds * 1000))
 		)}
 		{@const activeDay = chlngIndex + 1}
-		<div
+		<a
 			in:slide
 			out:slide
+			data-sveltekit-reload
 			class="flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
 				bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0"
+			href={`/challenges/${chlng.challenge.id}`}
 		>
 			<div
 				class="flex flex-row items-center bg-purple-100 p-2 md:p-4 rounded justify-center flex-1 w-full lg:max-w-[350px]"
@@ -88,7 +90,7 @@
 					class="
 						flex flex-row transition-colors ease-in-out rounded py-4 px-8
 						font-semibold text-white bg-zinc-900 hover:bg-gray-700"
-					on:click={() => showChallengeModal(chlng)}
+					on:click|stopPropagation|preventDefault={() => showChallengeModal(chlng)}
 				>
 					{#if chlng.content?.[chlngIndex]}
 						<i class="material-icons mr-2">check</i>
@@ -96,7 +98,7 @@
 					Day {activeDay}
 				</button>
 			</div>
-		</div>
+		</a>
 	{/each}
 	<Modal bind:show={modal.show} trigger={false} title={modal.title} containerClass="max-w-md">
 		<svelte:fragment slot="content">
