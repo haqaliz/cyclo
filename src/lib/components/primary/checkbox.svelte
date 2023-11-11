@@ -8,6 +8,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <label
 	for={uuid}
 	class="group/checkbox flex flex-row select-none cursor-pointer relative"

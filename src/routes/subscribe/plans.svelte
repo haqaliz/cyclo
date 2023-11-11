@@ -19,6 +19,7 @@
 
 {#if $plans}
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<Tabs items={Object.keys($plans)} bind:selected={selectTabItem} tab-items-class="justify-center">
 		<svelte:fragment slot="content" let:selected={selectTabItem}>
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">

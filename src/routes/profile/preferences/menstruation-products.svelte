@@ -70,6 +70,7 @@
 		{#each Object.keys(products) as productKey}
 			{@const product = products[productKey]}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<div
 				class="flex flex-row items-start transition-colors rounded p-2 sm:p-4
 				min-w-[280px] sm:min-w-[250px] mr-2 sm:mr-4 cursor-pointer
@@ -101,6 +102,7 @@
 				<div class="flex flex-row overflow-x-scroll hide-scrollbar">
 					{#each products[productKey].brands as brand}
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
 						<div
 							class="flex flex-row items-start transition-colors rounded p-2 sm:p-4
 							min-w-[280px] sm:min-w-[250px] mr-2 sm:mr-4 cursor-pointer
