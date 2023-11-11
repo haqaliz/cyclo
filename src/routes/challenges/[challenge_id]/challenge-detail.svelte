@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { challenges } from '$api';
+	import { user } from '$stores';
 	const dispatch = createEventDispatcher();
 	export let challenge: any;
 	let toggleLoading = false;
@@ -17,6 +18,7 @@
 				challenge_id: challenge.id
 			});
 		}
+		await user.get();
 		toggleLoading = false;
 		dispatch('change');
 	};
