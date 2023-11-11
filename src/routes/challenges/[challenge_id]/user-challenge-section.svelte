@@ -135,6 +135,25 @@
 						</button>
 					</div>
 				</div>
+				<!-- share section -->
+				<div class="flex flex-row mt-2 md:mt-4">
+					<a
+						href={`https://twitter.com/intent/tweet?text=${bar.title + ': ' + bar.content.substr(0, 144) + ' ' + window.location.href}&related=cyclo`}
+						target="_blank"
+						class="
+							rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+							focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
+							focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
+							w-[40px] h-[40px]
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[25px] h-[25px]">
+							<path
+								d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+							/>
+						</svg>
+					</a>
+				</div>
 			</div>
 		{:else}
 			<div class="flex flex-col">
@@ -142,6 +161,25 @@
 				<p class="text-lg">
 					{bar.content ?? ''}
 				</p>
+				<!-- share section -->
+				<div class="flex flex-row mt-2 md:mt-4">
+					<a
+						href={`https://twitter.com/intent/tweet?text=${bar.title + ': ' + bar.content.substr(0, 144) + ' ' + window.location.href}&related=cyclo`}
+						target="_blank"
+						class="
+							rounded font-sans font-medium text-lg focus:outline-none focus:ring-2
+							focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center p-2
+							focus:ring-gray-400 justify-center hover:bg-gray-600 hover:bg-opacity-30
+							w-[40px] h-[40px]
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[25px] h-[25px]">
+							<path
+								d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+							/>
+						</svg>
+					</a>
+				</div>
 			</div>
 		{/if}
 	</div>
