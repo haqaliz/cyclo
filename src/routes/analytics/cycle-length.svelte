@@ -36,7 +36,7 @@
 		tooltip: { isHtml: true }
 	};
 	let range = {
-		start: subMonths(startOfMonth(new Date()), 3),
+		start: subMonths(startOfMonth(new Date()), 6),
 		end: endOfMonth(new Date())
 	};
 	interface Cycle {
@@ -98,9 +98,9 @@
 	});
 </script>
 
-<div class="cycle-length-container bg-gray-100 rounded p-2 sm:p-4 flex flex-col mb-2 sm:mb-4">
+<div class="cycle-length-container bg-gray-100 rounded p-2 sm:p-4 flex flex-col">
 	<div class="flex flex-row items-center">
-		<h3 class="font-sans font-semibold text-3xl">Last 3 Month</h3>
+		<h3 class="font-sans font-semibold text-xl md:text-3xl">Menstrual Cycles in Last 6 Month</h3>
 		<h3 class="font-sans font-semibold text-xl text-gray-400 ml-2">
 			{format(new Date(range.start), 'LLL')} -
 			{format(new Date(range.end), 'LLL')}
@@ -122,7 +122,9 @@
 </div>
 
 <style>
-	.cycle-length-container :global(rect[fill='#e9d5ff']) {
+	.cycle-length-container :global(rect[fill='#e9d5ff']),
+	.cycle-length-container :global(rect[fill='#9233ea']),
+	.cycle-length-container :global(rect[fill='#c084fc']) {
 		rx: 0.25rem;
 		ry: 0.25rem;
 	}

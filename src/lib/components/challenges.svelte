@@ -23,7 +23,10 @@
 		loading: false
 	};
 	const showChallengeModal = (chlng: any) => {
-		const chlngIndex = differenceInDays(new Date(), chlng.created_at.seconds * 1000);
+		const chlngIndex = differenceInDays(
+			startOfDay(new Date()),
+			startOfDay(new Date(chlng.created_at.seconds * 1000))
+		);
 		modal.ref = chlng;
 		modal.title = `Day ${chlngIndex + 1}`;
 		modal.content = chlng.content?.[chlngIndex]?.value ?? '';

@@ -23,7 +23,7 @@
 </script>
 
 {#if days?.length === 6 && startFertileWindow && differenceInMonths(new Date(), startFertileWindow) === 0}
-	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col mb-2 sm:mb-4">
+	<div class="bg-gray-100 rounded p-2 sm:p-4 flex flex-col">
 		<div class="flex flex-row flex-1 overflow-x-scroll hide-scrollbar">
 			{#each days as day, k}
 				{@const isToday =

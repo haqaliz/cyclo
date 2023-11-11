@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
 	export let items: Array<string>;
 	export let selected: string;
 </script>
@@ -18,7 +20,10 @@
 						${$$props['tab-item-class'] ?? ''}`}
 					class:mr-2={k < items.length - 1}
 					class:sm:mr-4={k < items.length - 1}
-					on:click={() => (selected = item)}
+					on:click={() => {
+						selected = item;
+						dispatch('selected', selected);
+					}}
 				>
 					{item}
 				</button>

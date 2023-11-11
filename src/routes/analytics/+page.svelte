@@ -6,6 +6,7 @@
 	import MenstruationStatus from './menstruation-status.svelte';
 	import FertileStatus from './fertile-status.svelte';
 	import CycleLength from './cycle-length.svelte';
+	import ChallengesHistory from './challenges-history.svelte';
 
 	let latestMenstrualCycleStart: any;
 	let loading = false;
@@ -35,12 +36,22 @@
 		>
 			<Progress />
 		</div>
-	{:else}
+	{/if}
+	{#if !loading}
 		<div in:slide out:slide class="flex flex-col">
 			<MenstruationStatus {latestMenstrualCycleStart} />
 			<CycleLength />
+		</div>
+	{/if}
+	<div in:slide out:slide class="flex flex-col my-2 sm:my-4">
+		<Recommendations />
+	</div>
+	{#if !loading}
+		<div in:slide out:slide class="flex flex-col">
 			<FertileStatus {latestMenstrualCycleStart} />
 		</div>
 	{/if}
-	<Recommendations class="mt-2 sm:mt-4" />
+	<div in:slide out:slide class="flex flex-col my-2 sm:my-4">
+		<ChallengesHistory />
+	</div>
 </div>

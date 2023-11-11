@@ -103,4 +103,4 @@
 <svelte:window on:resize={resized} />
 
 <!-- Google Chart -->
-<div id={chartId} />
+<div id={chartId} class="flex flex-row flex-1" />
