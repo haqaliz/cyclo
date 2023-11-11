@@ -68,6 +68,10 @@ export const pages = [
 		private: true
 	},
 	{
+		key: '/profile/notifications',
+		private: true
+	},
+	{
 		key: '/calendar',
 		private: true
 	},

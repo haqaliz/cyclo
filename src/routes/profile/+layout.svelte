@@ -6,7 +6,7 @@
 	import { goto } from '$app/navigation';
 	import { user } from '$stores';
 
-	const tabs = ['Account', 'Password', 'Preferences'];
+	const tabs = ['Account', 'Password', 'Preferences', 'Notifications'];
 	let selectedTabItem = '';
 	user.subscribe((v) => {
 		if (!v) return;
@@ -41,10 +41,8 @@
 			tab-items-class={new RegExp(`(${tabs.join('|')})$`, 'i').test($page.url.pathname)
 				? 'bg-gray-100 rounded p-2 sm:p-4'
 				: 'bg-white transition-all ease-in-out bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded p-2 sm:p-4'}
-		>
-			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-			<svelte:fragment slot="content" let:selected={selectedTabItem} />
-		</Tabs>
+			on:selected={(e) => selectedTabItem = e.detail}
+		/>
 	{/if}
 
 	<slot />

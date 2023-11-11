@@ -204,6 +204,16 @@ export const getChallengesHistory = async (payload: any) => {
 	return r.json();
 };
 
+export const getNotifications = async (payload: any) => {
+	const fromTo = payload?.from && payload?.to ? `&from=${payload.from}&to=${payload.to}` : '';
+	const r = await fetch(`${API_BASE_URL}/user/notifications?${fromTo}`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export default {
 	getToken,
 	getPublicInfo,
@@ -222,5 +232,6 @@ export default {
 	removePost,
 	likePost,
 	updateChallenge,
-	getChallengesHistory
+	getChallengesHistory,
+	getNotifications
 };

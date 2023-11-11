@@ -7,7 +7,7 @@
 
 {#if items?.length}
 	<div class={`flex flex-col ${$$props['tab-container-class'] ?? ''}`}>
-		<div class={`flex flex-row mb-2 sm:mb-4 ${$$props['tab-items-class'] ?? ''}`}>
+		<div class={`flex flex-row overflow-x-scroll hide-scrollbar mb-2 sm:mb-4 ${$$props['tab-items-class'] ?? ''}`}>
 			{#each items as item, k}
 				<button
 					class={`p-2 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2

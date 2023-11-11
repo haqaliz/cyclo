@@ -37,10 +37,8 @@
 					hover:bg-black hover:bg-opacity-10 rounded p-2 sm:p-4 !mb-0"
 				tab-item-class="px-6"
 				tab-container-class="flex-1"
-			>
-				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-				<svelte:fragment slot="content" let:selected={selectTabItem} />
-			</Tabs>
+				on:selected={(e) => selectTabItem = e.detail}
+			/>
 		</div>
 	{/if}
 
