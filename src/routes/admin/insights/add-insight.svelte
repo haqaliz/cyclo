@@ -19,6 +19,10 @@
             type: 'hormone_health',
             ...modal.ref,
         });
+        modal.ref = {
+            name: '',
+            content: [],
+        };
         modal.loading = false;
         modal.show = false;
         dispatch('update');
