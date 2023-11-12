@@ -3,15 +3,15 @@
 	import { recommendations } from '$stores';
 	import { slide } from 'svelte/transition';
 
-	let hormoneHealthInsight: any;
-	let hormoneHealthInsightColor: any = 'bg-purple-200';
+	let nutritionalGuidance: any;
+	let nutritionalGuidanceColor: any = 'bg-purple-200';
 	let loading = true;
 	recommendations.subscribe((v: any) => {
-		if (!v?.hormone_health_insights) return;
+		if (!v?.nutritional_guidances) return;
 		loading = false;
-		const HHII = Math.floor(Math.random() * v?.hormone_health_insights.length) + 0;
-		hormoneHealthInsight = v?.hormone_health_insights?.[HHII];
-		hormoneHealthInsightColor = {
+		const NGI = Math.floor(Math.random() * v?.nutritional_guidances.length) + 0;
+		nutritionalGuidance = v?.nutritional_guidances?.[NGI];
+		nutritionalGuidanceColor = {
 			0: 'bg-orange-200 hover:bg-orange-300 transition-colors ease-in-out',
 			1: 'bg-rose-200 hover:bg-rose-300 transition-colors ease-in-out',
 			2: 'bg-sky-200 hover:bg-sky-300 transition-colors ease-in-out'
@@ -41,7 +41,7 @@
 	</div>
 {/if}
 
-{#if hormoneHealthInsight}
+{#if nutritionalGuidance}
 	<div
 		in:slide
 		out:slide
@@ -50,28 +50,45 @@
             bg-gray-100 hover:bg-gray-200
 			"
 	>
-		<div
-			class={`
-				flex flex-col items-center justify-center ${hormoneHealthInsightColor} p-4 overflow-hidden
-				rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[120px] h-[120px]
-			`}
-			title={hormoneHealthInsight.name}
-		>
-			<h3 class="text-3xl font-semibold">
-				{#if hormoneHealthInsight.name?.length > 24}
-					{hormoneHealthInsight.name.substr(0, 23)}&hellip;
-				{:else}
-					{hormoneHealthInsight.name}
-				{/if}
-			</h3>
+		<div class="flex flex-col lg:flex-row md:max-w-min w-full mr-4 md:mr-0">
+			<div
+				class={`
+					flex flex-col items-center justify-center ${nutritionalGuidanceColor} p-4 overflow-hidden
+					rounded mr-2 sm:mr-4 mb-2 sm:mb-4 lg:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[120px] h-[120px]
+				`}
+				title={nutritionalGuidance.name}
+			>
+				<h3 class="text-3xl font-semibold">
+					{#if nutritionalGuidance.name?.length > 24}
+						{nutritionalGuidance.name.substr(0, 23)}&hellip;
+					{:else}
+						{nutritionalGuidance.name}
+					{/if}
+				</h3>
+			</div>
+			<div
+				class={`
+					flex flex-col items-center justify-center ${nutritionalGuidanceColor} p-4 overflow-hidden
+					rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[120px] h-[120px]
+				`}
+				title={nutritionalGuidance.category}
+			>
+				<h3 class="text-3xl font-semibold">
+					{#if nutritionalGuidance.category?.length > 24}
+						{nutritionalGuidance.category.substr(0, 23)}&hellip;
+					{:else}
+						{nutritionalGuidance.category}
+					{/if}
+				</h3>
+			</div>
 		</div>
 		<div class="flex flex-col items-start">
-			<h3 class="text-4xl font-semibold mb-2 md:mb-4">Hormone Health Insight</h3>
-			{#if hormoneHealthInsight?.content?.length}
+			<h3 class="text-4xl font-semibold mb-2 md:mb-4">Nutritional Guidances</h3>
+			{#if nutritionalGuidance?.content?.length}
 				<div class="flex flex-row flex-wrap">
-					{#each hormoneHealthInsight?.content as item}
+					{#each nutritionalGuidance?.content as item}
 						<button
-							class={`flex flex-col ${hormoneHealthInsightColor} rounded p-2 md:p-4 mb-2 md:mb-0 mr-2 md:mr-4 font-semibold`}
+							class={`flex flex-col ${nutritionalGuidanceColor} rounded p-2 md:p-4 mb-2 md:mb-0 mr-2 md:mr-4 font-semibold`}
 							on:click={() => showFeature(item)}
 						>
 							{item?.key}

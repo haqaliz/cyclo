@@ -232,6 +232,7 @@ interface UpdateInsightPayload {
 	insight_id: string;
 	type: string;
 	name: string;
+	category: string;
 	content: Array<any>;
 }
 export const updateInsight = async (payload: UpdateInsightPayload) => {
@@ -241,6 +242,7 @@ export const updateInsight = async (payload: UpdateInsightPayload) => {
 		body: JSON.stringify({
 			type: payload?.type,
 			name: payload?.name,
+			category: payload?.category,
 			content: payload?.content
 		})
 	}).catch((e) => e.response);
@@ -258,8 +260,12 @@ export const deleteInsight = async (payload: DeleteInsightPayload) => {
 	return !!r?.ok;
 };
 
-export const getInsights = async () => {
-	const r = await fetch(`${API_BASE_URL}/user/insights`, {
+interface GetInsights {
+	type: string;
+}
+export const getInsights = async (payload: GetInsights) => {
+	const type = payload?.type ? `type=${payload.type}` : '';
+	const r = await fetch(`${API_BASE_URL}/user/insights?${type}`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);

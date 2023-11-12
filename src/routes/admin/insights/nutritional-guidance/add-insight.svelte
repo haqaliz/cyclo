@@ -3,12 +3,15 @@
     import { Modal } from '$components';
     import { user } from '$api';
     const dispatch = createEventDispatcher();
+    type InsightType = 'hormone_health';
+    export let insightType: InsightType;
     let modal: any = {
         title: '',
         show: false,
         loading: false,
         ref: {
             name: '',
+            category: '',
             content: [],
         },
     };
@@ -16,11 +19,12 @@
         if (modal.loading) return;
         modal.loading = true;
         await user.createInsight({
-            type: 'hormone_health',
+            type: insightType,
             ...modal.ref,
         });
         modal.ref = {
             name: '',
+            category: '',
             content: [],
         };
         modal.loading = false;
@@ -53,6 +57,15 @@
                 focus:bg-yellow-300 focus:bg-opacity-40
             "
             bind:value={modal.ref.name}
+        >
+        <input
+            type="text"
+            placeholder="Insight Category"
+            class="
+                flex flex-col flex-wrap bg-yellow-300 outline-none text-lg font-semibold p-2 md:p-4
+                focus:bg-yellow-300 focus:bg-opacity-40
+            "
+            bind:value={modal.ref.category}
         >
 		<div class="flex flex-col flex-1 bg-yellow-200 max-h-[420px] overflow-y-scroll hide-scrollbar text-lg p-2 md:p-4">
             {#each modal.ref.content as item, k}

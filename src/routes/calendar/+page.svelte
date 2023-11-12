@@ -69,6 +69,9 @@
 	<div class="mt-2 sm:mt-4">
 		<Recommendations type="hormone_health_insights" />
 	</div>
+	<div class="mt-2 sm:mt-4">
+		<Recommendations type="nutritional_guidances" />
+	</div>
 	<div in:slide out:slide class="flex flex-row mt-2 md:mt-4">
 		<AddRecordedDay
 			recordedDay={recordedDays?.length ? recordedDays[0] : null}

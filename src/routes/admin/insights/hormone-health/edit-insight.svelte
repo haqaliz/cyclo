@@ -3,6 +3,8 @@
     import { Modal } from '$components';
     import { user } from '$api';
     const dispatch = createEventDispatcher();
+    type InsightType = 'hormone_health';
+    export let insightType: InsightType;
     export let insight: any;
     let modal: any = {
         title: '',
@@ -18,7 +20,7 @@
         modal.loading = true;
         await user.updateInsight({
             insight_id: insight.id,
-            type: 'hormone_health',
+            type: insightType,
             ...modal.ref,
         });
         modal.loading = false;

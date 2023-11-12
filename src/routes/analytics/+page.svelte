@@ -57,4 +57,7 @@
 	<div in:slide out:slide class="mt-2 sm:mt-4">
 		<Recommendations type="hormone_health_insights" />
 	</div>
+	<div in:slide out:slide class="mt-2 sm:mt-4">
+		<Recommendations type="nutritional_guidances" />
+	</div>
 </div>
