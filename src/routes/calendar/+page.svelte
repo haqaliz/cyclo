@@ -61,10 +61,13 @@
 		</div>
 	{/if}
 	<div class="mt-2 sm:mt-4">
-		<Recommendations />
+		<Recommendations type="menstruation_product" />
 	</div>
 	<div class="mt-2 sm:mt-4">
 		<Challenges />
+	</div>
+	<div class="mt-2 sm:mt-4">
+		<Recommendations type="hormone_health_insights" />
 	</div>
 	<div in:slide out:slide class="flex flex-row mt-2 md:mt-4">
 		<AddRecordedDay

@@ -6,7 +6,7 @@ export { default as Tabs } from './primary/tabs.svelte';
 export { default as SmartTextarea } from './primary/smart-textarea.svelte';
 
 export { default as Calendar } from './calendar.svelte';
-export { default as Recommendations } from './recommendations.svelte';
+export { default as Recommendations } from './recommendations/index.svelte';
 export { default as Challenges } from './challenges.svelte';
 export { default as Trends } from './trends.svelte';
 export { default as SinglePostItem } from './single-post-item.svelte';

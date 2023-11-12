@@ -30,7 +30,7 @@
 </script>
 
 <button
-    class="flex flex-row items-center justify-center font-semibold bg-blue-400 hover:bg-blue-500 p-2 md:p-4 rounded h-12 mr-2 md:mr-4"
+    class="flex flex-row items-center justify-center font-semibold bg-blue-400 hover:bg-blue-500 p-2 md:p-4 rounded h-12"
     on:click={() => {
         modal.show = true;
     }}

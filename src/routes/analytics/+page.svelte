@@ -44,7 +44,7 @@
 		</div>
 	{/if}
 	<div in:slide out:slide class="flex flex-col my-2 sm:my-4">
-		<Recommendations />
+		<Recommendations type="menstruation_product" />
 	</div>
 	{#if !loading}
 		<div in:slide out:slide class="flex flex-col">
@@ -53,5 +53,8 @@
 	{/if}
 	<div in:slide out:slide class="flex flex-col my-2 sm:my-4">
 		<ChallengesHistory />
+	</div>
+	<div in:slide out:slide class="mt-2 sm:mt-4">
+		<Recommendations type="hormone_health_insights" />
 	</div>
 </div>
