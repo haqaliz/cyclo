@@ -94,6 +94,10 @@ export const pages = [
 	{
 		key: '/challenges',
 		private: true
+	},
+	{
+		key: '/admin',
+		private: true
 	}
 ];
 

@@ -214,6 +214,59 @@ export const getNotifications = async (payload: any) => {
 	return r.json();
 };
 
+interface CreateInsightPayload {
+	type: string;
+	name: string;
+	content: Array<any>;
+}
+export const createInsight = async (payload: CreateInsightPayload) => {
+	const r = await fetch(`${API_BASE_URL}/user/insights`, {
+		...REQ_OPTIONS,
+		method: 'POST',
+		body: JSON.stringify(payload)
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
+interface UpdateInsightPayload {
+	insight_id: string;
+	type: string;
+	name: string;
+	content: Array<any>;
+}
+export const updateInsight = async (payload: UpdateInsightPayload) => {
+	const r = await fetch(`${API_BASE_URL}/user/insights/${payload.insight_id}`, {
+		...REQ_OPTIONS,
+		method: 'PUT',
+		body: JSON.stringify({
+			type: payload?.type,
+			name: payload?.name,
+			content: payload?.content
+		})
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
+interface DeleteInsightPayload {
+	insight_id: string;
+}
+export const deleteInsight = async (payload: DeleteInsightPayload) => {
+	const r = await fetch(`${API_BASE_URL}/user/insights/${payload.insight_id}`, {
+		...REQ_OPTIONS,
+		method: 'DELETE'
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
+export const getInsights = async () => {
+	const r = await fetch(`${API_BASE_URL}/user/insights`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export default {
 	getToken,
 	getPublicInfo,
@@ -233,5 +286,9 @@ export default {
 	likePost,
 	updateChallenge,
 	getChallengesHistory,
-	getNotifications
+	getNotifications,
+	createInsight,
+	updateInsight,
+	getInsights,
+	deleteInsight
 };
