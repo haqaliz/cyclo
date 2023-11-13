@@ -52,7 +52,7 @@
                     {#if notification.type === 'pms_symptoms'}
                         <div class="flex flex-row flex-wrap items-start mt-2 md:mt-4">
                             <span class="font-sans font-semibold text-base sm:text-lg bg-purple-200 p-2 rounded mb-2 md:mb-0 md:mr-4">
-                                Start of Fertility Window:
+                                Start of Menstrual Cycle:
                                 {format(new Date(notification.start_of_menstrual_cycle?.seconds * 1000), 'yyyy, dd LLL')}
                             </span>
                             <span class="font-sans font-semibold text-base sm:text-lg bg-purple-200 p-2 rounded">

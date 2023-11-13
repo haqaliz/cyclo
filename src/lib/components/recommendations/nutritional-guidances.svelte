@@ -83,7 +83,7 @@
 			</div>
 		</div>
 		<div class="flex flex-col items-start">
-			<h3 class="text-4xl font-semibold mb-2 md:mb-4">Nutritional Guidances</h3>
+			<h3 class="text-4xl font-semibold mb-2 md:mb-4">Nutritional Guidance</h3>
 			{#if nutritionalGuidance?.content?.length}
 				<div class="flex flex-row flex-wrap">
 					{#each nutritionalGuidance?.content as item}
