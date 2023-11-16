@@ -175,24 +175,36 @@ export default [
 				link: guidances('mastering-your-orgasm'),
 				permission: permission.beginner
 			},
-			//     {
-			//       "name": "9 life-changing masturbation tips"
-			//     },
-			//     {
-			//       "name": "Tips for great penetrative sex"
-			//     },
-			//     {
-			//       "name": "How to have multiple orgasms"
-			//     },
+			{
+				name: '9 life-changing masturbation tips',
+				classes: 'bg-fuchsia-300 hover:bg-fuchsia-400',
+				link: guidances('9-life-changing-masturbation-tips'),
+				permission: permission.beginner
+			},
+			{
+				name: 'Tips for great penetrative sex',
+				classes: 'bg-orange-200 hover:bg-orange-300',
+				link: guidances('trips-for-great-penetrative-sex'),
+				permission: permission.beginner
+			},
+			{
+				name: 'How to have multiple orgasms',
+				classes: 'bg-lime-100 hover:bg-lime-200',
+				link: guidances('how-to-have-multiple-orgasms'),
+				permission: permission.beginner
+			},
 			{
 				name: "A sexpert's guide to great sex",
 				classes: 'bg-red-400 hover:bg-red-500',
 				link: guidances('a-sexperts-guide-to-great-sex'),
 				permission: permission.beginner
 			},
-			//     {
-			//       "name": "Is your sex drive normal?"
-			//     },
+			{
+				name: 'Is your sex drive normal?',
+				classes: 'bg-cyan-100 hover:bg-cyan-200',
+				link: guidances('is-your-sex-drive-normal'),
+				permission: permission.beginner
+			},
 			//     {
 			//       "name": "5 sex therapy secrets"
 			//     },
@@ -476,10 +488,13 @@ export default [
 				classes: 'bg-red-400 hover:bg-red-500',
 				link: guidances('a-sexperts-guide-to-great-sex'),
 				permission: permission.beginner
+			},
+			{
+				name: 'Is your sex drive normal?',
+				classes: 'bg-cyan-100 hover:bg-cyan-200',
+				link: guidances('is-your-sex-drive-normal'),
+				permission: permission.beginner
 			}
-			//     {
-			//       "name": "Is your sex drive normal?"
-			//     },
 			//     {
 			//       "name": "How I learned that fat is hot"
 			//     }
@@ -488,9 +503,12 @@ export default [
 	{
 		name: "let's talk about masturbation",
 		items: [
-			//     {
-			//       "name": "9 life-changing masturbation tips"
-			//     },
+			{
+				name: '9 life-changing masturbation tips',
+				classes: 'bg-fuchsia-300 hover:bg-fuchsia-400',
+				link: guidances('9-life-changing-masturbation-tips'),
+				permission: permission.beginner
+			},
 			{
 				name: 'Mastering your orgasm',
 				classes: 'bg-blue-500 hover:bg-blue-600',
@@ -649,9 +667,12 @@ export default [
 				link: guidances('how-to-choose-your-first-sex-toy'),
 				permission: permission.beginner
 			},
-			//     {
-			//       "name": "How to have multiple orgasms"
-			//     },
+			{
+				name: 'How to have multiple orgasms',
+				classes: 'bg-lime-100 hover:bg-lime-200',
+				link: guidances('how-to-have-multiple-orgasms'),
+				permission: permission.beginner
+			},
 			//     {
 			//       "name": "Lesbian sex toy guide"
 			//     },
@@ -668,7 +689,7 @@ export default [
 				permission: permission.beginner
 			}
 		]
-	}
+	},
 	// {
 	//   "name": "Spot the signs of",
 	//   "items": [
@@ -836,36 +857,39 @@ export default [
 	//     }
 	//   ]
 	// },
-	// {
-	//   "name": "Recommendations",
-	//   "items": [
-	//     {
-	//       "name": "What causes irregular cycles"
-	//     },
-	//     {
-	//       "name": "Say \"bye bye\" to UTIs"
-	//     },
-	//     {
-	//       "name": "Your discharge decoded"
-	//     },
-	//     {
-	//       "name": "Pregnancy or PMS? 8 Symptoms"
-	//     },
-	//     {
-	//       "name": "Is your sex drive normal?"
-	//     },
-	//     {
-	//       "name": "The secret powers of PMS"
-	//     },
-	//     {
-	//       "name": "How alcohol affects your cycle"
-	//     },
-	//     {
-	//       "name": "7 reasons to love your discharge"
-	//     },
-	//     {
-	//       "name": "Why I'll never shave again"
-	//     }
-	//   ]
-	// }
+	{
+		name: 'Recommendations',
+		items: [
+			//     {
+			//       "name": "What causes irregular cycles"
+			//     },
+			//     {
+			//       "name": "Say \"bye bye\" to UTIs"
+			//     },
+			//     {
+			//       "name": "Your discharge decoded"
+			//     },
+			//     {
+			//       "name": "Pregnancy or PMS? 8 Symptoms"
+			//     },
+			{
+				name: 'Is your sex drive normal?',
+				classes: 'bg-cyan-100 hover:bg-cyan-200',
+				link: guidances('is-your-sex-drive-normal'),
+				permission: permission.beginner
+			}
+			//     {
+			//       "name": "The secret powers of PMS"
+			//     },
+			//     {
+			//       "name": "How alcohol affects your cycle"
+			//     },
+			//     {
+			//       "name": "7 reasons to love your discharge"
+			//     },
+			//     {
+			//       "name": "Why I'll never shave again"
+			//     }
+		]
+	}
 ];

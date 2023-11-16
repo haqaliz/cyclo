@@ -8,7 +8,7 @@ const token = writable((browser && localStorage.getItem('token')) || null);
 
 token.check = async () => {
 	const r = await usr.getToken();
-	if (!r || Date.now() / 1000 > r?.exp) {
+	if (Date.now() / 1000 > r?.exp) {
 		token.set(null);
 		user.set(null);
 	}
