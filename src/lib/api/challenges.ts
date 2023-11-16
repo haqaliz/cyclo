@@ -1,7 +1,7 @@
 import { API_BASE_URL, REQ_OPTIONS } from '$config';
 
 export const list = async () => {
-	let r = await fetch(`${API_BASE_URL}/challenges/list?update=true`, {
+	let r = await fetch(`${API_BASE_URL}/challenges/list`, {
 		...REQ_OPTIONS,
 		method: 'GET'
 	}).catch((e) => e.response);
