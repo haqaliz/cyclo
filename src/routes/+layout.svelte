@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '$styles';
 
-	import { user, token, plans, challenges, recommendations } from '$stores';
+	import { user, token } from '$stores';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
@@ -19,8 +19,10 @@
 			await user.get();
 			return;
 		}
-		await Promise.all([challenges.get(), recommendations.get(), token.check(), plans.get()]);
-		if (!$token) await goto('/login');
+		const previousToken = structuredClone($token);
+		console.log(previousToken)
+		await Promise.all([user.getRelatedData(), token.check()]);
+		if (previousToken && !$token) await goto('/login');
 	});
 </script>
 

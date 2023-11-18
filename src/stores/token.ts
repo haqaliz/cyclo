@@ -7,10 +7,20 @@ import user from './user';
 const token = writable((browser && localStorage.getItem('token')) || null);
 
 token.check = async () => {
-	const r = await usr.getToken();
-	if (Date.now() / 1000 > r?.exp) {
+	const tokenExp: any = localStorage.getItem('token_exp');
+	if (!tokenExp) {
+		const r = await usr.getToken();
+		if (r) {
+			localStorage.setItem('token_exp', r?.exp);
+		} else {
+			token.set(null);
+			user.set(null);
+		}
+	}
+	if (Date.now() / 1000 > parseInt(tokenExp, 10)) {
 		token.set(null);
 		user.set(null);
+		localStorage.removeItem('token_exp');
 	}
 };
 
