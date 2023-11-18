@@ -20,7 +20,6 @@
 			return;
 		}
 		const previousToken = structuredClone($token);
-		console.log(previousToken)
 		await Promise.all([user.getRelatedData(), token.check()]);
 		if (previousToken && !$token) await goto('/login');
 	});

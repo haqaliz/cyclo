@@ -44,6 +44,10 @@
 				path: '/challenges'
 			},
 			{
+				name: 'Advisor',
+				path: '/advisor'
+			},
+			{
 				icon: 'person',
 				title: 'Profile',
 				path: '/profile'

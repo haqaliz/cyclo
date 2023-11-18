@@ -214,6 +214,42 @@ export const getNotifications = async (payload: any) => {
 	return r.json();
 };
 
+export const createMessageToAdvisor = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/advisor/conversations`, {
+		...REQ_OPTIONS,
+		method: 'POST',
+		body: JSON.stringify(payload)
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
+export const getAdvisorConversation = async (payload: any) => {
+	const startAfter = payload?.start_after?.length ? `&start_after=${payload.start_after}` : '';
+	const r = await fetch(
+		`${API_BASE_URL}/user/advisor/conversations/${payload?.conversation_id}?limit=${payload?.limit}${startAfter}`,
+		{
+			...REQ_OPTIONS,
+			method: 'GET'
+		}
+	).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
+export const getAdvisorConversationsList = async (payload: any) => {
+	const startAfter = payload?.start_after?.length ? `&start_after=${payload.start_after}` : '';
+	const r = await fetch(
+		`${API_BASE_URL}/user/advisor/conversations?limit=${payload?.limit}${startAfter}`,
+		{
+			...REQ_OPTIONS,
+			method: 'GET'
+		}
+	).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 interface CreateInsightPayload {
 	type: string;
 	name: string;
@@ -293,6 +329,9 @@ export default {
 	updateChallenge,
 	getChallengesHistory,
 	getNotifications,
+	createMessageToAdvisor,
+	getAdvisorConversation,
+	getAdvisorConversationsList,
 	createInsight,
 	updateInsight,
 	getInsights,

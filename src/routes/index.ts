@@ -96,6 +96,10 @@ export const pages = [
 		private: true
 	},
 	{
+		key: '/advisor',
+		private: true
+	},
+	{
 		key: '/admin',
 		private: true
 	}
