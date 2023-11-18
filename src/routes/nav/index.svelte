@@ -89,7 +89,7 @@
 		<i class="material-icons">menu</i>
 	</button>
 
-	<div in:slide out:slide class="hidden flex-row md:flex">
+	<div in:slide out:slide class="hidden flex-row overflow-x-scroll hide-scrollbar md:flex">
 		<Menu {items} />
 	</div>
 </div>
