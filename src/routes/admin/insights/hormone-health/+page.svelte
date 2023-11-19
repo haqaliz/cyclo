@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { user } from '$api';
+    import { admin } from '$api';
     import { Progress } from '$components';
     import AddInsight from './add-insight.svelte';
     import DeleteInsight from './delete-insight.svelte';
@@ -11,7 +11,7 @@
     const update = async () => {
         if (loading) return;
         loading = true;
-        insights = await user.getInsights({
+        insights = await admin.insights.getInsights({
             type: insightType,
         });
         loading = false;

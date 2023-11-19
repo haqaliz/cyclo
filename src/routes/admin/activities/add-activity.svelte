@@ -3,26 +3,25 @@
     import { Modal } from '$components';
     import { admin } from '$api';
     const dispatch = createEventDispatcher();
-    type InsightType = 'hormone_health';
-    export let insightType: InsightType;
     let modal: any = {
         title: '',
         show: false,
         loading: false,
         ref: {
             name: '',
+            category: '',
+            type: '',
             content: [],
         },
     };
-    const addInsight = async () => {
+    const addActivity = async () => {
         if (modal.loading) return;
         modal.loading = true;
-        await admin.insights.createInsight({
-            type: insightType,
-            ...modal.ref,
-        });
+        await admin.activities.createActivity(modal.ref);
         modal.ref = {
             name: '',
+            category: '',
+            type: '',
             content: [],
         };
         modal.loading = false;
@@ -38,7 +37,7 @@
     }}
 >
     <i class="material-icons">add</i>
-    <span>Add New Insight</span>
+    <span>Add New Activity</span>
 </button>
 
 <Modal
@@ -49,12 +48,30 @@
 	<svelte:fragment slot="content">
         <input
             type="text"
-            placeholder="Insight Name"
+            placeholder="Activity Name"
             class="
                 flex flex-col flex-wrap bg-yellow-300 outline-none text-lg font-semibold p-2 md:p-4
                 focus:bg-yellow-300 focus:bg-opacity-40
             "
             bind:value={modal.ref.name}
+        >
+        <input
+            type="text"
+            placeholder="Activity Type"
+            class="
+                flex flex-col flex-wrap bg-yellow-300 outline-none text-lg font-semibold p-2 md:p-4
+                focus:bg-yellow-300 focus:bg-opacity-40
+            "
+            bind:value={modal.ref.type}
+        >
+        <input
+            type="text"
+            placeholder="Activity Category"
+            class="
+                flex flex-col flex-wrap bg-yellow-300 outline-none text-lg font-semibold p-2 md:p-4
+                focus:bg-yellow-300 focus:bg-opacity-40
+            "
+            bind:value={modal.ref.category}
         >
 		<div class="flex flex-col flex-1 bg-yellow-200 max-h-[420px] overflow-y-scroll hide-scrollbar text-lg p-2 md:p-4">
             {#each modal.ref.content as item, k}
@@ -112,7 +129,7 @@
 			<button
 				class="py-2 px-8 rounded font-sans font-medium text-lg focus:outline-none focus:ring-2 mr-2 md:mr-4
 				focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center flex-1 sm:flex-none"
-				on:click={addInsight}
+				on:click={addActivity}
 			>
                 {#if !modal.loading}
                     Save

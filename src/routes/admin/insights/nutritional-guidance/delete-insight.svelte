@@ -1,7 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     import { Modal } from '$components';
-    import { user } from '$api';
+    import { admin } from '$api';
     const dispatch = createEventDispatcher();
     export let insight: any;
     let modal: any = {
@@ -12,7 +12,7 @@
     const deleteInsight = async () => {
         if (modal.loading) return;
         modal.loading = true;
-        await user.deleteInsight({
+        await admin.insights.deleteInsight({
             insight_id: insight.id,
         });
         modal.loading = false;

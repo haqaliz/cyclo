@@ -1,7 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     import { Modal } from '$components';
-    import { user } from '$api';
+    import { admin } from '$api';
     const dispatch = createEventDispatcher();
     type InsightType = 'hormone_health';
     export let insightType: InsightType;
@@ -18,7 +18,7 @@
     const addInsight = async () => {
         if (modal.loading) return;
         modal.loading = true;
-        await user.createInsight({
+        await admin.insights.createInsight({
             type: insightType,
             ...modal.ref,
         });
