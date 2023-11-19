@@ -64,6 +64,9 @@
 		<Recommendations type="menstruation_product" />
 	</div>
 	<div class="mt-2 sm:mt-4">
+		<Recommendations type="activities" />
+	</div>
+	<div class="mt-2 sm:mt-4">
 		<Challenges />
 	</div>
 	<div class="mt-2 sm:mt-4">
