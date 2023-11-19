@@ -50,8 +50,8 @@
         }, []);
         messages = [
             ...!hasMore && [advisorIntro],
-            ...messages,
             ...newMessages,
+            ...messages,
         ];
 		loading = false;
         setTimeout(() => conversationEl.scrollTo({
