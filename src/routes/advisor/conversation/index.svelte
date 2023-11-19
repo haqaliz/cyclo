@@ -18,6 +18,7 @@
     let hasMore = false;
     let startAfter: any;
 	const update = async () => {
+        if (!conversationId?.length) return;
 		loading = true;
         const r = await user.getAdvisorConversation({
             conversation_id: conversationId,
@@ -103,11 +104,11 @@
 <div
     in:slide
     out:slide
-    class="flex flex-col rounded p-2 sm:p-4 bg-gray-100"
+    class="flex flex-col w-full h-[calc(100vh-146px)] sm:h-[calc(100vh-200px)] md:h-[calc(100vh-113px)] rounded p-2 sm:p-4 bg-gray-100"
 >
     <div
         bind:this={conversationEl}
-        class="flex flex-col h-[calc(100vh-270px)] overflow-y-scroll hide-scrollbar"
+        class="flex flex-col h-full overflow-y-scroll hide-scrollbar"
     >
         {#if loading}
             <Progress />

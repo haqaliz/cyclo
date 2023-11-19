@@ -237,6 +237,14 @@ export const getAdvisorConversation = async (payload: any) => {
 	return r.json();
 };
 
+export const deleteAdvisorConversation = async (payload: any) => {
+	const r = await fetch(`${API_BASE_URL}/user/advisor/conversations/${payload?.conversation_id}`, {
+		...REQ_OPTIONS,
+		method: 'DELETE'
+	}).catch((e) => e.response);
+	return !!r?.ok;
+};
+
 export const getAdvisorConversationsList = async (payload: any) => {
 	const startAfter = payload?.start_after?.length ? `&start_after=${payload.start_after}` : '';
 	const r = await fetch(
@@ -331,6 +339,7 @@ export default {
 	getNotifications,
 	createMessageToAdvisor,
 	getAdvisorConversation,
+	deleteAdvisorConversation,
 	getAdvisorConversationsList,
 	createInsight,
 	updateInsight,

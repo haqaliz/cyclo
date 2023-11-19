@@ -12,7 +12,7 @@
 <div
     in:fade
     out:fade
-    class="flex flex-row w-full mb-2 md:mb-4"
+    class="flex flex-row w-full mb-2 sm:mb-4"
     class:justify-start={sender === 'advisor'}
     class:justify-end={sender !== 'advisor'}
 >
