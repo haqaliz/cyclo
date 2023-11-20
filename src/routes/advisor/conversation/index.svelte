@@ -97,7 +97,7 @@
             },
         ];
         loadingNewMessage = false;
-        bridge.newConversation.set(true);
+        if (!conversationId?.length) bridge.newConversation.set(true);
     };
 </script>
 
