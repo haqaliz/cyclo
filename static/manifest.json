@@ -1,0 +1,22 @@
+{
+    "name": "Cyclo",
+    "short_name": "Cyclo",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#E9D5FF",
+    "theme_color": "#E9D5FF",
+    "description": "Begin yo transformative menstrual health journey with Cyclo, Your trusted tracking and insight companion. Join us and embrace the power of informed choices!"
+}
