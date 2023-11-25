@@ -46,6 +46,9 @@
 	<div in:slide out:slide class="flex flex-col mt-2 sm:mt-4">
 		<Recommendations type="menstruation_product" />
 	</div>
+	<div in:slide out:slide class="flex flex-col mt-2 sm:mt-4">
+		<Recommendations type="other_product" />
+	</div>
 	<div in:slide out:slide class="flex flex-col my-2 sm:my-4">
 		<Recommendations type="activities" />
 	</div>

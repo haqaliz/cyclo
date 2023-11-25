@@ -3,20 +3,18 @@
 	import { recommendations } from '$stores';
 	import { slide } from 'svelte/transition';
 
-	let menstruationProduct: any;
-	let menstruationProductColor = 'bg-purple-200';
+	let otherProduct: any;
+	let otherProductColor = 'bg-purple-200';
 	let loading = true;
 	recommendations.subscribe((v: any) => {
-		if (!v?.menstruation_products) return;
+		if (!v?.other_products) return;
 		loading = false;
 		// Menstruation Product Index
-		const MPI = Math.floor(Math.random() * v?.menstruation_products.length) + 0;
-		menstruationProduct = v?.menstruation_products?.[MPI];
-		menstruationProductColor = {
-			pad: 'bg-orange-200 hover:bg-orange-300 transition-colors ease-in-out',
-			tampon: 'bg-rose-200 hover:bg-rose-300 transition-colors ease-in-out',
-			cup: 'bg-sky-200 hover:bg-sky-300 transition-colors ease-in-out'
-		}[menstruationProduct?.type];
+		const OPI = Math.floor(Math.random() * v?.other_products.length) + 0;
+		otherProduct = v?.other_products?.[OPI];
+		otherProductColor = {
+			vibrator: 'bg-sky-200 hover:bg-sky-300 transition-colors ease-in-out'
+		}[otherProduct?.type];
 	});
 	let modal: any = {
 		show: false,
@@ -42,7 +40,7 @@
 	</div>
 {/if}
 
-{#if menstruationProduct}
+{#if otherProduct}
 	<div
 		in:slide
 		out:slide
@@ -53,7 +51,7 @@
 	>
 		<div
 			class={`
-				flex flex-col items-center ${menstruationProductColor} p-4 overflow-hidden
+				flex flex-col items-center ${otherProductColor} p-4 overflow-hidden
 				rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[240px] h-[240px]
 			`}
 		>
@@ -61,36 +59,36 @@
 				class="
 					bg-no-repeat relative bg-contain bg-center rounded w-full h-full
 				"
-				style:background-image={`url(${menstruationProduct?.img ?? ''})`}
+				style:background-image={`url(${otherProduct?.img ?? ''})`}
 			/>
 		</div>
 		<div class="flex flex-col items-start">
 			<div class="flex flex-col sm:flex-row w-full sm:w-auto items-start mb-2 sm:mb-0">
 				<h3
-					class={`font-semibold w-full sm:w-auto text-3xl ${menstruationProductColor} p-2 sm:p-4 rounded mb-2 sm:mb-4 mr-2 sm:mr-4`}
+					class={`font-semibold w-full sm:w-auto text-3xl ${otherProductColor} p-2 sm:p-4 rounded mb-2 sm:mb-4 mr-2 sm:mr-4`}
 				>
 					<span>{{
 						usd: '$',
 						gbp: '£',
 						eur: '€'
-					}[menstruationProduct?.price?.currency]}</span>
-					<span>{menstruationProduct?.price?.value}</span>
+					}[otherProduct?.price?.currency]}</span>
+					<span>{otherProduct?.price?.value}</span>
 				</h3>
 				<a
 					class="p-2 sm:p-4 w-full sm:w-auto rounded font-sans font-medium focus:outline-none focus:ring-2
                     focus:ring-opacity-75 ease-in-out duration-300 flex flex-row items-center
                     bg-zinc-900 text-white hover:bg-gray-700 focus:ring-gray-400 justify-center
                     "
-					href={menstruationProduct?.url}
+					href={otherProduct?.url}
 				>
 					<i class="material-icons text-3xl">shopping_cart</i>
 				</a>
 			</div>
-			{#if menstruationProduct?.features?.length}
+			{#if otherProduct?.features?.length}
 				<div class="flex flex-row flex-wrap">
-					{#each menstruationProduct?.features as feature}
+					{#each otherProduct?.features as feature}
 						<button
-							class={`flex flex-col ${menstruationProductColor} rounded p-2 sm:p-4 mb-2 sm:mb-4 mr-2 sm:mr-4 font-semibold`}
+							class={`flex flex-col ${otherProductColor} rounded p-2 sm:p-4 mb-2 sm:mb-4 mr-2 sm:mr-4 font-semibold`}
 							on:click={() => showFeature(feature)}
 						>
 							{feature?.title}
