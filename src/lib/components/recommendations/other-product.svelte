@@ -57,7 +57,7 @@
 		>
 			<div
 				class="
-					bg-no-repeat relative bg-contain bg-center rounded w-full h-full
+					bg-no-repeat relative bg-cover bg-center rounded w-full h-full
 				"
 				style:background-image={`url(${otherProduct?.img ?? ''})`}
 			/>
