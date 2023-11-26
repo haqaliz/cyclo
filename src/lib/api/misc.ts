@@ -41,8 +41,18 @@ export const trends = async () => {
 	return r.json();
 };
 
+export const brands = async () => {
+	const r = await fetch(`${API_BASE_URL}/brands`, {
+		...REQ_OPTIONS,
+		method: 'GET'
+	}).catch((e) => e.response);
+	if (!r?.ok) return;
+	return r.json();
+};
+
 export default {
 	contact,
 	explore,
-	trends
+	trends,
+	brands
 };

@@ -5,11 +5,12 @@ import token from './token';
 import plans from './plans';
 import challenges from './challenges';
 import recommendations from './recommendations';
+import brands from './brands';
 
 const user = writable((browser && JSON.parse(localStorage.getItem('user'))) || null);
 
 user.getRelatedData = async () => {
-	await Promise.all([challenges.get(), recommendations.get(), plans.get()]);
+	await Promise.all([challenges.get(), recommendations.get(), plans.get(), brands.get()]);
 };
 
 user.get = async (deep = true) => {
