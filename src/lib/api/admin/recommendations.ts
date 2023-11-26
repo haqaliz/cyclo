@@ -3,6 +3,7 @@ import { API_BASE_URL, REQ_OPTIONS } from '$config';
 interface CreateRecommendationPayload {
 	type: string;
 	brand: string;
+	name: String;
 	url: string;
 	img: string;
 	price: Object;
@@ -21,6 +22,7 @@ interface UpdateRecommendationPayload {
 	recommendation_id: string;
 	type: string;
 	brand: string;
+	name: String;
 	url: string;
 	img: string;
 	price: Object;
@@ -33,6 +35,7 @@ export const updateRecommendation = async (payload: UpdateRecommendationPayload)
 		body: JSON.stringify({
 			type: payload?.type,
 			brand: payload?.brand,
+			name: payload?.name,
 			url: payload?.url,
 			img: payload?.img,
 			price: payload?.price,

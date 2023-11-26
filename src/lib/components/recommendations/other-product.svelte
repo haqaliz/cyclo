@@ -51,7 +51,7 @@
 	>
 		<div
 			class={`
-				flex flex-col items-center ${otherProductColor} p-4 overflow-hidden
+				group/img flex flex-col relative items-center ${otherProductColor} p-4 overflow-hidden
 				rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[240px] h-[240px]
 			`}
 		>
@@ -61,9 +61,29 @@
 				"
 				style:background-image={`url(${otherProduct?.img ?? ''})`}
 			/>
+			<div
+				class={`
+					flex flex-row opacity-0 group-hover/img:opacity-100
+					absolute p-2 rounded-br font-semibold capitalize
+					transition-opacity ease-in-out duration-300
+					text-2xl left-4 top-4 ${otherProductColor}
+				`}
+			>
+				{otherProduct.type}
+			</div>
 		</div>
 		<div class="flex flex-col items-start">
 			<div class="flex flex-col sm:flex-row w-full sm:w-auto items-start mb-2 sm:mb-0">
+				<h3
+					class={`font-semibold w-full sm:w-auto text-3xl ${otherProductColor} p-2 sm:p-4 rounded mb-2 sm:mb-4 mr-2 sm:mr-4`}
+				>
+					<span class="text-4xl capitalize">
+						{otherProduct.brand}{otherProduct.name?.length ? ': ' : ''}
+					</span>
+					{#if otherProduct.name?.length}
+						<span>{otherProduct.name}</span>
+					{/if}
+				</h3>
 				<h3
 					class={`font-semibold w-full sm:w-auto text-3xl ${otherProductColor} p-2 sm:p-4 rounded mb-2 sm:mb-4 mr-2 sm:mr-4`}
 				>

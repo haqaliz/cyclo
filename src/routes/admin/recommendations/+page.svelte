@@ -45,6 +45,10 @@
                             <strong>{recommendation.brand}</strong>
                         </div>
                         <div class="flex flex-row text-lg">
+                            <span class="mr-2">name:</span>
+                            <strong>{recommendation.name}</strong>
+                        </div>
+                        <div class="flex flex-row text-lg">
                             <span class="mr-2">img:</span>
                             <!-- svelte-ignore a11y-missing-attribute -->
                             <img

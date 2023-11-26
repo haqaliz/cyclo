@@ -10,6 +10,7 @@
         ref: {
             type: '',
             brand: '',
+            name: '',
             img: '',
             url: '',
             price: {
@@ -26,6 +27,7 @@
         modal.ref = {
             type: '',
             brand: '',
+            name: '',
             img: '',
             url: '',
             price: {
@@ -73,6 +75,15 @@
                 focus:bg-yellow-300 focus:bg-opacity-40
             "
             bind:value={modal.ref.brand}
+        >
+        <input
+            type="text"
+            placeholder="Recommendation Name"
+            class="
+                flex flex-col flex-wrap bg-yellow-300 outline-none text-lg font-semibold p-2 md:p-4
+                focus:bg-yellow-300 focus:bg-opacity-40
+            "
+            bind:value={modal.ref.name}
         >
         <input
             type="text"
