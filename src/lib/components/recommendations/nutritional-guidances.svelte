@@ -34,10 +34,23 @@
 		in:slide
 		out:slide
 		class={`flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded p-2 sm:p-4
-			bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0
-			${$$restProps['class'] ?? ''}`}
+			bg-gray-100 hover:bg-gray-200 overflow-hidden mb-2 md:mb-4 last:mb-0 animate-pulse
+			min-h-[288px] ${$$restProps['class'] ?? ''}`}
 	>
-		<Progress />
+		<div class="flex flex-col lg:flex-row md:max-w-min w-full mr-4 md:mr-0">
+			<div
+				class="
+					flex flex-col items-center justify-center bg-black bg-opacity-10 p-4 overflow-hidden
+					rounded mr-2 sm:mr-4 mb-2 sm:mb-4 lg:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[120px] h-[120px]
+				"
+			/>
+			<div
+				class="
+					flex flex-col items-center justify-center bg-black bg-opacity-10 p-4 overflow-hidden
+					rounded mr-2 sm:mr-4 mb-2 sm:mb-0 w-full md:min-w-[240px] md:w-[240px] min-h-[120px] h-[120px]
+				"
+			/>
+		</div>
 	</div>
 {/if}
 
