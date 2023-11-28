@@ -1,4 +1,5 @@
-import adapter from '@sveltejs/adapter-static';
+// import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 // const replace = [[/process\.env\.(\w+)/g, (_, prop) => JSON.stringify(process.env[prop])]];
@@ -7,14 +8,18 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
+	runtime: 'edge',
+	
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter({
-			precompress: false,
-			strict: false,
-			fallback: '200.html'
-		}),
+		adapter: adapter(
+			// {
+			// 	precompress: false,
+			// 	strict: false,
+			// 	fallback: '200.html'
+			// }
+		),
 
 		alias: {
 			$config: 'src/lib/config.ts',
