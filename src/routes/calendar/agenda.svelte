@@ -62,9 +62,9 @@
 					focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center
 					mr-2 sm:mr-4 last:mr-0`,
 					isSelected
-						? 'bg-purple-400 text-zinc-950 hover:bg-purple-800'
+						? 'bg-zinc-950/40 text-zinc-950 hover:bg-zinc-950/50'
 						: 'bg-zinc-950/10 text-zinc-950 hover:bg-zinc-950/20',
-					isMCStart ? 'border-l-4 border-red-600' : '',
+					isMCStart ? 'border-l-4 border-zinc-950/30' : '',
 				)}
 				title={isToday ? 'Today' : ''}
 				on:click={() => select(item.date)}

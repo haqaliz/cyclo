@@ -168,15 +168,16 @@
 <Modal bind:show>
 	<!-- log type -->
 	<div class="flex flex-col">
-		<label for="log_type" class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
-			>Log Type:</label
-		>
+		<label
+			for="log_type"
+			class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+		>Log Type:</label>
 		<select
 			bind:value={logType}
 			name="log_type"
 			id="log_type"
 			on:change={logTypeChanged}
-			class="p-2 rounded-lg font-sans font-medium text-lg border-2 capitalize"
+			class="bg-zinc-950/10 p-2 rounded-lg font-sans font-medium text-lg border-2 capitalize"
 		>
 			{#each Object.keys(logTypes) as i}
 				<option value={i} class="font-sans font-medium text-lg capitalize">
@@ -195,14 +196,13 @@
 			<div class="flex flex-col mt-1 sm:mt-2">
 				<label
 					for="log_type_value"
-					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
-					>{strippedLogType} Type:</label
-				>
+					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+				>{strippedLogType} Type:</label>
 				<select
 					bind:value={logTypeValue}
 					name="log_type_value"
 					id="log_type_value"
-					class="p-2 rounded-lg font-sans font-medium text-lg border-2 capitalize"
+					class="bg-zinc-950/10 p-2 rounded-lg font-sans font-medium text-lg border-2 capitalize"
 				>
 					{#each logTypes[logType] as i}
 						<option value={i} class="font-sans font-medium text-lg capitalize">
@@ -216,7 +216,7 @@
 				<div class="flex flex-col mt-1 sm:mt-2">
 					<label
 						for="log_type_intensity"
-						class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
+						class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
 					>
 						{strippedLogType} Intensity:
 					</label>
@@ -243,9 +243,8 @@
 			<div class="flex flex-col mt-1 sm:mt-2">
 				<label
 					for="log_type_intensity"
-					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
-					>{strippedLogType} Intensity:</label
-				>
+					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+				>{strippedLogType} Intensity:</label>
 				<div class="flex flex-row items-center">
 					<input
 						bind:value={logTypeIntensity}
@@ -268,9 +267,8 @@
 			<div class="flex flex-col mt-1 sm:mt-2">
 				<label
 					for="log_type_intensity"
-					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize"
-					>{strippedLogType} Intensity:</label
-				>
+					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+				>{strippedLogType} Intensity:</label>
 				<Input bind:value={logTypeValue} type="textarea" />
 			</div>
 		{/if}
@@ -278,7 +276,7 @@
 
 	<div class="flex-1" />
 
-	<div class="flex flex-row justify-end">
+	<div class="flex flex-row mt-4 justify-end">
 		<Button disabled={isSaveDisabled} on:click={saveLog}>Save</Button>
 	</div>
 </Modal>

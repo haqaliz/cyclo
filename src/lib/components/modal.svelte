@@ -19,7 +19,7 @@
 	>
 		<div
 			class={twMerge(
-				`bg-zinc-100 rounded-lg flex flex-col p-2 sm:p-4 z-[2]
+				`bg-zinc-950/50 rounded-lg flex flex-col p-2 sm:p-4 z-[2]
 				w-full h-full sm:w-auto sm:h-auto sm:min-w-[30%] sm:min-h-[320px]
 				overflow-y-scroll hide-scrollbar`,
 				containerClass
@@ -27,7 +27,7 @@
 			use:clickOutside
 			on:outclick={() => (show = false)}
 		>
-			<div class="flex flex-row items-center text-zinc-950">
+			<div class="flex flex-row items-center text-zinc-50">
 				{#if title?.length}
 					<h1 class="font-sans font-semibold text-3xl">{title}</h1>
 				{:else if $$slots.title}

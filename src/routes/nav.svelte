@@ -1,9 +1,10 @@
 <script lang="ts">
-    import { Button } from '$components';
+    import { Button, Modal } from '$components';
     import { user } from '$stores';
     import { _globals } from '$firebase';
 	import { signOut } from "firebase/auth";
     import { goto } from '$app/navigation';
+    let show = false;
 	const logout = async () => {
 		await signOut(_globals.auth);
 		user.set(null);
@@ -32,15 +33,30 @@
 	</Button>
     <div class="flex-1" />
     {#if $user}
-        <Button
-            title={$user.name ?? $user.email}
-            href="/calendar"
-            class="mr-4"
-        >
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <img src={$user.profile} class="w-6 h-6 rounded drag-none" />
-        </Button>
-        <Button icon="logout" title="Logout" on:click={logout} />
+        <Button icon="menu" title="Menu" on:click={() => show = true} />
+        <Modal bind:show title="Menu">
+            <Button
+                title={$user.name ?? $user.email}
+                href="#"
+                class="mb-4"
+                on:click={() => show = false}
+            >
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <img src={$user.profile} class="w-6 h-6 rounded drag-none mr-2" />
+                {$user.name ?? $user.email}
+            </Button>
+            <Button
+                title="Calendar"
+                href="/calendar"
+                icon="today"
+                class="mb-4"
+                on:click={() => show = false}
+            >
+                Calendar
+            </Button>
+            <div class="flex-1" />
+            <Button icon="logout" title="Logout" on:click={logout} />
+        </Modal>
     {:else}
         <Button href="/login">Join Us</Button>
     {/if}

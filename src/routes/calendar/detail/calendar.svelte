@@ -112,9 +112,9 @@
 					`p-2 rounded-lg font-sans font-medium text-lg focus:outline-none focus:ring-2
 					focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center`,
 					isSelected
-						? 'bg-purple-400 text-black hover:bg-purple-800'
+						? 'bg-zinc-950/40 text-zinc-950 hover:bg-zinc-950/50'
 						: 'bg-zinc-950/10 text-zinc-950 hover:bg-zinc-950/20',
-					isMCStart ? 'border-l-4 border-red-600' : '',
+					isMCStart ? 'border-l-4 border-zinc-950/30' : '',
 					!item.fit ? 'opacity-25' : '',
 				)}
 				title={format(item.date, 'yyyy, dd LLL')}
