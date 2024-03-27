@@ -1,8 +1,5 @@
 <script lang="ts">
 	export let recordedDays: any[] = [];
-	$: {
-		console.log(recordedDays)
-	}
 	$: recordedDay = recordedDays?.length ? recordedDays[0] : null;
 </script>
 

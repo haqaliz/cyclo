@@ -43,16 +43,12 @@
 <div class="p-2 sm:p-4">
 	<Agenda on:change={dateChanged} />
 
-    {#if !loading}
-		<div in:slide out:slide class="flex flex-col">
-			{#if recordedDays?.length}
-				<div class="mt-2 sm:mt-4">
-					<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
-				</div>
-			{/if}
+    {#if !loading && recordedDays.length}
+		<div in:slide out:slide class="flex flex-col mt-4">
+			<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
 		</div>
 	{/if}
-    <div in:slide out:slide class="flex flex-row mt-2 md:mt-4">
+    <div in:slide out:slide class="flex flex-row">
 		<AddRecordedDay
 			recordedDay={recordedDays?.length ? recordedDays[0] : null}
 			{selectedDay}
