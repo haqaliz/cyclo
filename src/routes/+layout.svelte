@@ -19,6 +19,13 @@
 			const metadata = await users_metadata.getUserMetadata({
 				user_id: v.uid,
 			});
+			if (!metadata) {
+				users_metadata.upsertUserMetadata({
+					user_id: v.uid,
+					email: v.email,
+					prefs: {},
+				});
+			}
 			if (metadata?.admin) r.admin = true;
 			if (metadata?.prefs) r.prefs = metadata.prefs;
 			user.set(r);
@@ -34,6 +41,6 @@
 
 <slot />
 
-{#if !$page.url.pathname.match(/\/(login)/gi)}
+{#if !$page.url.pathname.match(/\/(login|calendar)/gi)}
 	<Footer />
 {/if}

@@ -13,7 +13,7 @@
 	<div
 		use:inject
 		class="
-			bg-zinc-300/75 backdrop-blur-lg p-2 sm:p-4 fixed inset-0 flex flex-row items-center justify-center z-40
+			bg-zinc-950/20 backdrop-blur-lg p-2 sm:p-4 fixed inset-0 flex flex-row items-center justify-center z-40
 			before:fixed before:inset-0 before:content-[''] before:cursor-pointer
 		"
 	>

@@ -23,6 +23,10 @@
 		'text-gray': 'bg-transparent text-zinc-950 hover:bg-zinc-400',
 		'text-yellow': 'bg-transparent text-zinc-950 hover:bg-amber-500'
 	}[buttonStyle];
+	$: disabledColorClass = {
+		'normal': 'cursor-not-allowed bg-zinc-300 text-zinc-950 hover:bg-zinc-400',
+		'text': 'cursor-not-allowed bg-transparent text-zinc-950 hover:bg-zinc-400',
+	}[type];
 	$: sizeClass = {
 		'small': 'p-1 h-8',
 		'normal': 'p-3 h-12',
@@ -31,7 +35,7 @@
 	$: cl = twMerge(
 		`flex flex-row items-center justify-center rounded-lg
         font-semibold text-lg transition-all ease-in-out duration-300`,
-		colorClass,
+		$$restProps.disabled ? disabledColorClass : colorClass,
 		sizeClass,
 		$$restProps['class']
 	);
