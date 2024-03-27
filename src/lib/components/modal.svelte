@@ -13,13 +13,13 @@
 	<div
 		use:inject
 		class="
-			bg-zinc-950/20 backdrop-blur-lg p-2 sm:p-4 fixed inset-0 flex flex-row items-center justify-center z-40
+			bg-zinc-950/20 backdrop-blur-lg p-4 fixed inset-0 flex flex-row items-center justify-center z-40
 			before:fixed before:inset-0 before:content-[''] before:cursor-pointer
 		"
 	>
 		<div
 			class={twMerge(
-				`bg-zinc-950/50 rounded-lg flex flex-col p-2 sm:p-4 z-[2]
+				`bg-zinc-950/50 rounded-lg flex flex-col p-4 z-[2]
 				w-full h-full sm:w-auto sm:h-auto sm:min-w-[30%] sm:min-h-[320px]
 				overflow-y-scroll hide-scrollbar`,
 				containerClass
@@ -38,7 +38,7 @@
 			</div>
 
 			{#if $$slots.default}
-				<div class="flex flex-col mt-2 sm:mt-4 flex-1 text-zinc-950">
+				<div class="flex flex-col mt-4 flex-1 text-zinc-950">
 					<slot />
 				</div>
 			{/if}

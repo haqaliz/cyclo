@@ -10,13 +10,13 @@
 	</style>
 </svelte:head>
 
-<div class="p-2 sm:p-4 flex flex-col">
+<div class="p-4 flex flex-col">
 	<div
 		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Introduction</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+		<p class="font-sans text-lg text-justify mt-4">
 			Welcome to Cyclo's Terms and Conditions. This document outlines the rules, responsibilities,
 			and rights for all users of the Cyclo website and services. By using our platform, you are
 			agreeing to abide by these terms. We encourage you to read this document carefully. If you
@@ -24,11 +24,11 @@
 		</p>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">User Agreement</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>Acceptance of Terms:</strong>
 				<span
@@ -56,12 +56,12 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Use of Services</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
-			<li class="mt-2 sm:mt-4">
+			<li class="mt-4">
 				<strong>License</strong>
 				<span
 					>Cyclo grants you a limited, non-exclusive, and non-transferable license to use our
@@ -76,7 +76,7 @@
 				</ul>
 			</li>
 
-			<li class="mt-2 sm:mt-4">
+			<li class="mt-4">
 				<strong>Restrictions</strong>
 				<span>While using Cyclo, you agree not to:</span>
 
@@ -94,7 +94,7 @@
 				</ul>
 			</li>
 
-			<li class="mt-2 sm:mt-4">
+			<li class="mt-4">
 				<strong>User Content</strong>
 				<div class="flex flex-col">
 					<span
@@ -110,7 +110,7 @@
 				</div>
 			</li>
 
-			<li class="mt-2 sm:mt-4">
+			<li class="mt-4">
 				<strong>Termination</strong>
 				<span
 					>Cyclo reserves the right to suspend or terminate your account and access to our services
@@ -121,8 +121,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Content Ownership</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -146,8 +146,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Disclaimers</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -173,8 +173,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Governing Law</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -189,8 +189,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Miscellaneous</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -221,10 +221,10 @@
 	</div>
 	<div
 		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col mt-2 sm:mt-4"
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col mt-4"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Conclusion</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+		<p class="font-sans text-lg text-justify mt-4">
 			Thank you for using Cyclo. We're committed to providing you with a safe and informative
 			platform for menstrual health. If you have any questions or concerns about these terms or any
 			other aspect of our services, please don't hesitate to reach out to us. Your trust and safety

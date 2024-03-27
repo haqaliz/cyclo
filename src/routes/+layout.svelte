@@ -41,6 +41,6 @@
 
 <slot />
 
-{#if !$page.url.pathname.match(/\/(login|calendar)/gi)}
+{#if !$page.url.pathname.match(/\/(login|calendar|analytics)/gi)}
 	<Footer />
 {/if}

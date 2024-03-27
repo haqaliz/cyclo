@@ -4,15 +4,21 @@
     import { _globals } from '$firebase';
 	import { signOut } from "firebase/auth";
     import { goto } from '$app/navigation';
+    import { page } from '$app/stores';
     let show = false;
 	const logout = async () => {
 		await signOut(_globals.auth);
 		user.set(null);
         goto('/');
 	};
+    $: pageTitle = {
+        '/calendar': 'Calendar',
+        '/calendar/detail': 'Calendar Detail',
+        '/analytics': 'Analytics',
+    }[$page.url.pathname] ?? '';
 </script>
 
-<div class="bg-purple-200 flex flex-row items-center p-2 sm:p-4">
+<div class="bg-purple-200 flex flex-row items-center p-4">
     <Button type="text" href="/" class="group/logo">
         <svg
             height="20"
@@ -33,6 +39,8 @@
 	</Button>
     <div class="flex-1" />
     {#if $user}
+        <h2 class="text-2xl font-semibold">{pageTitle}</h2>
+        <div class="flex-1" />
         <Button icon="menu" title="Menu" on:click={() => show = true} />
         <Modal bind:show title="Menu">
             <Button
@@ -50,9 +58,20 @@
                 href="/calendar"
                 icon="today"
                 class="mb-4"
+                disabled={$page.url.pathname.match(/^\/calendar/i)}
                 on:click={() => show = false}
             >
                 Calendar
+            </Button>
+            <Button
+                title="Analytics"
+                href="/analytics"
+                icon="analytics"
+                class="mb-4"
+                disabled={$page.url.pathname.match(/^\/analytics/i)}
+                on:click={() => show = false}
+            >
+                Analytics
             </Button>
             <div class="flex-1" />
             <Button icon="logout" title="Logout" on:click={logout} />

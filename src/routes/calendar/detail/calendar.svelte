@@ -70,12 +70,12 @@
 	});
 </script>
 
-<div class="bg-zinc-950/10 rounded-lg p-2 sm:p-4 flex flex-col">
+<div class="bg-zinc-950/10 rounded-lg p-4 flex flex-col">
 	<!-- Controll Section -->
 	<div class="flex flex-1 flex-row items-center">
 		<Button title="Previous Month" icon="chevron_left" on:click={() => (sourceDate = subMonths(sourceDate, 1))} />
 		<div class="flex-1" />
-		<h4 class="font-sans font-semibold text-2xl sm:text-3xl">
+		<h4 class="font-sans font-semibold text-3xl">
 			{format(sourceDate, 'yyyy, LLL')}
 		</h4>
 		<div class="flex-1" />
@@ -83,7 +83,7 @@
 	</div>
 
 	<!-- Items Section -->
-	<div class="grid grid-cols-7 gap-2 sm:gap-4 mt-2 sm:mt-4">
+	<div class="grid grid-cols-7 gap-4 mt-4">
 		<!-- Week days header -->
 		{#each week as item}
 			<!-- Desktop -->
@@ -114,14 +114,14 @@
 					isSelected
 						? 'bg-zinc-950/40 text-zinc-950 hover:bg-zinc-950/50'
 						: 'bg-zinc-950/10 text-zinc-950 hover:bg-zinc-950/20',
-					isMCStart ? 'border-l-4 border-zinc-950/30' : '',
+					isMCStart ? 'border-l-4 border-zinc-950/50' : '',
 					!item.fit ? 'opacity-25' : '',
 				)}
 				title={format(item.date, 'yyyy, dd LLL')}
 				on:click={() => select(item)}
 			>
 				<div class="flex flex-row">
-					<span class="font-sans font-semibold text-l sm:text-2xl capitalize">
+					<span class="font-sans font-semibold text-l text-2xl capitalize">
 						{#if getDate(item.date) < 10}
 							0{getDate(item.date)}
 						{:else}
@@ -129,7 +129,7 @@
 						{/if}
 					</span>
 					{#if isToday}
-						<div class="bg-red-600 rounded-full w-1 sm:w-1.5 h-1 sm:h-1.5" />
+						<div class="bg-red-600 rounded-full w-1.5 h-1.5" />
 					{/if}
 				</div>
 			</button>

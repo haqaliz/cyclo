@@ -38,11 +38,11 @@
 	</style>
 </svelte:head>
 
-<div class="flex flex-col px-2 pt-2 sm:px-4 sm:pt-4">
+<div class="flex flex-col px-4 pt-4">
 	<Calendar {selectedDay} on:change={dateChanged} />
 </div>
 
-<div class="px-2 sm:px-4">
+<div class="px-4">
 	{#if !loading && recordedDays?.length}
 		<div in:slide out:slide class="flex flex-col mt-4">
 			<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />

@@ -32,7 +32,7 @@
 	});
 </script>
 
-<div class="bg-zinc-950/10 rounded-lg p-2 sm:p-4 flex flex-col">
+<div class="bg-zinc-950/10 rounded-lg p-4 flex flex-col">
 	<div class="flex flex-1 flex-row">
 		<h3 class="font-sans font-semibold text-3xl">
 			{#if differenceInDays(selectedDay, today) === 0 && getDate(selectedDay) === getDate(today)}
@@ -44,7 +44,7 @@
 		<div class="flex-1" />
 		<Button href="/calendar/detail" icon="today" />
 	</div>
-	<div class="flex flex-row mt-2 sm:mt-4 overflow-x-scroll hide-scrollbar sm:overflow-auto">
+	<div class="flex flex-row mt-4 overflow-x-scroll hide-scrollbar sm:overflow-auto">
 		{#each Object.keys(days) as key}
 			{@const item = days[key]}
 			{@const isSelected =
@@ -60,11 +60,11 @@
 				class={twMerge(
 					`p-2 min-w-[80px] sm:min-w-min rounded-lg font-sans font-medium text-lg focus:outline-none focus:ring-2
 					focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center
-					mr-2 sm:mr-4 last:mr-0`,
+					mr-4 last:mr-0`,
 					isSelected
 						? 'bg-zinc-950/40 text-zinc-950 hover:bg-zinc-950/50'
 						: 'bg-zinc-950/10 text-zinc-950 hover:bg-zinc-950/20',
-					isMCStart ? 'border-l-4 border-zinc-950/30' : '',
+					isMCStart ? 'border-l-4 border-zinc-950/50' : '',
 				)}
 				title={isToday ? 'Today' : ''}
 				on:click={() => select(item.date)}

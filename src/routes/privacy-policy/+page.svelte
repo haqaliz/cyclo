@@ -10,13 +10,13 @@
 	</style>
 </svelte:head>
 
-<div class="p-2 sm:p-4 flex flex-col">
+<div class="p-4 flex flex-col">
 	<div
 		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Introduction</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+		<p class="font-sans text-lg text-justify mt-4">
 			Welcome to Cyclo's Privacy Policy. This document outlines our commitment to your privacy and
 			explains how we collect, use, share, and protect your personal information. We value your
 			trust and aim to be transparent about our practices. By using Cyclo, you agree to the terms
@@ -25,11 +25,11 @@
 		</p>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-2 p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Information We Collect</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>User Account Information:</strong>
 				<span
@@ -62,11 +62,11 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">How We Use Your Information</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>Personalization</strong>
 				<span
@@ -92,20 +92,20 @@
 	</div>
 	<div
 		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col mt-2 sm:mt-4"
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col mt-4"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Legal Requirements</h3>
-		<p class="font-sans text-lg text-justify mt-2 sm:mt-4">
+		<p class="font-sans text-lg text-justify mt-4">
 			We may access, use, and disclose your information to comply with legal obligations, respond to
 			requests from authorities, and protect our rights and users.
 		</p>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Information Sharing</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>Service Providers</strong>
 				<span
@@ -130,11 +130,11 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Security</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>Data Security</strong>
 				<span
@@ -152,11 +152,11 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Cookies and Tracking Technologies</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>Cookies</strong>
 				<span
@@ -174,11 +174,11 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Third-Party Links</h3>
-		<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
+		<ul class="font-sans text-lg list-disc list-inside mt-4">
 			<li>
 				<strong>External Links</strong>
 				<span
@@ -189,11 +189,11 @@
 		</ul>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Children's Privacy</h3>
-		<ul class="font-sans text-lg list-disc list-inside mt-2 sm:mt-4">
+		<ul class="font-sans text-lg list-disc list-inside mt-4">
 			<li>
 				<strong>Minors</strong>
 				<span
@@ -205,11 +205,11 @@
 		</ul>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-2 sm:mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col"
+		class="bg-white transition-all ease-in-out mt-4
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Changes to this Policy</h3>
-		<ol class="font-sans text-lg list-decimal list-inside mt-2 sm:mt-4">
+		<ol class="font-sans text-lg list-decimal list-inside mt-4">
 			<li>
 				<strong>Updates</strong>
 				<span
@@ -228,10 +228,10 @@
 	</div>
 	<div
 		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lgp-2 sm:p-4 flex flex-col mt-2 sm:mt-4"
+                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col mt-4"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Contact Us</h3>
-		<p class="font-sans text-lg text-justify flex flex-row items-center flex-wrap mt-2 sm:mt-4">
+		<p class="font-sans text-lg text-justify flex flex-row items-center flex-wrap mt-4">
 			If you have any questions or concerns about this policy, please
 			<Button type="text" href="/contact" class="mx-1">
 				contact us

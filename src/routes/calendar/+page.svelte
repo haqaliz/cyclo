@@ -40,7 +40,7 @@
 	</style>
 </svelte:head>
 
-<div class="p-2 sm:p-4">
+<div class="p-4">
 	<Agenda on:change={dateChanged} />
 
     {#if !loading && recordedDays.length}

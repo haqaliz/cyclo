@@ -170,7 +170,7 @@
 	<div class="flex flex-col">
 		<label
 			for="log_type"
-			class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+			class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
 		>Log Type:</label>
 		<select
 			bind:value={logType}
@@ -193,10 +193,10 @@
 		<!-- log types with predefined types -->
 		{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc', 'bleeding_type', 'blood_color', 'pregnancy_test', 'sex_situation'].includes(logType)}
 			<!-- {logType} type -->
-			<div class="flex flex-col mt-1 sm:mt-2">
+			<div class="flex flex-col mt-2">
 				<label
 					for="log_type_value"
-					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+					class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
 				>{strippedLogType} Type:</label>
 				<select
 					bind:value={logTypeValue}
@@ -213,10 +213,10 @@
 			</div>
 
 			{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc'].includes(logType)}
-				<div class="flex flex-col mt-1 sm:mt-2">
+				<div class="flex flex-col mt-2">
 					<label
 						for="log_type_intensity"
-						class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+						class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
 					>
 						{strippedLogType} Intensity:
 					</label>
@@ -230,7 +230,7 @@
 							max="10"
 							class="p-2 rounded-lg font-sans font-medium text-lg border-2 resize-none flex-1"
 						/>
-						<span class="bg-gray-300 rounded-lg px-1 sm:px-2 ml-1 font-sans font-semibold text-l"
+						<span class="bg-gray-300 rounded-lg px-2 ml-1 font-sans font-semibold text-l"
 							>{logTypeIntensity}</span
 						>
 					</div>
@@ -240,10 +240,10 @@
 
 		<!-- log types with only intensity -->
 		{#if ['bleeding_amount'].includes(logType)}
-			<div class="flex flex-col mt-1 sm:mt-2">
+			<div class="flex flex-col mt-2">
 				<label
 					for="log_type_intensity"
-					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+					class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
 				>{strippedLogType} Intensity:</label>
 				<div class="flex flex-row items-center">
 					<input
@@ -255,7 +255,7 @@
 						max="10"
 						class="p-2 rounded-lg font-sans font-medium text-lg border-2 resize-none flex-1"
 					/>
-					<span class="bg-gray-300 rounded-lg px-1 sm:px-2 ml-1 font-sans font-semibold text-l"
+					<span class="bg-gray-300 rounded-lg px-2 ml-1 font-sans font-semibold text-l"
 						>{logTypeIntensity}</span
 					>
 				</div>
@@ -264,10 +264,10 @@
 
 		<!-- log types with only description -->
 		{#if ['medications'].includes(logType)}
-			<div class="flex flex-col mt-1 sm:mt-2">
+			<div class="flex flex-col mt-2">
 				<label
 					for="log_type_intensity"
-					class="font-sans font-semibold text-xl mb-1 sm:mb-2 capitalize text-zinc-50"
+					class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
 				>{strippedLogType} Intensity:</label>
 				<Input bind:value={logTypeValue} type="textarea" />
 			</div>

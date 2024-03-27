@@ -2,11 +2,11 @@
 	import { Button } from '$components';
 </script>
 
-<div class="flex flex-col p-2 md:p-4">
+<div class="flex flex-col p-4">
 	<div
-		class="flex flex-col p-2 md:p-4 md:flex-row border-t-2 border-t-black mb-2 sm:mb-4 pt-2 sm:pt-4"
+		class="flex flex-col p-4 md:flex-row border-t-2 border-t-black mb-4 pt-4"
 	>
-		<div class="flex flex-col items-start sm:max-w-sm mb-2 md:mb-0">
+		<div class="flex flex-col items-start max-w-sm">
 			<Button type="text" href="/" class="group/logo mb-2">
                 <svg
                     height="20"
