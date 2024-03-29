@@ -27,7 +27,7 @@
 					differenceInDays(new Date(), day) === 0 && getDate(new Date()) === getDate(day)}
 				<div
 					class={twMerge(
-						`p-2 rounded-lg font-sans font-medium text-lg focus:outline-none focus:ring-2
+						`p-2 rounded-lg font-sans font-medium text-lg focus:outline-none focus:ring-2 min-w-[54px]
 						focus:ring-opacity-75 ease-in-out duration-300 flex flex-col flex-1 items-center`,
 						isToday
 							? 'bg-zinc-950/40 text-zinc-950'

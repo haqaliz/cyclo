@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Button, Modal } from '$components';
-    import { user } from '$stores';
+    import { user, pageTitle } from '$stores';
     import { _globals } from '$firebase';
 	import { signOut } from "firebase/auth";
     import { goto } from '$app/navigation';
@@ -11,11 +11,17 @@
 		user.set(null);
         goto('/');
 	};
-    $: pageTitle = {
-        '/calendar': 'Calendar',
-        '/calendar/detail': 'Calendar Detail',
-        '/analytics': 'Analytics',
-    }[$page.url.pathname] ?? '';
+    $: {
+        if ($page.url.pathname === '/calendar') {
+            $pageTitle = 'Calendar';
+        } else if ($page.url.pathname === '/calendar/detail') {
+            $pageTitle = 'Calendar Detail';
+        } else if ($page.url.pathname === '/analytics') {
+            $pageTitle = 'Analytics';
+        } else if ($page.url.pathname === '/insight') {
+            $pageTitle = 'Insight';
+        }
+    }
 </script>
 
 <div class="bg-purple-200 flex flex-row items-center p-4">
@@ -39,7 +45,11 @@
 	</Button>
     <div class="flex-1" />
     {#if $user}
-        <h2 class="text-2xl font-semibold">{pageTitle}</h2>
+        <h2 class="
+            text-2xl font-semibold text-center -ml-8 max-w-32
+            md:max-w-96 xl:max-w-max text-ellipsis
+            overflow-hidden whitespace-nowrap
+        ">{$pageTitle}</h2>
         <div class="flex-1" />
         <Button icon="menu" title="Menu" on:click={() => show = true} />
         <Modal bind:show title="Menu">
@@ -58,7 +68,7 @@
                 href="/calendar"
                 icon="today"
                 class="mb-4"
-                disabled={$page.url.pathname.match(/^\/calendar/i)}
+                disabled={$page.url.pathname.match(/^\/calendar$/i)}
                 on:click={() => show = false}
             >
                 Calendar
@@ -68,10 +78,20 @@
                 href="/analytics"
                 icon="analytics"
                 class="mb-4"
-                disabled={$page.url.pathname.match(/^\/analytics/i)}
+                disabled={$page.url.pathname.match(/^\/analytics$/i)}
                 on:click={() => show = false}
             >
                 Analytics
+            </Button>
+            <Button
+                title="Insight"
+                href="/insight"
+                icon="school"
+                class="mb-4"
+                disabled={$page.url.pathname.match(/^\/insight$/i)}
+                on:click={() => show = false}
+            >
+                Insight
             </Button>
             <div class="flex-1" />
             <Button icon="logout" title="Logout" on:click={logout} />

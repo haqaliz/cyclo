@@ -32,7 +32,7 @@
 	});
 </script>
 
-<div class="bg-zinc-950/10 rounded-lg p-4 flex flex-col">
+<div class="bg-zinc-950/10 rounded-lg p-4 flex flex-col mb-4">
 	<div class="flex flex-1 flex-row">
 		<h3 class="font-sans font-semibold text-3xl">
 			{#if differenceInDays(selectedDay, today) === 0 && getDate(selectedDay) === getDate(today)}
