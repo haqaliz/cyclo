@@ -30,22 +30,22 @@
 </svelte:head>
 
 {#if topics}
-    <div class="flex flex-col mb-2 sm:mb-4">
+    <div class="flex flex-col mb-4">
         {#each Object.keys(topics) as topicName}
             {@const topic = topics[topicName]}
-            <h3 class="font-sans font-semibold text-3xl ml-2 sm:ml-4 mt-2 sm:mt-4">{topicName}</h3>
-            <div class="flex flex-row mt-2 sm:mt-4 pl-2 sm:pl-4 overflow-x-scroll hide-scrollbar">
+            <h3 class="font-sans font-semibold text-3xl ml-4 mt-4">{topicName}</h3>
+            <div class="flex flex-row mt-4 pl-4 overflow-x-scroll hide-scrollbar">
                 {#each topic as item}
                     <a
                         href={`/insight/${item?.key}`}
                         class={twMerge(
-                            `transition-colors rounded-lg p-2 sm:p-4
-                            min-w-[280px] sm:min-w-[250px] mr-2 sm:mr-4 cursor-pointer
+                            `transition-colors rounded-lg p-4
+                            min-w-[280px] sm:min-w-[250px] mr-4 cursor-pointer
                             min-h-[180px] sm:min-h-[120px]`,
                             item?.classes ?? 'bg-gray-200 hover:bg-gray-300',
                         )}
                     >
-                        <span class="font-sans font-semibold text-xl sm:text-lg">
+                        <span class="font-sans font-semibold text-lg">
                             {item?.name}
                         </span>
                     </a>

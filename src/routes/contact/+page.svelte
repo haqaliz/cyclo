@@ -84,7 +84,7 @@
 		</h2>
 		<div
 			class="
-			flex flex-col p-2 md:p-4 rounded-lgbg-white transition-all ease-in-out
+			flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
 			bg-opacity-25 hover:bg-black hover:bg-opacity-10
 		"
 		>

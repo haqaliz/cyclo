@@ -4,6 +4,7 @@
 	import { recorded_days } from '$firebase';
 	import MenstruationStatus from './menstruation-status.svelte';
 	import FertileStatus from './fertile-status.svelte';
+	import HealthRegularity from './health-regularity.svelte';
 
 	let latestMenstrualCycleStart: any;
 	let loading = false;
@@ -26,6 +27,9 @@
 </svelte:head>
 
 <div class="p-4">
+	<div in:slide out:slide class="flex flex-col mt-4">
+		<HealthRegularity />
+	</div>
 	{#if !loading}
 		<div in:slide out:slide class="flex flex-col mt-4">
 			<MenstruationStatus {latestMenstrualCycleStart} />
