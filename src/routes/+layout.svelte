@@ -5,13 +5,14 @@
 	import Nav from './nav.svelte';
 	import Footer from './footer.svelte';
     import { _globals } from '$firebase';
-	import { user, insights } from '$stores';
+	import { user, insights, recommendations } from '$stores';
 	import { onAuthStateChanged } from "firebase/auth";
 
     onAuthStateChanged(_globals.auth, async (v) => {
 		if (v) {
 			await user.get(v);
-			if (!insights?.length) await insights.get();
+			if (!$insights?.length) await insights.get();
+			if (!$recommendations) await recommendations.get(v.uid)
 		} else {
 			// user is signed out
 		}

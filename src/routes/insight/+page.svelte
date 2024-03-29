@@ -21,14 +21,6 @@
     });
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 {#if topics}
     <div class="flex flex-col mb-4">
         {#each Object.keys(topics) as topicName}

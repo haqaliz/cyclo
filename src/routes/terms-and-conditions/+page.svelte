@@ -2,14 +2,6 @@
 	import { Button } from "$components";
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 <div class="p-4 flex flex-col">
 	<div
 		class="bg-white transition-all ease-in-out

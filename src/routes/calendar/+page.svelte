@@ -6,6 +6,7 @@
     import RecordedDays from './recorded-days/index.svelte';
 	import AddRecordedDay from './recorded-days/add.svelte';
 	import { slide } from "svelte/transition";
+	import { Recommendations } from "$components";
 
     let selectedDay = new Date();
 	let loading = false;
@@ -32,14 +33,6 @@
     });
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 <div class="p-4">
 	<Agenda on:change={dateChanged} />
 
@@ -48,6 +41,21 @@
 			<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
 		</div>
 	{/if}
+	<div class="mb-4">
+		<Recommendations type="menstruation_product" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="other_product" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="activities" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="hormone_health_insights" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="nutritional_guidances" />
+	</div>
     <div in:slide out:slide class="flex flex-row">
 		<AddRecordedDay
 			recordedDay={recordedDays?.length ? recordedDays[0] : null}

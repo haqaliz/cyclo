@@ -6,14 +6,6 @@
 	$: storageAboutBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/about/')}`;
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 <div class="flex flex-col">
 	<div class="flex flex-col md:flex-row">
 		<!-- Welcome section -->

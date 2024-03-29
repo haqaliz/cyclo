@@ -2,6 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import { user } from '$stores';
 	import { recorded_days } from '$firebase';
+	import { Recommendations } from "$components";
 	import Calendar from './calendar.svelte';
 	import RecordedDays from '../recorded-days/index.svelte';
 	import AddRecordedDay from '../recorded-days/add.svelte';
@@ -30,24 +31,31 @@
 	});
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 <div class="flex flex-col px-4 pt-4">
 	<Calendar {selectedDay} on:change={dateChanged} />
 </div>
 
-<div class="px-4">
+<div class="p-4">
 	{#if !loading && recordedDays?.length}
 		<div in:slide out:slide class="flex flex-col mt-4">
 			<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
 		</div>
 	{/if}
+	<div class="mb-4">
+		<Recommendations type="menstruation_product" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="other_product" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="activities" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="hormone_health_insights" />
+	</div>
+	<div class="mb-4">
+		<Recommendations type="nutritional_guidances" />
+	</div>
 	<div in:slide out:slide class="flex flex-row">
 		<AddRecordedDay
 			recordedDay={recordedDays?.length ? recordedDays[0] : null}

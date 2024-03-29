@@ -13,14 +13,6 @@
     });
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 <div class="flex flex-col items-center justify-center h-screen">
     <div
 			class="

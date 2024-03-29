@@ -70,7 +70,7 @@
 	});
 </script>
 
-<div class="bg-zinc-950/10 rounded-lg p-4 flex flex-col mb-4">
+<div class="bg-zinc-950/10 rounded-lg p-4 flex flex-col">
 	<!-- Controll Section -->
 	<div class="flex flex-1 flex-row items-center">
 		<Button title="Previous Month" icon="chevron_left" on:click={() => (sourceDate = subMonths(sourceDate, 1))} />

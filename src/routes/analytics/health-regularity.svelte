@@ -39,18 +39,18 @@
 		out:slide
 		class="flex flex-col sm:flex-row items-start transition-colors rounded-lg p-4
             min-w-[280px] sm:min-w-[250px] min-h-[180px] sm:min-h-[120px]
-            bg-zinc-950/10 hover:bg-zinc-950/20
+            bg-zinc-950/10
 		"
 	>
-		<div class="flex flex-col lg:flex-row md:max-w-min w-full mr-4 md:mr-0">
+		<div class="flex flex-col lg:flex-row md:max-w-min w-full mb-4 sm:mb-0">
 			<div
 				class={twMerge(
                     `flex flex-col items-center justify-center p-4 overflow-hidden
-                    rounded-lg mr-4 mb-4 md:mb-0 w-full md:min-w-[240px]
+                    rounded-lg mr-4 w-full md:min-w-[240px]
                     transition-colors ease-in-out md:w-[240px] min-h-[240px] h-[240px]`,
-                    score > 75 ? 'bg-sky-200 hover:bg-sky-300' : '',
-                    (score >= 25 && score <= 75) ? 'bg-orange-200 hover:bg-orange-300' : '',
-                    score < 25 ? 'bg-rose-200 hover:bg-rose-300' : '',
+                    score > 75 ? 'bg-sky-200' : '',
+                    (score >= 25 && score <= 75) ? 'bg-orange-200' : '',
+                    score < 25 ? 'bg-rose-200' : '',
                 )}
                 title={'title'}
 			>
@@ -63,8 +63,8 @@
 			</div>
 		</div>
 		<div class="flex flex-col items-start">
-			<div class="flex flex-row items-center mb-2 md:mb-4">
-                <h3 class="font-sans font-semibold text-xl md:text-3xl">Regularity frequency in Last 6 Month</h3>
+			<div class="flex flex-row items-center mb-4">
+                <h3 class="font-sans font-semibold text-3xl">Regularity frequency in Last 6 Month</h3>
                 <h3 class="font-sans font-semibold text-xl text-zinc-500 ml-2">
                     {format(new Date(range.start), 'LLL')} -
                     {format(new Date(range.end), 'LLL')}
@@ -74,11 +74,11 @@
                 {#each regularity.cycles as item}
                     <div
                         class={twMerge(
-                            `flex flex-col rounded-lg p-2 md:p-4 mb-2 md:mb-0
-                            mr-2 md:mr-4 font-semibold`,
+                            `flex flex-col rounded-lg p-4 mb-4
+                            mr-4 font-semibold`,
                             item.is_regular
-                                ? 'bg-sky-200 hover:bg-sky-300'
-                                : 'bg-rose-200 hover:bg-rose-300',
+                                ? 'bg-sky-200'
+                                : 'bg-rose-200',
                         )}
                     >
                         <h3 class="flex flex-row items-center text-xl font-semibold">

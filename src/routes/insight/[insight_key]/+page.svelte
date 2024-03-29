@@ -12,14 +12,6 @@
     });
 </script>
 
-<svelte:head>
-	<style>
-		body {
-			background-color: #e9d5ff;
-		}
-	</style>
-</svelte:head>
-
 {#if insight}
     {@html insight.content}
 {/if}
