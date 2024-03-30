@@ -5,7 +5,7 @@
 	import { signInWithPopup } from "firebase/auth";
     import { goto } from '$app/navigation';
     import { storage } from '$lib';
-    $: storageMiscBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/misc/')}`;
+    const storageMiscBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/misc/')}`;
     const login = () => signInWithPopup(_globals.auth, _globals.providers.google);
     user.subscribe((v) => {
         if (!v) return;

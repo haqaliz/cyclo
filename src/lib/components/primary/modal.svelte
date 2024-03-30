@@ -2,10 +2,18 @@
 	import { clickOutside, inject } from '$directives';
 	import { twMerge } from 'tailwind-merge';
 	import Button from './button.svelte';
+	import { browser } from '$app/environment';
 
 	export let containerClass = '';
 	export let show = false;
 	export let title = '';
+	$: if (browser) {
+		if (show) {
+			document.body.classList.add('overflow-hidden');
+		} else {
+			document.body.classList.remove('overflow-hidden');
+		}
+	}
 </script>
 
 {#if show}

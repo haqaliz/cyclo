@@ -3,7 +3,7 @@
 	import { Button, Input } from '$components';
 	import { support } from '$firebase';
 
-	$: storageContactBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/contact/')}`;
+	const storageContactBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/contact/')}`;
 
 	let form: any = {
 		name: '',

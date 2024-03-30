@@ -2,7 +2,7 @@
 	import { user } from '$stores';
     import { storage } from '$lib';
 	import { Button } from '$components';
-    $: storageHomeBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/home/')}`;
+    const storageHomeBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/home/')}`;
 </script>
 
 <div class="flex flex-col">

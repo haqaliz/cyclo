@@ -121,12 +121,12 @@ const updateRecordedDayForUser = async (context: any) => {
     if (!snapshot.exists()) return;
     const recordedDay = snapshot.data();
     await setDoc(ref, {
-      ...recordedDay,
-      ...context,
-      updated_at: new Date(),
+        ...recordedDay,
+        ...context,
+        updated_at: new Date(),
     });
     return ref;
-  };
+};
 
 export default {
     getRecordedDaysForUser,

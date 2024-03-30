@@ -3,7 +3,7 @@
 	import { user } from '$stores';
 	import { storage } from '$lib';
 
-	$: storageAboutBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/about/')}`;
+	const storageAboutBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/about/')}`;
 </script>
 
 <div class="flex flex-col">

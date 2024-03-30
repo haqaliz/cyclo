@@ -20,6 +20,12 @@
             $pageTitle = 'Analytics';
         } else if ($page.url.pathname === '/insight') {
             $pageTitle = 'Insight';
+        } else if ($page.url.pathname === '/profile/account') {
+            $pageTitle = 'Profile Account';
+        } else if ($page.url.pathname === '/profile/preferences') {
+            $pageTitle = 'Profile Preferences';
+        } else if ($page.url.pathname === '/profile/notifications') {
+            $pageTitle = 'Profile Notifications';
         }
     }
 </script>
@@ -55,7 +61,7 @@
         <Modal bind:show title="Menu">
             <Button
                 title={$user.name ?? $user.email}
-                href="#"
+                href="/profile/account"
                 class="mb-4"
                 on:click={() => show = false}
             >
