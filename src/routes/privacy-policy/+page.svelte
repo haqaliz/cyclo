@@ -4,8 +4,8 @@
 
 <div class="p-4 flex flex-col">
 	<div
-		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Introduction</h3>
 		<p class="font-sans text-lg text-justify mt-4">
@@ -17,8 +17,8 @@
 		</p>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-2 p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Information We Collect</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -54,8 +54,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">How We Use Your Information</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -83,8 +83,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col mt-4"
+		class="bg-zinc-950/10 transition-all ease-in-out
+                rounded-lg p-4 flex flex-col mt-4"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Legal Requirements</h3>
 		<p class="font-sans text-lg text-justify mt-4">
@@ -93,8 +93,8 @@
 		</p>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Information Sharing</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -122,8 +122,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Security</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -144,8 +144,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Cookies and Tracking Technologies</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -166,8 +166,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Third-Party Links</h3>
 		<ul class="font-sans text-lg list-disc list-inside mt-4">
@@ -181,8 +181,8 @@
 		</ul>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Children's Privacy</h3>
 		<ul class="font-sans text-lg list-disc list-inside mt-4">
@@ -197,8 +197,8 @@
 		</ul>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Changes to this Policy</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -219,8 +219,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col mt-4"
+		class="bg-zinc-950/10 transition-all ease-in-out
+                rounded-lg p-4 flex flex-col mt-4"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Contact Us</h3>
 		<p class="font-sans text-lg text-justify flex flex-row items-center flex-wrap mt-4">

@@ -74,12 +74,7 @@
 		<h2 class="font-semibold text-2xl md:text-3xl md:leading-snug md:max-w-3xl mb-2 md:mb-4">
 			Contact Form
 		</h2>
-		<div
-			class="
-			flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-			bg-opacity-25 hover:bg-black hover:bg-opacity-10
-		"
-		>
+		<div class="flex flex-col p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out">
 			<p class="text-justify mb-2 md:mb-4">Please fill out the form below to contact us:</p>
 			<div class="flex flex-col md:flex-row mb-2 md:mb-4">
 				<Input bind:value={form.name} placeholder="Name" class="mb-2 md:mb-0 md:mr-4" />

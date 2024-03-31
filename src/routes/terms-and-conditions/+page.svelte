@@ -4,8 +4,8 @@
 
 <div class="p-4 flex flex-col">
 	<div
-		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Introduction</h3>
 		<p class="font-sans text-lg text-justify mt-4">
@@ -16,8 +16,8 @@
 		</p>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">User Agreement</h3>
 		<ol class="font-sans text-lg list-decimal list-inside mt-4">
@@ -48,8 +48,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Use of Services</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -113,8 +113,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Content Ownership</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -138,8 +138,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Disclaimers</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -165,8 +165,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Governing Law</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -181,8 +181,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out mt-4
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col"
+		class="bg-zinc-950/10 transition-all ease-in-out mt-4
+                rounded-lg p-4 flex flex-col"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Miscellaneous</h3>
 		<ol class="font-sans text-lg list-decimal list-inside">
@@ -212,8 +212,8 @@
 		</ol>
 	</div>
 	<div
-		class="bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10 rounded-lg p-4 flex flex-col mt-4"
+		class="bg-zinc-950/10 transition-all ease-in-out
+                rounded-lg p-4 flex flex-col mt-4"
 	>
 		<h3 class="font-sans font-semibold text-3xl">Conclusion</h3>
 		<p class="font-sans text-lg text-justify mt-4">

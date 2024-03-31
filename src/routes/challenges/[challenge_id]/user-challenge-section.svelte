@@ -80,7 +80,10 @@
 				icon={btnIcon}
 				class={twMerge(
 					'w-full sm:w-auto mr-4 last:mr-0 mb-4 last:mb-0 sm:mb-0',
-					(!item || k > chlngIndex) ? 'cursor-not-allowed' : '',
+					(
+						(!item && k !== chlngIndex)
+						|| k > chlngIndex
+					) ? 'cursor-not-allowed' : '',
 				)}
 				on:click={() => {
 					if ((!item && k === chlngIndex) || (!!item && k <= chlngIndex)) {

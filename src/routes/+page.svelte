@@ -77,8 +77,8 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 md:gap-8">
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10
+                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
+                hover:bg-zinc-950/20
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Comprehensive Tracking</h3>
@@ -89,8 +89,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10
+                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
+                hover:bg-zinc-950/20
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Educational Resources</h3>
@@ -102,8 +102,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10
+                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
+                hover:bg-zinc-950/20
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Advanced Analytics</h3>
@@ -114,8 +114,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10
+                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
+                hover:bg-zinc-950/20
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Personalized Insights</h3>
@@ -126,8 +126,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10
+                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
+                hover:bg-zinc-950/20
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Community Support</h3>
@@ -138,8 +138,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-                bg-opacity-25 hover:bg-black hover:bg-opacity-10
+                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
+                hover:bg-zinc-950/20
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Privacy and Security</h3>
