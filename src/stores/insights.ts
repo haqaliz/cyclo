@@ -10,7 +10,7 @@ interface Insight {
     content: any;
     deleted_at: Date|null;
 };
-const insights = writable<Array<Insight>|[]>([]);
+const insights: any = writable<Array<Insight>|[]>([]);
 
 insights.get = async () => {
     const r = await ins.getInsights({

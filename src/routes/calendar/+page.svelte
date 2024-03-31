@@ -6,7 +6,7 @@
     import RecordedDays from './recorded-days/index.svelte';
 	import AddRecordedDay from './recorded-days/add.svelte';
 	import { slide } from "svelte/transition";
-	import { Recommendations } from "$components";
+	import { Recommendations, Challenges } from "$components";
 
     let selectedDay = new Date();
 	let loading = false;
@@ -49,6 +49,9 @@
 	</div>
 	<div class="mb-4">
 		<Recommendations type="activities" />
+	</div>
+	<div class="mb-4">
+		<Challenges />
 	</div>
 	<div class="mb-4">
 		<Recommendations type="hormone_health_insights" />

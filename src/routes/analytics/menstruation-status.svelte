@@ -63,7 +63,7 @@
 		{#if startRangeOfMC}
 			{@const diff = differenceInDays(new Date(), startRangeOfMC) + 1}
 			<div
-				class="bg-rose-200/50 min-h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded-lg
+				class="bg-rose-200 min-h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded-lg
 				p-4 flex flex-col sm:flex-row mt-4 sm:items-center"
 			>
 				{#if diff <= 7}
@@ -80,7 +80,7 @@
 					class={
 						twMerge(
 							'rounded-lg font-sans font-semibold text-lg p-3 mt-4 sm:mt-0 sm:ml-4',
-							diff > 7 ? 'bg-green-400/50' : 'bg-red-500/50',
+							diff > 7 ? 'bg-green-400' : 'bg-red-500',
 						)
 					}
 				>

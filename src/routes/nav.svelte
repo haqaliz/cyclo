@@ -26,6 +26,8 @@
             $pageTitle = 'Profile Preferences';
         } else if ($page.url.pathname === '/profile/notifications') {
             $pageTitle = 'Profile Notifications';
+        } else if ($page.url.pathname === '/challenges') {
+            $pageTitle = 'Challenges';
         }
     }
 </script>
@@ -98,6 +100,16 @@
                 on:click={() => show = false}
             >
                 Insight
+            </Button>
+            <Button
+                title="Challenges"
+                href="/challenges"
+                icon="spa"
+                class="mb-4"
+                disabled={$page.url.pathname.match(/^\/challenges$/i)}
+                on:click={() => show = false}
+            >
+                Challenges
             </Button>
             <div class="flex-1" />
             <Button icon="logout" title="Logout" on:click={logout} />

@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 	type ButtonType = 'normal' | 'text';
 	export let type: ButtonType = 'normal';
-	type ButtonColor = 'black' | 'red' | 'gray' | 'yellow';
+	type ButtonColor = 'black' | 'red' | 'gray' | 'yellow' | 'green';
 	export let color: ButtonColor = 'black';
 	export let icon: string | undefined = undefined;
 	type ButtonSize = 'small'|'normal'|'large';
@@ -13,15 +13,15 @@
 		// Normal
 		'normal-black': 'bg-zinc-800 text-zinc-950 text-zinc-50 hover:bg-zinc-900',
 		'normal-red': 'bg-red-600 text-zinc-950 hover:bg-red-700',
-		'normal-green': 'bg-green-600 text-zinc-950 hover:bg-green-700',
+		'normal-green': 'bg-green-400 text-zinc-950 hover:bg-green-500',
 		'normal-gray': 'bg-zinc-300 text-zinc-950 hover:bg-zinc-400',
-		'normal-yellow': 'bg-amber-400 text-zinc-950 hover:bg-amber-500',
+		'normal-yellow': 'bg-yellow-400 text-zinc-950 hover:bg-yellow-500',
 		// Text
 		'text-black': 'bg-transparent text-zinc-950 hover:text-zinc-50 hover:bg-zinc-900',
 		'text-red': 'bg-transparent text-zinc-950 hover:bg-red-700',
-		'text-green': 'bg-transparent text-zinc-950 hover:bg-green-700',
+		'text-green': 'bg-transparent text-zinc-950 hover:bg-green-500',
 		'text-gray': 'bg-transparent text-zinc-950 hover:bg-zinc-400',
-		'text-yellow': 'bg-transparent text-zinc-950 hover:bg-amber-500'
+		'text-yellow': 'bg-transparent text-zinc-950 hover:bg-yellow-500'
 	}[buttonStyle];
 	$: disabledColorClass = {
 		'normal': 'cursor-not-allowed bg-zinc-300 text-zinc-950 hover:bg-zinc-400',

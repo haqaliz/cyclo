@@ -68,7 +68,7 @@
 			{@const diff = differenceInDays(new Date(), startFertileWindow) + 1}
 			{@const mcDiff = differenceInDays(new Date(), startRangeOfMC)}
 			<div
-				class="bg-teal-200/50 min-h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded-lg
+				class="bg-teal-200 min-h-[46px] sm:h-[76px] transition-all ease-in-out duration-300 rounded-lg
 				p-4 flex flex-col sm:flex-row mt-4 sm:items-center"
 			>
 				{#if mcDiff >= menstrualCycleLength + gapBetweenMCandFW && mcDiff <= menstrualCycleLength + gapBetweenMCandFW + 6}
@@ -82,7 +82,7 @@
 							Past from Start of Fertility.
 						</h5>
 					{/if}
-					<h5 class="rounded-lg font-sans font-semibold bg-green-400/50 text-lg p-3 sm:ml-4">
+					<h5 class="rounded-lg font-sans font-semibold bg-green-400 text-lg p-3 sm:ml-4">
 						{#if diff <= 3}
 							Most Fertile Days
 						{:else if diff === 4}

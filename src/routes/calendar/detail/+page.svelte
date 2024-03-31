@@ -2,7 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import { user } from '$stores';
 	import { recorded_days } from '$firebase';
-	import { Recommendations } from "$components";
+	import { Challenges, Recommendations } from "$components";
 	import Calendar from './calendar.svelte';
 	import RecordedDays from '../recorded-days/index.svelte';
 	import AddRecordedDay from '../recorded-days/add.svelte';
@@ -49,6 +49,9 @@
 	</div>
 	<div class="mb-4">
 		<Recommendations type="activities" />
+	</div>
+	<div class="mb-4">
+		<Challenges />
 	</div>
 	<div class="mb-4">
 		<Recommendations type="hormone_health_insights" />

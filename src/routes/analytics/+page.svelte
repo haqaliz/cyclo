@@ -6,10 +6,11 @@
 	import FertileStatus from './fertile-status.svelte';
 	import HealthRegularity from './health-regularity.svelte';
 	import { Recommendations } from '$components';
+	import ChallengesHistory from './challenges-history.svelte';
 
 	let latestMenstrualCycleStart: any;
 	let loading = false;
-	user.subscribe(async (v) => {
+	user.subscribe(async (v: any) => {
 		if (!v || loading) return;
 		loading = true;
 		latestMenstrualCycleStart = await recorded_days.getStartOfLastMenstrualCycleForUser({
@@ -41,6 +42,9 @@
 	</div>
 	<div class="mb-4">
 		<Recommendations type="activities" />
+	</div>
+	<div class="mb-4">
+		<ChallengesHistory />
 	</div>
 	<div class="mb-4">
 		<Recommendations type="hormone_health_insights" />

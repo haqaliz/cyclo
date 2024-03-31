@@ -10,7 +10,7 @@ interface User {
     admin?: boolean|null;
     prefs?: object|null;
 };
-const user = writable<User|null>(null);
+const user: any = writable<User|null>(null);
 
 user.get = async (v: any) => {
     const r = {
