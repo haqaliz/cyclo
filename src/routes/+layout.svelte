@@ -39,7 +39,7 @@
 	<Nav />
 {/if}
 
-{#if $initialized}
+{#if $initialized || $page.url.pathname.match(/^\/(login|about|contact|terms-and-conditions|privacy-policy)?/gi)}
 	<slot />
 {/if}
 
