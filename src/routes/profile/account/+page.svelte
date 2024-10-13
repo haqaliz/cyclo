@@ -1,38 +1,36 @@
 <script lang="ts">
     import { user } from '$stores';
-    import { Input } from '$components';
+    import { Card, Avatar } from '$components';
+    $: shortUserName = ($user?.name ?? $user?.email ?? '')
+		.split(' ')
+		.reduce((a, i) => {
+			a += i?.[0]?.toUpperCase() ?? '';
+			return a;
+		}, '');
 </script>
 
 {#if $user}
-	<div class="flex flex-col bg-zinc-950/10 rounded-lg p-4">
-        <div class="flex flex-col rounded-lg w-32 h-32 bg-zinc-950/10 p-4 mb-4">
-            {#if $user.profile}
-                <!-- svelte-ignore a11y-missing-attribute -->
-                <img
-                    class="w-full h-full rounded-lg"
-                    src={$user.profile}
-                />
-            {:else}
-                <div class="flex flex-row w-full h-full items-center justify-center">
-                    <i class="material-icons !text-6xl">person</i>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+        gric-cols-4 bg-foreground/10 rounded-lg p-4"
+    >
+        <Card.Root>
+            <Card.Header>
+                <div class="flex flex-row items-center">
+                    <Avatar.Root class="mr-4">
+                        <Avatar.Image
+                            src={$user.profile}
+                            alt={shortUserName}
+                        />
+                        <Avatar.Fallback>{shortUserName}</Avatar.Fallback>
+                    </Avatar.Root>
+                    <div class="flex flex-col">
+                        <Card.Title>{$user.name}</Card.Title>
+                    </div>
                 </div>
-            {/if}
-        </div>
-		<div class="flex flex-col md:flex-row">
-			<div class="flex flex-col min-w-[50px] flex-1 mb-2 md:mr-4 md:mb-4">
-				<Input
-					bind:value={$user.email}
-                    label="Email"
-                    disabled={true}
-				/>
-			</div>
-			<div class="flex flex-col min-w-[50px] flex-1 mb-2 md:mr-4 md:mb-4">
-				<Input
-					bind:value={$user.name}
-                    label="Name"
-                    disabled={true}
-				/>
-			</div>
-		</div>
-	</div>
+            </Card.Header>
+            <Card.Content>
+                <strong>Email:</strong> {$user.email}
+            </Card.Content>
+        </Card.Root>
+    </div>
 {/if}

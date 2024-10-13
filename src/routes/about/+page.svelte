@@ -12,7 +12,7 @@
 		<div
 			class="
                 flex flex-col p-2 md:p-16 mb-2 md:mb-0 md:mr-8
-                border-b-2 md:border-b-0 md:border-r-2 border-black
+                border-b-2 md:border-b-0 md:border-r-2
             "
 		>
 			<h3 class="font-semibold text-lg md:text-3xl md:mt-16 mb-2 md:mb-6">Our Story</h3>
@@ -79,7 +79,7 @@
 			<div
 				class="
                 flex flex-col p-2 md:p-4 rounded-lg transition-all ease-in-out
-                bg-zinc-950/10 hover:bg-zinc-950/20
+                bg-zinc-950/10
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Comprehensive Tracking</h3>
@@ -93,7 +93,7 @@
 			<div
 				class="
                 flex flex-col p-2 md:p-4 rounded-lg transition-all ease-in-out
-                bg-zinc-950/10 hover:bg-zinc-950/20
+                bg-zinc-950/10
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Valuable Insights</h3>
@@ -107,7 +107,7 @@
 			<div
 				class="
                 flex flex-col p-2 md:p-4 rounded-lg transition-all ease-in-out
-                bg-zinc-950/10 hover:bg-zinc-950/20
+                bg-zinc-950/10
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Vibrant Community</h3>
@@ -121,7 +121,7 @@
 			<div
 				class="
                 flex flex-col p-2 md:p-4 rounded-lg transition-all ease-in-out
-                bg-zinc-950/10 hover:bg-zinc-950/20
+                bg-zinc-950/10
             "
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Holistic Well-being</h3>
@@ -148,7 +148,7 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 md:gap-8">
 			<div class="flex flex-col">
 				<strong class="flex flex-row flex-wrap mb-1 sm:mb-3">
-					<Button type="text" size="small" href="https://www.linkedin.com/in/alihaqiqi/">
+					<Button variant="link" size="sm" href="https://www.linkedin.com/in/alihaqiqi/">
 						Ali Alizade Haqiqi:
 					</Button>
 				</strong>
@@ -160,19 +160,19 @@
 			</div>
 			<div class="flex flex-col">
 				<strong class="flex flex-row flex-wrap mb-1 sm:mb-3">
-					<Button type="text" size="small" href="https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1196/annals.1429.018">
+					<Button variant="link" size="sm" href="https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1196/annals.1429.018">
 						Dr. Shannon M. Hawkins,
 					</Button>
-					<Button type="text" size="small" href="https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1196/annals.1429.018">
+					<Button variant="link" size="sm" href="https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1196/annals.1429.018">
 						Dr. Martin M. Matzuk,
 					</Button>
-					<Button type="text" size="small" href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148">
+					<Button variant="link" size="sm" href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148">
 						M. Mihm,
 					</Button>
-					<Button type="text" size="small" href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148">
+					<Button variant="link" size="sm" href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148">
 						S. Gangooly
 					</Button>
-					<Button type="text" size="small" href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148">
+					<Button variant="link" size="sm" href="https://www.sciencedirect.com/science/article/abs/pii/S0378432010004148">
 						and S. Muttukrishna:
 					</Button>
 				</strong>
@@ -183,7 +183,7 @@
 			</div>
 			<div class="flex flex-col">
 				<strong class="flex flex-row flex-wrap mb-1 sm:mb-3">
-					<Button type="text" size="small" href="https://www.linkedin.com/in/alihaqiqi/">
+					<Button variant="link" size="sm" href="https://www.linkedin.com/in/alihaqiqi/">
 						Ali Alizade Haqiqi:
 					</Button>
 				</strong>
@@ -194,7 +194,7 @@
 			</div>
 			<div class="flex flex-col">
 				<strong class="flex flex-row flex-wrap mb-1 sm:mb-3">
-					<Button type="text" size="small" href="https://www.linkedin.com/in/alihaqiqi/">
+					<Button variant="link" size="sm" href="https://www.linkedin.com/in/alihaqiqi/">
 						Ali Alizade Haqiqi:
 					</Button>
 				</strong>

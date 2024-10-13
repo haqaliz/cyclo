@@ -11,7 +11,7 @@
 		<div
 			class="
                 flex flex-col p-2 md:p-16 mb-2 md:mb-0 md:mr-8
-                border-b-2 md:border-b-0 md:border-r-2 border-black
+                border-b-2 md:border-b-0 md:border-r-2
             "
 		>
 			<h1 class="font-semibold text-2xl md:text-6xl md:leading-snug md:max-w-3xl mb-2 md:mb-8">
@@ -77,9 +77,8 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 md:gap-8">
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
-                hover:bg-zinc-950/20
-            "
+                flex flex-col p-2 md:p-4 rounded-lg bg-foreground/10 transition-all ease-in-out
+				"
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Comprehensive Tracking</h3>
 				<p class="text-justify">
@@ -89,9 +88,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
-                hover:bg-zinc-950/20
-            "
+                flex flex-col p-2 md:p-4 rounded-lg bg-foreground/10 transition-all ease-in-out
+				"
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Educational Resources</h3>
 				<p class="text-justify">
@@ -102,9 +100,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
-                hover:bg-zinc-950/20
-            "
+                flex flex-col p-2 md:p-4 rounded-lg bg-foreground/10 transition-all ease-in-out
+				"
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Advanced Analytics</h3>
 				<p class="text-justify">
@@ -114,9 +111,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
-                hover:bg-zinc-950/20
-            "
+                flex flex-col p-2 md:p-4 rounded-lg bg-foreground/10 transition-all ease-in-out
+				"
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Personalized Insights</h3>
 				<p class="text-justify">
@@ -126,9 +122,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
-                hover:bg-zinc-950/20
-            "
+                flex flex-col p-2 md:p-4 rounded-lg bg-foreground/10 transition-all ease-in-out
+				"
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Community Support</h3>
 				<p class="text-justify">
@@ -138,9 +133,8 @@
 			</div>
 			<div
 				class="
-                flex flex-col p-2 md:p-4 rounded-lg bg-zinc-950/10 transition-all ease-in-out
-                hover:bg-zinc-950/20
-            "
+                flex flex-col p-2 md:p-4 rounded-lg bg-foreground/10 transition-all ease-in-out
+				"
 			>
 				<h3 class="font-semibold text-lg mb-2 md:mb-4">Privacy and Security</h3>
 				<p class="text-justify">

@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import { users_challenges } from '$firebase';
 	import { user } from '$stores';
-	import { Modal, Input, Button } from '$components';
+	import { Dialog, Input, Button, Textarea } from '$components';
 	import { slide } from 'svelte/transition';
 	import { differenceInDays, startOfDay } from 'date-fns';
 
@@ -107,27 +107,31 @@
 					{chlng.challenge.objective}
 				</p>
 				<Button
-					icon={chlng.content?.[chlngIndex] ? 'check' : ''}
 					on:click={(e) => {
 						e.stopPropagation();
 						e.preventDefault();
 						showChallengeModal(chlng);
 					}}
 				>
+					{#if chlng.content?.[chlngIndex]}
+						<i class="material-icons">check</i>
+					{/if}
 					Day {activeDay}
 				</Button>
 			</div>
 		</a>
 	{/each}
 
-	<Modal bind:show={modal.show} title={modal.title} containerClass="max-w-md">
+	<Dialog.Root bind:open={modal.show}>
+		<Dialog.Content class="sm:max-w-[425px]">
+		<Dialog.Header>
+			<Dialog.Title>{modal.title}</Dialog.Title>
+		</Dialog.Header>
+		
 		<div class="flex flex-col bg-white flex-1 rounded relative">
-			<Input
+			<Textarea
 				bind:value={modal.content}
-				type="smart-textarea"
 				placeholder="Write&hellip;"
-				minRows={12}
-				maxRows={16}
 			/>
 			<div class="flex flex-row items-end absolute right-4 bottom-4">
 				<Button
@@ -150,16 +154,20 @@
 		<!-- share section -->
 		<div class="flex flex-row mt-4">
 			<Button
+				variant="link"
+				size="icon"
 				href={`https://twitter.com/intent/tweet?text=${modal.title + ': ' + modal.content.substr(0, 144) + ' ' + window.location.href}&related=cyclo`}
 				target="_blank"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[25px] h-[25px]">
 					<path
 						d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-						class="fill-zinc-50"
+						class="fill-foreground"
 					/>
 				</svg>
 			</Button>
 		</div>
-	</Modal>
+
+		</Dialog.Content>
+	</Dialog.Root>
 {/if}

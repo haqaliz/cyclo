@@ -15,10 +15,7 @@
 
 <div class="flex flex-col items-center justify-center h-screen">
     <div
-			class="
-			flex flex-col p-2 md:p-4 rounded-lg bg-white transition-all ease-in-out
-			bg-opacity-25 hover:bg-black hover:bg-opacity-10
-		"
+        class="flex flex-col p-2 md:p-4 rounded-lg bg-black/10 transition-all ease-in-out"
 	>
         <!-- svelte-ignore a11y-missing-attribute -->
         <img
@@ -58,7 +55,7 @@
                 </svg>
                 Continue with Google
             </Button>
-            <Button href="/">Go back to home</Button>
+            <Button variant="ghost" href="/">Go back to home</Button>
         </div>
     </div>
 </div>

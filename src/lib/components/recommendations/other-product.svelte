@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { Button, Modal } from '$components';
+	import { Button, Dialog } from '$components';
 	import { recommendations } from '$stores';
 	import { slide } from 'svelte/transition';
+	import { buttonVariants } from '$components/ui/button';
 
 	let otherProduct: any;
 	let otherProductColor = 'bg-purple-200';
@@ -17,16 +18,6 @@
 			vibrator: 'bg-sky-200'
 		}[otherProduct?.type];
 	});
-	let modal: any = {
-		show: false,
-		title: '',
-		content: ''
-	};
-	const showFeature = (v: any) => {
-		modal.title = v?.title;
-		modal.content = v?.content;
-		modal.show = true;
-	};
 </script>
 
 {#if otherProduct}
@@ -90,27 +81,30 @@
 					}[otherProduct?.price?.currency]}</span>
 					<span>{otherProduct?.price?.value}</span>
 				</h3>
-				<Button href={otherProduct?.url} icon="shopping_cart" />
+				<Button
+					size="icon"
+					href={otherProduct?.url}
+				>
+					<i class="material-icons">shopping_cart</i>
+				</Button>
 			</div>
 			{#if otherProduct?.features?.length}
 				<div class="flex flex-row flex-wrap">
 					{#each otherProduct?.features as feature}
-						<Button
-							class="mb-4 mr-4"
-							on:click={() => showFeature(feature)}
-						>
-							{feature?.title}
-						</Button>
+						<Dialog.Root>
+							<Dialog.Trigger class={buttonVariants({ variant: "default", class: "mr-4 last:mr-0" })}
+							>{feature?.title}</Dialog.Trigger
+							>
+							<Dialog.Content class="sm:max-w-[425px]">
+							<Dialog.Header>
+								<Dialog.Title>{feature?.title}</Dialog.Title>
+							</Dialog.Header>
+							<p>{feature?.content}</p>
+							</Dialog.Content>
+						</Dialog.Root>
 					{/each}
 				</div>
 			{/if}
 		</div>
 	</div>
-	<Modal bind:show={modal.show} title={modal.title} containerClass="max-w-md">
-		<div
-			class="flex-1 w-full flex flex-col max-h-[320px] hide-scrollbar overflow-y-scroll text-justify text-lg text-zinc-50"
-		>
-			{modal.content}
-		</div>
-	</Modal>
 {/if}

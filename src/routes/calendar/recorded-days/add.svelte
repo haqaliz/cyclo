@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { Button, Modal, Input } from '$components';
+	import { Button, Dialog, Input, Label, Combobox, Slider, Badge } from '$components';
 	import { user } from '$stores';
 	import { recorded_days } from '$firebase';
+	import { buttonVariants } from '$components/ui/button';
 	const dispatch = createEventDispatcher();
 	const feelings = [
 		'calm',
@@ -70,7 +71,8 @@
 	let show = false;
 	let logType: string | null = null;
 	let logTypeValue: string | null = null;
-	let logTypeIntensity = 0;
+	let logTypeIntensitySlider = [0];
+	$: logTypeIntensity = logTypeIntensitySlider[0];
 	export let selectedDay: Date;
 	export let recordedDay: any;
 	$: isSaveDisabled = ((): boolean => {
@@ -98,7 +100,7 @@
 	const saveLog = async () => {
 		if (!$user) return;
 		let payload: any = {
-			user_id: $user.uid,
+			user_id: $user.uid
 		};
 		if (!recordedDay) {
 			payload.created_at = selectedDay;
@@ -162,121 +164,87 @@
 	};
 </script>
 
-<Button on:click={() => {
-	show = true;
-}}>How are you feeling?</Button>
-<Modal bind:show>
-	<!-- log type -->
-	<div class="flex flex-col">
-		<label
-			for="log_type"
-			class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
-		>Log Type:</label>
-		<select
-			bind:value={logType}
-			name="log_type"
-			id="log_type"
-			on:change={logTypeChanged}
-			class="bg-zinc-950/10 p-2 rounded-lg font-sans font-medium text-lg border-2 capitalize"
-		>
-			{#each Object.keys(logTypes) as i}
-				<option value={i} class="font-sans font-medium text-lg capitalize">
-					{i.replace(/_/gi, ' ')}
-				</option>
-			{/each}
-		</select>
-	</div>
+<Dialog.Root>
+	<Dialog.Trigger class={buttonVariants({ variant: 'default' })}>
+		How are you feeling?
+	</Dialog.Trigger>
+	<Dialog.Content class="sm:max-w-[425px]">
+		<!-- log type -->
+		<div class="flex flex-col">
+			<Label for="log_type" class="mb-2">Log Type:</Label>
+			<Combobox
+				bind:value={logType}
+				id="log_type"
+				options={Object.keys(logTypes).map((i) => ({
+					value: i,
+					label: i.replace(/_/gi, ' '),
+				}))}
+				content-class="max-w-[375px]"
+			/>
+		</div>
 
-	{#if logType !== null}
-		{@const strippedLogType = logType.replace(/_/gi, ' ')}
+		{#if logType !== null}
+			{@const strippedLogType = logType.replace(/_/gi, ' ')}
 
-		<!-- log types with predefined types -->
-		{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc', 'bleeding_type', 'blood_color', 'pregnancy_test', 'sex_situation'].includes(logType)}
-			<!-- {logType} type -->
-			<div class="flex flex-col mt-2">
-				<label
-					for="log_type_value"
-					class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
-				>{strippedLogType} Type:</label>
-				<select
-					bind:value={logTypeValue}
-					name="log_type_value"
-					id="log_type_value"
-					class="bg-zinc-950/10 p-2 rounded-lg font-sans font-medium text-lg border-2 capitalize"
-				>
-					{#each logTypes[logType] as i}
-						<option value={i} class="font-sans font-medium text-lg capitalize">
-							{i.replace(/_/gi, ' ')}
-						</option>
-					{/each}
-				</select>
-			</div>
-
-			{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc'].includes(logType)}
+			<!-- log types with predefined types -->
+			{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc', 'bleeding_type', 'blood_color', 'pregnancy_test', 'sex_situation'].includes(logType)}
+				<!-- {logType} type -->
 				<div class="flex flex-col mt-2">
-					<label
-						for="log_type_intensity"
-						class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
-					>
-						{strippedLogType} Intensity:
-					</label>
-					<div class="flex flex-row items-center">
-						<input
-							bind:value={logTypeIntensity}
-							type="range"
-							id="log_type_intensity"
-							name="log_type_intensity"
-							min="0"
-							max="10"
-							class="p-2 rounded-lg font-sans font-medium text-lg border-2 resize-none flex-1"
-						/>
-						<span class="bg-gray-300 rounded-lg px-2 ml-1 font-sans font-semibold text-l"
-							>{logTypeIntensity}</span
-						>
+					<Label for="log_type_value" class="mb-2">{strippedLogType} Type:</Label>
+					<Combobox
+						bind:value={logTypeValue}
+						id="log_type_value"
+						options={logTypes[logType].map((i) => ({
+							value: i,
+							label: i.replace(/_/gi, ' '),
+						}))}
+						content-class="max-w-[375px]"
+					/>
+				</div>
+
+				{#if ['feelings', 'symptoms', 'vaginal_discharge', 'misc'].includes(logType)}
+					<div class="flex flex-col mt-2">
+						<Label for="log_type_intensity" class="mb-2">{strippedLogType} Intensity:</Label>
+						<div class="flex flex-row items-center">
+							<Slider
+								bind:value={logTypeIntensitySlider}
+								id="log_type_intensity"
+								min={0}
+								max={10}
+							/>
+							<Badge class="ml-4">{logTypeIntensity}</Badge>
+						</div>
 					</div>
+				{/if}
+			{/if}
+
+			<!-- log types with only intensity -->
+			{#if ['bleeding_amount'].includes(logType)}
+				<div class="flex flex-col mt-2">
+					<Label for="log_type_intensity" class="mb-2">{strippedLogType} Intensity:</Label>
+					<div class="flex flex-row items-center">
+						<Slider
+							bind:value={logTypeIntensitySlider}
+							id="log_type_intensity"
+							min={0}
+							max={10}
+						/>
+						<Badge class="ml-4">{logTypeIntensity}</Badge>
+					</div>
+				</div>
+			{/if}
+
+			<!-- log types with only description -->
+			{#if ['medications'].includes(logType)}
+				<div class="flex flex-col mt-2">
+					<Label for="medications" class="mb-2">Medications:</Label>
+					<Input id="medications" bind:value={logTypeValue} type="textarea" />
 				</div>
 			{/if}
 		{/if}
 
-		<!-- log types with only intensity -->
-		{#if ['bleeding_amount'].includes(logType)}
-			<div class="flex flex-col mt-2">
-				<label
-					for="log_type_intensity"
-					class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
-				>{strippedLogType} Intensity:</label>
-				<div class="flex flex-row items-center">
-					<input
-						bind:value={logTypeIntensity}
-						type="range"
-						id="log_type_intensity"
-						name="log_type_intensity"
-						min="0"
-						max="10"
-						class="p-2 rounded-lg font-sans font-medium text-lg border-2 resize-none flex-1"
-					/>
-					<span class="bg-gray-300 rounded-lg px-2 ml-1 font-sans font-semibold text-l"
-						>{logTypeIntensity}</span
-					>
-				</div>
-			</div>
-		{/if}
-
-		<!-- log types with only description -->
-		{#if ['medications'].includes(logType)}
-			<div class="flex flex-col mt-2">
-				<label
-					for="log_type_intensity"
-					class="font-sans font-semibold text-xl mb-2 capitalize text-zinc-50"
-				>{strippedLogType} Intensity:</label>
-				<Input bind:value={logTypeValue} type="textarea" />
-			</div>
-		{/if}
-	{/if}
-
-	<div class="flex-1" />
-
-	<div class="flex flex-row mt-4 justify-end">
-		<Button disabled={isSaveDisabled} on:click={saveLog}>Save</Button>
-	</div>
-</Modal>
+		<Dialog.Footer>
+			<Button disabled={isSaveDisabled} on:click={saveLog}>Save</Button>
+		</Dialog.Footer>
+	</Dialog.Content>
+</Dialog.Root>

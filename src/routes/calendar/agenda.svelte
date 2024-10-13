@@ -41,8 +41,6 @@
 				{format(selectedDay, 'yyyy, dd LLL')}
 			{/if}
 		</h3>
-		<div class="flex-1" />
-		<Button href="/calendar/detail" icon="today" />
 	</div>
 	<div class="flex flex-row mt-4 overflow-x-scroll hide-scrollbar sm:overflow-auto">
 		{#each Object.keys(days) as key}

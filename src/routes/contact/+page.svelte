@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storage } from '$lib';
-	import { Button, Input } from '$components';
+	import { Button, Input, Textarea } from '$components';
 	import { support } from '$firebase';
 
 	const storageContactBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/contact/')}`;
@@ -55,7 +55,7 @@
 				class="flex flex-row items-center flex-wrap text-base md:text-lg text-justify mb-2 md:mb-6 md:min-w-max md:max-w-6xl"
 			>
 				Email:
-				<Button type="text" href="mailto:info@cyclo.dev" class="ml-2">
+				<Button variant="link" href="mailto:info@cyclo.dev" class="ml-2">
 					info@cyclo.dev
 				</Button>
 			</p>
@@ -81,7 +81,7 @@
 				<Input bind:value={form.email} placeholder="Email" />
 			</div>
 			<Input bind:value={form.subject} placeholder="Subject" class="mb-2 md:mb-4" />
-			<Input bind:value={form.message} type="textarea" placeholder="Message" class="min-h-[140px] mb-2 md:mb-4" />
+			<Textarea bind:value={form.message} placeholder="Message" class="min-h-[140px] mb-2 md:mb-4" />
 			<div class="flex flex-row">
 				<Button on:click={submit}>Submit</Button>
 			</div>
@@ -118,7 +118,7 @@
 		</h2>
 		<p class="flex flex-row items-center flex-wrap text-base md:text-lg text-justify mb-2 md:mb-4">
 			For additional support or urgent matters, you can reach our customer support team at
-			<Button type="text" href="mailto:info@cyclo.dev" class="mx-2">
+			<Button variant="link" href="mailto:info@cyclo.dev" class="mx-2">
 				info@cyclo.dev
 			</Button>.
 		</p>

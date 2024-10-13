@@ -225,7 +225,7 @@
 		<h3 class="font-sans font-semibold text-3xl">Contact Us</h3>
 		<p class="font-sans text-lg text-justify flex flex-row items-center flex-wrap mt-4">
 			If you have any questions or concerns about this policy, please
-			<Button type="text" href="/contact" class="mx-1">
+			<Button variant="link" href="/contact" class="mx-1">
 				contact us
 			</Button>.
 		</p>

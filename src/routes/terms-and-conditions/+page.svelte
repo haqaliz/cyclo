@@ -204,7 +204,7 @@
 				<strong>Contact</strong>
 				<p class="flex flex-row items-center flex-wrap">
 					If you have any questions or concerns about these terms, please feel free to contact us at
-					<Button type="text" href="mailto:info@cyclo.dev" class="mx-1">
+					<Button variant="link" href="mailto:info@cyclo.dev" class="mx-1">
 						info@cyclo.dev
 					</Button>.
 				</p>

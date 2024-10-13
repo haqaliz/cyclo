@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { user, brands } from '$stores';
-	import { Checkbox } from '$components';
 	import { storage } from '$lib';
 
 	const storageMiscBaseUrl = `${storage.public.base_url}/${encodeURIComponent('public/img/misc/')}`;
@@ -39,7 +38,7 @@
 		}
 	};
 
-	brands.subscribe((v) => {
+	brands.subscribe((v: any) => {
 		if (!v) return;
 		value.brands = v.reduce((a: any, i: any) => {
 			if (i.value in a) return a;
@@ -48,10 +47,10 @@
 			return a;
 		}, {});
 		if ($user) {
-			value.tampon = $user.prefs?.menstruation_products?.tampon;
-			value.pad = $user.prefs?.menstruation_products?.pad;
-			value.cup = $user.prefs?.menstruation_products?.cup;
-			value.brands = $user.prefs?.menstruation_products?.brands;
+			value.tampon = !!$user.prefs?.menstruation_products?.tampon;
+			value.pad = !!$user.prefs?.menstruation_products?.pad;
+			value.cup = !!$user.prefs?.menstruation_products?.cup;
+			// value.brands = $user.prefs?.menstruation_products?.brands;
 		}
 	});
 
@@ -59,14 +58,15 @@
 
 	user.subscribe((v: any) => {
 		if (!v) return;
-		value.tampon = v.prefs?.menstruation_products?.tampon;
-		value.pad = v.prefs?.menstruation_products?.pad;
-		value.cup = v.prefs?.menstruation_products?.cup;
-		value.brands = v.prefs?.menstruation_products?.brands;
+		console.log(v)
+		value.tampon = !!v.prefs?.menstruation_products?.tampon;
+		value.pad = !!v.prefs?.menstruation_products?.pad;
+		value.cup = !!v.prefs?.menstruation_products?.cup;
+		// value.brands = !!v.prefs?.menstruation_products?.brands;
 	});
 </script>
 
-{#if Object.keys(value.brands).length}
+{#if Object.keys(value.brands ?? {}).length}
 	<!-- Products -->
 	<div class="flex flex-col mb-2 md:mb-4">
 		<h3 class="text-2xl font-semibold mb-2 md:mb-4">Menstruation Products</h3>
@@ -87,7 +87,6 @@
 					on:click|stopPropagation={() => (value[productKey] = !value[productKey])}
 				>
 					<div class="flex flex-row items-start">
-						<Checkbox bind:value={value[productKey]} />
 						<span class="font-sans font-semibold text-xl sm:text-lg ml-2">
 							{product.name}
 						</span>
@@ -120,7 +119,6 @@
 								)}
 								on:click={() => (value.brands[brand] = !value.brands[brand])}
 							>
-								<Checkbox bind:value={value.brands[brand]} />
 								<div class="flex flex-col justify-center h-full">
 									<!-- svelte-ignore a11y-missing-attribute -->
 									<img

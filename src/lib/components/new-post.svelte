@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { user } from '$stores';
 	import { posts } from '$firebase';
-	import { Input, Button } from '$components';
+	import { Button, Textarea, Badge } from '$components';
 	import { twMerge } from 'tailwind-merge';
 	const dispatch = createEventDispatcher();
 	export let parentId: string;
@@ -36,26 +36,24 @@
 
 {#if $user}
 	<div class="flex flex-col mb-2 md:mb-4 relative">
-		<Input type="smart-textarea" bind:value={newPostContent} {placeholder} minRows={6} maxRows={14} />
+		<Textarea bind:value={newPostContent} {placeholder} />
 		<div class="flex flex-row items-end absolute right-2 md:right-4 bottom-2 md:bottom-4">
-			<div
+			<Badge
 				class={twMerge(
-					'py-1 px-2 font-semibold text-sm rounded mr-2 md:mr-4',
-					newPostContent?.length < 124 ? 'bg-gray-200' : '',
+					'mr-4',
 					(newPostContent?.length >= 124 && newPostContent?.length < 144) ? 'bg-yellow-400' : '',
 					newPostContent?.length > 144 ? 'bg-red-500' : '',
 				)}
 			>
 				{newPostContent?.length ?? 0} / 144 characters
-			</div>
+			</Badge>
 			<Button disabled={postIsDisabled} on:click={savePost}>
 				{#if !loading}
 					{submitButtonText}
 				{:else}
 					<div
 						class={twMerge(
-							'w-3 h-3 rounded-full animate-ping',
-							postIsDisabled ? 'bg-gray-700' : 'bg-white',
+							'w-3 h-3 rounded-full bg-foreground animate-ping',
 						)}
 					/>
 				{/if}

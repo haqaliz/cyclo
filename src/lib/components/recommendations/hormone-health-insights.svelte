@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { Button, Modal } from '$components';
+	import { Dialog } from '$components';
 	import { recommendations } from '$stores';
 	import { slide } from 'svelte/transition';
+	import { buttonVariants } from '$components/ui/button';
 
 	let hormoneHealthInsight: any;
 	let hormoneHealthInsightColor: any = 'bg-purple-200';
@@ -18,16 +19,6 @@
 			2: 'bg-sky-200'
 		}[Math.floor(Math.random() * 2) + 0];
 	});
-	let modal: any = {
-		show: false,
-		title: '',
-		content: ''
-	};
-	const showFeature = (v: any) => {
-		modal.title = v?.key;
-		modal.content = v?.value;
-		modal.show = true;
-	};
 </script>
 
 {#if !loading && hormoneHealthInsight}
@@ -59,23 +50,20 @@
 			{#if hormoneHealthInsight?.content?.length}
 				<div class="flex flex-row flex-wrap">
 					{#each hormoneHealthInsight?.content as item}
-						<Button
-							class="mb-2 md:mb-0 mr-2 md:mr-4"
-							on:click={() => showFeature(item)}
-						>
-							{item?.key}
-						</Button>
+						<Dialog.Root>
+							<Dialog.Trigger class={buttonVariants({ variant: "default", class: "mr-4 last:mr-0" })}
+							>{item?.key}</Dialog.Trigger
+							>
+							<Dialog.Content class="sm:max-w-[425px]">
+							<Dialog.Header>
+								<Dialog.Title>{item?.key}</Dialog.Title>
+							</Dialog.Header>
+							<p>{item?.value}</p>
+							</Dialog.Content>
+						</Dialog.Root>
 					{/each}
 				</div>
 			{/if}
 		</div>
 	</div>
-	<Modal bind:show={modal.show} title={modal.title} containerClass="max-w-md">
-		<div
-			class="flex-1 w-full flex flex-col max-h-[320px] hide-scrollbar
-			overflow-y-scroll text-justify text-lg text-zinc-50"
-		>
-			{modal.content}
-		</div>
-	</Modal>
 {/if}

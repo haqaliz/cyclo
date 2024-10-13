@@ -11,22 +11,27 @@
 	export let data: any;
 	let challenge: any;
 	let loading = false;
-	const update = async () => {
-		if (!browser || loading) return;
+	const update = async (user: any) => {
+		if (!browser || !user || loading) return;
 		loading = true;
 		challenge = await challenges.getChallenge({
-			user_id: $user.uid,
+			user_id: user.uid,
 			challenge_id: data?.challenge_id,
 		});
-		$pageTitle = challenge.value ?? '';
+		const challengeTitle = challenge.value ?? '';
+		$pageTitle = `Challenge: ${challengeTitle.length > 28 ? `${challengeTitle.substr(0, 28)}...` : challengeTitle}`;
 		loading = false;
 	};
 	$: (async () => {
 		if (!/[a-zA-Z0-9]+/.test(data?.challenge_id) || data?.challenge_id === 'undefined')
 			await goto('/challenges');
 		if (challenge) return;
-		await update();
+		await update($user);
 	})();
+	user.subscribe(async (v: any) => {
+		if (challenge || !v) return;
+		await update(v);
+	});
 </script>
 
 <div class="flex flex-col md:flex-row">

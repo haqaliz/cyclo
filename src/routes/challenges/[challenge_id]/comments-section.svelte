@@ -18,11 +18,7 @@
 	</div>
 	{#if challenge.comments?.length}
 		{#each challenge.comments as comment}
-			<SinglePostItem post={comment} actions={true} on:deleted={() => dispatch('change')}>
-				<svelte:fragment slot="before-header-first-element">
-					<i class="material-icons text-gray-600 mr-2">reply</i>
-				</svelte:fragment>
-			</SinglePostItem>
+			<SinglePostItem post={comment} actions={true} on:deleted={() => dispatch('change')} />
 		{/each}
 	{/if}
 {/if}

@@ -10,27 +10,6 @@
 	let challenges: any = null;
 	let series: any = null;
 	let selectedTabItem = 'completed';
-	const tooltipContent = (v: any, date: any) => {
-		const type: any = convertTabToChallengeType(selectedTabItem);
-		return `<div class="flex flex-col p-4 min-w-[250px]">
-            <div class="flex flex-row items-center">
-                <span class="text-gray-500 font-sans font-semibold text-base">
-                    At:
-                </span>
-                <span class="font-sans font-semibold text-xl ml-2">
-                    ${format(new Date(date * 1000), 'yyyy, dd LLL')}
-                </span>
-            </div>
-            <div class="flex flex-row items-center">
-                <span class="text-gray-500 font-sans font-semibold text-base">
-                    Number of Challenges:
-                </span>
-                <span class="font-sans font-semibold text-xl ml-2">
-                    ${v[type?.key]}
-                </span>
-            </div>
-        </div>`;
-	};
     user.subscribe(async (v: any) => {
 		if (!v || loading || challenges?.length) return;
         loading = true;
@@ -63,18 +42,21 @@
 		<div class="flex flex-col md:flex-row items-start">
 			<h3 class="font-sans font-semibold text-3xl">Challenges History</h3>
 			<div class="flex-1" />
-			<Tabs
-				items={['completed', 'abandoned', 'not_completed']}
-				bind:selected={selectedTabItem}
-			>
-				<svelte:fragment slot="default" let:item>
-					{{
-						completed: 'Completed',
-						abandoned: 'Abandoned',
-						not_completed: 'Not Completed',
-					}[item]}
-				</svelte:fragment>
-			</Tabs>
+			<div class="flex flex-row">
+				<Tabs.Root bind:value={selectedTabItem}>
+					<Tabs.List class="grid w-full grid-cols-3">
+						{#each ['completed', 'abandoned', 'not_completed'] as item}
+							<Tabs.Trigger value={item}>
+								{{
+									completed: 'Completed',
+									abandoned: 'Abandoned',
+									not_completed: 'Not Completed',
+								}[item]}
+							</Tabs.Trigger>
+						{/each}
+					</Tabs.List>
+				</Tabs.Root>
+			</div>
 		</div>
 		{#if series}
 			<div class="flex flex-row flex-wrap">
