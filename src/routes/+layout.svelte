@@ -3,7 +3,6 @@
     import 'material-icons/iconfont/material-icons.css';
 	import { page } from '$app/stores';
 	import Nav from './nav.svelte';
-	import Footer from './footer.svelte';
     import { _globals } from '$firebase';
 	import { user, insights, recommendations, brands, challenges, initialized } from '$stores';
 	import { onAuthStateChanged } from "firebase/auth";
@@ -23,26 +22,28 @@
 		$initialized = true;
 	});
 
-	$: {
-		if (
-			browser
-			&& $initialized
-			&& $page.url.pathname.match(/^\/(calendar|analytics|insight|profile)/gi)
-			&& !$user
-		) {
-			goto('/login');
-		}
+	$: if (
+		browser
+		&& $initialized
+		&& !$user
+	) {
+		goto('/login');
+	}
+
+	$: if (
+		browser
+		&& $initialized
+		&& $user
+		&& $page.url.pathname === '/'
+	) {
+		goto('/calendar');
 	}
 </script>
 
-{#if !$page.url.pathname.match(/^\/(login)/gi)}
+{#if $initialized && !$page.url.pathname.match(/^\/(login)/gi)}
 	<Nav />
 {/if}
 
-{#if $initialized || $page.url.pathname.match(/^\/(login|about|contact|terms-and-conditions|privacy-policy)?/gi)}
+{#if $initialized || $page.url.pathname.match(/^\/(login)?/gi)}
 	<slot />
-{/if}
-
-{#if !$page.url.pathname.match(/^\/(login|calendar|analytics|insight|profile|challenges)/gi)}
-	<Footer />
 {/if}

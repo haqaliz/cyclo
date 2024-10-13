@@ -131,7 +131,5 @@
                 </div>
             </Dialog.Content>
         </Dialog.Root>
-    {:else}
-        <Button href="/login">Join Us</Button>
     {/if}
 </div>
