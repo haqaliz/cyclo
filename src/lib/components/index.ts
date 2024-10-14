@@ -16,6 +16,8 @@ export { Textarea } from "./ui/textarea";
 export { Label } from "./ui/label";
 export { Slider } from "./ui/slider";
 export * as Card from "./ui/card";
+export * as Sheet from "./ui/sheet";
+export * as Tooltip from "./ui/tooltip";
 
 // UI Components Utils
 export { toast } from "svelte-sonner";

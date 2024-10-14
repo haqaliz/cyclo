@@ -2,7 +2,7 @@
 	import '../app.css';
     import 'material-icons/iconfont/material-icons.css';
 	import { page } from '$app/stores';
-	import Nav from './nav.svelte';
+	import Navbar from './_navbar';
     import { _globals } from '$firebase';
 	import { user, insights, recommendations, brands, challenges, initialized } from '$stores';
 	import { onAuthStateChanged } from "firebase/auth";
@@ -40,8 +40,8 @@
 	}
 </script>
 
-{#if $initialized && !$page.url.pathname.match(/^\/(login)/gi)}
-	<Nav />
+{#if !$page.url.pathname.match(/^\/(login)/gi)}
+	<Navbar />
 {/if}
 
 {#if $initialized || $page.url.pathname.match(/^\/(login)?/gi)}
