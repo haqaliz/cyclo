@@ -20,4 +20,4 @@
     }[type];
 </script>
 
-<svelte:component this={component} />
+<svelte:component this={component} class={$$restProps.class} />

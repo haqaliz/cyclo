@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import { users_challenges } from '$firebase';
 	import { user } from '$stores';
-	import { Dialog, Input, Button, Textarea } from '$components';
+	import { Dialog, Button, Textarea } from '$components';
 	import { slide } from 'svelte/transition';
 	import { differenceInDays, startOfDay } from 'date-fns';
 
@@ -65,8 +65,11 @@
 			in:slide
 			out:slide
 			data-sveltekit-reload
-			class="flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded-lg p-4
-				bg-zinc-950/10 overflow-hidden mb-4 last:mb-0 relative"
+			class={twMerge(
+				'flex flex-col lg:flex-row flex-wrap items-start transition-colors rounded-lg p-4\
+				bg-zinc-950/10 overflow-hidden mb-4 last:mb-0 relative',
+				$$restProps.class,
+			)}
 			href={`/challenges/${chlng.challenge.id}`}
 		>
 			<svg

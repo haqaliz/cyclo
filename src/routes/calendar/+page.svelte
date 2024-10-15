@@ -41,23 +41,14 @@
 			<RecordedDays {recordedDays} on:update={() => getRecordedDays(selectedDay)} />
 		</div>
 	{/if}
-	<div class="mb-4">
-		<Recommendations type="menstruation_product" />
-	</div>
-	<div class="mb-4">
-		<Recommendations type="other_product" />
-	</div>
-	<div class="mb-4">
-		<Recommendations type="activities" />
-	</div>
-	<div class="mb-4">
-		<Challenges />
-	</div>
-	<div class="mb-4">
-		<Recommendations type="hormone_health_insights" />
-	</div>
-	<div class="mb-4">
-		<Recommendations type="nutritional_guidances" />
+
+	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-4">
+		<Recommendations type="menstruation_product" class="h-full" />
+		<Recommendations type="other_product" class="h-full xl:col-span-2" />
+		<Challenges class="h-full md:col-span-2" />
+		<Recommendations type="activities" class="h-full" />
+		<Recommendations type="hormone_health_insights" class="h-full" />
+		<Recommendations type="nutritional_guidances" class="h-full md:col-span-2" />
 	</div>
     <div in:slide out:slide class="flex flex-row">
 		<AddRecordedDay
