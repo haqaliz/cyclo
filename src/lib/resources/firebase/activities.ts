@@ -6,9 +6,9 @@ interface GetActivitiesContext {
     type?: string;
     limit: number;
 };
-export const getActivities = async (context: GetActivitiesContext) => {
+export const getActivities = async (context?: GetActivitiesContext) => {
     const criteria = [];
-    const l = context?.limit > 100 ? 100 : context.limit;
+    const l = context?.limit ?? 100;
     if (context?.type) {
         criteria.push(
             where('type', '==', context.type),

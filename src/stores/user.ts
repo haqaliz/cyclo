@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { writable } from 'svelte/store';
-import { users_metadata } from '$firebase';
 
 interface User {
     uid: string;
@@ -19,18 +18,6 @@ user.get = async (v: any) => {
         name: v.displayName,
         profile: v.photoURL,
     };
-    const metadata = await users_metadata.getUserMetadata({
-        user_id: v.uid,
-    });
-    if (!metadata) {
-        await users_metadata.upsertUserMetadata({
-            user_id: v.uid,
-            email: v.email,
-            prefs: {},
-        });
-    }
-    if (metadata?.admin) r.admin = true;
-    if (metadata?.prefs) r.prefs = metadata.prefs;
     user.set(r);
 };
 

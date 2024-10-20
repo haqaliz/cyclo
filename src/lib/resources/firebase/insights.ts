@@ -2,18 +2,6 @@
 import { collection, doc, where, query, and, getDocs, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./_globals";
 
-interface CreateInsightContext {
-    type: string;
-    name: string;
-    category: string;
-    content: any;
-};
-export const createInsight = async (context: CreateInsightContext) => {
-    const ref = doc(collection(db, 'insights'));
-    await setDoc(ref, context);
-    return ref;
-};
-
 interface GetInsightsContext {
     type: string;
 };
@@ -24,6 +12,9 @@ export const getInsights = async (context: GetInsightsContext) => {
             where('type', '==', context.type),
         );
     }
+    criteria.push(
+        where('deleted_at', '==', null),
+    );
     const q = query(
         collection(
             db,
@@ -42,24 +33,6 @@ export const getInsights = async (context: GetInsightsContext) => {
     return res;
 };
 
-interface UpdateInsightContext {
-    insight_id: string;
-};
-export const updateInsight = async (context: UpdateInsightContext) => {
-    const ref = doc(db, 'insights', context.insight_id);
-    const snapshot = await getDoc(ref);
-    if (!snapshot.exists()) return;
-    const sanitizedContext = structuredClone(context);
-    delete sanitizedContext.insight_id;
-    await setDoc(ref, {
-      ...snapshot.data(),
-      ...sanitizedContext,
-    });
-    return ref;
-  };
-
 export default {
-    createInsight,
     getInsights,
-    updateInsight,
-};
+}
