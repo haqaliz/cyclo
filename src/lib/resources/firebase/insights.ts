@@ -7,14 +7,15 @@ interface GetInsightsContext {
 };
 export const getInsights = async (context: GetInsightsContext) => {
     const criteria = [];
-    if (context?.type) {
+    const type = context?.type ?? 'insight';
+    criteria.push(
+        where('type', '==', type),
+    );
+    if (type === 'insight') {
         criteria.push(
-            where('type', '==', context.type),
+            where('deleted_at', '==', null),
         );
     }
-    criteria.push(
-        where('deleted_at', '==', null),
-    );
     const q = query(
         collection(
             db,
@@ -26,10 +27,13 @@ export const getInsights = async (context: GetInsightsContext) => {
     );
     const snapshot = await getDocs(q);
     const res: any[] = [];
-    snapshot.forEach((i) => res.push({
-        id: i.id,
-        ...i.data(),
-    }));
+    snapshot.forEach((i) => {
+        if (i.data()?.deleted_at != null) return;
+        res.push({
+            id: i.id,
+            ...i.data(),
+        });
+    });
     return res;
 };
 

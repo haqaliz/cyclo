@@ -6,6 +6,8 @@
     import { _globals } from '$firebase';
 	import { user } from '$stores';
 	import { onAuthStateChanged } from "firebase/auth";
+	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
 
     onAuthStateChanged(_globals.auth, async (v) => {
 		if (v) {
@@ -15,14 +17,13 @@
 		}
 	});
 
-	// $: if (
-	// 	browser
-	// 	&& $initialized
-	// 	&& $user
-	// 	&& $page.url.pathname === '/'
-	// ) {
-	// 	goto('/calendar');
-	// }
+	$: if (
+		browser
+		&& $user
+		&& $page.url.pathname === '/'
+	) {
+		goto('/dashboard');
+	}
 </script>
 
 {#if !$page.url.pathname.match(/^\/(login)/gi)}

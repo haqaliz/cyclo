@@ -6,7 +6,7 @@ type Response = {
 };
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export const load = async () => {
     const result = await insights.getInsights({
         type: 'insight',
     });

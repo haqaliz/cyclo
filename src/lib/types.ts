@@ -9,8 +9,9 @@ export type Activity = {
 export type Insight = {
     id: string;
     type: string;
-    name: string;
-    category: string;
-    classes: string;
     key: string;
+    category: string;
+    classes?: string;
+    name: string;
+    content?: { key: string; value: string }[];
 };
