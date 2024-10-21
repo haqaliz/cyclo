@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { collection, doc, where, query, and, getDocs, getDoc, setDoc } from "firebase/firestore";
+import { collection, where, query, and, getDocs } from "firebase/firestore";
 import { db } from "./_globals";
 
 interface GetInsightsContext {

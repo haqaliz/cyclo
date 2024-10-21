@@ -15,3 +15,17 @@ export type Insight = {
     classes?: string;
     content?: { key: string; value: string }[];
 };
+
+export type Recommendation = {
+    id: string;
+    brand: string;
+    url: string;
+    name: string;
+    img: string;
+    type: string;
+    price: {
+        currency: string;
+        value: string;
+    };
+    features: { title: string; content: string; }[];
+};
