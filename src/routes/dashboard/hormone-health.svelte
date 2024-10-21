@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { type Insight as Insight } from '$types';
-	import { Badge, Card, Dialog } from '$components';
+	import { Card, Dialog } from '$components';
 	import {
 		buttonVariants
 	} from "$lib/components/ui/button";
@@ -16,12 +16,11 @@
 				<Card.Title>
 					<div class="flex flex-row items-center">
 						<span class="mr-4">{value.name}</span>
-						<Badge>{value.category}</Badge>
 					</div>
 				</Card.Title>
 				<Card.Description>
 					<div class="flex flex-row items-center">
-						<span class="mr-4">Nutritional Guidance</span>
+						<span class="mr-4">Hormone Health</span>
 					</div>
 				</Card.Description>
 			</Card.Header>

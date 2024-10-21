@@ -19,9 +19,20 @@ const getRandomNutritionalGuidance = async () => {
     ] ?? {};
 }
 
+const getHormoneHealth = async () => {
+    const result = await insights.getInsights({
+        type: 'hormone_health'
+    });
+    const projectedResult = (result ?? []);
+    return projectedResult[
+        Math.floor(Math.random() * projectedResult.length)
+    ] ?? {};
+}
+
 type Response = {
     activity: Activity;
     nutritional_guidance: Insight;
+    hormone_health: Insight;
 };
 
 /** @type {import('./$types').PageServerLoad} */
@@ -29,13 +40,16 @@ export const load = async () => {
     const [
         randomActivity,
         randomNutritionalGuidance,
+        randomHormoneHealth,
     ] = await Promise.all([
         getRandomActivity(),
         getRandomNutritionalGuidance(),
+        getHormoneHealth(),
     ]);
     const response: Response = {
         activity: randomActivity,
         nutritional_guidance: randomNutritionalGuidance,
+        hormone_health: randomHormoneHealth,
     };
 	return response;
 }
