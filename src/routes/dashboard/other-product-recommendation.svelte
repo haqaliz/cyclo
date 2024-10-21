@@ -42,13 +42,12 @@
 			</Card.Header>
 			<Card.Content>
 					<div class="flex flex-col md:flex-row">
-						<div class="flex flex-col h-full mb-4 md:mb-0 md:mr-4">
-							<img
-								class="rounded-lg drag-none object-contain max-h-32"
-								src={value?.img}
-								alt={value?.brand}
-							/>
-						</div>
+						<img
+							class="rounded-lg border drag-none min-w-32 max-w-32 min-h-32 max-h-32
+							object-cover mb-4 md:mb-0 md:mr-4"
+							src={value?.img}
+							alt={value?.brand}
+						/>
 						{#if value.features}
 							<div class="flex flex-col">
 								<div class="flex flex-row flex-wrap">

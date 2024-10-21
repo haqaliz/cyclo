@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
-
 interface User {
     uid: string;
     email: string|null;
@@ -19,6 +19,8 @@ user.get = async (v: any) => {
         profile: v.photoURL,
     };
     user.set(r);
+    if (!browser) return;
+    document.cookie = `UID=${v.uid}; SameSite=None; Secure`;
 };
 
 export default user;

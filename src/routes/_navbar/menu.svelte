@@ -24,6 +24,17 @@
 		<div class="flex flex-col flex-1 my-4">
 			{#if $user}
 				<Button
+					title="Dashboard"
+					variant="ghost"
+					href="/dashboard"
+					disabled={$page.url.pathname.match(/^\/dashboard$/i)}
+					class="justify-start mb-2"
+					on:click={() => (show = false)}
+				>
+					<i class="material-icons mr-2">space_dashboard</i>
+					Dashboard
+				</Button>
+				<Button
 					title="Insights"
 					variant="ghost"
 					href="/insights"

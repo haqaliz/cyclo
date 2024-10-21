@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { type Insight } from '$types';
 	import { onMount } from 'svelte';
+	import { navigating } from '$app/stores';
 	import { Badge, Card, Spinner } from '$components';
 	import { twMerge } from 'tailwind-merge';
 
@@ -21,7 +22,7 @@
 	});
 </script>
 
-{#if !data}
+{#if !data || $navigating}
 	<div class="fixed inset-0 flex flex-col items-center justify-center">
 		<Spinner />
 	</div>

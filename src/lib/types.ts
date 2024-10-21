@@ -13,7 +13,10 @@ export type Insight = {
     category?: string;
     type?: string;
     classes?: string;
-    content?: { key: string; value: string }[];
+    content?: {
+        key: string;
+        value: string;
+    }[];
 };
 
 export type Recommendation = {
@@ -27,5 +30,27 @@ export type Recommendation = {
         currency: string;
         value: string;
     };
-    features: { title: string; content: string; }[];
+    features: {
+        title: string;
+        content: string;
+    }[];
+};
+
+export type HealthRegularity = {
+    mean: number;
+    median: number;
+    standard_deviation: number;
+    lower_bound: number;
+    upper_bound: number;
+    cycles: {
+        from: number;
+        to: number;
+        recorded_day_id: string;
+        diff: number;
+        is_regular: boolean;
+    }[],
+};
+
+export type HealthScore = {
+    score?: number;
 };

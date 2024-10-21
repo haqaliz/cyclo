@@ -3,6 +3,8 @@
 		type Activity as ActivityT,
 		type Insight as InsightT,
 		type Recommendation as RecommendationT,
+		type HealthRegularity as HealthRegularityT,
+		type HealthScore as HealthScoreT,
 	} from '$types';
 	import { Spinner } from '$components';
 	import Activity from './activity.svelte';
@@ -10,7 +12,10 @@
 	import HormoneHealth from './hormone-health.svelte';
 	import OtherProductRecommendation from './other-product-recommendation.svelte';
 	import MenstruationProductRecommendation from './menstruation-product-recommendation.svelte';
+	// import HealthRegularity from './health-regularity.svelte';
+	import HealthScore from './health-score.svelte';
 	import { onMount } from 'svelte';
+	import { navigating } from '$app/stores'
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -20,6 +25,8 @@
 	let hormoneHealth: InsightT;
 	let otherProductRecommendation: RecommendationT;
 	let menstruationProductRecommendation: RecommendationT;
+	let healthRegularity: HealthRegularityT;
+	let healthScore: HealthScoreT;
 
 	onMount(() => {
 		activity = data.activity;
@@ -27,10 +34,12 @@
 		hormoneHealth = data.hormone_health;
 		otherProductRecommendation = data.other_product;
 		menstruationProductRecommendation = data.menstruation_product;
+		healthRegularity = data.health_regularity;
+		healthScore = data.health_score;
 	});
 </script>
 
-{#if !data}
+{#if !data || $navigating}
 	<div class="fixed inset-0 flex flex-col items-center justify-center">
 		<Spinner />
 	</div>
@@ -53,6 +62,14 @@
 				bind:value={hormoneHealth}
 				class="h-full lg:col-span-2"
 			/>
+			<HealthScore
+				bind:value={healthScore}
+				class="h-full lg:col-span-2"
+			/>
+			<!-- <HealthRegularity
+				bind:value={healthRegularity}
+				class="h-full lg:col-span-2"
+			/> -->
 			<MenstruationProductRecommendation
 				bind:value={menstruationProductRecommendation}
 				class="h-full lg:col-span-4"
