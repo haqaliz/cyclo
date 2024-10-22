@@ -18,12 +18,7 @@ export { Slider } from "./ui/slider";
 export * as Card from "./ui/card";
 export * as Sheet from "./ui/sheet";
 export * as Tooltip from "./ui/tooltip";
+export { Spinner } from "./ui/spinner";
 
 // UI Components Utils
 export { toast } from "svelte-sonner";
-
-// Custom Components
-export { default as Recommendations } from './recommendations/index.svelte';
-export { default as NewPost } from './new-post.svelte';
-export { default as SinglePostItem } from './single-post-item.svelte';
-export { default as Challenges } from './challenges.svelte';

@@ -1,13 +1,5 @@
-export {default as users_metadata} from './users-metadata';
-export {default as recorded_days} from './recorded-days';
-export {default as menstrual_cycles} from './menstrual-cycles';
 export {default as insights} from './insights';
 export {default as activities} from './activities';
-export {default as flow_intensity_pattern} from './flow-intensity-pattern';
 export {default as recommendations} from './recommendations';
-export {default as support} from './support';
-export {default as miscellaneous} from './miscellaneous';
-export {default as challenges} from './challenges';
-export {default as users_challenges} from './users-challenges';
-export {default as posts} from './posts';
+export {default as menstrualCycles} from './menstrual-cycles';
 export {default as _globals} from './_globals';

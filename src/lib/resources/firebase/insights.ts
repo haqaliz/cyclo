@@ -1,27 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { collection, doc, where, query, and, getDocs, getDoc, setDoc } from "firebase/firestore";
+import { collection, where, query, and, getDocs } from "firebase/firestore";
 import { db } from "./_globals";
-
-interface CreateInsightContext {
-    type: string;
-    name: string;
-    category: string;
-    content: any;
-};
-export const createInsight = async (context: CreateInsightContext) => {
-    const ref = doc(collection(db, 'insights'));
-    await setDoc(ref, context);
-    return ref;
-};
 
 interface GetInsightsContext {
     type: string;
 };
 export const getInsights = async (context: GetInsightsContext) => {
     const criteria = [];
-    if (context?.type) {
+    const type = context?.type ?? 'insight';
+    criteria.push(
+        where('type', '==', type),
+    );
+    if (type === 'insight') {
         criteria.push(
-            where('type', '==', context.type),
+            where('deleted_at', '==', null),
         );
     }
     const q = query(
@@ -35,31 +27,57 @@ export const getInsights = async (context: GetInsightsContext) => {
     );
     const snapshot = await getDocs(q);
     const res: any[] = [];
-    snapshot.forEach((i) => res.push({
-        id: i.id,
-        ...i.data(),
-    }));
+    snapshot.forEach((i) => {
+        if (i.data()?.deleted_at != null) return;
+        res.push({
+            id: i.id,
+            ...i.data(),
+        });
+    });
     return res;
 };
 
-interface UpdateInsightContext {
-    insight_id: string;
+interface GetInsightByKeyContext {
+    type: string;
+    key: string;
 };
-export const updateInsight = async (context: UpdateInsightContext) => {
-    const ref = doc(db, 'insights', context.insight_id);
-    const snapshot = await getDoc(ref);
-    if (!snapshot.exists()) return;
-    const sanitizedContext = structuredClone(context);
-    delete sanitizedContext.insight_id;
-    await setDoc(ref, {
-      ...snapshot.data(),
-      ...sanitizedContext,
+export const getInsightByKey = async (context: GetInsightByKeyContext) => {
+    const criteria = [];
+    const type = context?.type ?? 'insight';
+    criteria.push(
+        where('type', '==', type),
+    );
+    if (type === 'insight') {
+        criteria.push(
+            where('deleted_at', '==', null),
+        );
+    }
+    criteria.push(
+        where('key', '==', context?.key),
+    );
+    const q = query(
+        collection(
+            db,
+            'insights',
+        ),
+        and(
+            ...criteria,
+        ),
+    );
+    const snapshot = await getDocs(q);
+    let res: any;
+    snapshot.forEach((i) => {
+        if (i.data()?.deleted_at != null || res) return;
+        res = {
+            id: i.id,
+            ...i.data(),
+        };
+        return;
     });
-    return ref;
-  };
+    return res;
+};
 
 export default {
-    createInsight,
     getInsights,
-    updateInsight,
-};
+    getInsightByKey,
+}

@@ -15,9 +15,9 @@ const config = {
 
 		alias: {
 			"@/*": "./path/to/lib/*",
+			$types: 'src/lib/types',
 			$stores: 'src/stores',
 			$components: 'src/lib/components',
-			$directives: 'src/lib/directives',
 			$resources: 'src/lib/resources',
 			$firebase: 'src/lib/resources/firebase',
 			$resend: 'src/lib/resources/resend',
