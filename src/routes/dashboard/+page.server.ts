@@ -1,9 +1,9 @@
-import {
-    type Activity,
-    type Insight,
-    type Recommendation,
-    type HealthRegularity,
-    type HealthScore,
+import type {
+    Activity,
+    Insight,
+    Recommendation,
+    HealthRegularity,
+    HealthScore,
 } from '$types';
 import {
     activities,

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import {
-		type Activity as ActivityT,
-		type Insight as InsightT,
-		type Recommendation as RecommendationT,
-		type HealthRegularity as HealthRegularityT,
-		type HealthScore as HealthScoreT,
+	import type {
+		Activity as ActivityT,
+		Insight as InsightT,
+		Recommendation as RecommendationT,
+		HealthRegularity as HealthRegularityT,
+		HealthScore as HealthScoreT,
 	} from '$types';
 	import { Spinner } from '$components';
 	import Activity from './activity.svelte';

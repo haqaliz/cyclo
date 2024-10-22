@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Activity } from '$types';
+	import type { Activity } from '$types';
 	import { Badge, Card, Dialog } from '$components';
 	import {
 		buttonVariants

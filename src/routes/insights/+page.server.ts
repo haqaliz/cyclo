@@ -1,4 +1,4 @@
-import { type Insight } from '$types';
+import type { Insight } from '$types';
 import { insights } from '$firebase';
 
 type Response = {

@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { type HealthRegularity } from '$types';
+	import type { HealthRegularity } from '$types';
     import { twMerge } from 'tailwind-merge';
-	import { Badge, Card } from '$components';
+	import { Card } from '$components';
     import { startOfMonth, endOfMonth, subMonths, format } from 'date-fns';
-	import { Description } from '$components/ui/alert';
-	import CardDescription from '$components/ui/card/card-description.svelte';
 
     let range = {
 		start: subMonths(startOfMonth(new Date()), 6),

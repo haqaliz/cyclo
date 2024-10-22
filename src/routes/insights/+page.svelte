@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Insight } from '$types';
+	import type { Insight } from '$types';
 	import { onMount } from 'svelte';
 	import { navigating } from '$app/stores';
 	import { Badge, Card, Spinner } from '$components';

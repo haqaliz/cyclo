@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { type HealthScore } from '$types';
+	import type { HealthScore } from '$types';
 	import { Badge, Card } from '$components';
 
 	export let value: HealthScore;

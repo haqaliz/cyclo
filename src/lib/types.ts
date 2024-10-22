@@ -16,7 +16,7 @@ export type Insight = {
     content?: {
         key: string;
         value: string;
-    }[];
+    }[] | string;
 };
 
 export type Recommendation = {

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Badge, Button, Card, Dialog } from '$components';
 	import { buttonVariants } from '$components/ui/button';
-	import { type Recommendation } from '$types';
+	import type { Recommendation } from '$types';
 	import { twMerge } from 'tailwind-merge';
 
 	export let value: Recommendation;

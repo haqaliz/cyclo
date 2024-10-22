@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Insight as Insight } from '$types';
+	import type { Insight } from '$types';
 	import { Card, Dialog } from '$components';
 	import {
 		buttonVariants

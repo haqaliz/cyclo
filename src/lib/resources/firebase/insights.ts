@@ -37,6 +37,47 @@ export const getInsights = async (context: GetInsightsContext) => {
     return res;
 };
 
+interface GetInsightByKeyContext {
+    type: string;
+    key: string;
+};
+export const getInsightByKey = async (context: GetInsightByKeyContext) => {
+    const criteria = [];
+    const type = context?.type ?? 'insight';
+    criteria.push(
+        where('type', '==', type),
+    );
+    if (type === 'insight') {
+        criteria.push(
+            where('deleted_at', '==', null),
+        );
+    }
+    criteria.push(
+        where('key', '==', context?.key),
+    );
+    const q = query(
+        collection(
+            db,
+            'insights',
+        ),
+        and(
+            ...criteria,
+        ),
+    );
+    const snapshot = await getDocs(q);
+    let res: any;
+    snapshot.forEach((i) => {
+        if (i.data()?.deleted_at != null || res) return;
+        res = {
+            id: i.id,
+            ...i.data(),
+        };
+        return;
+    });
+    return res;
+};
+
 export default {
     getInsights,
+    getInsightByKey,
 }
