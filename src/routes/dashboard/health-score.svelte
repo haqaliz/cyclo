@@ -8,7 +8,7 @@
 
 {#if value}
 	<div class={twMerge('p-1 rounded-lg', $$restProps.class)}>
-		<Card.Root class="h-full group">
+		<Card.Root class="h-full">
 			<Card.Header>
 				<Card.Title>
                     <div class="flex flex-row items-center">
@@ -36,9 +36,9 @@
                                 'rounded-lg border min-w-32 max-w-32 min-h-32 max-h-32\
                                 flex flex-col items-center justify-center transition-colors\
                                 ease-in-out duration-100',
-                                (value?.score > 75) && 'group-hover:bg-sky-200',
-                                (value?.score >= 25 && value?.score <= 75) && 'group-hover:bg-orange-200',
-                                (value?.score < 25) && 'group-hover:bg-rose-200',
+                                (value?.score > 75) && 'bg-sky-200',
+                                (value?.score >= 25 && value?.score <= 75) && 'bg-orange-200',
+                                (value?.score < 25) && 'bg-rose-200',
                             )}
 						>
                             <h2
@@ -46,7 +46,7 @@
                                 font-semibold tracking-tight transition-colors
                                 first:mt-0"
                             >
-                                %{value.score}
+                                %{value.score?.toFixed(1)}
                             </h2>
                         </div>
 					</div>

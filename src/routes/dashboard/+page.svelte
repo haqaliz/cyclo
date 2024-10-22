@@ -12,7 +12,7 @@
 	import HormoneHealth from './hormone-health.svelte';
 	import OtherProductRecommendation from './other-product-recommendation.svelte';
 	import MenstruationProductRecommendation from './menstruation-product-recommendation.svelte';
-	// import HealthRegularity from './health-regularity.svelte';
+	import HealthRegularity from './health-regularity.svelte';
 	import HealthScore from './health-score.svelte';
 	import { onMount } from 'svelte';
 	import { navigating } from '$app/stores'
@@ -66,13 +66,13 @@
 				bind:value={healthScore}
 				class="h-full lg:col-span-2"
 			/>
-			<!-- <HealthRegularity
-				bind:value={healthRegularity}
-				class="h-full lg:col-span-2"
-			/> -->
 			<MenstruationProductRecommendation
 				bind:value={menstruationProductRecommendation}
 				class="h-full lg:col-span-4"
+			/>
+			<HealthRegularity
+				bind:value={healthRegularity}
+				class="h-full lg:col-span-3"
 			/>
 		</div>
 	</div>

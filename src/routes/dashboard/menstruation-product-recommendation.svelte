@@ -44,7 +44,7 @@
 					<div class="flex flex-col md:flex-row">
 						<img
 							class="rounded-lg border drag-none min-w-32 max-w-32 min-h-32 max-h-32
-							object-cover mb-4 md:mb-0 md:mr-4"
+							object-contain mb-4 md:mb-0 md:mr-4"
 							src={value?.img}
 							alt={value?.brand}
 						/>
