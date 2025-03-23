@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { user } from '$stores';
+	import { user, loaded } from '$stores';
 	import { Button, Sheet } from '$components';
 	import { _globals } from '$firebase';
 	import { signOut } from 'firebase/auth';
@@ -10,7 +10,8 @@
 	const logout = async () => {
 		await signOut(_globals.auth);
 		user.set(null);
-		goto('/');
+		loaded.set(false);
+		goto('/login');
 	};
 </script>
 
